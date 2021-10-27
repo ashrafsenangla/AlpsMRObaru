@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="QHSEReport">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=klmsrdb01;Initial Catalog=EPR</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>cd7b5b0f-4200-423a-a446-bbcfa5a67054</DataSourceID>
+</RptDataSource>

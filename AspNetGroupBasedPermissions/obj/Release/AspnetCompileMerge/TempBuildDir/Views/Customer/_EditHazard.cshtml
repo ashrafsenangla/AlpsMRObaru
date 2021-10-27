@@ -1,0 +1,717 @@
+﻿@*@model AspNetGroupBasedPermissions.Models.Hazards*@
+@model Core.Entities.Data.QHSE.Hazards
+
+@using System.Web.Mvc
+@{
+    ViewBag.Title = "Edit-HOC";
+}
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true)
+        <div class=" row">
+            <div class="col-lg-8" style="padding-left:3px; padding-right:3px;">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Edit HOC</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row">
+
+                            <div class="wellh1" style="min-height: 160px; padding: 9px; margin-bottom: 2px; background-color: #EFF1FB;">
+
+                                <div class="col-md-6">
+                                    @Html.HiddenFor(model => model.HazardID)
+                                    @Html.HiddenFor(model => model.SailHocCode)
+                                    @Html.HiddenFor(model => model.INRHOCCode)
+
+                                    <div class="form-group">
+                                        @Html.Label("HOC No", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.TextBox("HazardID", ViewData["HazardID"], new { id = "hazardNo", @class = "form-control", @readonly = "readonly", @style = "background-color: transparent;" })
+                                            @Html.ValidationMessageFor(model => model.HazardID)
+                                        </div>
+                                    </div>
+                                  
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Status, "Status", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.TextBoxFor(model => model.Status, new { @class = "form-control m-b-xs", @readonly = "readonly", @style = "background-color: transparent;" })
+                                            @Html.ValidationMessageFor(model => model.Status)
+                                        </div>
+                                    </div>
+                                    
+
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group" id="data_1">
+                                        @Html.LabelFor(model => model.HazardDate, "HOC Date", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.TextBoxFor(model => model.HazardDate, "{0:dd/MM/yyyy}", new { @class = "form-control m-b-xs", id = "hzardDateId", @readonly = "readonly", @style = "background-color: transparent;" })
+                                            @Html.ValidationMessageFor(model => model.HazardDate)
+                                            @*</div>*@
+                                        </div>
+                                    </div>
+
+                                 
+
+                                    <input type="hidden" name="CountYear" id="countYear" />
+                                    <input type="hidden" name="LastCount" id="lastCount" />
+
+                                </div>
+                            </div>
+
+                            <div class="wellh2" style="min-height: 250px; padding: 9px; margin-bottom: 2px; background-color: #EFF1FB;">
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Description, new { @class = "control-label" })
+                                        <div class="col-md-12 m-b-xs">
+                                            @Html.TextAreaFor(model => model.Description, new { @class = "form-control ", id = "descriptionId", rows = "4", @placeholder = "Please specify hazard description here ..." })
+                                            @Html.ValidationMessageFor(model => model.Description)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ImmediateAction, "Immediate Action", new { @class = "control-label" })
+                                        <div class="col-md-12 m-b-xs">
+                                            @Html.TextAreaFor(model => model.ImmediateAction, new { @class = "form-control ", id = "immediateActionId", rows = "4", @placeholder = "Please specify immediate action here ..." })
+                                            @Html.ValidationMessageFor(model => model.ImmediateAction)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Styles {
+    @Styles.Render("~/plugins/clockpickerStyles")
+    @Styles.Render("~/plugins/dataPickerStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/notifyjs")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/iCheck")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/validate")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/plugins/dataTables")
+    <script type="text/javascript">
+
+    function AssignPotential()
+    {
+    //    if (document.getElementById("potentialId").checked == true) {
+    //        $('#createSAILId').css("display", "none");
+    //        $('#createINRId').css("display", "inline-block");
+    //    }
+    //    if (document.getElementById("potentialId").checked == false) {
+    //        $('#createINRId').css("display", "none");
+    //        $('#createSAILId').css("display", "inline-block");
+    //    }
+   }
+
+    function CreateSAIL() {
+        var hazardNoValue = document.getElementById("hazardNo").value;
+        window.location.href = "/QHSE/Hazards/CreateAutoSail?ID=" + hazardNoValue;
+    }
+
+    function CreateINR() {
+        var hazardNoValue = document.getElementById("hazardNo").value;
+        window.location.href = "/QHSE/INRs/CreateAutoINR?ID=" + hazardNoValue;
+    }
+
+    function EditSAIL() {
+        var hazardNoValue = document.getElementById("hazardNo").value;
+        window.location.href = "/QHSE/Hazards/EditSail?ID=" + hazardNoValue;
+    }
+
+    function CHKSAIL() {
+        var hazardNoValue = document.getElementById("hazardNo").value;
+        $.ajax({
+            url: '/Hazards/CHKSAIL?HazardNo=' + hazardNoValue,
+            type: "GET",
+            dataType: "JSON",
+            success: function (PRNumber) {
+
+                if (PRNumber.PRNumber != "NoSail") {
+                    window.location.href = "/QHSE/Hazards/EditSail?ID=" + PRNumber.PRNumber;
+                }
+                else
+                {
+                    $('#modal-form').modal("show");
+                }
+            }
+        }).done(function (PRNumber) {
+            if (PRNumber.PRNumber != "NoSail") {
+                window.location.href = "/QHSE/Hazards/EditSail?ID=" + PRNumber.PRNumber;
+            }
+            else {
+                $('#modal-form').modal("show");
+            }
+        });
+    }
+
+    function CHKINR() {
+        var hazardNoValue = document.getElementById("hazardNo").value;
+        $.ajax({
+            url: '/Hazards/CHKINR?HazardNo=' + hazardNoValue,
+            type: "GET",
+            dataType: "JSON",
+            success: function (PRNumber) {
+
+                if (PRNumber.PRNumber != "NoINR") {
+                    window.location.href = "/QHSE/INRs/Edit?ID=" + PRNumber.PRNumber;
+                }
+                else {
+                    $('#modal-formINR').modal("show");
+                }
+            }
+        }).done(function (PRNumber) {
+            if (PRNumber.PRNumber != "NoINR") {
+                window.location.href = "/QHSE/INRs/Edit?ID=" + PRNumber.PRNumber;
+            }
+            else {
+                $('#modal-formINR').modal("show");
+            }
+        });
+    }
+
+    function fun() {
+        if (document.getElementById("isTofsId").checked == true) {
+            document.getElementById("stopWorkId").checked = false;
+            $('#isTofsId').val(true);
+        }
+    }
+    function funSTOP() {
+        if (document.getElementById("stopWorkId").checked == true) {
+            document.getElementById("isTofsId").checked = false;
+            $('#stopWorkId').val(true);
+        }
+    }
+    $(document).ready(function () {
+           $('#data_1 .input-group.date').datepicker({
+             todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+         });
+
+         $('.article').css('width', '1000px');
+         $('.article').css('margin', '100px 50px 50px 200px');
+
+        });
+
+    </script>
+
+    @*Populate Hazard Category and Sub Category*@
+    <script type="text/javascript">
+
+
+    </script>
+
+    @*Populate Company and Position*@
+    <script type="text/javascript">
+    function ReporterCodeChange(positionCode, companyID, PositionName, CompanyName) {
+        var ReporterName = document.getElementById('reporterId').value;
+
+        $.ajax({
+            url: '/POBs/FillPositionSub?pob=' + ReporterName + '&companyID=' + companyID + '&PositionName' + PositionName + '&CompanyName' + CompanyName,
+            type: "GET",
+            dataType: "JSON",
+            success: function (pobSubs) {
+                $('#positionSub').val(pobSubs.PositionName);
+                $('#companySub').val(pobSubs.CompanyName);
+                $('#positionSubId').val(pobSubs.positionCode);
+                $('#companySubId').val(pobSubs.companyID);
+                if (pobSubs.WalkaboutInd == true) {
+                    document.getElementById("Highlight").disabled = false;
+
+                }
+                else {
+                    document.getElementById("Highlight").disabled = true;
+                    document.getElementById("Highlight").checked = false;
+                }
+            }
+        });
+    }
+
+    </script>
+
+    @*Populate Hazard No. based on location and date*@
+    <script type="text/javascript">
+    function hazardCategoryCodeChange(categoryCode) {
+        var conditionValue = document.getElementById("conditionId").value;
+        var ID = conditionValue == 6 ? $('#hazardCategoryId2').val() : $('#hazardCategoryId').val();
+        if (ID == "") {
+            $('#CatSub').html(""); // clear before appending new list
+            $.each(hazardcategorysubs, function (i, hazardcategorysub) {
+                $('#CatSub').append(
+                    $('<option></option>').val(ID).html("--Select Sub Category--"));
+            });
+        }
+        else {
+
+            $.ajax({
+                url: '/HazardCategorySub/FillCatSub?hazardcategory=' + ID,
+                type: "GET",
+                dataType: "JSON",
+                success: function (hazardcategorysubs) {
+                    $('#CatSub').html(""); // clear before appending new list
+                    $.each(hazardcategorysubs, function (i, hazardcategorysub) {
+                        $('#CatSub').append(
+                            $('<option></option>').val(hazardcategorysub.ID).html(hazardcategorysub.SubCategoryName));
+                    });
+                }
+            });
+        }
+    }
+
+    function getLocation(locationID, POBName, ID) {
+            $.ajax({
+                url: '/Hazards/FillHazardNo?pob=' + locationID,
+                type: "GET",
+                dataType: "JSON",
+                success: function (pobSubs) {
+                    var hazardNoValue = document.getElementById('hazardNo').value;
+                    var element = hazardNoValue.split('-');
+                    var newhazardNo = element[0] + '-' + locationID + '-' +pobSubs;
+                    $('#hazardNo').val(newhazardNo);
+                }
+            });
+
+            $.ajax({
+                url: '/POBs/ReporterForLocation?pob=' + locationID,
+                type: "GET",
+                dataType: "JSON",
+                success: function (pobSubs) {
+                    $('#reporterId').html(""); // clear before appending new list
+                    $('#reporterId').append(
+                           $('<option></option>').val("").html("--Select Reporter--"));
+                    $.each(pobSubs, function (i, pobSub) {
+                        $('#reporterId').append(
+                            $('<option></option>').val(pobSub.ID).html(pobSub.POBName));
+                    });
+                }
+            });
+
+            $.ajax({
+                url: '/POBs/OIMForLocation?pob=' + locationID,
+                type: "GET",
+                dataType: "JSON",
+                success: function (pobSubs) {
+                    $('#OIMId').html(""); // clear before appending new list
+                    $('#OIMId').append(
+                           $('<option></option>').val("").html("--Select OIM--"));
+                    $.each(pobSubs, function (i, pobSub) {
+                        $('#OIMId').append(
+                            $('<option></option>').val(pobSub.ID).html(pobSub.POBName));
+                    });
+                }
+            });
+
+            $.ajax({
+                url: '/POBs/DsIdForLocation?pob=' + locationID,
+                type: "GET",
+                dataType: "JSON",
+                success: function (pobSubs) {
+                    $('#dsId').html(""); // clear before appending new list
+                    $('#dsId').append(
+                           $('<option></option>').val("").html("--Select DS--"));
+                    $.each(pobSubs, function (i, pobSub) {
+                        $('#dsId').append(
+                            $('<option></option>').val(pobSub.ID).html(pobSub.POBName));
+                    });
+                }
+            });
+
+            $.ajax({
+                url: '/POBs/QHSEForLocation?pob=' + locationID,
+                type: "GET",
+                dataType: "JSON",
+                success: function (pobSubs) {
+                    $('#qhseId').html(""); // clear before appending new list
+                    $('#qhseId').append(
+                           $('<option></option>').val("").html("--Select QHSE--"));
+                    $.each(pobSubs, function (i, pobSub) {
+                        $('#qhseId').append(
+                            $('<option></option>').val(pobSub.ID).html(pobSub.POBName));
+                    });
+                }
+            });
+
+        return 0;
+    }
+
+    function ReporterCodeChange(positionCode, companyID, PositionName, CompanyName) {
+        var ReporterName = document.getElementById('reporterId').value;
+
+        $.ajax({
+            url: '/POBs/FillPositionSub?pob=' + ReporterName + '&companyID=' + companyID + '&PositionName' + PositionName + '&CompanyName' + CompanyName,
+            type: "GET",
+            dataType: "JSON",
+            success: function (pobSubs) {
+                $('#positionSub').val(pobSubs.PositionName);
+                $('#companySub').val(pobSubs.CompanyName);
+                $('#positionSubId').val(pobSubs.positionCode);
+                $('#companySubId').val(pobSubs.companyID);
+                if (pobSubs.WalkaboutInd == true) {
+                    document.getElementById("Highlight").disabled = false;
+
+                }
+                else {
+                    document.getElementById("Highlight").disabled = true;
+                    document.getElementById("Highlight").checked = false;
+                }
+            }
+        });
+    }
+
+    function getHazardDate(hazardDate) {
+        var hazardDateDisplay = hazardDate.split("/").reverse().join("");
+        var hazardValue = document.getElementById('hazardNo').value;
+        var element = hazardValue.split('-');
+        var newhazardNo = hazardDateDisplay + '-' + element[1] + '-' + element[2];
+        $('#hazardNo').val(newhazardNo);
+
+        return 0;
+    }
+
+    function FormValidation() {
+        var hazardValue = document.getElementById('hazardNo').value;
+        var element = hazardValue.split('-');
+        var hazardDateValue = document.getElementById('hzardDateId').value;
+        var elementDate = hazardDateValue.split('/');
+
+        $('#countYear').val(elementDate[2]);
+        $('#lastCount').val(element[2]);
+
+        var conditionValue = document.getElementById('conditionId').value;
+        var descriptionValue = document.getElementById('descriptionId').value;
+        var immediateActionValue = document.getElementById('immediateActionId').value;
+        var hazardCategoryValue = conditionValue == 6 ? $('#hazardCategoryId2').val() : $('#hazardCategoryId').val();
+        var reporterValue = document.getElementById('reporterId').value;
+        var OIMNameValue = document.getElementById('OIMNameId').value;
+        var qhseValue = document.getElementById('qhseId').value;
+        var dsValue = document.getElementById('dsId').value;
+
+        if (conditionValue == "") {
+            document.getElementById('conditionId').style.borderColor = "red";
+            return false;
+        }
+        else {
+            document.getElementById('conditionId').style.borderColor = "green";
+        }
+        if (descriptionValue == "") {
+            document.getElementById('descriptionId').style.borderColor = "red";
+            return false;
+        }
+        else {
+            document.getElementById('descriptionId').style.borderColor = "green";
+        }
+        if (immediateActionValue == "") {
+            document.getElementById('immediateActionId').style.borderColor = "red";
+            return false;
+        }
+        else {
+            document.getElementById('immediateActionId').style.borderColor = "green";
+        }
+
+        if (conditionValue != '3') {
+            if (hazardCategoryValue == "") {
+                document.getElementById('hazardCategoryId').style.borderColor = "red";
+                document.getElementById('hazardCategoryId2').style.borderColor = "red";
+
+                return false;
+            }
+            else {
+                document.getElementById('hazardCategoryId').style.borderColor = "green";
+                document.getElementById('hazardCategoryId2').style.borderColor = "green";
+            }
+        }
+        else {
+            $('#hazardCategoryId').val("");
+            $('#CatSub').val("");
+        }
+        if (reporterValue == "") {
+            document.getElementById('POBInfo_POBName').style.borderColor = "red";
+            return false;
+        }
+        else {
+            document.getElementById('POBInfo_POBName').style.borderColor = "green";
+        }
+
+        if (OIMNameValue == 0) {
+            document.getElementById('OIMId').style.borderColor = "red";
+            return false;
+        }
+        else {
+            document.getElementById('OIMId').style.borderColor = "green";
+        }
+
+        if (dsValue == "") {
+            document.getElementById('dsId').style.borderColor = "red";
+            return false;
+        }
+        else {
+            document.getElementById('dsId').style.borderColor = "green";
+        }
+
+        if (qhseValue == "") {
+            document.getElementById('qhseId').style.borderColor = "red";
+            return false;
+        }
+        else {
+            document.getElementById('qhseId').style.borderColor = "green";
+        }
+
+        var idCar = document.getElementById("locationId2");
+        var Car = document.getElementById("locationId");
+        idCar.value = Car.value;
+
+        var iHazardDate = document.getElementById("hzardDateId");
+        var iHazardDate2 = document.getElementById("hzardDateId2");
+        iHazardDate2.value = iHazardDate.value;
+
+        var positionSubValue = document.getElementById("positionSub");
+        var positionSubValue2 = document.getElementById("positionSub2");
+        positionSubValue2.value = positionSubValue.value;
+
+        return 0;
+    }
+
+    function GetCategory()
+    {
+        if (document.getElementById("IsSail").checked = true) {
+            document.getElementById("hazardCategoryId").disabled = true;
+            document.getElementById("hazardCategoryId2").disabled = true;
+            document.getElementById("CatSub").disabled = true;
+        }
+        return 0;
+    }
+
+    function GetBackCategory() {
+        if (document.getElementById("IsHoc").checked = true) {
+            document.getElementById("hazardCategoryId").disabled = false;
+            document.getElementById("hazardCategoryId2").disabled = false;
+            document.getElementById("CatSub").disabled = false;
+        }
+        return 0;
+    }
+
+    function GetConditions()
+    {
+        $("#hazardCategoryId2").css("display", "none");
+        $("#hazardCategoryId").css("display", "block");
+        var conditionValue = document.getElementById("conditionId").value;
+        if (conditionValue == 3) {
+            $('#hazardCategoryId').val("");
+            $('#CatSub').val("");
+            document.getElementById("hazardCategoryId").disabled = true;
+            document.getElementById("hazardCategoryId2").disabled = true;
+            document.getElementById("CatSub").disabled = true;
+            document.getElementById("potentialId").checked = false;
+            document.getElementById("isTofsId").checked = false;
+            document.getElementById("stopWorkId").checked = false;
+           // document.getElementById("createSAILId").disabled = true;
+            // $('#createINRId').css("display", "none");
+                $('#updateId').css("display", "inline");
+                document.getElementById("updateId").disabled = false;
+
+            document.getElementById("potentialId").disabled = true;
+            document.getElementById("isTofsId").disabled = true;
+            document.getElementById("stopWorkId").disabled = true;
+        }
+        //else if (conditionValue == 6) {
+        //    $("#hazardCategoryId").css("display", "none");
+        //    $("#hazardCategoryId2").css("display", "block");
+        //    document.getElementById("hazardCategoryId").disabled = false;
+        //    document.getElementById("hazardCategoryId2").disabled = false;
+        //    document.getElementById("CatSub").disabled = false;
+        //    document.getElementById("createSAILId").disabled = false;
+        //    document.getElementById("potentialId").disabled = false;
+        //    document.getElementById("isTofsId").disabled = false;
+        //    document.getElementById("stopWorkId").disabled = false;
+        //    hazardCategoryCodeChange(7);
+        //}
+        else {
+            document.getElementById("hazardCategoryId").disabled = false;
+            document.getElementById("hazardCategoryId2").disabled = false;
+            document.getElementById("CatSub").disabled = false;
+            //document.getElementById("createSAILId").disabled = false;
+            $('#updateId').css("display", "none");
+            document.getElementById("updateId").disabled = true;
+            document.getElementById("potentialId").disabled = false;
+            document.getElementById("isTofsId").disabled = false;
+            document.getElementById("stopWorkId").disabled = false;
+        }
+
+
+        return 0;
+    }
+
+    $(document).ready(function () {
+        var conditionValue = document.getElementById("conditionId").value;
+
+        if (conditionValue == 3) {
+        $('#hazardCategoryId').val("");
+        $('#CatSub').val("");
+        document.getElementById("hazardCategoryId").disabled = true;
+        document.getElementById("CatSub").disabled = true;
+        //document.getElementById("createSAILId").disabled = true;
+        document.getElementById("potentialId").disabled = true;
+        document.getElementById("isTofsId").disabled = true;
+        document.getElementById("stopWorkId").disabled = true;
+        document.getElementById("updateId").disabled = false;
+       // $('#updateId').css("display", "inline");
+        }
+        else
+        {
+            //document.getElementById("updateId").disabled = true;
+            //$('#updateId').css("display", "none");
+}
+        //if (conditionValue == 6)
+        //{
+        //    $("#hazardCategoryId").css("display", "none");
+        //    $("#hazardCategoryId2").css("display", "block");
+        //}
+
+    });
+    //$(document).ready(function () {
+    //    $('.selectpicker').selectpicker({
+    //        liveSearch: true,
+    //        showSubtext: true
+    //    });
+    //});
+
+    </script>
+
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+        ReporterCodeChange();
+        var locationID = document.getElementById('location').value;
+        var hazardDate = document.getElementById('hzardDateId').value;
+        $("#POBInfo_POBName").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("GetVisitReporter", "Hazards")',
+                    datatype: "json",
+                    data: {
+                        term: request.term,
+                        loc: locationID,
+                        hazarddate: hazardDate
+                    },
+                    success: function (data) {
+                        response($.map(data, function (val, item) {
+                            return {
+                                label: val.Name,
+                                value: val.Name,
+                                customerId: val.ID
+                            }
+                        }))
+                    }
+                })
+            }, select: function (event, ui) {
+                $("#reporterId").val(ui.item.customerId);
+            }
+
+        });
+
+
+    });
+
+    </script>
+    <script type="text/javascript">
+    $(document).on('submit', 'form', function () {
+
+        var buttons = $(this).find('[type="submit"]');
+        if ($(this).valid()) {
+            $('#dialog-Loading').dialog("open");
+
+        } else {
+
+            $('#dialog-Loading').dialog("close");
+
+        }
+
+        var button = $(this).find('[type="button"]');
+        if ($(this).valid()) {
+            $('#dialog-Loading').dialog("open");
+
+        } else {
+
+            $('#dialog-Loading').dialog("close");
+
+        }
+    });
+
+    </script>
+    @*<script type="text/javascript">
+            $(document).on('submit', 'form', function () {
+                var buttons = $(this).find('[type="submit"]');
+                if ($(this).valid()) {
+                    $("a").attr("disabled", "disabled");
+                    buttons.each(function (btn) {
+                        $(buttons[btn]).prop('disabled', true);
+                    });
+                } else {
+                    buttons.each(function (btn) {
+                        $(buttons[btn]).prop('disabled', false);
+                    });
+                }
+
+                var button = $(this).find('[type="button"]');
+                if ($(this).valid()) {
+                    $("a").attr("disabled", "disabled");
+                    button.each(function (btn) {
+                        $(button[btn]).prop('disabled', true);
+                    });
+                } else {
+                    button.each(function (btn) {
+                        $(button[btn]).prop('disabled', false);
+                    });
+                }
+            });
+
+            //$("a").on('click', function (event) {
+            //    $("a").attr("disabled", "disabled");
+            //    $('[type="submit"]').prop('disabled', true);
+            //    $('[type="button"]').prop('disabled', true);
+            //});
+
+        </script>*@
+
+    @*<script type="text/javascript">
+            window.onload = function () {
+                var a = document.getElementById('Update'),
+                    menu = document.createElement('button');
+                menu.appendChild(document.createTextNode('Menu'));
+                document.body.insertBefore(menu, a);
+                a.disabled = true;
+
+                var b = document.getElementById('INR'),
+                menu = document.createElement('button');
+                menu.appendChild(document.createTextNode('Menu'));
+                document.body.insertBefore(menu, b);
+                b.disabled = true;
+            };
+        </script>*@
+
+
+}

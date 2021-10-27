@@ -1,0 +1,283 @@
+﻿@model IEnumerable<Core.Entities.Data.CMC.CMCProjectLocation>
+@using AspNetGroupBasedPermissions.Helpers
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="myForm" style="min-width:400px;height: 200px" class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-primary" style="min-width:400px;min-height:439px">
+            <div class="panel-heading">
+                <center>
+                    <h3 class="panel-title" style="min-height:15px;">
+                        List of Kiosk/Post
+                    </h3>
+                </center>
+            </div>
+            <div class="ibox-content">
+                <div class="dataTables_scroll dataTables_wrapper form-inline no-footer">
+                    <table id="tblCustomers" class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                            <tr>
+                                <th style="width:10px">
+                                    @Html.DisplayNameFor(model => model.CMCBusinessUnit.BusinessUnitName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CMCBranch.BranchName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.LocationCode)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.LocationName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.IsActive)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td id="kioskpostid" style="width:10px">
+                                    @Html.DisplayFor(modelItem => item.CMCBusinessUnit.BusinessUnitName)
+                                </td>
+                                <td id="kioskpostnm">
+                                    @Html.DisplayFor(modelItem => item.CMCBranch.BranchName)
+                                    <input type="hidden" name="location" id="recId" value="@ViewBag.LocationID" />
+                                    <input type="hidden" name="project" id="projectId" value="@ViewBag.ProjectID" />
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LocationCode)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LocationName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IsActive)
+                                </td>
+                                <td>
+                                    <input type="button" value="Remove" onclick="Remove(this)" />
+                                    <a class="fa fa-times" href="javascript:DeleteRow(@item.ID)" onclick="Remove(this)" title="Delete"></a>
+                                </td>
+                            </tr>
+                        }
+
+                        <tfoot>
+                            <tr>
+                                <td><input type="text" id="txtKioskPostCode" style="width:100px" class="form-control input-sm" /></td>
+                                <td><input type="text" id="txtKioskPostName" class="form-control input-sm" /></td>
+                                <td>
+                                    <label>
+                                        <select id="txtBankName" class="form-control input-sm" style="width:80px;font-size:11px" data-bind="value:pageSize">
+                                            <option value="Maybank">Maybank</option>
+                                            <option value="CIMB">CIMB</option>
+                                            <option value="BKRM">Bank Rakyat</option>
+                                            <option value="RHB">RHB</option>
+                                            <option value="OCBC">OCBC</option>
+                                        </select>
+                                    </label>
+                                </td>
+                                <td><input type="text" id="txtAccountNumber" style="width:120px" class="form-control input-sm" /></td>
+                                <td>
+                                    <label>
+                                        <select id="txtAccountType" class="form-control input-sm" style="width:80px;font-size:11px" data-bind="value:pageSize">
+                                            <option value="Normal">Normal</option>
+                                            <option value="Virutal">Virtual</option>
+                                        </select>
+                                    </label>
+                                </td>
+                                <td><input type="text" id="txtEmailAddress" class="form-control input-sm" /></td>
+                                <td><input type="text" id="txtContactPerson" class="form-control input-sm" /></td>
+                                <td><input type="text" id="txtReferenceNo" style="width:100px" class="form-control input-sm" /></td>
+                                <td><input type="checkbox" id="txtIsActive" style="width:20px" /></td>
+                                <td><input class="btn btn-primary" style="height:25px;font-size:11px;" type="button" id="btnAdd" value="Add" /></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <center>
+                        <div class="form-group" style="padding-top:20px;">
+                            <input class="btn btn-primary" onclick="Validation()" name="submitButton" id="btnSave" value="Save" type="button">
+                            <button type="button" class="btn cancel btn btn-xs btn-primary" onclick="closeForm()">Close</button>
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<body>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+    <script type="text/javascript">
+        $("body").on("click", "#btnAdd", function () {
+            //Reference the Name and Country TextBoxes.
+            var txtKioskPostCode = $("#txtKioskPostCode");
+            var txtKioskPostName = $("#txtKioskPostName");
+            var txtBankName = $("#txtBankName");
+            var txtAccountNumber = $("#txtAccountNumber");
+            var txtAccountType = $("#txtAccountType");
+            var txtEmailAddress = $("#txtEmailAddress");
+            var txtContactPerson = $("#txtContactPerson");
+            var txtReferenceNo = $("#txtReferenceNo");
+            var txtIsActive = $("#txtIsActive");
+
+            //Get the reference of the Table's TBODY element.
+            var tBody = $("#tblCustomers > TFOOT")[0];
+
+            //Add Row.
+            var row = tBody.insertRow(-1);
+
+            //Add Name cell.
+            var cell = $(row.insertCell(-1));
+            cell.html(txtKioskPostCode.val());
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            cell.html(txtKioskPostName.val());
+            cell = $(row.insertCell(-1));
+            cell.html(txtBankName.val());
+            cell = $(row.insertCell(-1));
+            cell.html(txtAccountNumber.val());
+            cell = $(row.insertCell(-1));
+            cell.html(txtAccountType.val());
+            cell = $(row.insertCell(-1));
+            cell.html(txtEmailAddress.val());
+            cell = $(row.insertCell(-1));
+            cell.html(txtContactPerson.val());
+            cell = $(row.insertCell(-1));
+            cell.html(txtReferenceNo.val());
+            cell = $(row.insertCell(-1));
+            cell.html(txtIsActive.val());
+
+            //Add Button cell.
+            cell = $(row.insertCell(-1));
+            var btnRemove = $("<input />");
+            btnRemove.attr("type", "button");
+            btnRemove.attr("onclick", "Remove(this);");
+            btnRemove.val("Remove");
+            cell.append(btnRemove);
+
+            //Clear the TextBoxes.
+            txtKioskPostCode.val("");
+            txtKioskPostName.val("");
+            txtBankName.val("");
+            txtAccountNumber.val("");
+            txtAccountType.val("");
+            txtEmailAddress.val("");
+            txtContactPerson.val("");
+            txtReferenceNo.val("");
+            txtIsActive.val("");
+
+        });
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+            location.reload();
+        }
+
+        function Remove(button) {
+            var row = $(button).closest("TR");
+            var kioskpostcd = $("TD", row).eq(0).html();
+             var table = $("#tblCustomers")[0];
+             table.deleteRow(row[0].rowIndex);
+        };
+
+        $("body").on("click", "#btnSave", function () {
+            var kioskpostrecs = new Array();
+            $("#tblCustomers TFOOT TR").each(function () {
+                var row = $(this);
+                var kioskpostrec = {};
+
+                kioskpostrec.LocationID = document.getElementById("recId").value;
+                kioskpostrec.ProjectID = document.getElementById("projectId").value;
+                kioskpostrec.KioskPostCode = document.getElementById("txtKioskPostCode").value;
+                kioskpostrec.KioskPostName = document.getElementById("txtKioskPostName").value;
+                kioskpostrec.BankName = document.getElementById("txtBankName").value;
+                kioskpostrec.AccountNumber = document.getElementById("txtAccountNumber").value;
+                kioskpostrec.AccountType = document.getElementById("txtAccountType").value;
+                kioskpostrec.EmailAddress = document.getElementById("txtEmailAddress").value;
+                kioskpostrec.ContactPerson = document.getElementById("txtContactPerson").value;
+                kioskpostrec.ReferenceNo = document.getElementById("txtReferenceNo").value;
+                kioskpostrec.IsActive = document.getElementById("txtIsActive").value;
+
+                //alert(kioskpostrec.LocationID);
+                //alert(kioskpostrec.ProjectID);
+                //alert(kioskpostrec.KioskPostCode);
+                //alert(kioskpostrec.KioskPostName);
+                //alert(kioskpostrec.BankName);
+                //alert(kioskpostrec.AccountNumber);
+                //alert(kioskpostrec.AccountType);
+                //alert(kioskpostrec.EmailAddress);
+                //alert(kioskpostrec.ContactPerson);
+                //alert(kioskpostrec.ReferenceNo);
+
+                kioskpostrecs.push(kioskpostrec);
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "/CMCSetup/InsertKioskPostRecs",
+                data: JSON.stringify(kioskpostrecs),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (r) {
+                    alert(r + "!!!");
+                    location.reload();
+                },
+                 error: function (r) {
+                    alert("Error: Cannot insert the record. Please check the data!!!");
+                    location.reload();
+                }
+
+            });
+        });
+
+    function DeleteRow(ID) {
+    if (confirm("Are You sure to delete this record..?" + ID)) {
+        $.ajax({
+           type: 'POST',
+           url: '@Url.Action("DeleteKioskPost", "CMCSetup")',
+           data: { id: ID },
+           datatype: 'json',
+            success: function (response) {
+                alert("Record successfully deleted!!!");
+           },
+           error: function (msg) {
+               alert(msg.responseText);
+           }
+       });
+    }
+    }
+
+    </script>
+</body>
+
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.dataTables-example').dataTable({
+                "dom": 'T<"clear">lfrtip',
+                "tableTools": {
+                    "sSwfPath": "../scripts/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+                }
+            });
+        });
+    </script>
+}
+
+
+

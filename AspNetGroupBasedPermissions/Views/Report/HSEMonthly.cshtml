@@ -1,0 +1,105 @@
+﻿@using AspNetGroupBasedPermissions;
+
+@{
+    ViewBag.Title = "HSE Monthly Report";
+}
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+    @Styles.Render("~/plugins/wizardStepsStyles")
+    @Styles.Render("~/plugins/clockpickerStyles")
+    @Styles.Render("~/plugins/dataPickerStyles")
+    @Styles.Render("~/plugins/imagecropperStyles")
+    @Styles.Render("~/Content/plugins/chosen/chosenStyles")
+    @Styles.Render("~/Content/plugins/dropzone/dropZoneStyles")
+    @Styles.Render("~/Content/plugins/blueimp/css/")
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/wizardSteps")
+    @Scripts.Render("~/plugins/iCheck")
+    @Scripts.Render("~/plugins/validate")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/clockpicker")
+    @Scripts.Render("~/plugins/imagecropper")
+    @Scripts.Render("~/plugins/chosen")
+    @Scripts.Render("~/plugins/dataPicker")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+        });
+
+    </script>
+
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6">
+
+        <div class="ibox float-e-margins">
+            <div class="ibox-content">
+                <div class="row">
+                    <span class="label label-info">Print Option</span>
+                    <hr />
+
+                    <div class="form-group">
+                        @Html.Label("Location", new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.DropDownList("LocationCode", ViewData["LocationCode"] as SelectList, "All", htmlAttributes: new { @class = "form-control m-b-xs", id = "txtLocCode" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Year", new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.DropDownList("Year", ViewData["Year"] as SelectList, "All", htmlAttributes: new { @class = "form-control m-b-xs", id = "txtyear" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Month", new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.DropDownList("Month", ViewData["Month"] as SelectList, "All", htmlAttributes: new { @class = "form-control m-b-xs", id = "txtmonth" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <b class="control-label col-md-4">Document Type</b>
+                        <div class="col-md-8">
+                            @Html.DropDownList("documentType", ViewData["documentType"] as SelectList, htmlAttributes: new { @class = "form-control m-b-xs" })
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-6">
+                        <input type="submit" value="Download" class="btn btn-primary block full-width m-b" />
+                    </div>
+                    <div class="col-md-6">
+                        @*    <input type="submit" value="Reset" class="btn btn-white block full-width m-b" />*@
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="col-md-3"></div>
+
+
+
+
+}

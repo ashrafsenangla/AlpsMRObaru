@@ -1,0 +1,396 @@
+﻿@model Core.Entities.Data.MISC.WeaponMovement
+@using AspNetGroupBasedPermissions.Helpers
+@{ ViewBag.Title = "Weapon Sign In/ Sign Out";}
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content" style="background-color:#f7f5f5;">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label style="font-weight:bolder;" class="pull-left btn btn-xs btn-primary btn-block">Weapon Sign In/Sign Out Info</label>
+                            </div>
+                            <div class="welldetailsContactedit" style="background-color:#c8faf0;">
+                                <br />
+                                <div class="wellpob" style="min-height:60px;  padding:5px; background-color:#c8faf0; margin-bottom:20px;">
+                                    <div class="circle-border">
+                                        <div class="col-lg-4">
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.BusinessUnit, "Business Unit", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.DropDownList("BusinessUnit", (IEnumerable<SelectListItem>)Session[""], " < Select Business Unit >",  new { @id="bizUnit" , @class = "form-control", @disabled = "disabled", @readonly = "readonly", @required = "required", @style = "background-color: #edfcf9;font-size:12px;height:30px;" })
+                                                    @Html.ValidationMessageFor(model => model.BusinessUnit)
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.BranchID, "Branch", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.DropDownList("BranchID", (IEnumerable<SelectListItem>)Session[""], " < Select Branch >", new { id = "branchID" ,@class = "form-control", @disabled = "disabled", @required = "required", @style = "background-color: #edfcf9;font-size:11px;height:30px;" })
+                                                    @Html.ValidationMessageFor(model => model.BranchID)
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.WeaponID, "Serial Number", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-3">
+                                                    @Html.TextBox("WeaponID", ViewData["SerialNo"], new { @id = "weaponID", @class = "form-control", @readonly = "readonly", @style = "width: 120px;background-color: #edfcf9;font-size:12px;height:30px;" })
+                                                    @Html.ValidationMessageFor(model => model.WeaponID)
+                                                    @Html.EditorFor(model => model.ID, new { htmlAttributes = new { @id = "recId", @class = "form-control", @required = "required", @disabled = "disabled", @style = "background-color:#c8faf0;border:#c8faf0;font-size:1px;height:1px;" } })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.SignInSignOut, "Sign In/Out", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-3">
+                                                    @Html.EditorFor(model => model.SignInSignOut, new { htmlAttributes = new { id = "signinsignout" ,@class = "form-control", @required = "required", @disabled = "disabled", @style = "background-color: #edfcf9;font-size:11px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.SignInSignOut)
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="wellh1" style="min-height: 300px; padding: 15px; margin-bottom: 2px; background-color: #EFF1FB;">
+                                    <div class="col-lg-12">
+                                        <div>
+                                            <div class="sortable">
+                                                <div class="form-group col-md-6">
+                                                    <label style="font-size:20px;">Scan Weapon ID</label>
+                                                    <input style="height:40px;font-size:30px;color:red;" class="form-control" id="serialNo"  data-bind="value:NewAmount" onkeydown="checkMinus(event,this);" onchange="convertToFloat(event,this);" />
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label style="font-size:20px;">Scan Staff ID</label>
+                                                    <input style="height:40px;font-size:30px;color:red;"  id="staffNo" class="form-control" data-bind="value:Justification " />
+                                                </div>
+                                                <div class="form-group">
+                                                    <button  type="submit"  onclick="Validation()"  class="btn-primary">Add</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12" data-bind="if:accountCodeDetails().length>0">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Date/Time</th>
+                                                        <th>Staff</th>
+                                                        <th>Status</th>
+                                                        <th>Is Active?</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody data-bind="foreach:accountCodeDetails">
+                                                    <tr>
+                                                        <td data-bind="text:DateCreated"></td>
+                                                        <td data-bind="text:AmountAdded"></td>
+                                                        <td data-bind="text:Justification"></td>
+                                                        <td data-bind="text:Name"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-offset-5 col-md-9">
+                            @Html.ActionLink("Back To List", "Index", null, new { @class = "btn btn-xs btn-primary", @style = "border-color:steelblue;background-color:steelblue; color: white;" })
+                            @Html.EncodedActionLink("Edit", "EditVehicle", "VehicleMaster", new { id = Model.ID, area = "Vehicle" }, new { @class = "btn btn-xs btn-primary", @style = "border-color:#37a5ed;background-color:#37a5ed;width:40px; " })
+                            @Html.EncodedActionLink("Delete", "DeleteVehicle", "VehicleMaster", new { id = Model.ID, area = "Vehicle" }, new { @class = "btn btn-xs btn-primary", @style = "width:60px;" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+<script type="text/javascript">
+
+        var ViewModel = new function () {
+        var self = this;
+        self.accountCodeDetails = ko.observableArray([]);
+        var defaultDropdownText = 'All';
+
+        this.CompanyName = ko.observable();
+        this.CompanyCode = ko.observable();
+        this.CostCentreName = ko.observable();
+        this.AccountName = ko.observable();
+        this.BudgetYear = ko.observable();
+        this.AccountPIType = ko.observable();
+        this.BudgetAmount = ko.observable();
+        this.NewAmount = ko.observable();
+
+        this.BudgetSpent = ko.observable();
+        this.Justification = ko.observable();
+
+        @*self.MSRs = ko.observableArray([
+          @foreach (var item in Model)
+                  {
+             <text>new MSR({</text>
+                 <text>ID: '@Html.Raw(item.ID)',</text>
+                 <text>CompanyName: '@Html.Raw(item.Company.CompanyName)',</text>
+                 <text>CostCentreName: '@(item.RTMCostCenter.CostCentreName)',</text>
+                 <text>BudgetYear: '@(item.BudgetYear)',</text>
+                 <text>AccountName: '@(item.AccountName.Replace("\r\n", ""))',</text>
+                 <text>AccountPIType: '@(item.AccountPIType)',</text>
+                 <text>BudgetAmount: @(item.BudgetAmount),</text>
+
+                 <text>DetailsURL: '@(Html.EncodedActionUrl("Details", "RTMAccountCode", new { id = item.ID }))',</text>
+                 <text>EditURL: '@(Html.EncodedActionUrl("Edit", "RTMAccountCode", new { id = item.ID }))',</text>
+                 <text>DeleteURL: '@(Html.EncodedActionUrl("Delete", "RTMAccountCode", new { id = item.ID }))',</text>
+                 <text>ShowButton: true,</text>
+
+                <text> }),</text>
+                  }
+        ]);*@
+        @*self.availableCompanyName = ko.observableArray([defaultDropdownText,@foreach (var item in Model.Select(x => x.Company.CompanyName).Distinct())
+                                                                                    {<text>'@Html.Raw(item)',</text>}]);
+        self.availableCostCentreName = ko.observableArray([defaultDropdownText,@foreach (var item in Model.Select(x => x.RTMCostCenter.CostCentreName).Distinct())
+                                                                                       {<text>'@Html.Raw(item)',</text>}]);
+        self.availableBudgetYear = ko.observableArray([defaultDropdownText,@foreach (var item in Model.Select(x => x.BudgetYear).Distinct())
+                                                                                   {<text>'@Html.Raw(item)',</text>}]);
+        self.availableBudgetName = ko.observableArray([defaultDropdownText,@foreach (var item in Model.Select(x => x.AccountName).Distinct())
+                                                                                   {<text>'@Html.Raw(item.Replace("\r\n", ""))',</text>}]);
+        self.availableBudgetType = ko.observableArray([defaultDropdownText,@foreach (var item in Model.Select(x => x.AccountPIType).Distinct())
+                                                                                   {<text>'@Html.Raw(item)',</text>}]);*@
+
+        self.selectedCompanyName = ko.observable(defaultDropdownText);
+        self.selectedCostCentreName = ko.observable(defaultDropdownText);
+        self.selectedBudgetYear = ko.observable(defaultDropdownText);
+        self.selectedBudgetName = ko.observable(defaultDropdownText);
+        self.selectedBudgetType = ko.observable(defaultDropdownText);
+
+        //self.listMSRs = ko.computed(function () {
+        //    $("#mainTable").dataTable().fnDestroy();
+
+        //    var desiredCompanyName = self.selectedCompanyName();
+        //    var desiredconstcentreCode = self.selectedCostCentreName();
+        //    var desiredBudgetYear = self.selectedBudgetYear();
+        //    var desiredBudgetName = self.selectedBudgetName();
+        //    var desiredBudgetType = self.selectedBudgetType();
+
+        //    var records = self.MSRs;
+
+        //    records = desiredCompanyName == defaultDropdownText ? records : ko.observableArray(ko.utils.arrayFilter(records(), function (msr) {
+        //        return msr.CompanyName() == desiredCompanyName;
+        //    }));
+        //    records = desiredconstcentreCode == defaultDropdownText ? records : ko.observableArray(ko.utils.arrayFilter(records(), function (msr) {
+        //        return msr.CostCentreName() == desiredconstcentreCode;
+        //    }));
+        //    records = desiredBudgetYear == defaultDropdownText ? records : ko.observableArray(ko.utils.arrayFilter(records(), function (msr) {
+        //        return msr.BudgetYear() == desiredBudgetYear;
+        //    }));
+        //    records = desiredBudgetName == defaultDropdownText ? records : ko.observableArray(ko.utils.arrayFilter(records(), function (msr) {
+        //        return msr.AccountName() == desiredBudgetName;
+        //    }));
+        //    records = desiredBudgetType == defaultDropdownText ? records : ko.observableArray(ko.utils.arrayFilter(records(), function (msr) {
+        //        return msr.AccountPIType() == desiredBudgetType;
+        //    }));
+
+        //    return records;
+        //});
+
+        self.isTaskSelected = function (task) {
+            return task === self.selectedTask();
+        };
+
+
+        self.myDropCallback = function (arg) {
+
+        };
+
+        @*self.getdetails = function () {
+            self.accountCodeDetails.removeAll();
+            $("#dialog-Route").dialog("open");
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("GetAccountDetails", "RTMAccountDetails")',
+                data: ko.toJSON({
+                    id: self.ID(),
+                }),
+                contentType: "application/json",
+                success: function (result) {
+                    for (var i = 0; i < result.length; i++) {
+                        self.accountCodeDetails.push(
+                            new AccountDtl({
+                                ID: result[i].ID,
+                                Justification: result[i].Justification,
+                                NewAmount: result[i].BudgetAmount,
+                                OldAmount: result[i].OldAmount,
+                                Name: result[i].Name,
+                                DateCreated: result[i].DateCreated
+                            }));
+                    }
+                },
+                error: function (error) {
+                    $.notify(
+                      error,
+                      { position: "top center", className: "error" }
+                    );
+                }
+            });
+
+        }*@
+
+            self.addBudget = function () {
+
+                $.ajax("@Url.Action("SaveBudgetDetails", "RTMAccountDetails")", {
+                data: ko.toJSON({
+                    accountId: self.ID(),
+                    budget: self.NewAmount(),
+                    justification: self.Justification()
+                }),
+                type: "post", contentType: "application/json",
+                success: function (result) {
+                    $.notify(
+                      "Budget Details has been saved",
+                      { position: "top center", className: "success" }
+                    );
+                    self.getdetails();
+
+                    for (var i = 0; i < self.MSRs().length; i++)
+                    {
+                        if (self.MSRs()[i].ID() == self.ID())
+                        {
+                            self.MSRs()[i].BudgetAmount(self.MSRs()[i].BudgetAmount() + +RoundNum(self.NewAmount(),2));
+                        }
+                    }
+                    self.BudgetAmount(self.BudgetAmount() + +RoundNum(self.NewAmount(),2))
+                },
+                error: function (error) {
+                    $.notify(
+                      error,
+                      { position: "top center", className: "error" }
+                    );
+                }
+            });
+        };
+
+        self.ID = ko.observable();
+
+        self.openDialog = function (item) {
+            self.ID(item.ID());
+            self.CompanyName(item.CompanyName());
+            self.CompanyCode(item.CompanyCode());
+            self.CostCentreName(item.CostCentreName());
+            self.AccountName(item.AccountName());
+            self.BudgetYear(item.BudgetYear());
+            self.AccountPIType(item.AccountPIType());
+            self.BudgetAmount(item.BudgetAmount());
+
+            $("#dialog-Route").dialog("open");
+            self.getdetails();
+
+        }
+    };
+
+        
+        function Validation() {
+          //location.reload();
+            var WeaponID = document.getElementById("weaponID").value;
+            var SerialNo = document.getElementById("serialNo").value;
+            var StaffNo = document.getElementById("staffNo").value;
+            if (WeaponID != SerialNo) {
+                document.getElementById('serialNo').style.borderColor = "red";
+                alert("Invalid Weapon!");
+                return false;
+            }
+            else {
+                if (StaffNo == "") {
+                    alert("Armed Guard ID Should Not Be Blank!");
+                    document.getElementById('staffNo').style.borderColor = "red";
+                    return false;
+                }
+                if (StaffNo != "") {
+                    CheckAvailability();
+                   // location.reload();
+                    return false;
+                }
+                else {
+                    document.getElementById('serialNo').style.borderColor = "green";
+                }
+            }
+    }
+
+    function CheckAvailability() {
+        var StaffNo = document.getElementById("staffNo").value;
+        var RECID = document.getElementById("recId").value;
+        var BranchId = document.getElementById('branchID').value;
+       //alert(BranchId);
+        $.ajax({
+                type: "POST",
+                url: "/WeaponMovement/CheckGuardname",
+                data: '{staffno: "' + StaffNo + '", recid : "' + RECID + '" , branch : "' + BranchId + '" }',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function(data){  
+                                alert("Staff No# : " + data.staffno + " - " + "Staff Name : " + data.staffnm);
+                                recID = data.staffid;
+                                staffname = data.staffnm;
+                                var status = data.status;
+                                var signinsignout = data.signinsignout;
+                                var url = "/WeaponMovement/SaveSignInSignOut";
+                                var serialno = document.getElementById('serialNo').value;
+                                var staffno = document.getElementById('staffNo').value;
+                                var movementid = document.getElementById('recId').value;
+
+                                alert("Before : " + signinsignout);
+                                if (signinsignout == "Sign Out") {
+                                    signinsignout = "Sign In";
+                                     alert("After :" + signinsignout);
+                                }
+                                else {
+                                    signinsignout = "Sign Out";
+                                    alert("After : " + signinsignout);
+                                }
+
+                     $.post(url, { MovementID: movementid, ID: recID, StaffNo: staffno, 
+                      SerialNo: serialno, SignInSignOut: signinsignout, StaffName: staffname }, function (data) {
+                     //location.reload();
+                             $("#msg").html(data);
+                         });
+                },
+                error: function (data) {
+                    alert("Invalid Armed Guard!!");
+
+              
+                }
+            });
+    };
+
+      $(document).ready(function() {
+            $('#addButton').click(function() {
+               location.reload(true);
+            });
+      });     
+
+
+        $(document).ready(function () {
+            $("#ContractDate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+        });
+
+</script>
+}

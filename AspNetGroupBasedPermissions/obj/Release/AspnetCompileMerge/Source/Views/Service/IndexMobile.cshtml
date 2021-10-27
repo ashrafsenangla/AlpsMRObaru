@@ -1,0 +1,74 @@
+﻿ @{ Layout = "~/Views/Shared/_Layout2.cshtml"; }
+
+<!DOCTYPE html>
+
+<title>iSRT Mobile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="~/Content/Mobile/w3pro.css" rel="stylesheet" />
+<link href="~/Content/Mobile/w3-theme-teal.css" rel="stylesheet" />
+<body style="max-width:750px">
+
+    <style>
+        .w3-amber {
+            color: #000 !important;
+            background-color: #ffc107 !important;
+            float: right;
+        }
+    </style>
+
+        <!-- Sidebar -->
+    <div class="w3-sidebar w3-bar-block w3-animate-left" style="height:45vh;display:none;z-index:5" id="mySidebar">
+        <button onclick="closeSidebar()" class="w3-bar-item w3-button w3-large w3-amber">Close &times;</button>
+        <a><a href="javascript:document.getElementById('logoutForm').submit()">Log Out</a></a>
+        @{Html.RenderAction("_SRTMenu", "Home", new { area = "" });}
+    </div>
+    
+    <header class="w3-bar w3-card w3-theme clearfix">
+        <button class="w3-bar-item w3-button w3-xlarge w3-hover-theme" onclick="openSidebar()">&#9776;</button>
+        <img src="~/Images/srtLogo.png" style="max-height: 51px;" />
+        SRT-EON Security Sdn Bhd
+    </header>
+    
+    <div class="w3-container">
+        <div class="container-fluid">
+            <div class="w3-container">
+                <div class="ibox-content">
+                    @Html.Partial("_JOMobilePartial")
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="w3-container w3-theme w3-margin-top">
+        <h5>iSRT-EON Mobile</h5>
+    </footer>
+
+</body>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+
+    <script type="text/javascript">
+        closeSidebar();
+        function openSidebar() {
+            document.getElementById("mySidebar").style.display = "block";
+        }
+
+        function closeSidebar() {
+            document.getElementById("mySidebar").style.display = "none";
+        }
+
+        $(document).ready(function () {
+            $('.dataTables-example').dataTable({
+                "dom": 'T<"clear">rtp',
+                  "pageLength": 5,
+                "tableTools": {
+                    "sSwfPath": "../scripts/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+                }
+            });
+        });
+    </script>
+}
+
+

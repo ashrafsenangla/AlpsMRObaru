@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="DS_PROCDUCTION">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=klmsrdb01;Initial Catalog=EPR</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>3a7d502a-c177-42c2-97a5-d557b28aca56</DataSourceID>
+</RptDataSource>

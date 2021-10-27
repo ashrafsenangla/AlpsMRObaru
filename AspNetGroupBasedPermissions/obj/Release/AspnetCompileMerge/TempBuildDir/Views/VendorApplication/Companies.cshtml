@@ -1,0 +1,39 @@
+﻿@model AspNetGroupBasedPermissions.ViewModels.VendorRelationModel<AspNetGroupBasedPermissions.ViewModels.RelationCompanyModel>
+
+@{ ViewBag.Title = "Company Vendors"; }
+
+<h2>Company for Vendor @Html.DisplayFor(model => model.VendorName)</h2>
+<hr />
+@using (Html.BeginForm("Companies", "VendorApplication", FormMethod.Post, new { encType = "multipart/form-data", name = "myform" }))
+{
+    @Html.AntiForgeryToken()
+    <div>
+        @Html.ValidationSummary(true)
+        <div>
+            <div>
+                @Html.HiddenFor(model => model.VendorId)
+                @Html.HiddenFor(model => model.VendorName)
+            </div>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <th>
+                        Select
+                    </th>
+                    <th>
+                        Items
+                    </th>
+                </tr>
+                @Html.EditorFor(model => model.Models)
+
+
+            </table>
+            <div>
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn-white" })
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<br /><br /><br /><br /><br /><br />

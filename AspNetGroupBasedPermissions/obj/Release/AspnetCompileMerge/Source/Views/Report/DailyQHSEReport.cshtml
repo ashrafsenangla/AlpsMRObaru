@@ -1,0 +1,182 @@
+﻿@using AspNetGroupBasedPermissions;
+@using AspNetGroupBasedPermissions.Helpers;
+
+
+@{
+    ViewBag.Title = "Daily QHSE Report";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6">
+
+        <div class="ibox float-e-margins">
+            <div class="ibox-content">
+                <div class="row">
+                     <span class="label label-info">Print Option</span>
+                        <hr />
+
+                   
+                        <div class="form-group">
+                            <b class="col-md-4">QHSE Location</b>
+                            <div class="col-md-8">
+                                @Html.DropDownList("QHSELocation", ViewData["QHSELocation"] as SelectList, "--All Location--", new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class=" form-group m-b-xs">
+                            @Html.Label("Hazard Date", new { @class = "control-label col-md-4" })
+                            <div class="col-md-8 m-b-xs">
+                                <div class="input-group date" id="StartDateId">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    @Html.TextBox("HazardDate", (DateTime)ViewData["selectedDate"], new { @class = "form-control"})
+                                </div>
+                            </div>
+                        </div>
+
+                        <br />
+
+
+                        <div class="form-group">
+                            <b class="col-md-4">Document Type</b>
+                            <div class="col-md-8">
+                                @Html.DropDownList("documentType", ViewData["documentType"] as SelectList, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-6">
+                        <input type="submit" value="Download" class="btn btn-primary block full-width m-b" onclick="return FormValidation()" />
+                    </div>
+
+
+
+
+                    @*<div class="form-group" style="text-align:left; padding-top:20px !important;">
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-primary" value="Download" onclick="return FormValidation()" />
+                        </div>
+                    </div>*@
+
+                </div>
+
+            </div>
+        </div>
+        </div>
+        <div class="col-md-3"></div>
+
+        }
+
+        @section Styles {
+            @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+            @Styles.Render("~/plugins/wizardStepsStyles")
+            @Styles.Render("~/plugins/clockpickerStyles")
+            @Styles.Render("~/plugins/dataPickerStyles")
+            @Styles.Render("~/plugins/imagecropperStyles")
+            @Styles.Render("~/Content/plugins/chosen/chosenStyles")
+            @Styles.Render("~/Content/plugins/dropzone/dropZoneStyles")
+            @Styles.Render("~/Content/plugins/blueimp/css/")
+        }
+
+        @section Scripts {
+
+            @Scripts.Render("~/plugins/notifyjs")
+            @Scripts.Render("~/bundles/jqueryval")
+            @Scripts.Render("~/bundles/jqueryui")
+            @Scripts.Render("~/plugins/wizardSteps")
+            @Scripts.Render("~/plugins/iCheck")
+            @Scripts.Render("~/plugins/validate")
+            @Scripts.Render("~/plugins/dataPicker")
+            @Scripts.Render("~/plugins/imagecropper")
+            @Scripts.Render("~/plugins/chosen")
+            @Scripts.Render("~/plugins/lightboxGallery")
+            @Scripts.Render("~/plugins/dropZone")
+
+            @Scripts.Render("~/plugins/dataTables")
+            @Scripts.Render("~/plugins/knockout")
+            @Scripts.Render("~/app/knockoutDatatable")
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+
+                    $("#StartDateId").datepicker({
+                        todayBtn: "linked",
+                        format: "dd/mm/yyyy",
+                        keyboardNavigation: false,
+                        forceParse: false,
+                        autoclose: true
+                    }).datepicker("setDate", new Date());
+
+                    $("#EndDateId").datepicker({
+                        todayBtn: "linked",
+                        format: "dd/mm/yyyy",
+                        keyboardNavigation: false,
+                        forceParse: false,
+                        autoclose: true
+                    }).datepicker("setDate", new Date());
+
+                });
+
+                $('#myLink').click(function () {
+                    var firstname = $('#StartDate').val(); // get the textbox value
+                    var url = $(this).attr('href') + 'StDate=' + firstname; // build new url
+                    location.href = url; // redirect
+                    return false; // cancel default redirect
+                });
+
+
+                function FormValidation() {
+                    //Header
+
+                    var startdate = document.getElementById("HazardDate").value;
+                    var LocationCode = document.getElementById("QHSELocation").value;
+
+
+
+
+                    if (startdate == "") {
+                        document.getElementById('HazardDate').style.borderColor = "red";
+                        return false;
+                    }
+                    else {
+                        document.getElementById('HazardDate').style.borderColor = "green";
+                    }
+
+
+                    if (LocationCode == "") {
+                        document.getElementById('QHSELocation').style.borderColor = "red";
+                        return false;
+                    }
+                    else {
+                        document.getElementById('QHSELocation').style.borderColor = "green";
+                    }
+
+
+                }
+                function process(date) {
+                    var parts = date.split("/");
+                    return new Date(parts[2], parts[1] - 1, parts[0]);
+                }
+            </script>
+
+            <script type="text/javascript">
+                //$(document).on('submit', 'form', function () {
+
+                //    var buttons = $(this).find('[type="submit"]');
+                //    if ($(this).valid()) {
+                //        $('#dialog-Loading').dialog("open");
+
+
+                //    }
+                //});
+
+                //$(document).ready(function () {
+                //    $('#dialog-Loading').dialog("closed");
+                //});
+            </script>
+        }

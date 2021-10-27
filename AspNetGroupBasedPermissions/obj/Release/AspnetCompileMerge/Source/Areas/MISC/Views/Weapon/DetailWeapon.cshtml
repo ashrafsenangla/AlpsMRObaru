@@ -1,0 +1,131 @@
+﻿
+@model Core.Entities.Data.MISC.Weapon
+@{ ViewBag.Title = "Weapon Info";}
+@using AspNetGroupBasedPermissions.Helpers
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content" style="background-color:#f7f5f5;">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label style="font-weight:bolder;" class="pull-left btn btn-xs btn-primary btn-block">Weapon Info</label>
+                            </div>
+
+                            <div class="welldetailsContactedit" style="background-color:#c8faf0;">
+                                <br />
+                                <br />
+                                <div class="wellpob" style="min-height:200px; background-color:#c8faf0;">
+                                    <div class="circle-border">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.BusinessUnit, "Business Unit", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.DropDownList("BusinessUnit", (IEnumerable<SelectListItem>)Session[""], " < Select Business Unit >", new { @class = "form-control", @disabled = "disabled", @readonly = "readonly", @required = "required", @style = "background-color: #edfcf9;font-size:12px;height:30px;" })
+                                                    @Html.ValidationMessageFor(model => model.BusinessUnit)
+                                                </div>
+                                                @Html.LabelFor(model => model.SerialNo, "Serial No", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.TextBox("SerialNo", ViewData[""], new { @class = "form-control", @readonly = "readonly", @style = "font-size:12px;height:30px; background-color: #edfcf9;" })
+                                                    @Html.ValidationMessageFor(model => model.SerialNo)
+                                                </div>
+                                                @Html.LabelFor(model => model.Calibre, "Calibre", new { @class = "control-label col-sm-3" })
+                                                <div class="col-md-8">
+                                                    @Html.DropDownList("Calibre", (IEnumerable<SelectListItem>)Session[""], "", new { @class = "form-control", @disabled = "disabled", @readonly = "readonly", @required = "required", @style = "font-size:12px;height:30px;background-color: #edfcf9;" })
+                                                    @Html.ValidationMessageFor(model => model.Calibre)
+                                                </div>
+                                                @Html.LabelFor(model => model.WeaponType, "WeaponType", new { @class = "control-label col-sm-3" })
+                                                <div class="col-md-8">
+                                                    @Html.DropDownList("WeaponType", (IEnumerable<SelectListItem>)Session[""], "", new { @class = "form-control", @disabled = "disabled", @readonly = "readonly", @required = "required", @style = "font-size:12px;height:30px;background-color: #edfcf9;" })
+                                                    @Html.ValidationMessageFor(model => model.WeaponType)
+                                                </div>
+                                                @Html.LabelFor(model => model.LicenseHolder, "License Holder", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.TextBox("LicenseHolder", ViewData[""], new { @class = "form-control", @readonly = "readonly", @style = "font-size:12px;height:30px; background-color: #edfcf9;" })
+                                                    @Html.ValidationMessageFor(model => model.LicenseHolder)
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.BranchID, "Branch", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.DropDownList("BranchID", (IEnumerable<SelectListItem>)Session[""], " < Select Branch >", new { @class = "form-control", @readonly = "readonly", @disabled = "disabled", @required = "required", @style = "background-color: #edfcf9;font-size:12px;height:30px;" })
+                                                    @Html.ValidationMessageFor(model => model.BranchID)
+                                                </div>
+                                                @Html.LabelFor(model => model.ModelName, "Model", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.TextBox("ModelName", ViewData[""], new { @class = "form-control", @readonly = "readonly", @style = "font-size:12px;height:30px; background-color: #edfcf9;" })
+                                                    @Html.ValidationMessageFor(model => model.ModelName)
+                                                </div>
+                                                @Html.LabelFor(model => model.Maker, "Maker", new { @class = "control-label col-sm-3" })
+                                                <div class="col-md-8">
+                                                    @Html.DropDownList("Maker", (IEnumerable<SelectListItem>)Session[""], "", new { @class = "form-control", @disabled = "disabled", @required = "required", @style = "font-size:12px;height:30px;background-color: #edfcf9;" })
+                                                    @Html.ValidationMessageFor(model => model.Maker)
+                                                </div>
+                                                @Html.LabelFor(model => model.LicenseNo, "License No", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.TextBox("LicenseNo", ViewData[""], new { @class = "form-control", @readonly = "readonly", @style = "font-size:12px;height:30px; background-color: #edfcf9;" })
+                                                    @Html.ValidationMessageFor(model => model.LicenseNo)
+                                                </div>
+                                                @Html.LabelFor(model => model.Status, "Status", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.DropDownList("Status", (IEnumerable<SelectListItem>)Session[""], "", new { @class = "form-control", @disabled = "disabled", @required = "required", @style = "font-size:12px;height:30px;background-color: #edfcf9;" })
+                                                    @Html.ValidationMessageFor(model => model.Status)
+                                                </div>
+                                                @Html.LabelFor(model => model.IsActive, "Is Active?", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.DisplayFor(model => model.IsActive, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled", @required = "required", @style = "background-color: font-size:12px;height:15px; background-color: #edfcf9;" } })
+                                                    @Html.ValidationMessageFor(model => model.IsActive)
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-offset-5 col-md-9">
+                            @Html.ActionLink("Back To List", "IndexWeapon", null, new { @class = "btn btn-white" }, new { @class = "btn btn-xs btn-primary", @style = "border-color:steelblue;background-color:steelblue; color: white;" })
+                            @Html.EncodedActionLink("Edit", "EditWeapon", "Weapon", new { id = Model.ID, area = "MISC" }, new { @class = "btn btn-xs btn-primary", @style = "border-color:#37a5ed;background-color:#37a5ed;width:40px; " })
+                            @Html.EncodedActionLink("Delete", "DeleteWeapon", "Weapon", new { id = Model.ID, area = "MISC" }, new { @class = "btn btn-xs btn-primary", @style = "width:60px;" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+
+    <script src="~/Scripts/plugins/knockout/knockout.validation.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#RoadTaxDate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+        });
+
+
+    </script>
+}
+

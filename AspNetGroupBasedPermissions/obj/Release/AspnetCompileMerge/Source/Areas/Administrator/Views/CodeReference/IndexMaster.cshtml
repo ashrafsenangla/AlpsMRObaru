@@ -1,0 +1,259 @@
+﻿@model IEnumerable<Core.Entities.Data.RTMTables.SRTMasterCode>
+@using AspNetGroupBasedPermissions.Helpers
+
+
+@{    ViewBag.Title = "List Of Master Reference";}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>List Of Master Reference</h5>
+                    <div class="ibox-tools">
+                        <div class="ibox-tools">
+                            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary btn-xs" })
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+
+                    <table class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.MasterDescription)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.IsActive)
+                                </th>
+
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MasterDescription)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IsActive)
+                                    </td>
+
+                                    <td>
+                                        @Html.EncodedActionLink("Details", "DetailMaster", "CodeReference", new { id = item.ID, area = "Admin" }, new { @class = "btn-primary" })
+                                        @Html.EncodedActionLink("Edit", "EditMaster", "CodeReference", new { id = item.ID, area = "Admin" }, new { @class = "btn-white" })
+                                        @Html.EncodedActionLink("Delete", "DeleteMaster", "CodeReference", new { id = item.ID, area = "Admin" }, new { @class = "btn-white" })
+                                        @*@Html.EncodedActionLink("Add", "Delete", "HazardCategories", new { id = item.ID }, new { @class = "btn-white" })*@
+                                        <a type="button" class="btn-primary" href="#dialog-SubCategory" onclick='SubCatListViewModel.openSubCategoryDialog("@item.ID")' data-toggle="modal">Detail Reference</a>
+                                    </td>
+                                </tr>
+                            }
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="dialog-SubCategory">
+
+    <div class="wrapper wrapper-content">
+        <div class=" row">
+
+            <div class="col-lg-12">
+
+                <div class="ibox float-e-margins animated fadeInRight">
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-sm-12">
+
+                                <div class="modal-header">
+                                    <a class="close" data-dismiss="modal">&times;</a>
+                                    <h3>Sub Category for </h3>
+
+                                    @{
+                                        Core.Entities.Data.RTMTables.SRTMasterCode SRTMasterCode = ViewBag.SRTMasterCode;
+
+                                    }
+                                    <strong><span id="HazardCategory_HazardCatName"></span></strong>
+
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="ibox float-e-margins ">
+                                        <div class="ibox-tools">
+                                            <button class="btn btn-primary btn-xs" data-bind="click: addSubCategoryRow" onclick="return false;">Add Sub Category</button>
+                                        </div>
+                                        <div class="ibox-content">
+                                            <table class="table table-striped table-bordered table-hover dataTables-example">
+                                                <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>Detail Description</th>
+                                                        <th>Is Active</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="margin01" data-bind="foreach: formSubCategory, visible: formSubCategory().length > 0">
+                                                    <tr>
+
+                                                        <td data-bind="text: $index() + 1"></td>
+                                                 
+                                                       <td data-bind="click:SubCategoryNameEdit" style="cursor:pointer">
+                                                            <span data-bind="text:DetailDescription, visible:!SubCategoryNameIsEdit(), css:{'font-danger': SubCategoryNameValidation()===true}"></span>
+                                                            <input class="form-control" data-bind="visible: SubCategoryNameIsEdit,hasFocus: SubCategoryNameIsEdit,value: DetailDescription, css:{'panel-danger-important': SubCategoryNameValidation()===true}" />
+                                                        </td>
+                                                        <td style="text-align:center;vertical-align:middle;">
+                                                            <input type="checkbox" data-bind="checked: IsActive" />
+                                                        </td>
+
+                                                        <td>
+                                                            <button class="btn btn-primary btn-xs" data-bind="click: $root.removeSubCategory" onclick="return false;">Delete</button>
+
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="rows pull-left form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                            <button class="btn btn-primary" data-dismiss="modal" data-bind="click: saveItemSubCategory" onclick="return false;">Save</button>
+                                            <button class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    @Styles.Render("~/Scripts/plugins/jquery-ui/jqueryuiStyles")
+    <style>
+        .modal {
+            margin: auto;
+            padding-top: 100px;
+            min-height: 400px;
+            width: 1000px;
+        }
+    </style>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.dataTables-example').dataTable({
+                "dom": 'T<"clear">lfrtip',
+                "tableTools": {
+                    "sSwfPath": "../scripts/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+                }
+            });
+
+            ko.applyBindings(SubCatListViewModel);
+        });
+
+
+    </script>
+
+    <script type="text/javascript">
+    var SubCatListViewModel = new SubCatListViewModel();
+        function Sub(data) {
+
+            var self = this;
+            this.DetailDescription = ko.observable(data.DetailDescription);
+            this.IsActive = ko.observable(data.IsActive);
+            this.Id = ko.observable(data.Id);
+            this.SubCategoryNameValidation = ko.observable(data.SubCategoryNameValidation);
+            this.SubCategoryNameIsEdit = ko.observable();
+            this.SubCategoryNameEdit = function () { self.SubCategoryNameIsEdit(true); }
+
+        }
+
+        function SubCatListViewModel() {
+
+            //function for knockout js
+            var self = this;
+            self.formID = ko.observable("");
+            self.formSubCategory = ko.observableArray([]);
+
+            self.addSubCategoryRow = function () {
+                self.formSubCategory.push(
+                    new Sub({
+                        Id: 0,
+                    })
+                );
+            }
+            self.removeSubCategory = function (sub) {
+                self.formSubCategory.remove(sub)
+            }
+
+
+            self.openSubCategoryDialog = function (id) {
+                self.formSubCategory.removeAll();
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("GetCategoryById", "CodeReference")',
+                    data: { subId: id },
+                    dataType: 'json',
+                    success: function (result) {
+                        self.formID(id);
+                        self.formSubCategory.removeAll();
+
+                        $("#HazardCategory_HazardCategoryCode").text(result.category.ID);
+                        $("#HazardCategory_HazardCatName").text(result.category.MasterDescription);
+
+                        for (var i = 0; i < result.subCategories.length; i++) {
+                            var item = result.subCategories[i];
+                            var newSubCategory = new Sub({
+
+                                DetailDescription: item.DetailDescription,
+                                IsActive: item.IsActive,
+                                Id: item.ID
+                            });
+                            self.formSubCategory.push(newSubCategory);
+                        }
+                    },
+                    error: function (error) {
+                        alert(error);
+                    }
+                });
+            };
+            self.closeSubCategoryDialog = function () {
+                $("#dialog-SubCategory").dialog("close");
+            }
+
+            self.saveItemSubCategory = function (item) {
+                $.ajax("@Url.Action("SaveDetailCode", "CodeReference")", {
+                    data: ko.toJSON({ ID: self.formID(), model: self.formSubCategory }),
+                    type: "post", contentType: "application/json",
+                    success: function (result) {
+                        $("#dialog-SubCategory").dialog("close");
+                    },
+                    error: function (error) {
+                    }
+                });
+            };
+        };
+
+    </script>
+}
+

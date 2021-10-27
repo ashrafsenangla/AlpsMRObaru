@@ -1,0 +1,236 @@
+﻿@using AspNetGroupBasedPermissions;
+@using AspNetGroupBasedPermissions.Helpers;
+
+
+@{
+    ViewBag.Title = "Invoice Tracking Action Report";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="col-md-12">
+
+        <div class="ibox float-e-margins">
+            <div class="ibox-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <b class="col-md-2">Company</b>
+                                @Html.DropDownList("CompanyCode", ViewData["CompanyCode"] as SelectList, "--All Company--", htmlAttributes: new { onchange = "CompanyCodeChange(this.value)" ,@class = "form-control", @style = "width:60%"}) </div>
+                            <div class="form-group">
+                                <b class="col-md-2">Cost Center</b>
+                                @Html.DropDownList("CostCentreCode", ViewData["CostCentreCode"] as SelectList, "--All Cost Center--", new { @class = "form-control", @style = "width:60%" })
+                            </div>
+                            
+                            <div class=" form-group">
+                                <b class="col-md-2">Action Taken(Day)</b>
+                                
+                                @Html.TextBox("Duration", "", new { @type = "number", @style = "width:40%", @class = "form-control" })
+                                   
+                            </div>
+                            
+                            <div class="form-group">
+                                <b class="col-md-2">Document Type</b>
+                                @Html.DropDownList("documentType", ViewData["documentType"] as SelectList, new { @class = "form-control", @style = "width:40%" })
+
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class=" form-group">
+                                <b class="col-md-2">From Date</b>
+
+                                <div class="input-group date" id="StartDateId">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    @Html.TextBox("StartDateId","", new { @class = "form-control", @style = "width:60%" })
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <b class="col-md-2">To Date</b>
+                                    <div class="input-group date" id="EndDateId">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        @Html.TextBox("EndDateId","", new { @class = "form-control", @style = "width:60%" })
+                                    </div>
+                               
+                                </div>
+                            <div class="form-group">
+                                <b class="col-md-2">Date Option</b>
+
+
+                                @Html.RadioButton("DateOption", "DateInvoice", new { id = "IsDateInvoice", @checked = true }) Date Invoice
+                                @Html.RadioButton("DateOption", "DateReceived", new { id = "IsDateReceived" }) Date Received
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group" style="text-align:left; padding-top:20px !important;">
+                        <div class="col-md-12">            
+                            <input type="submit" class="btn btn-primary" value="Download" onclick="return FormValidation()" />
+                        </div>
+                    </div>
+
+                    </div>
+
+            </div>
+        </div>
+    </div>
+   
+}
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+    @Styles.Render("~/plugins/wizardStepsStyles")
+    @Styles.Render("~/plugins/clockpickerStyles")
+    @Styles.Render("~/plugins/dataPickerStyles")
+    @Styles.Render("~/plugins/imagecropperStyles")
+    @Styles.Render("~/Content/plugins/chosen/chosenStyles")
+    @Styles.Render("~/Content/plugins/dropzone/dropZoneStyles")
+    @Styles.Render("~/Content/plugins/blueimp/css/")
+}
+
+@section Scripts {
+
+    @Scripts.Render("~/plugins/notifyjs")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/wizardSteps")
+    @Scripts.Render("~/plugins/iCheck")
+    @Scripts.Render("~/plugins/validate")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/imagecropper")
+    @Scripts.Render("~/plugins/chosen")
+    @Scripts.Render("~/plugins/lightboxGallery")
+    @Scripts.Render("~/plugins/dropZone")
+
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatable")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+        $("#StartDateId").datepicker({
+            todayBtn: "linked",
+            format: "dd/mm/yyyy",
+            keyboardNavigation: false,
+            forceParse: false,
+            autoclose: true
+        }).datepicker("setDate", new Date());
+
+        $("#EndDateId").datepicker({
+            todayBtn: "linked",
+            format: "dd/mm/yyyy",
+            keyboardNavigation: false,
+            forceParse: false,
+            autoclose: true
+        }).datepicker("setDate", new Date());      
+
+    });
+
+    $('#myLink').click(function () {
+        var firstname = $('#StartDate').val(); // get the textbox value
+        var url = $(this).attr('href') + 'StDate=' + firstname; // build new url
+        location.href = url; // redirect
+        return false; // cancel default redirect
+    });
+
+    function CompanyCodeChange(companyCode) {
+       
+       
+            $.ajax({
+                url: '@Url.Action("CostCentre", "Report", new { area = "" })',
+                type: "POST",
+                dataType: "JSON",
+                data: {
+                    companyCode: companyCode
+                },
+                success: function (results) {
+                    $('#CostCentreCode').html(""); // clear before appending new list
+                    $('#CostCentreCode').append(
+                $('<option></option>').val(0).html("--All Cost Center--"));
+                    $.each(results, function (i, results) {
+                        $('#CostCentreCode').append(
+                            $('<option></option>').val(results.ID).html(results.Description));
+                    });
+                },
+                error: function (error) {
+                    $.notify(
+                        error,
+                        { position: "top center", className: "error" }
+                    );
+                }
+            });
+        }
+    //}
+
+    function FormValidation() {
+        //Header
+        
+        //var startdate = document.getElementById("StartDate").value;
+        //var enddate = document.getElementById("EndDate").value;
+        
+
+        
+        //var startDateFormat = process(startdate);
+        //var endDateFormat = process(enddate);
+
+
+        //if (startDateFormat > endDateFormat) {
+
+        //    alert("To Date Should be greater than From Date");
+        //    document.getElementById('EndDate').style.borderColor = "red";
+        //    return false;
+        //}
+
+        //else {
+        //    document.getElementById('EndDate').style.borderColor = "green";
+        //}
+
+        //if (startdate == "") {
+        //    document.getElementById('StartDate').style.borderColor = "red";
+        //    return false;
+        //}
+        //else {
+        //    document.getElementById('StartDate').style.borderColor = "green";
+        //}
+        //if (enddate == "") {
+        //    document.getElementById('EndDate').style.borderColor = "red";
+        //    return false;
+        //}
+        //else {
+        //    document.getElementById('EndDate').style.borderColor = "green";
+        //}
+          
+     
+        }
+    function process(date) {
+        var parts = date.split("/");
+        return new Date(parts[2], parts[1] - 1, parts[0]);
+    }
+ </script>
+
+<script type="text/javascript">
+    //$(document).on('submit', 'form', function () {
+
+    //    var buttons = $(this).find('[type="submit"]');
+    //    if ($(this).valid()) {
+    //        $('#dialog-Loading').dialog("open");
+           
+
+    //    } 
+    //});
+   
+    //$(document).ready(function () {
+    //    $('#dialog-Loading').dialog("closed");
+    //});
+</script>
+
+}

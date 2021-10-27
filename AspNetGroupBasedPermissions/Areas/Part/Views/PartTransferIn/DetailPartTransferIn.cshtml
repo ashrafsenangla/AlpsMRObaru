@@ -1,0 +1,118 @@
+﻿@model Core.Entities.Data.PartData.PartTransferIn
+@using AspNetGroupBasedPermissions.Helpers
+@{ ViewBag.Title = "Detail Part Transfer In";}
+@{
+    Layout = "~/Views/Shared/_LayoutPopUp.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.PartTransferInID)
+
+    <div id="mainbox" class="row">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="panel-heading btn-primary modal-header">
+                    <center class="panel-title" style="min-height:10px;">
+                        <h4 style="font-weight:300">Detail Part Transfer In</h4>
+                    </center>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-condensed table-striped table-bordered">
+                        <tr></tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Part Transfer In ID</td>
+                            <td>
+                                @Html.EditorFor(model => model.PartTransferInID, new { htmlAttributes = new { @disabled = "true", @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.PartTransferInID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Part</td>
+                            <td>
+                                @Html.DropDownList("BUID", (IEnumerable<SelectListItem>)Session["BUID"], " --Select BU-- ", new { @disabled = "true", @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                @Html.HiddenFor(model => model.BUID)
+                                @Html.ValidationMessageFor(model => model.BUID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Quantity</td>
+                            <td>
+                                @Html.EditorFor(model => model.Qty, new { htmlAttributes = new { @disabled = "true", @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Qty)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Business Unit</td>
+                            <td>
+                                @Html.DropDownList("PartID", (IEnumerable<SelectListItem>)Session["PartID"], " --Select Part-- ", new { @disabled = "true", @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                @Html.HiddenFor(model => model.PartID)
+                                @Html.ValidationMessageFor(model => model.PartID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Drawer</td>
+                            <td>
+                                @Html.DropDownList("DrawerID", (IEnumerable<SelectListItem>)Session["DrawerID"], " --Select Drawer-- ", new { @disabled = "true", @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                @Html.HiddenFor(model => model.DrawerID)
+                                @Html.ValidationMessageFor(model => model.DrawerID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Description</td>
+                            <td>
+                                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @disabled = "true", @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Description)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Is Active?</td>
+                            <td>
+                                @Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @disabled = "true", @style = "font-size:11px;height:18px;color:black", } })
+                                @Html.ValidationMessageFor(model => model.IsActive)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Status</td>
+                            <td>
+                                @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @disabled = "true", @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Status)
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.ActionLink("Cancel", "IndexPartTransferIn", null, new { @class = "btn btn-white" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#transactiondate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+
+        });
+
+    </script>
+}

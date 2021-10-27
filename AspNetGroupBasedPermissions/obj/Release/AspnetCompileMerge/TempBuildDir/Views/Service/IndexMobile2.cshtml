@@ -1,0 +1,122 @@
+﻿@model IEnumerable<Core.Entities.Data.Admin.Service>
+@using AspNetGroupBasedPermissions.Helpers
+
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<!DOCTYPE html>
+
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="~/Content/Mobile/w3pro.css" rel="stylesheet" />
+<link href="~/Content/Mobile/w3-theme-teal.css" rel="stylesheet" />
+<body style="max-width:600px">
+
+    <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: lightseagreen;
+            color: white;
+            text-align: center;
+        }
+    </style>
+    <style>
+        .header1 {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: lightseagreen;
+            color: white;
+            text-align: center;
+        }
+    </style>
+
+
+    <header class="header1">
+        <h3>SRT-EON Security Services Sdn Bhd</h3>
+    </header>
+
+
+    <nav class="navbar navbar-fixed-top ">
+
+        <div class="container-fluid">
+
+            <div class="w3-container">
+                <div class="ibox-content">
+                    <table class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.NameOption)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NameOption)
+                                    </td>
+                                </tr>
+                            }
+                    </table>
+                </div>
+            </div>
+            <nav class="w3-sidebar w3-bar-block w3-card" id="mySidebar">
+                <div class="w3-container w3-theme-d2">
+                    <span onclick="closeSidebar()" class="w3-button w3-display-topright w3-large">X</span>
+                    <br>
+                    <div class="w3-padding w3-center">
+                        <img class="w3-circle" src="img_avatar.jpg" alt="avatar" style="width:35%">
+                    </div>
+                </div>
+                <a class="w3-bar-item w3-button" href="#">CIT</a>
+                <a class="w3-bar-item w3-button" href="#">JOB ORDER</a>
+                <a class="w3-bar-item w3-button" href="#">SGS</a>
+            </nav>
+        </div>
+    </nav>
+
+
+
+
+
+
+    <footer class="footer">
+        <h3>SRT-EON Security Services Sdn Bhd</h3>
+    </footer>
+
+</body>
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+
+    <script type="text/javascript">
+        closeSidebar();
+        function openSidebar() {
+            document.getElementById("mySidebar").style.display = "block";
+        }
+
+        function closeSidebar() {
+            document.getElementById("mySidebar").style.display = "none";
+        }
+
+        $(document).ready(function () {
+            $('.dataTables-example').dataTable({
+                "dom": 'T<"clear">rtp',
+
+                "tableTools": {
+                    "sSwfPath": "../scripts/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+                }
+            });
+        });
+    </script>
+}
+
+

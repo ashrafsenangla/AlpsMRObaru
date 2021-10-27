@@ -1,0 +1,162 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row" style="padding-left:50px">
+    <div class="col-md-12">
+        <h2>CIT Routing - Collection Destination</h2>
+
+        <div id="Dropdown">
+            <b style="color:blue">Mode Of Visting: </b>
+            <select id="mode">
+                <option value="DRIVING">By Driving</option>
+                <option value="WALKING">By Walking</option>
+                <option value="BICYCLING">By Bicycling</option>
+                <option value="TRANSIT">Transit Or Bus Availability</option>
+            </select>
+        </div>
+        @*@ViewBag.Markers*@
+        Start From : <input id="travelfrom" type="text" style="min-width:450px" name="name" value="SRT-EON Security, Kelana Jaya" />  <br />
+        <br />
+        <div> Add Destination</div>
+        <div>
+            <input id="travelto" type="text" style="min-width:500px" name="name" value="@Html.Raw(ViewBag.Markers)" />
+            <input type="button" value="Add" onclick="PushDestination()" />
+        </div>
+        <div id="destinations"></div>   <br />
+        <br />
+
+        <input type="button" value="Calculate" onclick="GetRoute()" />
+        <p></p>
+        <br />
+        <div id="dvDistance">
+            <table id="tblResults" border="1" cellpadding="12">
+                <tr>
+                    <th> Record ID </th>
+                    <th> Start </th>
+                    <th> End </th>
+                    <th> Distance </th>
+                    <th> Duration </th>
+                </tr>
+            </table>
+        </div>
+        <p></p>
+        <div id="dvMap" style="min-height:500px"></div>
+
+    </div>
+</div>
+
+@section scripts{
+
+    <!--ENSURE YOU CHANGE TO YOUR OWN API KEY HERE !!! -->
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCe2nFHkWtsnzyCOCEExHqgIXcf4OMxBG0" type="text/javascript"></script>
+
+    <!-- code for example 1 -->
+    <script>
+
+       var imageArray = @Html.Raw(Json.Encode(@ViewBag.Markers));
+        var source, destination;
+        var locations = [];
+        var directionsDisplay;
+        var directionsService = new google.maps.DirectionsService();
+        var Malaysia = new google.maps.LatLng(3.519863, 101.538116);
+
+        // initialise the location of the map on Chichester in England (ref lat and lng)
+        var map = new google.maps.Map(document.getElementById('dvMap'), {
+            center: { lat: 3.519863, lng: 109.538116 },
+            zoom: 6,
+            mapTypeId: 'roadmap'
+        });
+
+        google.maps.event.addDomListener(window, 'load', function () {
+            new google.maps.places.SearchBox(document.getElementById('travelfrom'));
+            new google.maps.places.SearchBox(document.getElementById('travelto'));
+            //  directionsDisplay = new google.maps.DirectionsRenderer({ strokeColor: "orange"  });
+            directionsDisplay = new google.maps.DirectionsRenderer({ 'draggable': true });
+        });
+
+
+    function PushDestination() {
+            directionsDisplay.setMap(map);
+            source = document.getElementById("travelfrom").value;
+            var s = imageArray.substring(0,imageArray.length-1);
+            var match = s.split('#')
+            for (var a in match) {
+                var destination = match[a];
+
+                locations.push(destination);
+                document.getElementById("travelto").value = "";
+                destinationArray = document.getElementById("destinations");
+                destinationArray.innerHTML += destination + "<br />";
+
+        }
+  
+        }
+
+
+        function GetRoute() {
+
+            directionsDisplay.setMap(map);
+            var selectedMode = document.getElementById('mode').value;
+            source = document.getElementById("travelfrom").value;
+            destination = document.getElementById("travelto").value;
+
+            var waypoints = [];
+            for (var i = 0; i < locations.length; i++) {
+                var address = locations[i];
+                if (address !== "") {
+                    waypoints.push({
+                        location: address,
+                        stopover: true
+                    });
+                }
+            }
+
+            var request = {
+                origin: source,
+                destination: waypoints[0].location,
+                waypoints: waypoints, //an array of waypoints
+                optimizeWaypoints: true, //set to true if you want google to determine the shortest route or false to use the order specified.
+                //travelMode: google.maps.DirectionsTravelMode.DRIVING
+                travelMode: google.maps.TravelMode[selectedMode]
+            };
+
+            var trafficLayer = new google.maps.TrafficLayer();
+            trafficLayer.setMap(map);
+
+            directionsService.route(request, function (response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    var dvDistance = document.getElementById("dvDistance");
+                    var distance = 0;
+                    var minute = 0.00;
+                    response.routes[0].legs.forEach(function (item, index) {
+                        if (index < response.routes[0].legs.length - 1) {
+                            distance = distance + parseInt(item.distance.text);
+                            minute = parseFloat(minute) + parseFloat(item.duration.value / 60);
+
+                            tbl = document.getElementById("tblResults");
+                            var row = tbl.insertRow(1);
+
+                            var cell = row.insertCell(0);
+                            cell.innerText = source;
+                            var cell = row.insertCell(1);
+                            cell.innerText = source;
+                            var cell = row.insertCell(2);
+                            cell.innerText = item.end_address;
+                            var cell = row.insertCell(3);
+                            cell.innerText = distance;
+                            var cell = row.insertCell(4);
+                            cell.innerText = minute.toFixed(2) + " min";
+                        }
+                    });
+                    directionsDisplay.setDirections(response);
+                }
+                else {
+                    //handle error
+                }
+            })
+        };
+
+    </script>
+    <!-- end code for example 1 -->
+}

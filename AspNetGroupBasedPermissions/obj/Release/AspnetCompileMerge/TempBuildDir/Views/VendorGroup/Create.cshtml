@@ -1,0 +1,95 @@
+﻿@model Core.Entities.Data.RTMTables.VendorGroup
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Create VendorGroup</h5>
+                </div>
+                <div class="ibox-content">
+
+				@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VendGroup, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.VendGroup)
+                @Html.ValidationMessageFor(model => model.VendGroup)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CompanyID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CompanyID)
+                @Html.ValidationMessageFor(model => model.CompanyID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateCreated, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateCreated)
+                @Html.ValidationMessageFor(model => model.DateCreated)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateModified, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateModified)
+                @Html.ValidationMessageFor(model => model.DateModified)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserCreated, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserCreated)
+                @Html.ValidationMessageFor(model => model.UserCreated)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserModified, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserModified)
+                @Html.ValidationMessageFor(model => model.UserModified)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+				@Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-white"})
+            </div>
+        </div>
+    </div>
+}
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+ 

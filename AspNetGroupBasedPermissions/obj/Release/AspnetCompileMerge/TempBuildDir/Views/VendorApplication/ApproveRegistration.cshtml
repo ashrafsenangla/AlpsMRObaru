@@ -1,0 +1,493 @@
+﻿@model AspNetGroupBasedPermissions.ViewModels.VendorApplicationEditViewModel
+@using AspNetGroupBasedPermissions.Helpers
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model=> model.VendorApplication.ID)
+    
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Details Vendor Registration</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="pull-left btn btn-xs btn-primary btn-block">Login Info</label>
+                                </div>
+                                <div class="welldetailsvendor">
+                                    <br />
+                                    <div class="form-group">
+                                        <div> <i class="fa fa-briefcase control-label col-md-1"></i></div>
+                                        @Html.LabelFor(model => model.VendorApplication.TitleCode, "Title", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-7 m-b-xs m-b-xs ">
+                                            @Html.DisplayFor(model => model.VendorApplication.RTMTitle.TitleDesc)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div> <i class="fa fa-user control-label col-md-1"></i></div>
+                                        @Html.LabelFor(model => model.VendorApplication.FirstName, "First Name", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-7 m-b-xs m-b-xs">
+                                            @Html.DisplayFor(model => model.VendorApplication.FirstName)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div> <i class="fa fa-user control-label col-md-1"></i></div>
+                                        @Html.LabelFor(model => model.VendorApplication.LastName, "Last Name", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-7 m-b-xs m-b-xs">
+                                            @Html.DisplayFor(model => model.VendorApplication.LastName)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div> <i class="fa fa-phone control-label col-md-1"></i></div>
+                                        @Html.LabelFor(model => model.VendorApplication.MobileNumber1, "Mobile Number 1", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-7 m-b-xs m-b-xs">
+                                            @Html.DisplayFor(model => model.VendorApplication.MobileNumber1)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div> <i class="fa fa-phone control-label col-md-1"></i></div>
+                                        @Html.LabelFor(model => model.VendorApplication.MobileNumber2, "Mobile Number 2", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-7 m-b-xs m-b-xs">
+                                            @Html.DisplayFor(model => model.VendorApplication.MobileNumber2)
+                                        </div>
+                                    </div>
+                                    <div> <i class="fa fa-envelope control-label col-md-1"></i></div><div class="form-group">
+                                        @Html.LabelFor(model => model.VendorApplication.EmailAddress, "Email Address", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-7 m-b-xs m-b-xs">
+                                            @Html.DisplayFor(model => model.VendorApplication.EmailAddress)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="pull-left btn btn-xs btn-primary btn-block">Contact Person</label>
+                                </div>
+
+                                <div class="welldetailsContact">
+                                    <br />
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorApplication.PositionCode, "Position", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs">
+                                            @Html.DisplayFor(model => model.VendorApplication.RTMPosition.PositionDesc)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorApplication.ContactPerson, "Contact Person", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs">
+                                            @Html.DisplayFor(model => model.VendorApplication.ContactPerson)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group"><label class="pull-left btn btn-xs btn-primary btn-block">Vendor Info</label></div>
+                            <div class="welldetailsCompany">
+                                <br />
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorApplication.CompanyName, "Company Name", new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xs">
+                                        @Html.DisplayFor(model => model.VendorApplication.CompanyName)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorApplication.Address, new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xs">
+                                        @Html.DisplayFor(model => model.VendorApplication.Address, new { @class = "form-control", rows = "4" })
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorApplication.Postcode, new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xs">
+                                        @Html.DisplayFor(model => model.VendorApplication.Postcode)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorApplication.City, new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xs">
+                                        @Html.DisplayFor(model => model.VendorApplication.City)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorApplication.StateCode, "State", new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xs">
+                                        @Html.DisplayFor(model => model.VendorApplication.RTMState.StateDesc)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorApplication.CountryCode, "Country", new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xs">
+                                        @Html.DisplayFor(model => model.VendorApplication.RTMCountry.CountryDesc)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorApplication.PhoneNumber1, "Phone Number 1", new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xs">
+                                        @Html.DisplayFor(model => model.VendorApplication.PhoneNumber1)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorApplication.PhoneNumber2, new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xs">
+                                        @Html.DisplayFor(model => model.VendorApplication.PhoneNumber2)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorApplication.FaxNumber, new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xs">
+                                        @Html.DisplayFor(model => model.VendorApplication.FaxNumber)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorApplication.Website, new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xs">
+                                        @Html.DisplayFor(model => model.VendorApplication.Website)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group"><label class="pull-left btn btn-xs btn-primary btn-block">Incorporation</label></div>
+                            <div class="welldetailsIncorportion">
+                                <br />
+                                <div class="col-md-5">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.RegistrationID, "Type of Registration", new { @class = "control-label col-lg-7" })
+                                            <div class="col-lg-5 m-b-xxs">
+                                                @Html.DisplayFor(model => model.VendorRegistration.RTMRegistrationType.RegistrationDesc)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.RegistrationNo, "Registration No", new { @class = "control-label col-lg-7" })
+                                            <div class="col-lg-5 m-b-xxs">
+                                                @Html.DisplayFor(model => model.VendorRegistration.RegistrationNo)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.DateIncorporatedStart, "Date Incorporated (Start)", new { @class = "control-label col-md-7" })
+                                            <div class="col-md-5 m-b-xxs">
+                                                <div class="input-group date">
+                                                    @Html.DisplayFor(model => model.VendorRegistration.DateIncorporatedStart, "{0: dd/MM/yyyy}")
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.DateIncorporatedEnd, "Date Incorporated (End)", new { @class = "control-label col-md-7" })
+                                            <div class="col-md-5 m-b-xxs">
+                                                <div class="input-group date">
+                                                    @Html.DisplayFor(model => model.VendorRegistration.DateIncorporatedEnd, "{0: dd/MM/yyyy}")
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.IncorporationCode, "Type Of Incorporation", new { @class = "control-label col-md-7" })
+                                            <div class="col-md-5 m-b-xxs">
+                                                @Html.DisplayFor(model => model.VendorRegistration.RTMIncorporation.IncorporationDesc)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.BusinessCode, "Business Provide", new { @class = "control-label col-md-7" })
+                                            <div class="col-md-5 m-b-xxs">
+                                                @Html.DisplayFor(model => model.VendorRegistration.RTMBussinessProvide.BusinessDesc)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group ">
+                                            @Html.LabelFor(model => model.VendorRegistration.IsLocal, new { @class = "control-label col-md-7" })
+                                            <div class="col-md-5">
+                                                @Html.DisplayFor(model => model.VendorRegistration.IsLocal)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-7">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.RegAddress, "Registered Address", new { @class = "control-label col-md-12" })
+                                            <div class="col-md-12 m-b-xxs">
+                                                @Html.DisplayFor(model => model.VendorRegistration.RegAddress)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.RegPostcode, new { @class = "control-label col-md-5" })
+                                            <div class="col-md-7 m-b-xxs">
+                                                @Html.DisplayFor(model => model.VendorRegistration.RegPostcode)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.RegCity, new { @class = "control-label col-md-5" })
+                                            <div class="col-md-7 m-b-xxs">
+                                                @Html.DisplayFor(model => model.VendorRegistration.RegCity)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.RegStateCode, "State", new { @class = "control-label col-md-5" })
+                                            <div class="col-md-7 m-b-xxs">
+                                                @Html.DisplayFor(model => model.VendorRegistration.RTMRegState.StateDesc)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.RegisterCountryCode, "Country", new { @class = "control-label col-md-5" })
+                                            <div class="col-md-7 m-b-xxs">
+                                                @Html.DisplayFor(model => model.VendorRegistration.RTMCountryReg.CountryDesc)
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group"><label class="pull-left btn btn-xs btn-primary btn-block">Finance</label></div>
+                            <div class="welldetailsFinance">
+                                <br />
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorRegistration.PaidUpCapital, new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12 m-b-xxs">
+                                            @Html.DisplayFor(model => model.VendorRegistration.PaidUpCapital)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorRegistration.AuthorizedCapital, new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12 m-b-xxs">
+                                            @Html.DisplayFor(model => model.VendorRegistration.AuthorizedCapital)
+                                        </div>
+                                    </div>
+                                </div><div class="col-md-8">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Asset (A)</th>
+                                                <th>Liabilities (B)</th>
+                                                <th>Nett Worth (A-B)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><b>Current</b></td>
+                                                <td>@Html.DisplayFor(model => model.VendorRegistration.CurrentAsset, new { id = "CurrentAsset", name = "CurrentAsset", onkeyup = "sumAsset();", @class = "form-control" })</td>
+                                                <td>@Html.DisplayFor(model => model.VendorRegistration.CurrentLiabilities, new { id = "CurrentLiabilities", name = "CurrentLiabilities", onkeyup = "sumLiabilities();", @class = "form-control" })</td>
+                                                <td class="text-navy font-bold">@Html.Label("") @*<input type="text" id="CurrentNetWorth" name="CurrentNetWorth" value="" class="form-control" disabled>*@</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Fixed</b></td>
+                                                <td>@Html.DisplayFor(model => model.VendorRegistration.FixedAsset, new { id = "FixedAsset", name = "FixedAsset", onkeyup = "sumAsset();", @class = "form-control" })</td>
+                                                <td>@Html.DisplayFor(model => model.VendorRegistration.FixedLiabilities, new { id = "FixedLiabilities", name = "FixedLiabilities", onkeyup = "sumLiabilities();", @class = "form-control" })</td>
+                                                <td class="text-navy font-bold">@Html.Label("")@*<label id="FixedNetWorth" name="FixedNetWorth" value="" class="form-control" disabled>*@</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Total</b></td>
+                                                <td class="text-navy font-bold">@Html.Label("")@*<input type="text" id="TotalAsset" name="TotalAsset" class="form-control" disabled>*@</td>
+                                                <td class="text-navy font-bold">@Html.Label("")@*<input type="text" id="TotalLiabilities" name="TotalLiabilities" class="form-control" disabled>*@</td>
+                                                <td class="text-navy font-bold">@Html.Label("")@*<input type="text" id="TotalNetWorth" name="TotalNetWorth" value="" class="form-control" disabled>*@</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group"><label class="pull-left btn btn-xs btn-primary btn-block">Nature Business</label></div>
+                            <div class="wellNatureBuss">
+                                <br /><table><tr>
+                                @{ 
+                                    int cnt = 0;
+                                    List<AspNetGroupBasedPermissions.ViewModels.AssignedBussinessNature> NatBuss = ViewBag.RTMNatureBusiness;
+                                    foreach (var item in NatBuss)
+                                    {
+                                        if ((cnt++ % 1 == 0))
+                                        {
+                                            @:</tr><tr>
+                                        }
+                                    @:<td>
+                                    @:<td>
+                                     <span><i class="fa fa-circle"></i>  
+                                 
+                                    @(Html.Raw(item.BussinessName))<br /></span> 
+                                    
+                                    }
+                                @:</tr>
+                                }
+                                </tr></table>
+                            </div>
+                            </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5></h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group"><label class="pull-left btn btn-xs btn-primary btn-block">Shipping Address</label></div>
+                            <div class="welldetailsShipping"><br />
+                            
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorRegistration.AddressShipTo, "Addresses ( Ship To )", new { @class = "control-label col-md-12" })
+                                    <div class="col-md-12 m-b-xxs">
+                                        @Html.DisplayFor(model => model.VendorRegistration.AddressShipTo)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorRegistration.AddressShipFrom, "Addresses ( Ship From )", new { @class = "control-label col-md-12" })
+                                    <div class="col-md-12 m-b-xxs">
+                                        @Html.DisplayFor(model => model.VendorRegistration.AddressShipFrom)
+                                    </div>
+                                </div>
+                            
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group"><label class="pull-left btn btn-xs btn-primary btn-block">Tax</label></div>
+                            <div class="welldetailsTax"><br />
+                             
+                                    <div class=" form-group">
+                                        @Html.LabelFor(model => model.VendorRegistration.GroupTaxCode, "Tax Group", new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12 m-b-xxs">
+                                          @Html.DisplayFor(model => model.VendorRegistration.RTMTaxGroup.TaxGroupDesc)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorRegistration.CountryTaxResID, "Country of Tax Residence", new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12 m-b-xxs">
+                                            @Html.DisplayFor(model => model.VendorRegistration.RTMCountryReg.CountryDesc)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorRegistration.GSTVatRegNo, "GST / VAT Registration No", new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12 m-b-xxs">
+                                            @Html.DisplayFor(model => model.VendorRegistration.GSTVatRegNo)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorRegistration.PriceTaxableCode, "Pricing Inclusive or Exclusive GST", new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12 m-b-xxs">
+                                            @Html.DisplayFor(model => model.VendorRegistration.RTMPriceTaxable.PriceTaxableDesc)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorRegistration.CurrencyCode, "Billing and Payment Currency", new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12 m-b-xxs">
+                                            @Html.DisplayFor(model => model.VendorRegistration.RTMCurrency.CurrencyDesc)
+                                        </div>
+                                    </div>                                
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorRegistration.BankCode, "Payment Bank", new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12 m-b-xxs">
+                                            @Html.DisplayFor(model => model.VendorRegistration.RTMBank.BankDesc)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorRegistration.BankAccName, "Bank Account Name", new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12 m-b-xxs">
+                                            @Html.DisplayFor(model => model.VendorRegistration.BankAccName)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorRegistration.BankAccNo, "Bank Account No", new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12 m-b-xxs">
+                                            @Html.DisplayFor(model => model.VendorRegistration.BankAccNo)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorRegistration.PaymentTermCode, "Payment Term", new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12 m-b-xxs">
+                                            @Html.DisplayFor(model => model.VendorRegistration.RTMPaymentTerm.PaymentDesc)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorRegistration.SwiftCode, "SWIFT Code", new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12 m-b-xxs">
+                                            @Html.DisplayFor(model => model.VendorRegistration.SwiftCode)
+                                        </div>
+                                    
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-12">
+            <input type="submit" value="Approve" class="btn btn-primary" />
+            @Html.ActionLink("Cancel", "IndexApproveRegistration", null, new { @class = "btn btn-white" })
+        </div>
+    </div>}
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

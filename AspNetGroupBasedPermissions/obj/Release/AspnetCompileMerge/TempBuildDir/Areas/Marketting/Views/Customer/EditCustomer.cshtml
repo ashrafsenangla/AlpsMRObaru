@@ -1,0 +1,532 @@
+﻿@model Core.Entities.Data.Marketting.Customer
+@{    ViewBag.Title = "Edit Customer";}
+
+    <div class="wrapper wrapper-content">
+        <div class="row">
+            @using (Html.BeginForm())
+            {
+
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.ID)
+
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        @*<div class="ibox-title">
+                        <h5>Details Customer Information</h5>
+                    </div>*@
+                        <div class="ibox-content">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <label class="pull-left btn btn-xs btn-primary btn-block" style="font-weight:bolder; background-color:#368; border-color:#368;"><i class="fa fa-folder"></i>&nbsp;&nbsp;Customer Info</label>
+                                    </div>
+                                    @Html.ValidationSummary("", new { @style = "color: red" })
+                                    <div class="welldetailsShippingedit" style="min-height:400px; background-color:#c5e5fa">
+                                     
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.CustomerCode, "Customer Code", new { @class = "control-label col-md-3" })
+                                            <div class="col-md-3 m-b-xxs">
+                                                @Html.EditorFor(model => model.CustomerCode, new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                @Html.ValidationMessageFor(model => model.CustomerCode)
+                                            </div>
+
+                                            @Html.LabelFor(model => model.GroupCode, "Group Code", new { @class = "control-label col-md-1" })
+                                            <div class="col-md-2 m-b-xxs">
+                                                @Html.DropDownList("GroupCode", (IEnumerable<SelectListItem>)Session["GroupCode"], " < Select Group >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                @Html.ValidationMessageFor(model => model.GroupCode)
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.StatusCode, "Status", new { @class = "control-label col-md-1" })
+                                                <div class="col-md-2 m-b-xxs">
+                                                    @Html.DropDownList("StatusCode", (IEnumerable<SelectListItem>)Session["StatusCode"], " < Select Customer Status >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                    @Html.ValidationMessageFor(model => model.StatusCode)
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.CustomerName, "Customer Name", new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9 m-b-xxs">
+                                                @Html.EditorFor(model => model.CustomerName, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.CustomerNameRemarks, "Customer Name (Remarks)", new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9 m-b-xxs">
+                                                @Html.EditorFor(model => model.CustomerNameRemarks, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.AddressLine1, "Address Line 1", new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9 m-b-xxs">
+                                                @Html.EditorFor(model => model.AddressLine1, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.AddressLine1)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.AddressLine2, "Address Line 2", new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9 m-b-xxs">
+                                                @Html.EditorFor(model => model.AddressLine2, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.AddressLine2)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.AddressLine3, "Address Line 3", new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9 m-b-xxs">
+                                                @Html.EditorFor(model => model.AddressLine3, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.AddressLine3)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.PostCode, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-3 m-b-xxs">
+                                                @Html.EditorFor(model => model.PostCode)
+                                                @Html.ValidationMessageFor(model => model.PostCode)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.City, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-3 m-b-xxs">
+                                                @Html.EditorFor(model => model.City)
+                                                @Html.ValidationMessageFor(model => model.City)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.StateCode, "States", new { @class = "control-label col-md-3" })
+                                            <div class="col-md-3 m-b-xxs">
+                                                @Html.DropDownList("StateCode", (IEnumerable<SelectListItem>)Session["StateCode"], " < Select State >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                @Html.HiddenFor(model => model.StateCode)
+                                                @Html.ValidationMessageFor(model => model.StateCode)
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.CountryCode, "Country", new { @class = "control-label col-md-3" })
+                                            <div class="col-md-3 m-b-xxs">
+                                                @Html.DropDownList("CountryCode", (IEnumerable<SelectListItem>)Session["CountryCode"], " < Select Country >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                @Html.HiddenFor(model => model.CountryCode)
+                                                @Html.ValidationMessageFor(model => model.CountryCode)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Phone1, "Phone #1", new { @class = "control-label col-md-3" })
+                                            <div class="col-md-3 m-b-xxs">
+                                                @Html.EditorFor(model => model.Phone1)
+                                                @Html.ValidationMessageFor(model => model.Phone1)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Phone2, "Phone #2", new { @class = "control-label col-md-3" })
+                                            <div class="col-md-3 m-b-xxs">
+                                                @Html.EditorFor(model => model.Phone2)
+                                                @Html.ValidationMessageFor(model => model.Phone2)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.MobileNo, "Mobile No.", new { @class = "control-label col-md-3" })
+                                            <div class="col-md-3 m-b-xxs">
+                                                @Html.EditorFor(model => model.MobileNo)
+                                                @Html.ValidationMessageFor(model => model.MobileNo)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.FaxNo, "Fax No.", new { @class = "control-label col-md-3" })
+                                            <div class="col-md-3 m-b-xxs">
+                                                @Html.EditorFor(model => model.FaxNo)
+                                                @Html.ValidationMessageFor(model => model.FaxNo)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.EmailAddressCompany, "Email Address", new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9 m-b-xxs">
+                                                @Html.EditorFor(model => model.EmailAddressCompany)
+                                                @Html.ValidationMessageFor(model => model.EmailAddressCompany)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.WebsiteURL, "Website URL", new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9 m-b-xxs">
+                                                @Html.EditorFor(model => model.WebsiteURL)
+                                                @Html.ValidationMessageFor(model => model.WebsiteURL)
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-4">
+
+                                        <div class="form-group">
+                                            <label class="pull-left btn btn-xs btn-primary btn-block" style="font-weight:bolder; background-color:#368; border-color:#368;"><i class="fa fa-folder"></i>&nbsp;&nbsp;Business Details</label>
+                                        </div>
+                                        @Html.ValidationSummary("", new { @style = "color: red" })
+                                        <div class="welldetailsCompanyedit" style="min-height:225px; background-color:#c5e5fa">
+                                            <br />
+
+                                            @Html.LabelFor(model => model.BusinessUnit, "Business Unit", new { @class = "control-label col-md-12" })
+                                            <div class="col-md-12 m-b-xxs">
+                                                @Html.DropDownList("BusinessUnit", (IEnumerable<SelectListItem>)Session["BusinessUnit"], " < Select Business Unit >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                @Html.HiddenFor(model => model.BusinessUnit)
+                                                @Html.ValidationMessageFor(model => model.BusinessUnit)
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.BizSector, "Business Sector", new { @class = "control-label col-md-12" })
+                                                <div class="col-md-12 m-b-xxs">
+                                                    @Html.DropDownList("BizSector", (IEnumerable<SelectListItem>)Session["BizSector"], " < Select Sector >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                    @Html.HiddenFor(model => model.BizSector)
+                                                    @Html.ValidationMessageFor(model => model.BizSector)
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.BizIndustry, "Business Industry", new { @class = "control-label col-md-12" })
+                                                <div class="col-md-12 m-b-xxs">
+                                                    @Html.DropDownList("BizIndustry", (IEnumerable<SelectListItem>)Session["BizIndustry"], " < Select Industry >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                    @Html.ValidationMessageFor(model => model.BizIndustry)
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.ServicesSegment, "Services Segment", new { @class = "control-label col-md-12" })
+                                                <div class="col-md-12 m-b-xxs">
+                                                    @*@Html.DropDownList("ServicesSegment", (IEnumerable<SelectListItem>)Session["ServicesSegment"], " < Select Industry >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })*@
+                                                    @Html.DropDownList("ServicesSegment",
+                                                        new List<SelectListItem>
+                                                        {
+                                                        new SelectListItem{ Text="< Select Segment >", Value = "" },
+                                                        new SelectListItem{ Text="CIT", Value = "CIT" },
+                                                        new SelectListItem{ Text="SGS", Value = "SGS" },
+                                                        new SelectListItem{ Text="ATM", Value = "ATM" }
+                                                         },
+                                                        new
+                                                             {
+                                                        @style = "font-size:12px;height:30px; ",
+                                                                 @class = "form-control"
+                                                           }
+                                                        )
+                                                    @Html.ValidationMessageFor(model => model.ServicesSegment)
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-8">
+
+                                        <div class="form-group">
+                                            <label class="pull-left btn btn-xs btn-primary btn-block" style="font-weight:bolder; background-color:#368; border-color:#368;"><i class="fa fa-folder"></i>&nbsp;&nbsp;Contact Person Details</label>
+                                        </div>
+                                        @Html.ValidationSummary("", new { @style = "color: red" })
+                                        <div class="welldetailsCompanyedit" style="min-height:225px; background-color:#c5e5fa">
+                                            <br />
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.ContactPerson, "Contact Person Name", new { @class = "control-label col-md-9" })
+                                                <div class="col-md-12 m-b-xxs">
+                                                    @Html.EditorFor(model => model.ContactPerson)
+                                                    @Html.ValidationMessageFor(model => model.ContactPerson)
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.ContactPersonPosition, "Contact Person Position", new { @class = "control-label col-md-9" })
+                                                <div class="col-md-12 m-b-xxs">
+                                                    @Html.DropDownList("ContactPersonPosition", (IEnumerable<SelectListItem>)Session["ContactPersonPosition"], " < Select Position >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                    @Html.ValidationMessageFor(model => model.ContactPersonPosition)
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                @Html.LabelFor(model => model.ContactPersonPhoneNo, "Contact Person Phone No.", new { @class = "control-label col-md-6" })
+                                                @Html.LabelFor(model => model.ContactPersonMobile, "Contact Person Mobile", new { @class = "control-label col-md-6" })
+                                                <div class="col-md-6 m-b-xxs">
+                                                    @Html.EditorFor(model => model.ContactPersonPhoneNo)
+                                                    @Html.ValidationMessageFor(model => model.ContactPersonPhoneNo)
+                                                </div>
+                                                <div class="col-md-6 m-b-xxs">
+                                                    @Html.EditorFor(model => model.ContactPersonMobile)
+                                                    @Html.ValidationMessageFor(model => model.ContactPersonMobile)
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="form-group">
+
+                                                @Html.LabelFor(model => model.ContactPersonEmail, "Contact Person Email", new { @class = "control-label col-md-12" })
+                                                <div class="col-md-12 m-b-xxs">
+                                                    @Html.EditorFor(model => model.ContactPersonEmail)
+                                                    @Html.ValidationMessageFor(model => model.ContactPersonEmail)
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group"><label class="pull-left btn btn-xs btn-primary btn-block" style="font-weight:bolder; background-color:#368; border-color:#368;"><i class="fa fa-envelope"></i>&nbsp;&nbsp;Billing Info</label></div>
+                                    @Html.ValidationSummary("", new { @style = "color: red" })
+                                    <div class="welldetailsShippingedit" style="min-height:650px; background-color:#c5e5fa">
+                                        <br />
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.BillingCustomerCode, "Billing Company Code", new { @class = "control-label col-md-12" })
+                                            <div class="col-md-12 m-b-xxs">
+                                                @*@Html.DropDownList("BillingCustomerCode", ViewData["BillingCompany"] as SelectList, "-- Select Parent Company --", htmlAttributes: new { @class = "form-control" })*@
+                                                @Html.EditorFor(model => model.BillingCustomerCode, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.BillingCustomerCode)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.PaymentTerm, "Payment Term", new { @class = "control-label col-md-12" })
+                                            <div class="col-md-12 m-b-xxs">
+                                                @Html.DropDownList("PaymentTerm", (IEnumerable<SelectListItem>)Session["PaymentTerm"], " < Select Payment Term >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                @Html.ValidationMessageFor(model => model.PaymentTerm)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.PaymentCurrency, "Payment Currency", new { @class = "control-label col-md-12" })
+                                            <div class="col-md-12 m-b-xxs">
+                                                @Html.DropDownList("PaymentCurrency", (IEnumerable<SelectListItem>)Session["PaymentCurrency"], "< Select Currency >", htmlAttributes: new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                @Html.ValidationMessageFor(model => model.PaymentCurrency)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.EmailAddressBilling, "Email Address(Billing)", new { @class = "control-label col-md-12" })
+                                            <div class="col-md-12 m-b-xxs">
+                                                @Html.EditorFor(model => model.EmailAddressBilling)
+                                                @Html.ValidationMessageFor(model => model.EmailAddressBilling)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.RemarksOnInvoice, "Remarks On Invoice", new { @class = "control-label col-md-12" })
+                                            <div class="col-md-12 m-b-xxs">
+                                                @Html.TextAreaFor(model => model.RemarksOnInvoice, new { @class = "form-control", rows = "2" })
+                                                @Html.ValidationMessageFor(model => model.RemarksOnInvoice)
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.InvoiceFormat, "Invoice Format", new { @class = "control-label col-md-12" })
+                                            <div class="col-md-12 m-b-xxs">
+
+                                                @Html.DropDownList("InvoiceFormat", (IEnumerable<SelectListItem>)Session["InvoiceFormat"], " < Select Format >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                @Html.HiddenFor(model => model.InvoiceFormat)
+                                                @Html.ValidationMessageFor(model => model.InvoiceFormat)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.InvoiceDestination, "Invoice Destination", new { @class = "control-label col-md-12" })
+                                            <div class="col-md-12 m-b-xxs">
+                                                @Html.DropDownList("InvoiceDestination", (IEnumerable<SelectListItem>)Session["InvoiceDestination"], " < Select Destination >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                @Html.HiddenFor(model => model.InvoiceDestination)
+                                                @Html.ValidationMessageFor(model => model.InvoiceDestination)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.InvoiceSendMode, "Invoice Send Mode", new { @class = "control-label col-md-12" })
+                                            <div class="col-md-12 m-b-xxs">
+                                                @Html.DropDownList("InvoiceSendMode", (IEnumerable<SelectListItem>)Session["InvoiceSendMode"], " < Select Mode >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                @Html.HiddenFor(model => model.InvoiceSendMode)
+                                                @Html.ValidationMessageFor(model => model.InvoiceSendMode)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.TaxRate, "Tax Rate", new { @class = "control-label col-md-12" })
+                                            <div class="col-md-12 m-b-xxs">
+                                                @Html.DropDownList("TaxRate", (IEnumerable<SelectListItem>)Session["TaxRate"], " < Select Tax Rate >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                @Html.HiddenFor(model => model.TaxRate)
+                                                @Html.ValidationMessageFor(model => model.TaxRate)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.CreditLimit, "Credit Limit", new { @class = "control-label col-md-12" })
+                                            <div class="col-md-12 m-b-xxs">
+                                                @Html.EditorFor(model => model.CreditLimit)
+                                                @Html.ValidationMessageFor(model => model.CreditLimit)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.OverDueLimit, "Overdue Limit", new { @class = "control-label col-md-12" })
+                                            <div class="col-md-12 m-b-xxs">
+                                                @Html.EditorFor(model => model.OverDueLimit)
+                                                @Html.ValidationMessageFor(model => model.OverDueLimit)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.CompanyRegistrationNo, "Company Registration No.", new { @class = "control-label col-md-12" })
+                                            <div class="col-md-12 m-b-xxs">
+                                                @Html.EditorFor(model => model.CompanyRegistrationNo)
+                                                @Html.ValidationMessageFor(model => model.CompanyRegistrationNo)
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-5 col-md-9" style="min-height:100px;">
+                                    <input type="submit" value="Update" class="btn btn-xs btn-primary" style="border-color:#37a5ed;background-color:#37a5ed;width:60px;" />
+                                    @Html.ActionLink("Cancel", "IndexCustomer", null, new { @class = "btn btn-white" })
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+    @Styles.Render("~/plugins/wizardStepsStyles")
+    <style>
+        .field-validation-error {
+            color: red;
+        }
+
+        
+
+       hr {
+            border: none;
+            border-top: 3px double #368;
+            color: #368;
+            overflow: visible;
+            text-align: Left;
+            height: 5px;
+        }
+
+        hr:after {
+            /*background: #fff;*/
+            content: '';
+            padding: 0 4px;
+            position: relative;
+            top: -13px;
+        }
+     
+
+    </style>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/iCheck")
+
+    @Scripts.Render("~/plugins/wizardSteps")
+    @Scripts.Render("~/plugins/validate")
+    @Scripts.Render("~/plugins/knockout")
+    <script type="text/javascript">
+
+        validateEmail($("#Validatetextbox").val());  
+        @*function validateEmail(emailField) {  
+            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;  
+            if (reg.test(emailField) == false) {  
+                alert('Invalid Email Address');  
+                return false;  
+            }  
+            return true;  
+        }*@
+
+
+       
+        $(document).ready(function () {
+
+
+            $("#wizard").steps();
+            $("#form").steps({
+                bodyTag: "fieldset",
+                onStepChanging: function (event, currentIndex, newIndex) {
+                    // Always allow going backward even if the current step contains invalid fields!
+                    if (currentIndex > newIndex) {
+                        return true;
+                    }
+
+                    var form = $(this);
+
+                    // Clean up if user went backward before
+                    if (currentIndex < newIndex) {
+                        // To remove error styles
+                        $(".body:eq(" + newIndex + ") label.error", form).remove();
+                        $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                    }
+
+                    // Disable validation on fields that are disabled or hidden.
+                    form.validate().settings.ignore = ":disabled,:hidden";
+
+                    // Start validation; Prevent going forward if false
+                    return form.valid();
+                },
+                onFinishing: function (event, currentIndex) {
+                    var form = $(this);
+
+                    // Disable validation on fields that are disabled.
+                    // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
+                    form.validate().settings.ignore = ":disabled";
+
+                    // Start validation; Prevent form submission if false
+                    return form.valid();
+                },
+                onFinished: function (event, currentIndex) {
+                    var form = $(this);
+
+                    // Submit form input
+                    form.submit();
+                }
+            }).validate({
+                errorPlacement: function (error, element) {
+                    element.before(error);
+                },
+                rules: {
+                    confirm: {
+                        equalTo: "#password"
+                    }
+                }
+            });
+        });
+
+
+
+    </script>
+
+    @Scripts.Render("~/plugins/dataPicker")
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+            $('.scroll_content').slimscroll({
+                height: '250px'
+            })
+            $('.full-height-scroll').slimscroll({
+                height: '100%'
+            })
+            ko.applyBindings(testviewModel);
+        });
+
+     
+
+        
+    </script>
+}

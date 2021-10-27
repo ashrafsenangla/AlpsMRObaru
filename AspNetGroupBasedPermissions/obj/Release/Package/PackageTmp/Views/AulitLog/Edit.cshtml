@@ -1,0 +1,127 @@
+﻿@model Core.Entities.Data.Admin.AuditLog
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Edit AuditLog</h5>
+                </div>
+                <div class="ibox-content">
+
+				@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.auditlogid)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.userid, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.userid)
+                @Html.ValidationMessageFor(model => model.userid)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.eventdateutc, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.eventdateutc)
+                @Html.ValidationMessageFor(model => model.eventdateutc)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.eventtype, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.eventtype)
+                @Html.ValidationMessageFor(model => model.eventtype)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tablename, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tablename)
+                @Html.ValidationMessageFor(model => model.tablename)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.recordid, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.recordid)
+                @Html.ValidationMessageFor(model => model.recordid)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.columnname, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.columnname)
+                @Html.ValidationMessageFor(model => model.columnname)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.originalvalue, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.originalvalue)
+                @Html.ValidationMessageFor(model => model.originalvalue)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.newvalue, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.newvalue)
+                @Html.ValidationMessageFor(model => model.newvalue)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+				@Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-white"})
+            </div>
+        </div>
+    </div>
+}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+	@Scripts.Render("~/plugins/dataPicker")
+	  <script type="text/javascript">
+        $(document).ready(function () {
+
+         $('#data_1 .input-group.date').datepicker({
+             todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+        });
+    
+    </script>
+}

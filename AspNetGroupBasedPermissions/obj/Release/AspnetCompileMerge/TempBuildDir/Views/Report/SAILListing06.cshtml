@@ -1,0 +1,227 @@
+﻿
+@using AspNetGroupBasedPermissions;
+
+@{
+    ViewBag.Title = "Report";
+}
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+    @Styles.Render("~/plugins/wizardStepsStyles")
+    @Styles.Render("~/plugins/clockpickerStyles")
+    @Styles.Render("~/plugins/dataPickerStyles")
+    @Styles.Render("~/plugins/imagecropperStyles")
+    @Styles.Render("~/Content/plugins/chosen/chosenStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/wizardSteps")
+    @Scripts.Render("~/plugins/iCheck")
+    @Scripts.Render("~/plugins/validate")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/clockpicker")
+    @Scripts.Render("~/plugins/imagecropper")
+    @Scripts.Render("~/plugins/chosen")
+    @Scripts.Render("~/plugins/dataPicker")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        //$('#data_1 .input-group.date').datepicker({
+        //    todayBtn: "linked",
+        //    format: "dd/mm/yyyy",
+        //    keyboardNavigation: false,
+        //    forceParse: false,
+        //    calendarWeeks: true,
+        //    autoclose: true
+        //}).datepicker("setDate", new Date());
+        
+        $("#StartDateId").datepicker({
+            todayBtn: "linked",
+            format: "dd/mm/yyyy",
+            keyboardNavigation: false,
+            forceParse: false,
+            autoclose: true
+        }).datepicker("setDate", new Date());
+
+        $("#EndDateId").datepicker({
+            todayBtn: "linked",
+            format: "dd/mm/yyyy",
+            keyboardNavigation: false,
+            forceParse: false,
+            autoclose: true
+        }).datepicker("setDate", new Date());
+    });
+
+    function getLocation(locationID) {
+
+        var hazardDateValue = document.getElementById('hzardDateId').value;
+        var hazardDateDisplay = hazardDateValue.split("/").reverse().join("");
+        var elementYear = hazardDateValue.split("/");
+        $.ajax({
+            url: '/Hazards/FindDate?loc=' + locationID ,
+            type: "GET",
+            dataType: "JSON",
+            success: function (pobSubs) {
+                alert(pobSubs);
+                //$('#hazardNo').val(pobSubs);
+            }
+        });
+    }
+</script>
+
+
+
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6" >
+
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <div class="row">
+                        <span class="label label-info">Print Option</span>
+                        <hr />
+
+                          <div class="form-group">
+                            @Html.Label("Location", new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.DropDownList("LocationCode", ViewData["Locations"] as SelectList, "All", htmlAttributes: new { @class = "form-control m-b-xs", id = "txtLocCode", onchange = "CompanyCodeChange(this.value)" })
+                            </div>
+                         </div>
+                        <div class="form-group">
+                            @Html.Label("Company", new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.DropDownList("Company", ViewData["Companys"] as SelectList, "All", htmlAttributes: new { @class = "form-control m-b-xs", id = "txtCompany", onchange = "ReporterChange(this.value)" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("Reporter", new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.DropDownList("Reporter", ViewData["Reporters"] as SelectList, "All", htmlAttributes: new { @class = "form-control m-b-xs", id = "txtReporter" })
+                            </div>
+                        </div>
+                         <div class="form-group">
+                                @Html.Label("From Date", new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    <div class="input-group date" id="StartDateId">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>@Html.TextBox("txtstartDate", "DateTime", new { @class = "form-control m-b-xs" })
+                                    </div>
+                                </div>
+                         </div>
+                         <div class="form-group" >
+                            @Html.Label("To Date", new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                <div class="input-group date" id="EndDateId">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>@Html.TextBox("txtendDate", "DateTime", new { @class = "form-control m-b-xs" })
+                                </div>
+                            </div>
+                         </div>
+                        <div class="form-group">
+                            <b class="control-label col-md-4">Document Type</b>
+                            <div class="col-md-8">
+                                @Html.DropDownList("documentType", ViewData["documentType"] as SelectList, htmlAttributes: new { @class = "form-control m-b-xs"})
+                            </div>
+                        </div>
+                        <div class="col-md-12">&nbsp;</div>
+                        <div class="col-md-6">
+                            <input type="submit" value="Download" class="btn btn-primary block full-width m-b" />
+                        </div>
+                        <div class="col-md-6">
+                            @*<input type="submit" value="Reset" class="btn btn-white block full-width m-b"  />*@
+                        </div>
+                        <div class="col-md-12">&nbsp;</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+    <hr />
+    <div class="col-md-3"></div>
+
+    
+
+
+}
+<script type="text/javascript">
+
+
+    function CompanyCodeChange(LocationCode) {
+
+
+        $.ajax({
+            url: '@Url.Action("QHSECompany", "Report", new { area = "" })',
+            type: "POST",
+            dataType: "JSON",
+            data: {
+                LocationCode: LocationCode
+            },
+            success: function (results) {
+                $('#txtCompany').html(""); // clear before appending new list
+                $('#txtCompany').append(
+            $('<option></option>').val("").html("All"));
+                $.each(results, function (i, results) {
+                    $('#txtCompany').append(
+                        $('<option></option>').val(results.CompanyCode).html(results.CompanyName));
+                });
+            },
+            error: function (error) {
+                $.notify(
+                    error,
+                    { position: "top center", className: "error" }
+                );
+            }
+        });
+
+        $.ajax({
+            url: '/Hazards/FindDate?loc=' + LocationCode,
+            type: "GET",
+            dataType: "JSON",
+            success: function (pobSubs) {
+               
+                $('#txtstartDate').val(pobSubs);
+            }
+        });
+    }
+
+    function ReporterChange(company) {
+
+
+        $.ajax({
+            url: '@Url.Action("Reporter", "Report", new { area = "" })',
+            type: "POST",
+            dataType: "JSON",
+            data: {
+                company: company
+            },
+            success: function (results) {
+                $('#txtReporter').html(""); // clear before appending new list
+                $('#txtReporter').append(
+            $('<option></option>').val("").html("All"));
+                $.each(results, function (i, results) {
+                    $('#txtReporter').append(
+                        $('<option></option>').val(results.POBCode).html(results.POBName));
+                });
+            },
+            error: function (error) {
+                $.notify(
+                    error,
+                    { position: "top center", className: "error" }
+                );
+            }
+        });
+    }
+
+</script>
+

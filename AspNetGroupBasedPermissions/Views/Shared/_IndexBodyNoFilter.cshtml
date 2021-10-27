@@ -1,0 +1,20 @@
+﻿<div class="ibox-tools">
+    @Html.ActionLink(" ", "Create", null, new { @class = "modal-link btn btn-primary btn-xs glyphicon glyphicon-plus" })
+</div>
+<div class="ibox-tools">
+    <button id="custom_datatables_submit_button" style="font-size:11px;" title="Delete" onclick="submitAll();" class="btnCRUD btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
+</div>
+<div class="dataTables_length">
+    <label>
+        <select class="form-control input-sm" data-bind="value: pageSize">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select> Records/Page
+    </label>
+</div>
+<div class="dataTables_filter">
+    <label>Search:<input type="text" class="form-control input-sm" style="font-size:12px" data-bind="value: formVendorSearch, valueUpdate: 'keyup'" placeholder="">&nbsp;</label>
+    <br style="margin-bottom:2px;"/>
+</div>

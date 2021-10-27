@@ -1,0 +1,372 @@
+﻿@using AspNetGroupBasedPermissions.Helpers
+@{ ViewBag.Title = "Setup Project";}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content" style="height:30px; color:white; background-color:#368">
+                    <section class="content-header">
+                        <h4>
+                            @ViewBag.title
+                            <small style="color:white">: collection location</small>
+                        </h4>
+                    </section>
+                </div>
+                <div class="ibox-content dataTables_scroll dataTables_wrapper form-inline no-foote" style="min-height:40px; color:black; background-color:#368">
+                   
+
+                    <div class="dataTables_filter dataTables_length dataTables_length pull-right">
+                        <label>
+                            <select class="form-control input-sm" style="width:80px;font-size:11px" data-bind="value:pageSize">
+                                <option value="10">10/page</option>
+                                <option value="25">25/page</option>
+                                <option value="50">50/page</option>
+                                <option value="100">100/page</option>
+                            </select>
+                        </label>
+                        <label><input type="text" class="form-control input-sm" style="font-size:11px" data-bind="value: formVendorSearch, valueUpdate: 'keyup'" placeholder="Search">&nbsp;&nbsp;&nbsp;</label>
+                        <div class="dataTables_filter dataTables_length dataTables_length pull-right">
+                            @Html.ActionLink("Create", "KioskPartial", null, new { @class = "modal-link  pull-right btn btn-xs btn-primary btn-block", @style = "font-size:12px;padding-left:3px;padding-right:3px;padding-bottom:3px;padding-top:3px;width:79px;height:30px; " })
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal-container" class="modal fade"
+     tabindex="-1" role="dialog">
+    <div class="modal-content">
+    </div>
+    <div class="modal-content2">
+    </div>
+</div>
+
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    @Styles.Render("~/Scripts/plugins/jquery-ui/jqueryuiStyles")
+    <style>
+        .form-popup {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            right: 40px;
+            left: 250px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        }
+
+        .modal-content {
+            width: 1200px !important;
+            margin: 30px auto !important;
+        }
+
+        .modal-content2 {
+            width: 800px !important;
+            margin: 30px auto !important;
+        }
+
+        .ui-dialog-3000 {
+            z-index: 3000 !important;
+        }
+
+        .ui-dialog-2900 {
+            z-index: 2900 !important;
+        }
+
+        .disable-background-eee {
+            background: #eee !important;
+        }
+
+        .dataTables_scroll {
+            overflow: auto;
+            position: relative;
+        }
+
+        .backgroundSelected {
+            background-color: rgb(102, 204, 204) !important;
+        }
+
+        .label_p {
+            display: inline-block;
+            max-width: 100%;
+            margin-bottom: 0px;
+            font-weight: normal !important;
+        }
+    </style>
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatableCheckbox")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/notifyjs")
+
+    <script type="text/javascript">
+
+       $(function () {
+            $('body').on('click', '.modal-link', function (e) {
+                e.preventDefault();
+                $(this).attr('data-target', '#modal-container');
+                $(this).attr('data-toggle', 'modal');
+            });
+            $('body').on('click', '.modal-close-btn', function () {
+                $('#modal-container').modal('hide');
+            });
+            $('#modal-container').on('hidden.bs.modal', function () {
+                $(this).removeData('bs.modal');
+            });
+            $('#CancelModal').on('click', function () {
+                return false;
+            });
+       });
+
+
+           function GeneralJournal() {
+
+               //var recidd = document.getElementById("recidd").value;
+
+               //alert(recidd);
+
+            document.getElementById("myForm").style.display = "block";
+            document.getElementById('btnSubmit').style.visibility = 'visible';
+            document.getElementById("btnWarning1").value = "";
+            var batchUploadSelected = document.getElementById("batchUploadSelect").value;
+
+            if (batchUploadSelected == "All") {
+              //  alert(batchUploadSelected);
+                document.getElementById('btnSubmit').style.visibility='hidden';
+                document.getElementById("btnWarning1").value = "Please select batch number!";
+            }
+
+           $("#btnSubmit").click(function () {
+            var batchUploadSelected = document.getElementById("batchUploadSelect").value;
+            //alert(batchUploadSelected);
+              $.ajax({
+                type: "POST",
+                url: '@Url.Action("GeneralJournal")',
+                data: '{ batchno : "' + batchUploadSelected + '" }',
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    alert("The general journal has been created successfully!");
+                    location.reload(true);
+                },
+                  error: function () {
+                   document.getElementById('btnSubmit').style.visibility='hidden';
+                   document.getElementById("btnWarning1").value = "Cannot Confirm Batch. Please Check With Administrator.";
+                }
+            });
+
+            return false;
+        });
+    }
+
+
+        jQuery.extend(jQuery.fn.dataTableExt.oSort, {
+            "customDate-pre": function (a) {
+                var ukDatea = a.split('/');
+                return (ukDatea[2] + ukDatea[1] + ukDatea[0]) * 1;
+            },
+
+            "customDate-asc": function (a, b) {
+                return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+            },
+
+            "customDate-desc": function (a, b) {
+                return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+            }
+        });
+        Date.prototype.toFormattedDate = function () {
+            var dd = this.getDate();
+            if (dd < 10) dd = '0' + dd;
+            var mm = this.getMonth() + 1;
+            if (mm < 10) mm = '0' + mm;
+            var yyyy = this.getFullYear();
+            /* change format here */
+            return String(dd + "/" + mm + "/" + yyyy);
+        };
+
+        var MSR = function (data) {
+            var self = this;
+            this.ID = ko.observable(data.ID);
+            this.BranchName = ko.observable(data.BranchName);
+            this.ProjectName = ko.observable(data.ProjectName);
+            this.LocationCode = ko.observable(data.LocationCode);
+            this.LocationName = ko.observable(data.LocationName);
+            this.IsActive = ko.observable(data.IsActive);
+            this.DetailURL = ko.observable(data.DetailURL);
+            this.PostKioskURL = ko.observable(data.PostKioskURL);
+            this.ShowButton = ko.observable(data.ShowButton);
+        };
+
+        var ViewModel = new function () {
+            var self = this;
+            var defaultDropdownText = 'All';
+          //  var defaultDropdownTextStatus = 'Draft';
+         //   var defaultdate = new Date().toFormattedDate();
+            self.pageSize = ko.observable(10);
+            self.indexPage = ko.observable(0);
+            self.totalPage = ko.observable(1);
+            self.totalRow = ko.observable(0);
+            self.hocs = ko.observableArray([]);
+            self.formVendorSearch = ko.observable("");
+
+            var defaultdate = new Date().toFormattedDate();
+          
+
+
+           self.nextPage = function () {
+                if ((self.indexPage() + 1) < self.totalPage()) {
+                    self.indexPage(self.indexPage() + 1);
+                    self.loadhoc();
+                }
+            }
+            self.prevPage = function () {
+                if (self.indexPage() > 0) {
+                    self.indexPage(self.indexPage() - 1);
+                    self.loadhoc();
+                }
+            }
+
+            self.loadhoc = function () {
+                self.hocs.removeAll();
+
+                $.ajax('@Url.Action("GetProjectLocationData", "CMCSetup")', {
+                    data: ko.toJSON({
+                        search: self.formVendorSearch(),
+                        pageSize: self.pageSize(),
+                        pageIndex: self.indexPage(),
+                        businessunit: self.selectedBusinessUnitName(),
+                        branchname: self.selectedBranchName(),
+                        projectname: self.selectedProjectName(),
+                    }),
+                    type: "post",
+                    contentType: "application/json",
+                    success: function (result) {
+                        self.hocs.removeAll();
+                        var underlyingArray = self.hocs();
+                        for (var i = 0; i < result.hocs.length; i++) {
+                            var row = result.hocs[i];
+                            var record = {
+                                ID: row.ID,
+                                BusinessUnit: row.BusinessUnit,
+                                BranchName: row.BranchName,
+                                LocationCode: row.LocationCode,
+                                ProjectName: row.ProjectName,
+                                LocationName: row.LocationName,
+                                IsActive: row.IsActive,
+                                DetailURL: row.DetailURL,
+                                PostKioskURL: row.PostKioskURL,
+                                ShowButton: row.ShowButton,
+                            }
+                            underlyingArray.push(record);
+                        }
+                        self.hocs.valueHasMutated();
+                        self.totalPage(result.totalPage);
+                        self.totalRow(result.totalRow);
+                        $('#dialog-Loading').dialog("close");
+                    },
+                    error: function (error) {
+                        $.notify(
+                            error.responseText, {
+                                position: "top center",
+                                className: "error"
+                            }
+                        );
+                        $('#dialog-Loading').dialog("close");
+                    }
+                });
+            }
+
+                self.restartSearchPagination = function () {
+                self.hocs.removeAll();
+                self.indexPage(0);
+                self.totalPage(1);
+                self.totalRow(0);
+            }
+            self.formVendorSearch.subscribe(function (value) {
+                if (value == '') self.formVendorSearch("");
+
+                self.restartSearchPagination();
+                self.loadhoc();
+            });
+            self.pageSize.subscribe(function (value) {
+                if (self.formVendorSearch() == '') self.formVendorSearch("");
+                self.restartSearchPagination();
+                self.loadhoc();
+            });
+
+            self.vendorsComputed = ko.computed(function () {
+                var records = self.hocs;
+                return records;
+            });
+             self.selectedBusinessUnitName.subscribe(function (value) {
+                $('#dialog-Loading').dialog("open");
+                self.restartSearchPagination();
+                self.loadhoc();
+             });
+              self.selectedBranchName.subscribe(function (value) {
+                $('#dialog-Loading').dialog("open");
+                self.restartSearchPagination();
+                self.loadhoc();
+              });
+             self.selectedProjectName.subscribe(function (value) {
+                $('#dialog-Loading').dialog("open");
+                self.restartSearchPagination();
+                self.loadhoc();
+             });
+            self.loadhoc();
+
+
+    };
+
+     $(document).ready(function () {
+
+
+     });
+
+    $('#mainTable tbody').on( 'click', 'tr td:nth-of-type(4)', function (){
+    alert("-" );
+    });
+
+    $(".use-address").click(function() {
+    var $row = $(this).closest("tr");    // Find the row
+    var $text = $row.find(".nr").text(); // Find the text
+
+    // Let's test it out
+    alert($text);
+     });
+
+        $(document).ready(function () {
+
+            $('#StartDate').datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true,
+            }).datepicker("setDate", new Date());
+
+            ko.applyBindings(ViewModel);
+        });
+
+
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+          document.getElementById("myForm").style.display = "none";
+    }
+    </script>
+}
+

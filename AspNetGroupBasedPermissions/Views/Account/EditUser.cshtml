@@ -1,0 +1,93 @@
+﻿@model AspNetGroupBasedPermissions.Models.EditUserViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutPopUp.cshtml";
+}
+@{
+    ViewBag.Title = "Edit User";
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="panel-heading btn-primary modal-header">
+                <center class="panel-title" style="min-height:10px;">
+                    <h4 style="font-weight:300">Edit User</h4>
+                </center>
+            </div>
+            <div class="ibox-content">
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+
+                        @Html.ValidationSummary(true)
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.HiddenFor(model => model.UserName)
+                                @Html.TextBox("UserName", Model.UserName, new { @readonly = "readonly", @class = "text-box single-line" })
+                                @Html.ValidationMessageFor(model => model.UserName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.FirstName, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.FirstName)
+                                @Html.ValidationMessageFor(model => model.FirstName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.LastName, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.LastName)
+                                @Html.ValidationMessageFor(model => model.LastName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Email)
+                                @Html.ValidationMessageFor(model => model.Email)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn btn-primary" />
+                                @Html.ActionLink("Cancel", "IndexUser", null, new { @class = "btn btn-white" })
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+        });
+
+    </script>
+}
+

@@ -1,0 +1,22 @@
+﻿@model dynamic
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Invoice @Model.InvoiceHeader.InvoiceCode Has Been Finished</title>
+</head>
+<body>
+    <p>
+        Dear Mr/Mrs @Model.Requester.FirstName @Model.Requester.LastName,<br /><br />
+        Invoice @Model.InvoiceHeader.InvoiceCode has been finished.<br />
+        Please click <a href="https://msr.umw-oilgas.com">https://msr.umw-oilgas.com</a> to access the system.
+    </p>
+
+    
+    <p>
+        <span style="color:red">*** This is an automatically generated email, please do not reply ***</span>
+    </p>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Core.Entities.Data.Admin.Service>
+@using AspNetGroupBasedPermissions.Helpers
+
+<table style="padding-top:1px" class="table table-striped table-bordered table-hover dataTables-example">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameOption)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                <h4>@Html.DisplayFor(modelItem => item.NameOption)</h4>
+                <p style="font-size:10px">@Html.DisplayFor(modelItem => item.Controller)</p>
+
+            </td>
+            <td>
+                @Html.EncodedActionLink(" ", "Edit", "Service", new { id = item.Id }, new { @class = "btn-white glyphicon glyphicon-check", @style = "color:white;background-color: steelblue;" })
+            </td>
+        </tr>
+
+        }
+</table>

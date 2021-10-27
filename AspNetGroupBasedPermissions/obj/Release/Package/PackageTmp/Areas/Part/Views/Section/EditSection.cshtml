@@ -1,0 +1,202 @@
+﻿@model Core.Entities.Data.PartData.Section
+@using AspNetGroupBasedPermissions.Helpers
+@{ ViewBag.Title = "Edit Section";}
+@{
+    Layout = "~/Views/Shared/_LayoutPopUp.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.SectionID)
+
+    <div id="mainbox" class="row">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="panel-heading btn-primary modal-header">
+                    <center class="panel-title" style="min-height:10px;">
+                        <h4 style="font-weight:300">Edit Section</h4>
+                    </center>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-condensed table-striped table-bordered">
+                        <tr></tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Section ID</td>
+                            <td>
+                                @Html.EditorFor(model => model.SectionID, new { htmlAttributes = new { @disabled = "true", @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.SectionID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">SAP Code</td>
+                            <td>
+                                @Html.EditorFor(model => model.SAPCode, new { htmlAttributes = new { @class = "form-control", @maxlength = 50, @required = "true", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.SAPCode)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Section Name</td>
+                            <td>
+                                @Html.EditorFor(model => model.SectionName, new { htmlAttributes = new { @class = "form-control", @maxlength = 150, @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.SectionName)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Plant</td>
+                            <td>
+                                @Html.DropDownList("PlantID", (IEnumerable<SelectListItem>)Session["PlantID"], " --Select Plant-- ", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                @Html.HiddenFor(model => model.PlantID)
+                                @Html.ValidationMessageFor(model => model.PlantID)
+                            </td>
+                        </tr>
+                     
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Business Unit</td>
+                            <td>
+                                <input id="bizunitName" style="max-height:28px;font-size:11px;background-color:lightgoldenrodyellow" class="form-control" onchange="GetPartName(this.value)" type="text" name="searchbox" placeholder="--Search Business Unit Name--" />
+                                @Html.DropDownList("BUID", (IEnumerable<SelectListItem>)Session["BUID"], " --Select BU--", new { @class = "form-control", @id = "bizunitid", @required = "required", @style = "font-size:12px;height:30px;" })
+                                @Html.HiddenFor(model => model.BUID)
+                                @Html.ValidationMessageFor(model => model.BUID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Cost Centre</td>
+                            <td>
+                                <input id="costcentreName" style="max-height:28px;font-size:11px;background-color:lightgoldenrodyellow" class="form-control" onchange="GetPartName(this.value)" type="text" name="searchbox" placeholder="--Search Cost Center Name--" />
+                                @Html.DropDownList("CostCentreID", (IEnumerable<SelectListItem>)Session["CostCentreID"], " --Select Cost Centre--", new { @id = "costcentreid", @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                @Html.HiddenFor(model => model.CostCentreID)
+                                @Html.ValidationMessageFor(model => model.CostCentreID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Description</td>
+                            <td>
+                                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Description)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Is Active?</td>
+                            <td>
+                                @Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @style = "font-size:11px;height:18px;color:black", } })
+                                @Html.ValidationMessageFor(model => model.IsActive)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Status</td>
+                            <td>
+                                @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control", @disabled = "true", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Status)
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Update" class="btn btn-primary" />
+                        @Html.ActionLink("Cancel", "IndexSection", null, new { @class = "btn btn-white" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatableCheckbox")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/notifyjs")
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+              $(document).ready(function () {
+        $("#bizunitName").autocomplete({
+            source: function (request, response) {
+                var bizunit = document.getElementById("bizunitName").value;
+                  $.ajax({
+                      url: '@Url.Action("GetBizUnit", "Section", new { area = "Part" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                          bizunit: bizunit
+                      },
+
+                      success: function (results) {
+                          $('#bizunitid').html(""); // clear before appending new list
+                          $('#bizunitid').append(
+                          $('<option></option>').val("").html("--Select Business Unit--"));
+                          $.each(results, function (i, results) {
+                              $('#bizunitid').append(
+                                  $('<option></option>').val(results.BUID).html(results.BusinessUnitName));
+                           
+                          });
+                      },
+                      error: function (error) {
+                      }
+                  });
+
+        },
+        select: function (event, ui) {
+            $("#pettycodeid").val(ui.item.partName);
+        }
+         });
+          });
+
+    $(document).ready(function () {
+        $("#costcentreName").autocomplete({
+            source: function (request, response) {
+                var costcentername = document.getElementById("costcentreName").value;
+                  $.ajax({
+                      url: '@Url.Action("GetCostCenter", "Section", new { area = "Part" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                          costcentername: costcentername
+                      },
+
+                      success: function (results) {
+                          $('#costcentreid').html(""); // clear before appending new list
+                          $('#costcentreid').append(
+                          $('<option></option>').val("").html("--Select Cost Center--"));
+                          $.each(results, function (i, results) {
+                              $('#costcentreid').append(
+                                  $('<option></option>').val(results.CostCentreID).html(results.CostCentreName));
+                           
+                          });
+                      },
+                      error: function (error) {
+                      }
+                  });
+
+        },
+        select: function (event, ui) {
+            $("#pettycodeid").val(ui.item.partName);
+        }
+         });
+    });
+
+            $("#transactiondate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+
+        });
+
+    </script>
+}

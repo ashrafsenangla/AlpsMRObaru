@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <Height>0.79in</Height>
+    <Style />
+  </Body>
+  <Width>7.39583in</Width>
+  <Page>
+    <PageHeight>11.69in</PageHeight>
+    <PageWidth>8.27in</PageWidth>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="EPRReport">
+      <DataSourceReference>EPRReport</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>d224d8a3-4a4d-4ddf-987b-9260fd2ba0d1</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>EPRReport</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@PONumber">
+            <Value>=Parameters!PONumber.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT			a.PONumber,a.PRNumber, a.ShipToAddress, a.ContactPerson, a.ContactPhoneNumber AS ShipContactNo, 
+a.PreparedBy,a.VerifiedBy, a.ApprovedBy,
+				a.ContactMobileNumber  AS ShipMobileNo, a.ContactFaxNumber AS ShipFaxNo, a.ContactEmailAddress,
+				a.VendorContactName, a.VendorMobileNumber, a.InstructionToVendor,
+				a.DiscHeaderAmt, a.TaxPercentage as TaxHeader, a.TotalOrderAmount,  
+				REPLACE(CONVERT(VARCHAR(11), a.DeliveryDate, 106), '', '-') AS DeliveryDate,				
+				(SELECT        PaymentDesc
+                               FROM            RTMPaymentTerm AS h
+                               WHERE        (PaymentCode = a.PaymentTerm)) AS PaymentTerm,
+				(SELECT        DTName
+                               FROM            RTMDeliveryTerm AS h
+                               WHERE        (DTCode = a.DeliveryTermCode and CompanyCode=a.CompanyCode)) AS DeliveryTerm,
+				REPLACE(CONVERT(VARCHAR(11), a.OrderDate, 106), '', '-') AS PODate,				
+				b.ItemCode,b.ItemDescription, b.Quantity, b.UOM, b.TaxPercentage, b.UnitPrice,	
+				b.DiscountPercentage, b.DiscountAmount, b.Amount, b.TaxCharges, 
+				c.CompanyName AS VendorName,c.Address AS VendorAddress, c.Postcode, c.City, c.StateCode,					
+				(SELECT        CountryDesc
+                               FROM            RTMCountry AS h
+                               WHERE        (CountryCode = c.CountryCode)) AS VendorCountryName,
+				c.EmailAddress AS VendorEmail, c.PhoneNumber1 AS VendorPhone, c.FaxNumber AS VendorFax, c.GSTVatRegNo AS VendorGST,
+				d.DeliveryAddress AS DeliveryAdd, 
+                         d.Phone AS DeliveryPhone, d.Fax AS DeliveryFax, d.Email AS DeliveryEmail, d.ContactPerson AS DeliveryContact, d.DeliveryLocation,
+                             (SELECT        LocationName
+                               FROM            RTMDeliveryLocation AS i
+                               WHERE        (ID = d.DeliveryLocation)) AS LocationName,
+				e.CompanyName AS CompanyNameUMW, e.Address AS CompanyNameAddress, e.Phone AS PhoneUMW, e.Fax AS FaxUMW,
+								(SELECT        Image  
+                               FROM            POSignature AS x
+                               WHERE        (SignatureName = a.PreparedBy)) AS BuyerImage,
+							   (SELECT        Image  
+                               FROM            POSignature AS x
+                               WHERE        (SignatureName = a.VerifiedBy)) AS ImageVerified,
+							   (SELECT        Image  
+                               FROM            POSignature AS x
+                               WHERE        (SignatureName = a.ApprovedBy)) AS ImageApprover,
+
+							   (SELECT        Position  
+                               FROM            POSignature AS x
+                               WHERE        (SignatureName = a.PreparedBy)) AS PositionBuyer,
+							   (SELECT        Position  
+                               FROM            POSignature AS x
+                               WHERE        (SignatureName = a.VerifiedBy)) AS PositionVerified,
+							   (SELECT        Position  
+                               FROM            POSignature AS x
+                               WHERE        (SignatureName = a.ApprovedBy)) AS PositionVerifier
+
+FROM            PRHeader AS a INNER JOIN
+                PRDetail AS b ON a.ID = b.PRID INNER JOIN
+				VendorMaster As c ON a.VendorId = c.ID INNER JOIN
+				MSRDeliveryInfo AS d ON a.MSRID = d.MSRID INNER JOIN
+				Company AS e ON a.CompanyCode = e.CompanyCode
+                         
+WHERE a.PONumber=@PONumber</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="PONumber">
+          <DataField>PONumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PRNumber">
+          <DataField>PRNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ShipToAddress">
+          <DataField>ShipToAddress</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ContactPerson">
+          <DataField>ContactPerson</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ShipContactNo">
+          <DataField>ShipContactNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PreparedBy">
+          <DataField>PreparedBy</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="VerifiedBy">
+          <DataField>VerifiedBy</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ApprovedBy">
+          <DataField>ApprovedBy</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ShipMobileNo">
+          <DataField>ShipMobileNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ShipFaxNo">
+          <DataField>ShipFaxNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ContactEmailAddress">
+          <DataField>ContactEmailAddress</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="VendorContactName">
+          <DataField>VendorContactName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="VendorMobileNumber">
+          <DataField>VendorMobileNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="InstructionToVendor">
+          <DataField>InstructionToVendor</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DiscHeaderAmt">
+          <DataField>DiscHeaderAmt</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="TaxHeader">
+          <DataField>TaxHeader</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="TotalOrderAmount">
+          <DataField>TotalOrderAmount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DeliveryDate">
+          <DataField>DeliveryDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PaymentTerm">
+          <DataField>PaymentTerm</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DeliveryTerm">
+          <DataField>DeliveryTerm</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PODate">
+          <DataField>PODate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ItemCode">
+          <DataField>ItemCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ItemDescription">
+          <DataField>ItemDescription</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Quantity">
+          <DataField>Quantity</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="UOM">
+          <DataField>UOM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TaxPercentage">
+          <DataField>TaxPercentage</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="UnitPrice">
+          <DataField>UnitPrice</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DiscountPercentage">
+          <DataField>DiscountPercentage</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DiscountAmount">
+          <DataField>DiscountAmount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Amount">
+          <DataField>Amount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="TaxCharges">
+          <DataField>TaxCharges</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="VendorName">
+          <DataField>VendorName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="VendorAddress">
+          <DataField>VendorAddress</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Postcode">
+          <DataField>Postcode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="City">
+          <DataField>City</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="StateCode">
+          <DataField>StateCode</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="VendorCountryName">
+          <DataField>VendorCountryName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="VendorEmail">
+          <DataField>VendorEmail</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="VendorPhone">
+          <DataField>VendorPhone</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="VendorFax">
+          <DataField>VendorFax</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="VendorGST">
+          <DataField>VendorGST</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DeliveryAdd">
+          <DataField>DeliveryAdd</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DeliveryPhone">
+          <DataField>DeliveryPhone</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DeliveryFax">
+          <DataField>DeliveryFax</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DeliveryEmail">
+          <DataField>DeliveryEmail</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DeliveryContact">
+          <DataField>DeliveryContact</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DeliveryLocation">
+          <DataField>DeliveryLocation</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="LocationName">
+          <DataField>LocationName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CompanyNameUMW">
+          <DataField>CompanyNameUMW</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CompanyNameAddress">
+          <DataField>CompanyNameAddress</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PhoneUMW">
+          <DataField>PhoneUMW</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FaxUMW">
+          <DataField>FaxUMW</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BuyerImage">
+          <DataField>BuyerImage</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ImageVerified">
+          <DataField>ImageVerified</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ImageApprover">
+          <DataField>ImageApprover</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PositionBuyer">
+          <DataField>PositionBuyer</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PositionVerified">
+          <DataField>PositionVerified</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PositionVerifier">
+          <DataField>PositionVerifier</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="PONumber">
+      <DataType>String</DataType>
+      <Prompt>PONumber</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>e3e0486f-18fc-4d58-9227-23fcbc726880</rd:ReportID>
+</Report>

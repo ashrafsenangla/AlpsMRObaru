@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SRT-EON | @ViewBag.Title</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <!-- Add local styles, mostly for plugins css file -->
+    @if (IsSectionDefined("Styles"))
+    {@RenderSection("Styles", required: false)}
+    <!-- Add jQuery Style direct - used for jQGrid plugin -->
+    <link href="@Url.Content("~/Scripts/plugins/jquery-ui/jquery-ui.css")" rel="stylesheet" type="text/css" />
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/font-awesome/css")
+</head>
+<body>
+               
+                    @RenderBody()
+                    @Scripts.Render("~/bundles/jquery")
+                    @Scripts.Render("~/bundles/bootstrap")
+                    @Scripts.Render("~/plugins/metsiMenu")
+                    @Scripts.Render("~/plugins/pace")
+                    @Scripts.Render("~/plugins/slimScroll")
+                    @Scripts.Render("~/bundles/inspinia")
+                    @Scripts.Render("~/bundles/skinConfig")
+                    @Scripts.Render("~/bundles/datetime")
+
+                    @RenderSection("scripts", required: false)
+    </body>
+</html>
+
+<script>
+    $("#dialog-Loading").dialog({
+        open: function (event, ui) {
+            $(this).parent().addClass('ui-dialog-3000');
+        },
+        autoOpen: false,
+        height: 50,
+        width: 50,
+        modal: true,
+        dialogClass: "no-titlebar-round"
+    });
+</script>
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+

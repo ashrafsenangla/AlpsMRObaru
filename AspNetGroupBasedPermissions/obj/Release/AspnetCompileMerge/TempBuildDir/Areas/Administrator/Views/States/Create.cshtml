@@ -1,0 +1,83 @@
+﻿@model Core.Entities.Data.Admin.States
+@{ ViewBag.Title = "Create State";}
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+           
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title " style="padding-top:32px;"></div>
+                    <div class="ibox-content" style="background-color:#f7f5f5;">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="pull-left btn btn-xs btn-primary btn-block" style="font-weight:bolder; background-color:#37a5ed; border-color:#37a5ed;">Create New Branch</label>
+                            </div>
+                            <div class="welldetailsContactedit" style="background-color:#c5e5fa;">
+                                <br />
+                                @Html.ValidationSummary()
+                                <div class="wellpob" style="min-height:330px;  background-color:#c5e5fa; padding:10px;  margin-bottom:20px;">
+                                    <div class="circle-border">
+                                        <div class="col-lg-5">
+                                            <div class="col-lg-7">
+                                                <div class="row">
+                                                    @Html.LabelFor(model => model.StateCode, "State Code", new { @class = "control-label col-md-4"})
+                                                    <div class="col-md-8">
+                                                        @Html.LabelFor(model => model.StateCode, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" } })
+                                                        @Html.ValidationMessageFor(model => model.StateCode)
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    @Html.LabelFor(model => model.StateDesc, "Manager Mobile#", new { @class = "control-label col-md-4" })
+                                                    <div class="col-md-8">
+                                                        @Html.EditorFor(model => model.StateDesc, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = ";font-size:12px;height:30px;" } })
+                                                        @Html.ValidationMessageFor(model => model.StateDesc)
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-offset-5 col-md-9">
+
+                            <input type="submit" value="Create" class="btn btn-xs btn-primary" style = "border-color:#37a5ed;background-color:#37a5ed;width:60px;" />
+                            @Html.ActionLink("Cancel", "IndexState", null, new { @class = "btn btn-white" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+
+    <script src="~/Scripts/plugins/knockout/knockout.validation.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#RoadTaxDate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+        });
+
+       
+    </script>
+}
+

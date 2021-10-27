@@ -1,0 +1,171 @@
+﻿@model Core.Entities.Data.PartData.PartMaster
+@{
+    var htmlAttributes = HtmlHelper.AnonymousObjectToHtmlAttributes(ViewData["htmlAttributes"]);
+    htmlAttributes["type"] = "file";
+}
+
+@using AspNetGroupBasedPermissions.Helpers
+@{ ViewBag.Title = "Create Part";}
+@{
+    Layout = "~/Views/Shared/_LayoutPopUp.cshtml";
+}
+
+@using (Html.BeginForm("CreatePartMaster", "PartMaster", FormMethod.Post,
+                    new { enctype = "multipart/form-data" }))
+{
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div id="addcocbox" class="row" style="width:auto;max-width:750px">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="panel-heading btn-primary modal-header">
+                    <center class="panel-title" style="min-height:10px;">
+                        <h4 style="font-weight:300">Create New Part</h4>
+                    </center>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-condensed table-striped table-bordered">
+                        <tr></tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Part No.</td>
+                            <td>
+                                <input type="text" id="partno" name="PartNo" maxlength="80" required="true" class="form-control" style="font-size:11px;height:28px;color:black;font-size:11px" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Item No.</td>
+                            <td>
+                                <input type="text" name="ItemNo" axlength="80" required="true" class="form-control" style="font-size:11px;height:28px;color:black;font-size:11px" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Part Name</td>
+                            <td>
+                                <input type="text" name="PartName" axlength="250" required="true" class="form-control" style="font-size:11px;height:28px;color:black;font-size:11px" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Part Image</td>
+                            <td>
+                                <input type="file" name="file1" id="file1" style="width: 100%;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Part Drawing</td>
+                            <td>
+                                <input type="file" name="file2" id="file2" style="width: 100%;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Category</td>
+                            <td>
+                                <input id="categoryName" style="max-height:28px;font-size:11px;background-color:lightgoldenrodyellow" class="form-control" onchange="GetPartName(this.value)" type="text" name="searchbox" placeholder="--Search Category--" />
+                                @Html.DropDownList("CategoryID", ViewData["CategoryID"] as SelectList, "--Select Category--", htmlAttributes: new { @id = "categoryid", @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Description</td>
+                            <td>
+                                <input type="text" name="Description" axlength="300" class="form-control" style="font-size:11px;height:28px;color:black;font-size:11px" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" id="btnSave" value="Save" class="btn btn-primary" />
+                        @Html.ActionLink("Cancel", "IndexPartMaster", null, new { @class = "btn btn-white" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatableCheckbox")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/notifyjs")
+
+
+    <script type="text/javascript">
+
+         $(document).ready(function () {
+        $("#categoryName").autocomplete({
+            source: function (request, response) {
+                var categoryname = document.getElementById("categoryName").value;
+                  $.ajax({
+                      url: '@Url.Action("GetCategoryName", "PartMaster", new { area = "Part" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                          categoryname: categoryname
+                      },
+
+                      success: function (results) {
+                          $('#categoryid').html(""); // clear before appending new list
+                          $('#categoryid').append(
+                          $('<option></option>').val("").html("--Select Category--"));
+                          $.each(results, function (i, results) {
+                              $('#categoryid').append(
+                                  $('<option></option>').val(results.CategoryID).html(results.CategoryName));
+                          });
+                      },
+                      error: function (error) {
+                      }
+                  });
+
+        },
+        select: function (event, ui) {
+            $("#pettycodeid").val(ui.item.partName);
+        }
+         });
+           });
+
+
+        $('#partno').change(function () {
+            var partno = $('#partno').val();
+            $.ajax({
+                url: "/PartMaster/CheckDuplicate",
+                dataType: "json",
+                type: "GET",
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+                data: { partno: partno },
+                success: function (data) {
+                    if (data.success) {
+                        document.getElementById("btnSave").style.visibility = "visible";
+                    }
+                    else {
+                        document.getElementById("btnSave").style.visibility = "hidden";
+                        alert('Part No. Already Exist!!!');
+                    }
+                },
+                error: function (xhr) {
+                    alert('error');
+                }
+            });
+        });
+
+        $(document).ready(function () {
+
+            $("#transactiondate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+        });
+
+    </script>
+}

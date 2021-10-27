@@ -1,0 +1,117 @@
+﻿@model Core.Entities.Data.Admin.Service
+@using AspNetGroupBasedPermissions.Helpers
+@{ ViewBag.Title = "Detail Service";}
+@{
+    Layout = "~/Views/Shared/_LayoutPopUp.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+
+    <div id="mainbox" class="row">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="panel-heading btn-primary modal-header">
+                    <center class="panel-title" style="min-height:10px;">
+                        <h4 style="font-weight:300">Detail Service</h4>
+                    </center>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-condensed table-striped table-bordered">
+                        <tr></tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Service ID</td>
+                            <td>
+                                @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @disabled = "true", @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Id)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Menu Name</td>
+                            <td>
+                                @Html.EditorFor(model => model.NameOption, new { htmlAttributes = new { @disabled = "true", @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.NameOption)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Menu Path</td>
+                            <td>
+                                @Html.EditorFor(model => model.Controller, new { htmlAttributes = new { @disabled = "true", @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Controller)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Menu Image</td>
+                            <td>
+                                @Html.EditorFor(model => model.ImageClass, new { htmlAttributes = new { @disabled = "true", @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.ImageClass)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Sequence</td>
+                            <td>
+                                @Html.EditorFor(model => model.Sequence, new { htmlAttributes = new { @disabled = "true", @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Sequence)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Parent Name</td>
+                            <td>
+                                @Html.DropDownList("ParentID", (IEnumerable<SelectListItem>)Session["ParentID"], new { @disabled = "true", @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                @Html.HiddenFor(model => model.ParentId)
+                                @Html.ValidationMessageFor(model => model.ParentId)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Is Parent?</td>
+                            <td>
+                                @Html.EditorFor(model => model.IsParent, new { htmlAttributes = new { @disabled = "true", @style = "font-size:11px;height:18px;color:black", } })
+                                @Html.ValidationMessageFor(model => model.IsParent)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Description</td>
+                            <td>
+                                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @disabled = "true", @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Description)
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Update" class="btn btn-primary" />
+                        @Html.ActionLink("Cancel", "IndexService", null, new { @class = "btn btn-white" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#transactiondate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+
+        });
+
+    </script>
+}

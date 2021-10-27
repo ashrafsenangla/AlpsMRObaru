@@ -1,0 +1,1430 @@
+﻿@model Core.Entities.Data.Kenderaan.JobOrder
+
+@{
+    ViewBag.Title = "Create-Part";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+
+        @using (Html.BeginForm("JobOrderPart", "JobOrder", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Create Others</h5>
+                    </div>
+                    <div class="ibox-content" style="padding-top:3px;  position:relative;">
+                        <div class="row">
+
+                            <div class="well" style="min-height:110px; background-color: #EFF1FB;padding:14px;  margin-bottom:3px;">
+                                <div class="circle-border">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.JobOrderNo, new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs" style="min-height:1px; padding-left:3px;  padding-right:3px;  position:relative;">
+                                                <p>@ViewData["JobOrderNo"]</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" id="data_1">
+                                            @Html.LabelFor(model => model.JobDate, "Job Order Date", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs" style="min-height:1px; padding-left:3px;  padding-right:3px;  position:relative;">
+                                                @Html.TextBox("JobOrderDate", @ViewData["JobOrderDate"], "{0:dd/MM/yyyy}", new { @style = "width:50%; background-color:transparent;  border-color: transparent; padding-left: 0px;", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VehicleID, new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-c-xl" style="min-height:1px; padding-left:0px;  padding-right:0px;  position:relative;">
+                                                <p>@ViewData["VehicleNo"]</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.BusinessUnit, "Business Unit", new { @class = "control-label col-md-5" })
+                                            <div class="col-md-7">
+                                                <p>@ViewData["BusinessUnit"]</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.BranchID, "Branch", new { @class = "control-label col-md-5" })
+                                            <div class="col-md-7">
+                                                <p>@ViewData["BranchID"]</p>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.JOApplyStatus, new { @class = "control-label col-md-5" })
+                                            <div class="col-md-6 m-b-xs">
+                                                <p>@ViewData["Status"]</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    @*Hide Values*@
+                                    @Html.Hidden("JobOrderID", ViewData["JobOrderID"], new { @readonly = "readonly", id = "innrId" })
+                                    @*@Html.Hidden("IncidentTime", ViewData["IncidentTime"])
+                                    @Html.Hidden("IncidentTitle", ViewData["IncidentTitle"])
+                                    @Html.Hidden("LocationCode", ViewData["LocationCode"])
+                                    @Html.Hidden("IncidentDate", ViewData["IncidentDate"])
+                                    @Html.Hidden("LocationID", ViewData["LocationID"])*@
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10" align="center">
+                                <input type="submit" value="Save" class="btn btn-primary" style="width:auto;" onclick="return FormValidation()" />
+                                <button id="PageRefresh" class="btn btn-primary">Reset</button>
+                                @Html.ActionLink("Back To List", "IndexJO", null, new { @class = "btn btn-white" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+    @Styles.Render("~/plugins/wizardStepsStyles")
+    @Styles.Render("~/plugins/clockpickerStyles")
+    @Styles.Render("~/plugins/dataPickerStyles")
+    @Styles.Render("~/plugins/imagecropperStyles")
+    @Styles.Render("~/Content/plugins/chosen/chosenStyles")
+    @Styles.Render("~/Content/plugins/dropzone/dropZoneStyles")
+    @Styles.Render("~/Content/plugins/blueimp/css/")
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+
+    <link href="~/Scripts/plugins/jquery-ui/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/plugins/dataTables/dataTables.responsive.css" rel="stylesheet" />
+    <link href="~/Content/plugins/dataTables/dataTables.tableTools.min.css" rel="stylesheet" />
+
+    <style type="text/css">
+        .errorStyle {
+            border: 2px solid red;
+            background-color: #fdd;
+        }
+
+        .ui-dialog-title {
+            font-family: 'Times New Roman', Times, serif;
+            font-variant: normal;
+        }
+
+        h5.capitalize {
+            text-transform: capitalize;
+        }
+
+        .wellNew {
+            min-height: 220px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: none;
+            border: 1px solid #e3e3e3;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.05 );
+        }
+
+        .well4New {
+            background-color: #ffffc2;
+            border: 1px solid #e3e3e3;
+            border-radius: 4px;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+            margin-bottom: 10px;
+            min-height: 60px;
+            padding: 10px;
+        }
+
+        .wellUpdated {
+            background-color: #c3fdb8;
+            border: 1px solid #e3e3e3;
+            border-radius: 4px;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+            margin-bottom: 10px;
+            min-height: 175px;
+            padding: 10px;
+        }
+
+        .wellhNew {
+            min-height: 550px;
+            padding: 14px;
+            margin-bottom: 3px;
+            background-color: #EFF1FB;
+            border: 1px solid #e3e3e3;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+        }
+
+        .pre-scrollable {
+            height: 200px;
+        }
+    </style>
+    <style type="text/css">
+        .modal-content {
+            width: 600px !important;
+            margin: 30px auto !important;
+        }
+    </style>
+
+    <style>
+        .ui-dialog-3000 {
+            z-index: 3000 !important;
+        }
+
+        .ui-dialog-2900 {
+            z-index: 2900 !important;
+        }
+
+        .disable-background-eee {
+            background: #eee !important;
+        }
+
+        .ui-dialog-title {
+            text-transform: none !important;
+        }
+
+        .ui-widget {
+            font-family: 'open sans', 'Helvetica Neue', 'Helvetica', Arial, sans-serif !important;
+        }
+
+        .no-titlebar .ui-dialog-titlebar {
+            display: none;
+        }
+
+        .no-titlebar-round .ui-dialog-titlebar {
+            display: none;
+        }
+
+        .no-titlebar-round {
+            border-radius: 5px !important;
+        }
+
+        .font-danger {
+            color: #ed5565 !important;
+            font-weight: bold;
+        }
+
+        #header-fixed {
+            position: fixed;
+            top: 0px;
+            display: none;
+            background-color: white;
+        }
+
+        .margin01 > tr > td {
+            padding-top: 3px !important;
+            padding-bottom: 3px !important;
+            /*padding-left: 7px !important;
+            padding-right: 7px !important;*/
+        }
+
+        .ui-widget-header {
+            background: none;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            text-transform: uppercase;
+        }
+    </style>
+
+    <style>
+        /* Local style for demo purpose */
+        .lightBoxGallery {
+            text-align: center;
+        }
+
+            .lightBoxGallery img {
+                margin: 5px;
+            }
+    </style>
+
+    <style type="text/css">
+        .validationMessage {
+            color: #f00;
+        }
+
+        .customMessage {
+            color: #FFA500;
+        }
+    </style>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/plugins/wizardSteps")
+    @Scripts.Render("~/plugins/iCheck")
+    @Scripts.Render("~/plugins/validate")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/clockpicker")
+    @Scripts.Render("~/plugins/imagecropper")
+    @Scripts.Render("~/plugins/chosen")
+    @Scripts.Render("~/plugins/lightboxGallery")
+    @Scripts.Render("~/plugins/dropZone")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/plugins/dataTables")
+
+    <script src="script/bootstrap.min.js"></script>
+    <script src="~/Scripts/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/Scripts/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="~/Scripts/knockout.validation.min.js"></script>
+
+    <script type="text/javascript">
+        function fileUploadOnchange(id, fileName) {
+            var inrNo = document.getElementById("innrId").value;
+            var imagePath = "/Document/uploads/" + inrNo + "-" + fileName;
+            $("#imageNameId").text(fileName);
+            $("#SupportingDoc1Btn").text(fileName);
+            $("#imageNameId").css({ "text-align": "left" });
+            TaskListViewModel.formImage().ImageName(fileName);
+            TaskListViewModel.formImage().ImagePath(imagePath);
+            $("#imageNameId").val(fileName).change();
+        }
+
+        $('#SupportingDoc1Btn').click(function () {
+            $("#imageNameId").click();
+        });
+        $("#imageNameId").change(function () {
+            fileUploadOnchange(this.id, this.files[0].name);
+        });
+    </script>
+    <script type="text/javascript">
+    var TaskListViewModel = new TaskListViewModel();
+    function Task(data) {
+        this.PIID = ko.observable(data.PIID);
+        this.InjuredPerson = ko.observable(data.InjuredPerson);
+        this.BodyPartName = ko.observable(data.BodyPartName);
+        this.ShiftStartsTime = ko.observable(data.ShiftStartsTime);
+        this.FacilityMedicCode = ko.observable(data.FacilityMedicCode);
+        this.PrimaryDiagnosis = ko.observable(data.PrimaryDiagnosis);
+        this.DetailTreatment = ko.observable(data.DetailTreatment);
+        this.isDone = ko.observable(data.isDone);
+    }
+    function EQTask(data) {
+        this.EQID = ko.observable(data.EQID);
+        this.EquipmentName = ko.observable(data.EquipmentName);
+        this.BreakdownDesc = ko.observable(data.BreakdownDesc);
+        this.Consequences = ko.observable(data.Consequences);
+        this.Model_SN = ko.observable(data.Model_SN);
+        this.TechAccNo = ko.observable(data.TechAccNo);
+        this.RepairAction = ko.observable(data.RepairAction);
+        this.IsDowntime = ko.observable(data.IsDowntime);
+        this.IsRequiredMaintenance = ko.observable(data.IsRequiredMaintenance);
+        this.SuggestedCorrectiveAction = ko.observable(data.SuggestedCorrectiveAction);
+        this.isDone = ko.observable(data.isDone);
+    }
+    function IMTask(data) {
+        this.IMID = ko.observable(data.IMID);
+        this.ImageType = ko.observable(data.ImageType);
+        this.ImageDesc = ko.observable(data.ImageDesc);
+        this.ImagePath = ko.observable(data.ImagePath);
+        this.ImageName = ko.observable(data.ImageName);
+        this.isDone = ko.observable(data.isDone);
+    }
+    function FormValidation() {
+        for (i = 0; i < TaskListViewModel.tasks().length; i++) {
+            TaskListViewModel.tasks()[i].InjuredPerson() == "";
+            TaskListViewModel.tasks()[i].BodyPartName() == "";
+            TaskListViewModel.tasks()[i].ShiftStartsTime() == "";
+            TaskListViewModel.tasks()[i].FacilityMedicCode() == "";
+            TaskListViewModel.tasks()[i].PrimaryDiagnosis() == "";
+            TaskListViewModel.tasks()[i].DetailTreatment() == "";
+        }
+    }
+    function TaskListViewModel() {
+        // Data
+        //Personnel Injury
+        var self = this;
+        self.tasks = ko.observableArray([]);
+        self.newPIID = ko.observable();
+        self.newEQID = ko.observable();
+        self.newIMID = ko.observable();
+        self.newInjuredPerson = ko.observable();
+        self.newBodyPartName = ko.observable();
+        self.newPrimaryDiagnosis = ko.observable();
+        self.newFacilityMedicCode = ko.observable();
+        self.newDetailTreatment = ko.observable();
+        self.formTitle = ko.observable();
+        self.newTaskText = ko.observable();
+        self.incompleteTasks = ko.computed(function tasks() {
+            return ko.utils.arrayFilter(self.tasks(), function (task) { return !task.isDone() && !task._destroy });
+        });
+
+        //Equipment
+        self.eqtasks = ko.observableArray([]);
+        self.newEquipmentName = ko.observable();
+        self.newBreakdownDesc = ko.observable();
+        self.newConsequences = ko.observable();
+        self.newModel_SN = ko.observable();
+        self.newTechAccNo = ko.observable();
+        self.newIsDowntime = ko.observable();
+        self.newIsRequiredMaintenance = ko.observable();
+        self.newRepairAction = ko.observable();
+        self.newSuggestedCorrectiveAction = ko.observable();
+
+        self.newEQTaskText = ko.observable();
+        self.incompleteEQTasks = ko.computed(function eqtasks() {
+            return ko.utils.arrayFilter(self.eqtasks(), function (eqtask) { return !eqtask.isDone() && !eqtask._destroy });
+        });
+
+        //Image
+        self.imtasks = ko.observableArray([]);
+        self.newImageType = ko.observable();
+        self.newImageDesc = ko.observable();
+        self.newImagePath = ko.observable();
+        self.newImageName = ko.observable();
+
+        self.newIMTaskText = ko.observable();
+        self.incompleteIMTasks = ko.computed(function imtasks() {
+            return ko.utils.arrayFilter(self.imtasks(), function (imtask) { return !imtask.isDone() && !imtask._destroy });
+        });
+
+        // Operations
+        self.add = function () {
+            self.formTitle("Create");
+            self.formItem(new Task({}));
+            self.formIndex("");
+            $("#dialog-ItemRequest").dialog("open");
+        };
+
+        self.eqadd = function () {
+            self.formTitle("Create");
+            self.formEquipment(new EQTask({}));
+            self.formIndexEQ("");
+            $("#dialog-EquipmentDamage").dialog("open");
+        };
+
+        self.imadd = function () {
+            self.formTitle("Create");
+            self.formImage(new IMTask({}));
+            self.formIndexIM("");
+            $("#dialog-Image").dialog("open");
+        };
+        //image upload clear
+        self.fileData = ko.observable({
+            dataURL: ko.observable(),
+            // base64String: ko.observable(),
+        });
+        self.onClear = function (fileData) {
+            if (confirm('Are you sure?')) {
+                fileData.clear && fileData.clear();
+            }
+        };
+        // image upload end
+
+        self.POB = [
+    @if (ViewBag.POBCode != null)
+        {
+            foreach (var item in ViewBag.POBCode.Items)
+            {
+                <text>@Html.Raw("{ POBCode: '" + item.POBCode + "', POBName: '" + item.POBName.Replace("'", "`") + "'},")</text>
+            }
+
+        }
+        ];
+        self.MedicalPerson = [
+             @if (ViewBag.FacilityMedicCode != null)
+        {
+            foreach (var item in ViewBag.FacilityMedicCode.Items)
+            {
+                <text>@Html.Raw("{ POBCode: '" + item.POBCode + "', FacilityMedicName: '" + item.POBName.Replace("'", "`") + "'},")</text>
+            }
+
+        }
+
+        ];
+        self.BodyParts = [
+             @if (ViewBag.BodyPartInjured != null)
+                {
+                    foreach (var item in ViewBag.BodyPartInjured.Items)
+                    {
+                <text>@Html.Raw("{ ID: " + item.ID + ", BodyPart: '" + item.BodyPart + "'},")</text>
+                    }
+                }
+        ];
+        self.ImageTypes = [
+            @if(ViewBag.ImageType != null)
+            {
+                foreach (var item in ViewBag.ImageType)
+                {
+                    <text>@Html.Raw("{ ID: " +item.Value + ", ImageType: '"+ item.Text + "'},")</text>
+                }
+            }
+        ];
+
+        //Personnel Injury
+        self.formItem = ko.observable(new Task({}));
+        self.formIndex = ko.observable();
+        self.submitItemRequestForm = function () {
+
+            if ("" !== self.formIndex()) {
+                if (self.formItem().InjuredPerson() == undefined) {
+                    document.getElementById('injuredPersonId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('injuredPersonId').style.borderColor = "green";
+                }
+                if (self.formItem().BodyPartName() == undefined) {
+                    document.getElementById('bodyPartsId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('bodyPartsId').style.borderColor = "green";
+                }
+                if (self.formItem().ShiftStartsTime() == "") {
+                    document.getElementById('shiftStartsTimeId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('shiftStartsTimeId').style.borderColor = "green";
+                }
+                if (self.formItem().FacilityMedicCode() == undefined) {
+                    document.getElementById('medicalPersonId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('medicalPersonId').style.borderColor = "green";
+                }
+                if (self.formItem().PrimaryDiagnosis() == "") {
+                    document.getElementById('primaryDiagnosisId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('primaryDiagnosisId').style.borderColor = "green";
+                }
+                if (self.formItem().DetailTreatment() == "") {
+                    document.getElementById('detailTreatmentId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('detailTreatmentId').style.borderColor = "green";
+                }
+                //Validation Ends
+
+                var itemToChange = self.tasks()[self.formIndex()];
+                itemToChange.InjuredPerson(self.formItem().InjuredPerson()),
+                itemToChange.BodyPartName(self.formItem().BodyPartName()),
+                itemToChange.ShiftStartsTime(self.formItem().ShiftStartsTime()),
+                itemToChange.FacilityMedicCode(self.formItem().FacilityMedicCode()),
+                itemToChange.PrimaryDiagnosis(self.formItem().PrimaryDiagnosis()),
+                itemToChange.DetailTreatment(self.formItem().DetailTreatment())
+            }
+            else {
+                //Formvalidation Starts
+                if (self.formItem().InjuredPerson() == undefined) {
+                    document.getElementById('injuredPersonId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('injuredPersonId').style.borderColor = "green";
+                }
+                if (self.formItem().BodyPartName() == undefined) {
+                    document.getElementById('bodyPartsId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('bodyPartsId').style.borderColor = "green";
+                }
+                if (self.formItem().ShiftStartsTime() == undefined) {
+                    document.getElementById('shiftStartsTimeId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('shiftStartsTimeId').style.borderColor = "green";
+                }
+                if (self.formItem().FacilityMedicCode() == undefined) {
+                    document.getElementById('medicalPersonId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('medicalPersonId').style.borderColor = "green";
+                }
+                if (self.formItem().PrimaryDiagnosis() == undefined) {
+                    document.getElementById('primaryDiagnosisId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('primaryDiagnosisId').style.borderColor = "green";
+                }
+                if (self.formItem().DetailTreatment() == undefined) {
+                    document.getElementById('detailTreatmentId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('detailTreatmentId').style.borderColor = "green";
+                }
+                //Validation Ends
+
+                self.tasks.push(
+                    new Task({
+                        InjuredPerson: self.formItem().InjuredPerson(),
+                        BodyPartName: self.formItem().BodyPartName(),
+                        ShiftStartsTime: self.formItem().ShiftStartsTime(),
+                        FacilityMedicCode: self.formItem().FacilityMedicCode(),
+                        PrimaryDiagnosis: self.formItem().PrimaryDiagnosis(),
+                        DetailTreatment: self.formItem().DetailTreatment()
+                    })
+                );
+            }
+
+            self.formItem(new Task({}));
+            self.formIndex("");
+            self.newInjuredPerson("");
+            self.newBodyPartName("");
+            self.newPrimaryDiagnosis("");
+            self.newFacilityMedicCode("");
+            self.newDetailTreatment("");
+            $("#dialog-ItemRequest").dialog("close");
+        };
+        self.cancelItemRequestForm = function () {
+            $("#dialog-ItemRequest").dialog("close");
+        }
+        self.cancelPIDetails = function () {
+            $("#dialog-PIDetails").dialog("close");
+        }
+        self.cancelPIDelete = function () {
+            $("#dialog-PIDelete").dialog("close");
+        }
+
+
+        //Equipment
+        self.formEquipment = ko.observable(new EQTask({}));
+        self.formIndexEQ = ko.observable();
+        self.submitEQRequestForm = function () {
+
+            //Formvalidation Starts
+            if (self.formEquipment().EquipmentName() == undefined || self.formEquipment().EquipmentName() == "") {
+                document.getElementById('equipmentNameId').style.borderColor = "red";
+                return false;
+            }
+            else {
+                document.getElementById('equipmentNameId').style.borderColor = "green";
+            }
+            if (self.formEquipment().TechAccNo() == undefined) {
+                document.getElementById('techAccNoId').style.borderColor = "red";
+                return false;
+            }
+            else {
+                document.getElementById('techAccNoId').style.borderColor = "green";
+            }
+            if (self.formEquipment().Model_SN() == undefined || self.formEquipment().Model_SN() == "") {
+                document.getElementById('model_SNId').style.borderColor = "red";
+                return false;
+            }
+            else {
+                document.getElementById('model_SNId').style.borderColor = "green";
+            }
+            if (self.formEquipment().BreakdownDesc() == undefined || self.formEquipment().BreakdownDesc() == "") {
+                document.getElementById('breakdownDescId').style.borderColor = "red";
+                return false;
+            }
+            else {
+                document.getElementById('breakdownDescId').style.borderColor = "green";
+            }
+            if (self.formEquipment().Consequences() == undefined || self.formEquipment().Consequences() == "") {
+                document.getElementById('consequencesId').style.borderColor = "red";
+                return false;
+            }
+            else {
+                document.getElementById('consequencesId').style.borderColor = "green";
+            }
+            if (self.formEquipment().RepairAction() == undefined || self.formEquipment().RepairAction() == "") {
+                document.getElementById('repairActionId').style.borderColor = "red";
+                return false;
+            }
+            else {
+                document.getElementById('repairActionId').style.borderColor = "green";
+            }
+            if (self.formEquipment().SuggestedCorrectiveAction() == undefined || self.formEquipment().SuggestedCorrectiveAction() == "") {
+                document.getElementById('suggestedCorrectiveActionId').style.borderColor = "red";
+                return false;
+            }
+            else {
+                document.getElementById('suggestedCorrectiveActionId').style.borderColor = "green";
+            }
+            //Validation Ends
+
+            if ("" !== self.formIndexEQ()) {
+                var itemToChange = self.eqtasks()[self.formIndexEQ()];
+                itemToChange.EquipmentName(self.formEquipment().EquipmentName()),
+                itemToChange.BreakdownDesc(self.formEquipment().BreakdownDesc()),
+                itemToChange.Consequences(self.formEquipment().Consequences()),
+                itemToChange.Model_SN(self.formEquipment().Model_SN()),
+                itemToChange.TechAccNo(self.formEquipment().TechAccNo()),
+                itemToChange.RepairAction(self.formEquipment().RepairAction()),
+                itemToChange.SuggestedCorrectiveAction(self.formEquipment().SuggestedCorrectiveAction()),
+                itemToChange.IsDowntime(self.formEquipment().IsDowntime()),
+                itemToChange.IsRequiredMaintenance(self.formEquipment().IsRequiredMaintenance())
+            }
+            else {
+                self.eqtasks.push(
+                    new EQTask({
+                        EquipmentName: self.formEquipment().EquipmentName(),
+                        BreakdownDesc: self.formEquipment().BreakdownDesc(),
+                        Consequences: self.formEquipment().Consequences(),
+                        Model_SN: self.formEquipment().Model_SN(),
+                        TechAccNo: self.formEquipment().TechAccNo(),
+                        RepairAction: self.formEquipment().RepairAction(),
+                        SuggestedCorrectiveAction: self.formEquipment().SuggestedCorrectiveAction(),
+                        IsDowntime: self.formEquipment().IsDowntime(),
+                        IsRequiredMaintenance: self.formEquipment().IsRequiredMaintenance()
+                    })
+                );
+            }
+            self.formEquipment(new EQTask({}));
+            self.formIndexEQ("");
+            self.newEquipmentName("");
+            self.newBreakdownDesc("");
+            self.newConsequences("");
+            self.newModel_SN("");
+            self.newTechAccNo("");
+            self.newRepairAction("");
+            self.newSuggestedCorrectiveAction("");
+            self.newIsDowntime("");
+            self.newIsRequiredMaintenance("");
+
+            $("#dialog-EquipmentDamage").dialog("close");
+        };
+        self.cancelEquipmentDamageForm = function () {
+            $("#dialog-EquipmentDamage").dialog("close");
+        }
+        self.cancelEQDetails = function () {
+            $("#dialog-EQDetails").dialog("close");
+        }
+
+        //Image Upload
+        self.formImage = ko.observable(new IMTask({}));
+        self.formIndexIM = ko.observable();
+        self.submitIMRequestForm = function () {
+
+            //Validation Start
+            if (self.formImage().ImageType().ImageType == "--Select Image Type--") {
+                document.getElementById('imageTypeId').style.borderColor = "red";
+                return false;
+            }
+            else {
+                document.getElementById('imageTypeId').style.borderColor = "green";
+            }
+            if (self.formImage().ImageName() == undefined || self.formImage().ImageName() == "") {
+                alert('Image Folder Should Not be Empty');
+                return false;
+            }
+            else {
+                document.getElementById('imageNameId').style.borderColor = "green";
+            }
+            if (self.formImage().ImageDesc() == undefined || self.formImage().ImageDesc() == "") {
+                document.getElementById('imageDescId').style.borderColor = "red";
+                return false;
+            }
+            else {
+                document.getElementById('imageDescId').style.borderColor = "green";
+            }
+            //Validation End
+
+            if ("" !== self.formIndexIM()) {
+
+                if (self.formImage().ImageDesc() == undefined || self.formImage().ImageDesc() == "") {
+                    document.getElementById('imageDescEditId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('imageDescEditId').style.borderColor = "green";
+                }
+
+                var itemToChange = self.imtasks()[self.formIndexIM()];
+                itemToChange.ImageType(self.formImage().ImageType()),
+                itemToChange.ImageDesc(self.formImage().ImageDesc()),
+                itemToChange.ImagePath(self.formImage().ImagePath()),
+                itemToChange.ImageName(self.formImage().ImageName());
+
+                self.formImage(new IMTask({}));
+                self.formIndexIM("");
+                self.newImageType("");
+                self.newImageDesc("");
+                self.newImagePath("");
+                self.newImageName("");
+                $("#dialog-ImageEdit").dialog("close");
+
+                var formData = new FormData();
+                var file = document.getElementById('imageNameEditId').files[0];
+                formData.append("ImageType", self.formImage().ImageType().ImageType);
+
+                formData.append("INRReportNo", $("#innrId").val());
+                formData.append("SupportingDoc", file);
+                formData.append("SupportingDoc1", $("#SupportingDoc1").val());
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("SubmitINRImage", "INRs")',
+                    data: formData,
+                    dataType: 'json',
+                    contentType: false,
+                    processData: false,
+                    success: function (result) {
+                        //
+                    },
+                    error: function (error) {
+                        //
+                    }
+                });
+                $("#SupportingDocEditBtn").text("--Change--");
+            }
+            else {
+                self.imtasks.push(
+                    new IMTask({
+                        ImageType: self.formImage().ImageType(),
+                        ImageDesc: self.formImage().ImageDesc(),
+                        ImagePath: self.formImage().ImagePath(),
+                        ImageName: self.formImage().ImageName()
+                    })
+                );
+
+                self.formImage(new IMTask({}));
+                self.formIndexIM("");
+
+                self.newImageType("");
+                self.newImageDesc("");
+                self.newImagePath("");
+                self.newImageName("");
+                $("#dialog-Image").dialog("close");
+
+                var formData = new FormData();
+                var file = document.getElementById('imageNameId').files[0];
+                formData.append("ImageType", self.formImage().ImageType().ImageType);
+
+                formData.append("INRReportNo", $("#innrId").val());
+                formData.append("SupportingDoc", file);
+                formData.append("SupportingDoc1", $("#SupportingDoc1").val());
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("SubmitINRImage", "INRs")',
+                    data: formData,
+                    dataType: 'json',
+                    contentType: false,
+                    processData: false,
+                    success: function (result) {
+                        //
+                    },
+                    error: function (error) {
+                        //
+                    }
+                });
+                $("#SupportingDoc1Btn").text("--Upload Image--");
+            }
+        };
+
+        self.cancelImageUploadForm = function () {
+            $("#dialog-Image").dialog("close");
+        }
+        self.cancelIUDetails = function () {
+            $("#dialog-IUDetails").dialog("close");
+        }
+        self.cancelEditImageUploadForm = function () {
+            $("#dialog-ImageEdit").dialog("close");
+        }
+
+
+        //Personnel Injury
+
+        //self.removeTask = function (task) {
+        //    self.formItem(new Task({
+        //        InjuredPerson: task.InjuredPerson(),
+        //        BodyPartName: task.BodyPartName(),
+        //        ShiftStartsTime: task.ShiftStartsTime(),
+        //        FacilityMedicCode: task.FacilityMedicCode(),
+        //        PrimaryDiagnosis: task.PrimaryDiagnosis(),
+        //        DetailTreatment: task.DetailTreatment()
+        //    }));
+        //    self.formIndex(self.tasks.indexOf(task));
+        //    self.formTitle("Are you sure you want to delete this?");
+
+        //    $("#dialog-PIDelete").dialog("open");
+        //    self.tasks.remove(task);
+        //};
+
+        self.removeTask = function (task) {
+            if (confirm('Are you sure you want to delete this?')) {
+                self.tasks.destroy(task);
+            };
+
+        }.bind(self);
+
+        self.removeTaskFinally = function (task) {
+            self.tasks.destroy(task);
+            $("#dialog-PIDelete").dialog("close");
+        };
+
+        self.editItem = function (task) {
+            self.formItem(new Task({
+                InjuredPerson: task.InjuredPerson(),
+                BodyPartName: task.BodyPartName(),
+                ShiftStartsTime: task.ShiftStartsTime(),
+                FacilityMedicCode: task.FacilityMedicCode(),
+                PrimaryDiagnosis: task.PrimaryDiagnosis(),
+                DetailTreatment: task.DetailTreatment()
+            }));
+            self.formIndex(self.tasks.indexOf(task));
+            self.formTitle("Edit");
+            //self.formIndex("");
+            $("#dialog-ItemRequest").dialog("open");
+        };
+        self.detailsItem = function (task) {
+            self.formItem(new Task({
+                InjuredPerson: task.InjuredPerson(),
+                BodyPartName: task.BodyPartName(),
+                ShiftStartsTime: task.ShiftStartsTime(),
+                FacilityMedicCode: task.FacilityMedicCode(),
+                PrimaryDiagnosis: task.PrimaryDiagnosis(),
+                DetailTreatment: task.DetailTreatment()
+            }));
+            self.formIndex(self.tasks.indexOf(task));
+            self.formTitle("Details");
+            //self.formIndex("");
+            $("#dialog-PIDetails").dialog("open");
+        };
+
+        // Equipment
+        //self.removeEQTask = function (eqtask) { self.eqtasks.destroy(eqtask) };
+        self.removeEQTask = function (eqtask) {
+            if (confirm('Are you sure you want to delete this?')) {
+                self.eqtasks.destroy(eqtask);
+            };
+        }.bind(self);
+
+        self.editEquipment = function (eqtask) {
+            self.formEquipment(new EQTask({
+                EquipmentName: eqtask.EquipmentName(),
+                BreakdownDesc: eqtask.BreakdownDesc(),
+                Model_SN: eqtask.Model_SN(),
+                Consequences: eqtask.Consequences(),
+                TechAccNo: eqtask.TechAccNo(),
+                RepairAction: eqtask.RepairAction(),
+                SuggestedCorrectiveAction: eqtask.SuggestedCorrectiveAction(),
+                IsDowntime: eqtask.IsDowntime(),
+                IsRequiredMaintenance: eqtask.IsRequiredMaintenance()
+            }));
+            self.formIndexEQ(self.eqtasks.indexOf(eqtask));
+            self.formTitle("Edit");
+            $("#dialog-EquipmentDamage").dialog("open");
+        };
+        self.detailsEquipment = function (eqtask) {
+            self.formEquipment(new EQTask({
+                EquipmentName: eqtask.EquipmentName(),
+                BreakdownDesc: eqtask.BreakdownDesc(),
+                Model_SN: eqtask.Model_SN(),
+                Consequences: eqtask.Consequences(),
+                TechAccNo: eqtask.TechAccNo(),
+                RepairAction: eqtask.RepairAction(),
+                SuggestedCorrectiveAction: eqtask.SuggestedCorrectiveAction(),
+                IsDowntime: eqtask.IsDowntime(),
+                IsRequiredMaintenance: eqtask.IsRequiredMaintenance()
+            }));
+            self.formIndexEQ(self.eqtasks.indexOf(eqtask));
+            self.formTitle("Details");
+            //self.formIndex("");
+            $("#dialog-EQDetails").dialog("open");
+        };
+
+        // Image
+        //self.removeIMTask = function (imtask) { self.imtasks.destroy(imtask) };
+        self.removeIMTask = function (imtask) {
+            if (confirm('Are you sure you want to delete this?')) {
+
+                var formData = new FormData();
+                var file = document.getElementById('imageNameId').files[0];
+                formData.append("ImageType", self.formImage().ImageType().ImageType);
+
+                formData.append("INRReportNo", $("#innrId").val());
+                formData.append("SupportingDoc", file);
+                formData.append("SupportingDoc1", $("#SupportingDoc1").val());
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("DeleteINRImage", "INRs")',
+                    data: formData,
+                    dataType: 'json',
+                    contentType: false,
+                    processData: false,
+                    success: function (result) {
+                        //
+                    },
+                    error: function (error) {
+                        //
+                    }
+                });
+
+                self.imtasks.destroy(imtask);
+            };
+        }.bind(self);
+
+        self.editImage = function (imtask) {
+            self.formImage(new IMTask({
+                ImageType: imtask.ImageType(),
+                ImageDesc: imtask.ImageDesc(),
+                ImagePath: imtask.ImagePath(),
+                ImageName: imtask.ImageName()
+            }));
+            self.formIndexIM(self.imtasks.indexOf(imtask));
+            self.formTitle("Edit");
+            $("#dialog-ImageEdit").dialog("open");
+        };
+        self.detailsImage = function (imtask) {
+            self.formImage(new IMTask({
+                ImageType: imtask.ImageType(),
+                ImageDesc: imtask.ImageDesc(),
+                ImagePath: imtask.ImagePath(),
+                ImageName: imtask.ImageName()
+            }));
+            self.formIndexIM(self.imtasks.indexOf(imtask));
+            self.formTitle("Details");
+            $("#dialog-IUDetails").dialog("open");
+        };
+
+
+        // Load initial state from server, convert it to Task instances, then populate self.tasks
+        var ID = $('#innrId').val();
+        $.ajax({
+            url: '/INRs/SearchPersonnelInjuryJson?ID=' + ID,
+            type: "GET",
+            dataType: "JSON",
+            success: function (result) {
+                for (var i = 0; i < result.length; i++) {
+
+                    alert(result[i].InjuredPerson);
+
+                    var selecteditem;
+                    selecteditem = { InjuredPerson: result[i].InjuredPerson, BodyPartName: result[i].BodyPartName, ShiftStartsTime: result[i].ShiftStartsTime, FacilityMedicCode: result[i].FacilityMedicCode, PrimaryDiagnosis: result[i].PrimaryDiagnosis, DetailTreatment: result[i].DetailTreatment };
+
+                    var selectedPOB;
+                    for (var j = 0; j < self.POB.length; j++) {
+                        var task = self.POB[j];
+                        if (result[i].InjuredPerson == task.POBName)
+                            selectedPOB = (self.POB[j]);
+                    }
+
+                    var selectedMedicalPerson;
+                    for (var j = 0; j < self.MedicalPerson.length; j++) {
+                        var task = self.MedicalPerson[j];
+                        if (result[i].FacilityMedicCode == task.POBCode)
+                            selectedMedicalPerson = (self.MedicalPerson[j]);
+                    }
+                    var selectedBodyParts;
+                    for (var j = 0; j < self.BodyParts.length; j++) {
+                        var task = self.BodyParts[j];
+                        if (result[i].BodyPartName == task.BodyPart)
+                            selectedBodyParts = (self.BodyParts[j]);
+                    }
+                    var newItem = new Task({
+
+                        //Task: selecteditem,
+                        InjuredPerson: selectedPOB,
+                        BodyPartName: selectedBodyParts,
+                        PIID: result[i].ID,
+                        ShiftStartsTime: result[i].ShiftStartsTime,
+                        FacilityMedicCode: selectedMedicalPerson,
+                        PrimaryDiagnosis: result[i].PrimaryDiagnosis,
+                        DetailTreatment: result[i].DetailTreatment
+                    });
+
+                    self.tasks.push(
+                        new Task({
+                            InjuredPerson: selectedPOB,
+                            BodyPartName: selectedBodyParts,
+                            PIID: result[i].ID,
+                            ShiftStartsTime: result[i].ShiftStartsTime,
+                            FacilityMedicCode: selectedMedicalPerson,
+                            PrimaryDiagnosis: result[i].PrimaryDiagnosis,
+                            DetailTreatment: result[i].DetailTreatment
+                        })
+                    );
+                }
+            },
+            error: function (error) {
+                $.notify(
+                  error,
+                  { position: "top center", className: "error" }
+                );
+            }
+        });
+
+        //Load Equipment
+        $.ajax({
+            url: '/INRs/SearchEquipmentDamageJson?ID=' + ID,
+            type: "GET",
+            dataType: "JSON",
+            success: function (result) {
+                for (var i = 0; i < result.length; i++) {
+                    var newItem = new EQTask({
+                        EQID: result[i].ID,
+                        EquipmentName: result[i].EquipmentName,
+                        BreakdownDesc: result[i].BreakdownDesc,
+                        Model_SN: result[i].Model_SN,
+                        Consequences: result[i].Consequences,
+                        TechAccNo: result[i].TechAccNo,
+                        RepairAction: result[i].RepairAction,
+                        SuggestedCorrectiveAction: result[i].SuggestedCorrectiveAction,
+                        IsDowntime: result[i].IsDowntime,
+                        IsRequiredMaintenance: result[i].IsRequiredMaintenance
+                    });
+                    self.eqtasks.push(
+                        new EQTask({
+                            EQID: result[i].ID,
+                            EquipmentName: result[i].EquipmentName,
+                            BreakdownDesc: result[i].BreakdownDesc,
+                            Model_SN: result[i].Model_SN,
+                            Consequences: result[i].Consequences,
+                            TechAccNo: result[i].TechAccNo,
+                            RepairAction: result[i].RepairAction,
+                            SuggestedCorrectiveAction: result[i].SuggestedCorrectiveAction,
+                            IsDowntime: result[i].IsDowntime,
+                            IsRequiredMaintenance: result[i].IsRequiredMaintenance
+                        })
+                    );
+                }
+            },
+            error: function (error) {
+                $.notify(
+                  error,
+                  { position: "top center", className: "error" }
+                );
+            }
+        });
+
+        //Load Image Upload
+        $.ajax({
+            url: '/INRs/SearchImageUpload?ID=' + ID,
+            type: "GET",
+            dataType: "JSON",
+            success: function (result) {
+                for (var i = 0; i < result.length; i++) {
+
+                    var selecteditem = { ImageType: result[i].ImageType };
+                    var selectedImageType;
+                    for (var j = 0; j < self.ImageTypes.length; j++) {
+                        var task = self.ImageTypes[j];
+                        if (result[i].ImageType == task.ImageType)
+                            selectedImageType = (self.ImageTypes[j]);
+                    }
+                    var newItem = new IMTask({
+                        IMID: result[i].ID,
+                        ImageType: selectedImageType,
+                        ImageDesc: result[i].ImageDesc,
+                        ImagePath: result[i].ImagePath,
+                        ImageName: result[i].ImageName
+                    });
+
+                    self.imtasks.push(
+                        new IMTask({
+                            IMID: result[i].ID,
+                            ImageType: selectedImageType,
+                            ImageDesc: result[i].ImageDesc,
+                            ImagePath: result[i].ImagePath,
+                            ImageName: result[i].ImageName
+                        })
+                    );
+                }
+            },
+            error: function (error) {
+                $.notify(
+                  error,
+                  { position: "top center", className: "error" }
+                );
+            }
+        });
+
+    }
+
+    $(function () {
+        $("#dialog-ItemRequest").dialog({
+            autoOpen: false,
+            height: 500,
+            width: 1000,
+            position: ['right', 'middle'],
+            modal: true
+        }).css({ "font-family": "'open sans', 'Helvetica Neue', 'Helvetica', Arial, sans-serif", "font-size": "12px" });
+
+        $("#dialog-ItemRequest").dialog({
+            autoOpen: false,
+            height: 500,
+            width: 1000,
+            position: ['right', 'middle'],
+            modal: true
+        }).css({ "font-family": "'open sans', 'Helvetica Neue', 'Helvetica', Arial, sans-serif", "font-size": "12px" });
+
+        $("#dialog-PIDetails").dialog({
+            autoOpen: false,
+            height: 500,
+            width: 1000,
+            position: ['right', 'middle'],
+            modal: true
+        }).css({ "font-family": "'open sans', 'Helvetica Neue', 'Helvetica', Arial, sans-serif", "font-size": "12px" });
+
+        $("#dialog-PIDelete").dialog({
+            autoOpen: false,
+            height: 500,
+            width: 1000,
+            position: ['right', 'middle'],
+            modal: true
+        }).css({ "font-family": "'open sans', 'Helvetica Neue', 'Helvetica', Arial, sans-serif", "font-size": "12px" });
+
+        $("#dialog-EquipmentDamage").dialog({
+            autoOpen: false,
+            height: 520,
+            width: 1000,
+            position: ['right', 'middle'],
+            modal: true
+        }).css({ "font-family": "'open sans', 'Helvetica Neue', 'Helvetica', Arial, sans-serif", "font-size": "12px" });
+        $("#dialog-EQDetails").dialog({
+            autoOpen: false,
+            height: 520,
+            width: 1000,
+            position: ['right', 'middle'],
+            modal: true
+        }).css({ "font-family": "'open sans', 'Helvetica Neue', 'Helvetica', Arial, sans-serif", "font-size": "12px" });
+
+        $("#dialog-Image").dialog({
+            autoOpen: false,
+            height: 380,
+            width: 950,
+            position: ['right', 'middle'],
+            modal: true
+        }).css({ "font-family": "'open sans', 'Helvetica Neue', 'Helvetica', Arial, sans-serif", "font-size": "12px" });
+
+        $("#dialog-IUDetails").dialog({
+            autoOpen: false,
+            height: 350,
+            width: 950,
+            position: ['right', 'middle'],
+            modal: true
+        }).css({ "font-family": "'open sans', 'Helvetica Neue', 'Helvetica', Arial, sans-serif", "font-size": "12px" });
+
+        $("#dialog-ImageEdit").dialog({
+            autoOpen: false,
+            height: 380,
+            width: 950,
+            position: ['right', 'middle'],
+            modal: true
+        }).css({ "font-family": "'open sans', 'Helvetica Neue', 'Helvetica', Arial, sans-serif", "font-size": "12px" });
+
+        ko.applyBindings(TaskListViewModel);
+    });
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+
+            $('.clockpicker').clockpicker();
+
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        //Refresh
+        $('#PageRefresh').click(function () {
+            location.reload(false);
+        });
+
+        //Form Validation
+        function FormValidation() {
+            var inrrValue = document.getElementById('inrrNo').value;
+            var element = inrrValue.split('-');
+
+            $('#locationCode').val(element[1]);
+            $('#countYear').val(element[2]);
+            $('#lastCount').val(element[3]);
+
+            //Validation
+            //Personnel Injury
+            var InjuredPersonValue = document.getElementById('POBCode').value;
+            var shiftStartsTimeValue = document.getElementById('shiftStartsTimeId').value;
+            var bodyPartInjuredValue = document.getElementById('BodyPartInjured').value;
+            var FacilityMedicCodeValue = document.getElementById('FacilityMedicCode').value;
+            var primaryDiagnosisValue = document.getElementById('primaryDiagnosisId').value;
+            var detailTreatmentValue = document.getElementById('detailTreatmentId').value;
+
+            //Equipment Damage
+            var equipmentNameValue = document.getElementById('EquipmentDamage_EquipmentName').value;
+            var techAccNoValue = document.getElementById('EquipmentDamage_TechAccNo').value;
+            var modelSNValue = document.getElementById('EquipmentDamage_Model_SN').value;
+            var breakdownDescValue = document.getElementById('breakdownDescId').value;
+            var consequencesValue = document.getElementById('consequencesId').value;
+            var repairActionValue = document.getElementById('repairActionId').value;
+            var suggestedCorrectiveActionValue = document.getElementById('suggestedCorrectiveActionId').value;
+
+            //Upload Image
+            var imageTypeValue = document.getElementById('imageTypeId').value;
+            var uploadValue = document.getElementById('uploadId').value;
+            var imageDescValue = document.getElementById('imageDescId').value;
+
+
+            if (InjuredPersonValue != "" || shiftStartsTimeValue != "" || bodyPartInjuredValue != "" || FacilityMedicCodeValue != "" || primaryDiagnosisValue != "" || detailTreatmentValue != "") {
+
+                if (InjuredPersonValue == "") {
+                    document.getElementById('POBCode').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('POBCode').style.borderColor = "green";
+                }
+                if (shiftStartsTimeValue == "") {
+                    document.getElementById('shiftStartsTimeId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('shiftStartsTimeId').style.borderColor = "green";
+                }
+                if (bodyPartInjuredValue == "") {
+                    document.getElementById('BodyPartInjured').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('BodyPartInjured').style.borderColor = "green";
+                }
+                if (FacilityMedicCodeValue == "") {
+                    document.getElementById('FacilityMedicCode').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('FacilityMedicCode').style.borderColor = "green";
+                }
+                if (primaryDiagnosisValue == "") {
+                    document.getElementById('primaryDiagnosisId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('primaryDiagnosisId').style.borderColor = "green";
+                }
+                if (detailTreatmentValue == "") {
+                    document.getElementById('detailTreatmentId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('detailTreatmentId').style.borderColor = "green";
+                }
+            }
+
+            //Equpment Damage
+            if (equipmentNameValue != "" || techAccNoValue != "" || modelSNValue != "" || breakdownDescValue != "" || consequencesValue != "" || repairActionValue != "" || suggestedCorrectiveActionValue != "") {
+
+                if (equipmentNameValue == "") {
+                    document.getElementById('EquipmentDamage_EquipmentName').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('EquipmentDamage_EquipmentName').style.borderColor = "green";
+                }
+                if (techAccNoValue == "") {
+                    document.getElementById('EquipmentDamage_TechAccNo').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('EquipmentDamage_TechAccNo').style.borderColor = "green";
+                }
+                if (modelSNValue == "") {
+                    document.getElementById('EquipmentDamage_Model_SN').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('EquipmentDamage_Model_SN').style.borderColor = "green";
+                }
+                if (breakdownDescValue == "") {
+                    document.getElementById('breakdownDescId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('breakdownDescId').style.borderColor = "green";
+                }
+                if (consequencesValue == "") {
+                    document.getElementById('consequencesId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('consequencesId').style.borderColor = "green";
+                }
+                if (repairActionValue == "") {
+                    document.getElementById('repairActionId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('repairActionId').style.borderColor = "green";
+                }
+                if (suggestedCorrectiveActionValue == "") {
+                    document.getElementById('suggestedCorrectiveActionId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('suggestedCorrectiveActionId').style.borderColor = "green";
+                }
+            }
+
+            //Upload Image
+            if (imageTypeValue != "" || uploadValue != "" || imageDescValue != "") {
+
+                if (imageTypeValue == "") {
+                    document.getElementById('imageTypeId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('imageTypeId').style.borderColor = "green";
+                }
+                if (uploadValue == "") {
+                    document.getElementById('uploadId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('uploadId').style.borderColor = "green";
+                }
+                if (imageDescValue == "") {
+                    document.getElementById('imageDescId').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById('imageDescId').style.borderColor = "green";
+                }
+            }
+
+            //All Empty
+            if (InjuredPersonValue == "" && equipmentNameValue == "" && imageTypeValue == "") {
+                alert("Nothing Selected To Be Saved");
+                return false;
+            }
+
+            return 0;
+        }
+    </script>
+
+
+
+}
+
+

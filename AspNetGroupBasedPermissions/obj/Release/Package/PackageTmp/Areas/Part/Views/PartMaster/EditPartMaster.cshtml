@@ -1,0 +1,203 @@
+﻿@model Core.Entities.Data.PartData.PartMaster
+@using AspNetGroupBasedPermissions.Helpers
+@{ ViewBag.Title = "Edit Part";}
+@{
+    Layout = "~/Views/Shared/_LayoutPopUp.cshtml";
+}
+
+@using (Html.BeginForm("EditPartMaster", "PartMaster", FormMethod.Post,
+                    new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.PartID)
+
+
+    <div id="mainbox" class="row">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="panel-heading btn-primary modal-header">
+                    <center class="panel-title" style="min-height:10px;">
+                        <h4 style="font-weight:300">Edit Part</h4>
+                    </center>
+                </div>
+                <div class="modal-body">
+                    <td>
+                        <center>
+                            <h2 style="font-weight:bolder">Part Image</h2>
+                        </center>
+                        <center style="background-color:lightgray">
+                            @if (Model.PartImageFileType == "PDF")
+                            {
+                                <object data="data:application/pdf;base64,@System.Convert.ToBase64String((Byte[])ViewData["Image"])" type="application/pdf" width="500px"></object>
+                            }
+                            @if (Model.PartImageFileType == "Image")
+                            {
+                                <img style="padding:15px;max-width:400px;max-height:400px" src="data:image/*;base64,@(Convert.ToBase64String(Model.PartImage))">
+                            }
+                        </center>
+                    </td>
+                    <td>
+                        <center>
+                            <h2 style="font-weight:bolder">Drawing Image</h2>
+                        </center>
+                        <center style="background-color:lightgray">
+                            @if (Model.PartDrawingFileType == "PDF")
+                            {
+                                <object data="data:application/pdf;base64,@System.Convert.ToBase64String((Byte[])ViewData["Drawing"])" type="application/pdf" width="500px"></object>
+                            }
+                            @if (Model.PartDrawingFileType == "Image")
+                            {
+                                <img style="padding:15px;max-width:400px;max-height:400px" src="data:image/*;base64,@(Convert.ToBase64String(Model.PartDrawingImage))">
+                            }
+                        </center>
+                    </td>
+                    <table class="table table-condensed table-striped table-bordered">
+                        <tr></tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Part ID</td>
+                            <td>
+                                @Html.EditorFor(model => model.PartID, new { htmlAttributes = new { @disabled = "true", @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.PartID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Part No.</td>
+                            <td>
+                                @Html.EditorFor(model => model.PartNo, new { htmlAttributes = new { @class = "form-control", @required = "true", maxlength = 80, @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.PartNo)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Item No</td>
+                            <td>
+                                @Html.EditorFor(model => model.ItemNo, new { htmlAttributes = new { @class = "form-control", @required = "true", maxlength = 80, @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.ItemNo)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Part Name</td>
+                            <td>
+                                @Html.EditorFor(model => model.PartName, new { htmlAttributes = new { @class = "form-control", @required = "true", maxlength = 250, @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.PartName)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Part Image</td>
+                            <td>
+                                <input type="file" name="file1" id="file1" style="width: 100%;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Part Drawing</td>
+                            <td>
+                                <input type="file" name="file2" id="file2" style="width: 100%;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Plant</td>
+                            <td>
+                                <input id="categoryName" style="max-height:28px;font-size:11px;background-color:lightgoldenrodyellow" class="form-control" onchange="GetPartName(this.value)" type="text" name="searchbox" placeholder="--Search Category--" />
+                                @Html.DropDownList("CategoryID", (IEnumerable<SelectListItem>)Session["CategoryID"], " --Select Category-- ", new { @class = "form-control", @id = "categoryid", @required = "required", @style = "font-size:12px;height:30px;" })
+                                @Html.HiddenFor(model => model.CategoryID)
+                                @Html.ValidationMessageFor(model => model.CategoryID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Description</td>
+                            <td>
+                                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", maxlength = 300, @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Description)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Is Active?</td>
+                            <td>
+                                @Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @style = "font-size:11px;height:18px;color:black", } })
+                                @Html.ValidationMessageFor(model => model.IsActive)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Status</td>
+                            <td>
+                                @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control", @disabled = "true", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Status)
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Update" class="btn btn-primary" />
+                        @Html.ActionLink("Cancel", "IndexPartMaster", null, new { @class = "btn btn-white" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatableCheckbox")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/notifyjs")
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+        $("#categoryName").autocomplete({
+            source: function (request, response) {
+                var categoryname = document.getElementById("categoryName").value;
+                  $.ajax({
+                      url: '@Url.Action("GetCategoryName", "PartMaster", new { area = "Part" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                          categoryname: categoryname
+                      },
+
+                      success: function (results) {
+                          $('#categoryid').html(""); // clear before appending new list
+                          $('#categoryid').append(
+                          $('<option></option>').val("").html("--Select Category--"));
+                          $.each(results, function (i, results) {
+                              $('#categoryid').append(
+                                  $('<option></option>').val(results.CategoryID).html(results.CategoryName));
+                          });
+                      },
+                      error: function (error) {
+                      }
+                  });
+
+        },
+        select: function (event, ui) {
+            $("#pettycodeid").val(ui.item.partName);
+        }
+         });
+           });
+
+
+        $(document).ready(function () {
+
+            $("#transactiondate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+
+        });
+
+    </script>
+}

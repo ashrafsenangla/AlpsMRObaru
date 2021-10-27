@@ -1,0 +1,178 @@
+﻿@model Core.Entities.Data.PartData.PartTransferOut
+@using AspNetGroupBasedPermissions.Helpers
+@{ ViewBag.Title = "Create Part Transfer In";}
+@{
+    Layout = "~/Views/Shared/_LayoutPopUp.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div id="addcocbox" class="row" style="width:auto;max-width:750px">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="panel-heading btn-primary modal-header">
+                    <center class="panel-title" style="min-height:10px;">
+                        <h4 style="font-weight:300">Create New Part Transfer Out</h4>
+                    </center>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-condensed table-striped table-bordered">
+                        <tr></tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Store</td>
+                            <td>
+                                @Html.DropDownList("ToStoreID", ViewData["ToStoreID"] as SelectList, htmlAttributes: new { @id = "plant", @class = "form-control", onchange = "FuncChange(this.value)", @required = "required", @style = "font-size:12px;height:30px;" })
+                                @Html.HiddenFor(model => model.ToStoreID)
+                                @Html.ValidationMessageFor(model => model.ToStoreID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Main Category</td>
+                            <td>
+                                @Html.DropDownList("ToStoreID", ViewData["ToStoreID"] as SelectList, "--Select Main Category--", htmlAttributes: new { @id = "plant", @class = "form-control", onchange = "FuncChange(this.value)", @required = "required", @style = "font-size:12px;height:30px;" })
+                                @Html.HiddenFor(model => model.ToStoreID)
+                                @Html.ValidationMessageFor(model => model.ToStoreID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Sub Category</td>
+                            <td>
+                                @Html.DropDownList("ToStoreID", ViewData["ToStoreID"] as SelectList, "--Select Sub Category--", htmlAttributes: new { @id = "plant", @class = "form-control", onchange = "FuncChange(this.value)", @required = "required", @style = "font-size:12px;height:30px;" })
+                                @Html.HiddenFor(model => model.ToStoreID)
+                                @Html.ValidationMessageFor(model => model.ToStoreID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Part Name</td>
+                            <td>
+                                <input id="partName" style="max-height:28px;font-size:11px;background-color:lightgoldenrodyellow" class="form-control" onchange="GetPartName(this.value)" type="text" name="searchbox" placeholder="--Search Part Name--" required title="Your validation message here." />
+                                @Html.DropDownList("PartID", ViewData["PartID"] as SelectList, "--Select Part--", htmlAttributes: new { @id = "partid", @style = "font-size:11px;height:28px;color:black;font-size:11px", @class = "form-control input-sm", onchange = "GetPartNo(this.value)" })&nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Maker</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Part No</td>
+                            <td>
+                                <input id="partNo" style="max-height:28px;font-size:11px;background-color:lightgoldenrodyellow" class="form-control" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">From Cabinet</td>
+                            <td>
+                                @Html.DropDownList("FromCabinetID", ViewData["FromCabinetID"] as SelectList, "--Select From Cabinet--", htmlAttributes: new { @id = "plant1", @class = "form-control", onchange = "FuncChange(this.value)", @required = "required", @style = "font-size:12px;height:30px;" })
+                                @Html.HiddenFor(model => model.FromCabinetID)
+                                @Html.ValidationMessageFor(model => model.FromCabinetID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Current Qty</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Quantity</td>
+                            <td>
+                                @Html.EditorFor(model => model.Qty, new { htmlAttributes = new { @Value = "0", @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Qty)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Description</td>
+                            <td>
+                                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Description)
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save & Submit" class="btn btn-primary" />
+                        @Html.ActionLink("Cancel", "IndexPartTransferOut", null, new { @class = "btn btn-white" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatableCheckbox")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/notifyjs")
+
+
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#partName").autocomplete({
+            source: function (request, response) {
+                var partname = document.getElementById("partName").value;
+                  $.ajax({
+                      url: '@Url.Action("GetPartName", "PartTransferOut", new { area = "Part" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                          partname: partname
+                      },
+
+                      success: function (results) {
+                          $('#partid').html(""); // clear before appending new list
+                          $('#partid').append(
+                          $('<option></option>').val("").html("--Select Part--"));
+                          $.each(results, function (i, results) {
+                              $('#partid').append(
+                                  $('<option></option>').val(results.PartID).html(results.PartName));
+                              $('#partno').append(
+                                  $('<option></option>').val(results.PartID).html(results.PartNo));
+                              $('#partNo').append(
+                                  $('<option></option>').val(results.PartID).html(results.PartName));
+                          });
+                      },
+                      error: function (error) {
+                      }
+                  });
+
+        },
+        select: function (event, ui) {
+            $("#pettycodeid").val(ui.item.partName);
+        }
+         });
+       });
+
+
+    function GetPartNo(element) {
+
+        var partId = document.getElementById('partid');
+        var myString= partId.options[partId.selectedIndex].innerHTML;
+        var result = myString.substring(myString.indexOf('(') + 1, myString.indexOf(')'));
+        document.getElementById('partNo').value = result;
+     
+    }
+
+        $(document).ready(function () {
+
+            $("#transactiondate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+        });
+
+    </script>
+}

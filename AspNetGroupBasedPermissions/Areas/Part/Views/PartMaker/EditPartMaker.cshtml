@@ -1,0 +1,182 @@
+﻿@model Core.Entities.Data.PartData.PartMaker
+@using AspNetGroupBasedPermissions.Helpers
+@{ ViewBag.Title = "Edit Part Maker";}
+@{
+    Layout = "~/Views/Shared/_LayoutPopUp.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.PartMakerID)
+
+    <div id="mainbox" class="row">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="panel-heading btn-primary modal-header">
+                    <center class="panel-title" style="min-height:10px;">
+                        <h4 style="font-weight:300">Edit Part Maker</h4>
+                    </center>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-condensed table-striped table-bordered">
+                        <tr></tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Part Maker ID</td>
+                            <td>
+                                @Html.EditorFor(model => model.PartMakerID, new { htmlAttributes = new { @disabled = "true", @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.PartMakerID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Part Name</td>
+                            <td>
+                                <input id="partName" style="max-height:28px;font-size:11px;background-color:lightgoldenrodyellow" class="form-control" onchange="GetPartName(this.value)" type="text" name="searchbox" placeholder="--Search Part Name--"  />
+                                @Html.DropDownList("PartID", (IEnumerable<SelectListItem>)Session["PartID"], " --Select Part--", new { @class = "form-control", @id = "partid", @required = "required", @style = "font-size:12px;height:30px;" })
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Maker</td>
+                            <td>
+                                <input id="makerName" style="max-height:28px;font-size:11px;background-color:lightgoldenrodyellow" class="form-control" onchange="GetPartName(this.value)" type="text" name="searchbox" placeholder="--Search Maker Name--" />
+                                @Html.DropDownList("MakerID", (IEnumerable<SelectListItem>)Session["MakerID"], " --Select Maker--", new { @class = "form-control", @id="makerid" ,@required = "required", @style = "font-size:12px;height:30px;" })
+                                @Html.HiddenFor(model => model.MakerID)
+                                @Html.ValidationMessageFor(model => model.MakerID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Description</td>
+                            <td>
+                                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", maxlength = 300, @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Description)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Is Active?</td>
+                            <td>
+                                @Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @style = "font-size:11px;height:18px;color:black", } })
+                                @Html.ValidationMessageFor(model => model.IsActive)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Status</td>
+                            <td>
+                                @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control", @disabled = "true", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Status)
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Update" class="btn btn-primary" />
+                        @Html.ActionLink("Cancel", "IndexPartMaker", null, new { @class = "btn btn-white" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatableCheckbox")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/notifyjs")
+
+    <script type="text/javascript">
+
+      $(document).ready(function () {
+        var filterby = "partname";
+        $("#partName").autocomplete({
+            source: function (request, response) {
+                var partname = document.getElementById("partName").value;
+                  $.ajax({
+                      url: '@Url.Action("GetPartName", "PartMaker", new { area = "Part" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                          partname: partname,
+                          filterby: filterby
+                      },
+
+                      success: function (results) {
+                          $('#partid').html(""); // clear before appending new list
+                          $('#partid').append(
+                          $('<option></option>').val("").html("--Select Part--"));
+                          $.each(results, function (i, results) {
+                              $('#partid').append(
+                                  $('<option></option>').val(results.PartID).html(results.PartName));
+                              $('#partno').append(
+                                  $('<option></option>').val(results.PartID).html(results.PartNo));
+                              $('#partNo').append(
+                                  $('<option></option>').val(results.PartID).html(results.PartName));
+                          });
+                      },
+                      error: function (error) {
+                      }
+                  });
+
+        },
+        select: function (event, ui) {
+            $("#pettycodeid").val(ui.item.partName);
+        }
+         });
+         });
+
+    
+        $(document).ready(function () {
+        $("#makerName").autocomplete({
+            source: function (request, response) {
+                var makername = document.getElementById("makerName").value;
+                  $.ajax({
+                      url: '@Url.Action("GetMakerName", "PartMaker", new { area = "Part" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                          makername: makername
+                      },
+
+                      success: function (results) {
+                          $('#makerid').html(""); // clear before appending new list
+                          $('#makerid').append(
+                          $('<option></option>').val("").html("--Select Maker--"));
+                          $.each(results, function (i, results) {
+                              $('#makerid').append(
+                                  $('<option></option>').val(results.MakerID).html(results.MakerName));
+                          });
+                      },
+                      error: function (error) {
+                      }
+                  });
+
+        },
+        select: function (event, ui) {
+            $("#pettycodeid").val(ui.item.partName);
+        }
+         });
+        });
+
+        $(document).ready(function () {
+
+            $("#transactiondate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+
+        });
+
+    </script>
+}

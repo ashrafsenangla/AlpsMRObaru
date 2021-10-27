@@ -1,0 +1,404 @@
+﻿@using AspNetGroupBasedPermissions;
+@using AspNetGroupBasedPermissions.Helpers;
+
+@{
+    ViewBag.Title = "PO Tracking Report";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+ 
+        <div class="ibox float-e-margins">
+            <div class="ibox-content">
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <b class="col-md-2">Rig</b>
+                                @Html.DropDownList("CostCentreCode", ViewData["CostCentreCode"] as SelectList, new { data_bind = "value:rig" })
+                            </div>
+
+                            <div class=" form-group m-b-xs">
+                                @Html.Label("From Date", new { @class = "control-label col-md-2" })
+                                <div class="col-md-10 m-b-xs">
+                                    <div class="input-group date" id="StartDateId">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        @Html.TextBox("StartDate", (DateTime)ViewData["selectedDate"], new { @class = "form-control", data_bind = "value:fromDate", @id = "StartDateId", @style = "width:80%" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br />
+
+                            <div class=" form-group m-b-xs">
+                                @Html.Label("To Date", new { @class = "control-label col-md-2" })
+                                <div class="col-md-10 m-b-xs">
+                                    <div class="input-group date" id="EndDateId">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        @Html.TextBox("EndDate", (DateTime)ViewData["selectedDate"], new { @class = "form-control", data_bind = "value:toDate", @id = "EndDateId", @style = "width:80%" })
+                                    </div>
+                                </div>
+                                <div class="col-md-5"></div>
+                                @*@Html.EncodedActionLink("Download", "DownloadStockItemConsumption", "Report", new { StDate = "startDate", EndDate = "EndDate"}, new { @class = "btn btn-primary", @download = "" })*@
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="text-align:left; padding-top:20px !important;">
+                        <div class="col-md-12">
+                            @*<input type="submit" class="btn btn-primary" value="Download" />*@
+                            <input class="btn btn-primary" type="button" value="Search" data-bind="click: loadPOTracking()" />
+                        </div>
+                    </div>  
+
+                    </div> 
+            </div>
+        </div>
+    
+    <div class="col-lg-12">
+        <div class="row">
+            @*<div class="col-lg-12">*@
+
+            <div class="ibox-content" style="height:300px; overflow:scroll">
+
+                <div class="dataTables_wrapper form-inline no-footer">
+                    <div class="dataTables_length">
+                        <label>
+                            <select class="form-control input-sm" data-bind="value: pageSize">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select> records per page
+                        </label>
+                    </div>
+                    <table id="itemSearchTable" class="table table-striped table-bordered table-hover dataTables-example dataTable no-footer">
+                        <thead>
+                            <tr>
+                                <th style="white-space: nowrap; width:10%;">MSR Number</th>
+                                <th style="white-space: nowrap; width: 8%;">MSR Approved Date</th>
+                                @*<th style="white-space: nowrap; width: 12%;">Group</th>*@
+                                @*<th style="white-space: nowrap; width: 10%;">Status</th>*@
+
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: JobScheduleComputed()">
+                            <tr data-bind="click: $root.selectJS, css: { 'even': $index() % 2 == 0 , 'odd': $index() % 2 == 1}">
+                                <td data-bind="text: MSRNumber">
+                                    <input type="hidden" data-bind="value: ID" />
+                                </td>
+                                <td data-bind="text: EndDate"></td>
+                                @*<td data-bind="text: Group"></td>
+                                <td data-bind="text: Status"></td>*@
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <div class="dataTables_info">
+                        Showing <label data-bind="text: totalRow()==0 ? 0 : (indexPage()*pageSize())+1"></label> to <label data-bind="text: (indexPage()+1)*pageSize() > totalRow() ? totalRow():(indexPage()+1)*pageSize()"></label> of <label data-bind="text: totalRow"></label> entries
+                    </div>
+                    <div class="dataTables_paginate paging_simple_numbers">
+                        <ul class="pagination">
+                            <li class="paginate_button previous" data-bind="click: prevPage, disable: indexPage()==0, css: { 'disabled': indexPage()==0}" tabindex="0"><a href="#">Previous</a></li>
+                            <li class="paginate_button active" tabindex="0"><a href="#"><label data-bind="text: indexPage()+1"></label></a></li>
+                            <li class="paginate_button next" data-bind="click: nextPage, disable: (indexPage()+1)==totalPage(), css: { 'disabled': (indexPage()+1)==totalPage()}" tabindex="0"><a href="#">Next</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+
+            @*</div>*@
+        </div>        
+    </div>
+
+}
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+    @Styles.Render("~/plugins/wizardStepsStyles")
+    @Styles.Render("~/plugins/clockpickerStyles")
+    @Styles.Render("~/plugins/dataPickerStyles")
+    @Styles.Render("~/plugins/imagecropperStyles")
+    @Styles.Render("~/Content/plugins/chosen/chosenStyles")
+    @Styles.Render("~/Content/plugins/dropzone/dropZoneStyles")
+    @Styles.Render("~/Content/plugins/blueimp/css/")
+}
+
+@section Scripts {
+
+    @Scripts.Render("~/plugins/notifyjs")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/wizardSteps")
+    @Scripts.Render("~/plugins/iCheck")
+    @Scripts.Render("~/plugins/validate")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/imagecropper")
+    @Scripts.Render("~/plugins/chosen")
+    @Scripts.Render("~/plugins/lightboxGallery")
+    @Scripts.Render("~/plugins/dropZone")
+
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatable")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#StartDateId").datepicker({
+            todayBtn: "linked",
+            format: "dd/mm/yyyy",
+            keyboardNavigation: false,
+            forceParse: false,
+            autoclose: true
+        }).datepicker("setDate", new Date());
+
+        $("#EndDateId").datepicker({
+            todayBtn: "linked",
+            format: "dd/mm/yyyy",
+            keyboardNavigation: false,
+            forceParse: false,
+            autoclose: true
+        }).datepicker("setDate", new Date());
+    });
+
+    $('#myLink').click(function () {
+        var firstname = $('#StartDate').val(); // get the textbox value
+        var url = $(this).attr('href') + 'StDate=' + firstname; // build new url
+        location.href = url; // redirect
+        return false; // cancel default redirect
+    });
+
+ </script>
+
+<script type="text/javascript">
+
+        var Vendor = function (data) {
+            var self = this;
+            this.ID =  ko.observable(data.ID);
+            this.MSRNumber = ko.observable(data.MSRNumber);
+            this.Group = ko.observable(data.Group);          
+            this.EndDate = ko.observable(data.EndDate);         
+            this.Status = ko.observable(data.Status);
+        };
+
+        var ViewModel = new function () {
+            var self = this;
+
+            self.ID =  ko.observable("");
+            self.Group = ko.observable("");
+            self.Status =  ko.observable("");
+            self.MSRNumber =  ko.observable("");
+            self.EndDate = ko.observable("");
+            self.toDate = ko.observable("");
+            self.fromDate = ko.observable("");
+            self.rig = ko.observable("");
+       
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+
+            var yyyy = today.getFullYear();
+            if (dd < 10) {
+                dd = '0' + dd;
+            }
+            if (mm < 10) {
+                mm = '0' + mm;
+            }
+            self.today = yyyy+''+mm+''+dd;
+
+            self.defaultDropdownText = "All";
+            self.availableIntervalType = ko.observableArray([]);
+            self.availableStatus = ko.observable('@ViewBag.Category');
+            self.selectedStatus = ko.observable("");
+            self.selectedIntervalType = ko.observable("");
+            self.selectedTechnicalAccount = ko.observable("");
+
+            self.WPIntType_NameVal = ko.observable("");
+            self.TotalJob = ko.observable("");
+
+            self.pageSize = ko.observable(10);
+            self.indexPage = ko.observable(0);
+            self.totalPage = ko.observable(1);
+            self.totalRow = ko.observable(0);
+            self.userLogin = ko.observable(false);
+            self.formJSSearch = ko.observable("");
+            self.clickDate = ko.observable("");
+            self.IsSubmitted = ko.observable(false);
+
+
+            self.pmJobSchedules = ko.observableArray([]);
+            //self.ViewModelWICreate = ViewModelWICreate;
+
+            self.nextPage = function () {
+                if ((self.indexPage() + 1) < self.totalPage()) {
+                    self.indexPage(self.indexPage() + 1);
+                    self.loadPOTracking();
+                }
+            }
+            self.prevPage = function () {
+                if (self.indexPage() > 0) {
+                    self.indexPage(self.indexPage() - 1);
+                    self.loadPOTracking();
+                }
+            }
+
+            self.selectedJSIndex = ko.observable("-1");
+            self.selectedJSEditable = ko.observable(false);
+            self.selectedJSDetail = ko.observable(false);
+
+            self.selectedDTLURL = ko.observable("");
+            self.selectedEDTURL = ko.observable("");
+            self.selectedDLTURL = ko.observable("");
+
+            self.vendors = ko.observableArray([]);
+
+
+            self.selectedJS = ko.observable(
+            new Vendor({
+                ID: 0,
+                LicenseName: '',              
+                MSRNumber: '',
+                Group: '',
+                Status: '',
+                EndDate: ''
+            })
+        );
+
+
+            self.selectedTA = ko.observable("");
+            self.selectedWI = ko.observable("");
+
+
+            self.selectJS = function (data) {
+                //if (data.WorkInstructionCode != self.selectedJS().WorkInstructionCode()) {
+                self.selectedJS(data.ID);
+                self.selectedTA(data.TechnicalAccount);
+                self.selectedWI(data.WorkInstructionCode);
+
+
+                self.selectedJSIndex(self.pmJobSchedules.indexOf(data));
+                self.selectedJSEditable(true);
+                self.selectedJSDetail(true);
+
+                self.selectedDTLURL(data.DetailsURL);
+                self.selectedEDTURL(data.EditURL);
+                self.selectedDLTURL(data.DeleteURL);
+            }
+            self.resetSelectedJS = function () {
+                self.selectedJS().Id(0);
+                self.selectedJS().WorkInstructionCode("");
+                self.selectedJS().IsActive("");
+                self.selectedJS().DetailsURL("");
+                self.selectedJS().EditURL("");
+                self.selectedJS().DeleteURL("");
+            }
+
+
+            self.loadPOTracking = function () {
+
+                self.selectedJSDetail(false);
+                self.pmJobSchedules.removeAll();
+
+                //self.availableIntervalType.removeAll();
+                //$('#dialog-Loading').dialog("open");
+
+                $.ajax('@Url.Action("GetPOTracking", "Report")', {
+                    data: ko.toJSON({                     
+                        pageSize: self.pageSize(),
+                        pageIndex: self.indexPage(),
+                        fromDate: self.fromDate(),
+                        toDate: self.toDate(),
+                        rig: self.rig(),
+                    }),
+
+                    type: "post",
+                    contentType: "application/json",
+                    success: function (result) {
+                        self.pmJobSchedules.removeAll();
+                        var underlyingArray = self.pmJobSchedules();
+                        for (var i = 0; i < result.items.length; i++) {
+                            underlyingArray.push({
+                                ID: result.items[i].ID,
+                                MSRNumber: result.items[i].MSRNumber,
+                                Group: result.items[i].Group,
+                                Status: result.items[i].Status,
+                                EndDate: result.items[i].EndDate,  
+                                Editable: true
+                            });
+                        }
+                        self.pmJobSchedules.valueHasMutated();
+                        self.totalPage(result.totalPage);
+                        self.totalRow(result.totalRow);
+                        self.userLogin(result.logInUser);
+
+                        //$('#dialog-Loading').dialog("close");
+                    },
+                    error: function (error) {
+                        $.notify(error, {
+                            position: "top center",
+                            className: "error"
+                        });
+                        //$('#dialog-Loading').dialog("close");
+                    }
+                });
+            }
+
+            self.restartSearchPagination = function () {
+                self.pmJobSchedules.removeAll();
+                self.indexPage(0);
+                self.totalPage(1);
+                self.totalRow(0);
+            }
+            self.formJSSearch.subscribe(function (value) {
+                if (value == '') self.formJSSearch("");
+                @*if (value.length < 3) {
+                self.restartSearchPagination();
+                return;
+            };*@
+                self.restartSearchPagination();
+                self.loadPOTracking();
+            });
+            self.pageSize.subscribe(function (value) {
+                if (self.formJSSearch() == '') self.formJSSearch("");
+                self.restartSearchPagination();
+                self.loadPOTracking();
+            });
+
+
+            //self.pmJobSchedules.subscribe(function (value) {
+            //});
+            self.JobScheduleComputed = ko.computed(function () {
+                var records = self.pmJobSchedules;
+                return records;
+            });
+
+        };
+
+        $(document).ready(function () {
+            // $('#dialog-Loading').dialog("open");
+            ko.applyBindings(ViewModel);
+
+            $('#itemSearchTable tbody').on('click', 'tr', function () {
+                if ($(this).hasClass('backgroundSelected')) {
+                    $(this).removeClass('backgroundSelected');
+                }
+                else {
+                    $('tr.backgroundSelected').removeClass('backgroundSelected');
+                    $(this).addClass('backgroundSelected');
+                }
+            });
+        });
+</script>
+
+
+}

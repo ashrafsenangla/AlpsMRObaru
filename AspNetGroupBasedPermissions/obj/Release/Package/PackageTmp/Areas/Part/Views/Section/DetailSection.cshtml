@@ -1,0 +1,125 @@
+﻿@model Core.Entities.Data.PartData.Section
+@using AspNetGroupBasedPermissions.Helpers
+@{ ViewBag.Title = "Detail Section";}
+@{
+    Layout = "~/Views/Shared/_LayoutPopUp.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.SectionID)
+
+    <div id="mainbox" class="row">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="panel-heading btn-primary modal-header">
+                    <center class="panel-title" style="min-height:10px;">
+                        <h4 style="font-weight:300">Detail Section</h4>
+                    </center>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-condensed table-striped table-bordered">
+                        <tr></tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Section ID</td>
+                            <td>
+                                @Html.EditorFor(model => model.SectionID, new { htmlAttributes = new { @disabled = "true", @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.SectionID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">SAP Code</td>
+                            <td>
+                                @Html.EditorFor(model => model.SAPCode, new { htmlAttributes = new { @disabled = "true", @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.SAPCode)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Section Name</td>
+                            <td>
+                                @Html.EditorFor(model => model.SectionName, new { htmlAttributes = new { @disabled = "true", @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.SectionName)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Plant</td>
+                            <td>
+                                @Html.DropDownList("PlantID", (IEnumerable<SelectListItem>)Session["PlantID"], " --Select Plant-- ", new {@disabled = "true",  @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                @Html.HiddenFor(model => model.PlantID)
+                                @Html.ValidationMessageFor(model => model.PlantID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Business Unit</td>
+                            <td>
+                                @Html.DropDownList("BUID", (IEnumerable<SelectListItem>)Session["BUID"], " --Select BU--", new { @disabled = "true", @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                @Html.HiddenFor(model => model.BUID)
+                                @Html.ValidationMessageFor(model => model.BUID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Cost Centre</td>
+                            <td>
+                                @Html.DropDownList("CostCentreID", (IEnumerable<SelectListItem>)Session["CostCentreID"], " --Select Cost Centre--", new { @disabled = "true", @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                @Html.HiddenFor(model => model.CostCentreID)
+                                @Html.ValidationMessageFor(model => model.CostCentreID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Description</td>
+                            <td>
+                                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @disabled = "true", @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Description)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Is Active?</td>
+                            <td>
+                                @Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @disabled = "true", @style = "font-size:11px;height:18px;color:black", } })
+                                @Html.ValidationMessageFor(model => model.IsActive)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Status</td>
+                            <td>
+                                @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control", @disabled = "true", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Status)
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.ActionLink("Cancel", "IndexSection", null, new { @class = "btn btn-white" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#transactiondate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+
+        });
+
+    </script>
+}

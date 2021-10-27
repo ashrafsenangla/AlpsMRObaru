@@ -1,0 +1,28 @@
+﻿@model List<Core.Entities.Data.Admin.Service>
+
+<hr />
+<h2>Partial View</h2>
+@ViewBag.Chk
+<input type="button" id="Coll" value="Collapse" onclick="javascript:CollapseDiv()" />
+<hr />
+
+<script>
+    function BtnOnclick() {
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Content("~/Home/Test")',
+            data: {
+                parentEls: '@Model.NameOption'
+            },
+            success: function (data) {
+                $('#divpopup').css("display", "block");
+                $('#btnExpand').css("display", "none");
+                $('#divpopup')[0].innerHTML = data;
+            }
+        });
+    }
+    function CollapseDiv() {
+        $('#divpopup').css("display", "none");
+        $('#btnExpand').css("display", "block");
+    }
+</script>

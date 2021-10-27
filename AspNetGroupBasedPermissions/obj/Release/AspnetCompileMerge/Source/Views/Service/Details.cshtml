@@ -1,0 +1,151 @@
+﻿@model Core.Entities.Data.Admin.Service
+@using AspNetGroupBasedPermissions.Helpers
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Details Navbar</h5>
+                </div>
+                <div class="ibox-content">
+
+
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.NameOption)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.NameOption)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Controller)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Controller)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Action)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Action)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Area)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Area)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ImageClass)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.ImageClass)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Activeli)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Activeli)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Estatus)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Estatus)
+                        </dd>
+
+                        <dt>
+                            Parent
+                        </dt>
+
+                        <dd>
+                            @ViewBag.ParentName
+                        </dd>
+
+                        @*<dt>
+                                @Html.DisplayNameFor(model => model.IsParent)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.IsParent)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.HasChild)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.HasChild)
+                            </dd>*@
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DateCreated)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.DateCreated)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DateModified)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.DateModified)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.UserCreated)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.UserCreated)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.UserModified)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.UserModified)
+                        </dd>
+
+                    </dl>
+
+
+                    @Html.EncodedActionLink("Edit", "Edit", "Service", new { id = Model.Id }, new { @class = "btn-primary" })
+                    @Html.EncodedActionLink("Back to List", "Index", "Service", new { id = Model.Id }, new { @class = "btn-white" })
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

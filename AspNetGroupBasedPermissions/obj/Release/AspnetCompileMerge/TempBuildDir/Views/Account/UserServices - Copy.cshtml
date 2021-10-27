@@ -1,0 +1,217 @@
+﻿@model AspNetGroupBasedPermissions.Models.SelectUserServicesViewModel
+
+
+@{ ViewBag.Title = "User Services"; }
+
+
+<div class="ibox-title " style="padding-top:30px;"></div>
+<div class="ibox float-e-margins">
+    <div class="form-group">
+        <label class="pull-left btn btn-xs btn-primary btn-block">List Of Services For : @Html.DisplayFor(model => model.FirstName)</label>
+    </div>
+    <div class="ibox-content">
+
+        <div class="ibox-tools">
+            <select class="form-control input-sm" data-bind="options:availableParentName, value:selectedParentName" style="font-size:12px"></select>
+        </div>
+        <div class="ibox-tools">
+            <select class="form-control input-sm" data-bind="options:availableStatusName, value:selectedStatusName" style="font-size:12px"></select>
+        </div>
+        @using (Html.BeginForm("UserServices", "Account", FormMethod.Post, new { encType = "multipart/form-data", name = "myform" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true)
+
+                <table id="mainTable" class="display table table-striped table-bordered table-hover dataTables-example">
+                    <tr style="font-weight:bolder">
+                        <td>Select</td>
+                        <td>Services</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.EditorFor(model => model.Services)
+                        </td>
+                    </tr>
+                </table>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                        @Html.ActionLink("Back To List", "Index", null, new { @class = "btn btn-white" })
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+</div>
+
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    @Styles.Render("~/Scripts/plugins/jquery-ui/jqueryuiStyles")
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatableCheckbox")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/notifyjs")
+
+    <script type="text/javascript">
+
+         //Begin: Format date soring
+            jQuery.extend(jQuery.fn.dataTableExt.oSort,
+            {
+            "customDate-pre": function (a) {
+                var ukDatea = a.split('/');
+                return (ukDatea[2] + ukDatea[1] + ukDatea[0]) * 1;
+            },
+
+            "customDate-asc": function (a, b) {
+                return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+            },
+
+            "customDate-desc": function (a, b) {
+                return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+            }
+            });
+         //End: Format date soring
+
+        //Begin: Format date
+        Date.prototype.toFormattedDate = function ()
+            {
+            var dd = this.getDate();
+            if (dd < 10) dd = '0' + dd;
+            var mm = this.getMonth() + 1;
+            if (mm < 10) mm = '0' + mm;
+            var yyyy = this.getFullYear();
+            return String(dd + "/" + mm + "/" + yyyy);
+            };
+        //End: Format date
+
+        //Begin: Data Column
+        var TableColumn = function (data)
+            {
+            var self = this;
+            this.ServiceName = ko.observable(data.ServiceName);
+            this.ShowButton = ko.observable(data.ShowButton);
+            };
+        //End: Data Column
+
+        //Begin: View Model
+        var ViewModel = new function ()
+            {
+            var self = this;
+            var defaultDropdownText = 'All';
+            self.pageSize = ko.observable(10);
+            self.indexPage = ko.observable(0);
+            self.totalPage = ko.observable(1);
+            self.totalRow = ko.observable(0);
+            self.hocs = ko.observableArray([]);
+            self.formVendorSearch = ko.observable("");
+
+
+
+           self.availableParentName = ko.observableArray([defaultDropdownText,@foreach (var item in ViewBag.ParentDesc){<text>'@item',</text>}]);
+           self.selectedParentName = ko.observable(defaultDropdownText);
+
+           self.availableStatusName = ko.observableArray([defaultDropdownText,@foreach (var item in ViewBag.StatusDesc){<text>'@item',</text>}]);
+           self.selectedStatusName = ko.observable(defaultDropdownText);
+
+
+            self.nextPage = function () {
+                if ((self.indexPage() + 1) < self.totalPage()) {
+                    self.indexPage(self.indexPage() + 1);
+                    self.loadhoc();
+                }
+            }
+            self.prevPage = function () {
+                if (self.indexPage() > 0) {
+                    self.indexPage(self.indexPage() - 1);
+                    self.loadhoc();
+                }
+            }
+
+            self.loadhoc = function () {
+                self.hocs.removeAll();
+
+                $.ajax('@Url.Action("GetService", "Service")', {
+                    data: ko.toJSON({
+                        search: self.formVendorSearch(),
+                        pageSize: self.pageSize(),
+                        pageIndex: self.indexPage(),
+
+                        // Begin: Parameter from controller : GetBranch
+                        parentname: self.selectedParentName(),
+
+                        // Begin: Parameter from controller : GetBranch
+
+                    }),
+                    type: "post",
+                    contentType: "application/json",
+                    success: function (result) {
+                        self.hocs.removeAll();
+                        var underlyingArray = self.hocs();
+                        for (var i = 0; i < result.hocs.length; i++) {
+                            var row = result.hocs[i];
+                            var record = {
+
+                                ServiceName: row.ServiceName,
+                                ShowButton: row.ShowButton,
+                            }
+                            underlyingArray.push(record);
+                        }
+                        self.hocs.valueHasMutated();
+                        self.totalPage(result.totalPage);
+                        self.totalRow(result.totalRow);
+                        $('#dialog-Loading').dialog("close");
+                    },
+
+                });
+            }
+
+            self.restartSearchPagination = function () {
+                self.hocs.removeAll();
+                self.indexPage(0);
+                self.totalPage(1);
+                self.totalRow(0);
+                }
+            self.formVendorSearch.subscribe(function (value) {
+                if (value == '') self.formVendorSearch("");
+
+                self.restartSearchPagination();
+                self.loadhoc();
+            });
+            self.pageSize.subscribe(function (value) {
+                if (self.formVendorSearch() == '') self.formVendorSearch("");
+                self.restartSearchPagination();
+                self.loadhoc();
+            });
+            self.vendorsComputed = ko.computed(function () {
+                var records = self.hocs;
+                return records;
+            });
+
+            self.selectedParentName.subscribe(function (value) {
+                $('#dialog-Loading').dialog("open");
+                self.restartSearchPagination();
+                self.loadhoc();
+            });
+            self.loadhoc();
+            };
+
+
+
+    </script>
+}
+
+
+

@@ -1,0 +1,391 @@
+﻿@model Core.Entities.Data.PartData.PartTransferChargeOut
+@using AspNetGroupBasedPermissions.Helpers
+@{ ViewBag.Title = "Create Part Transfer Charge Out";}
+@{
+    Layout = "~/Views/Shared/_LayoutPopUp.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div id="addcocbox" class="row" style="width:auto;max-width:750px">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="panel-heading btn-primary modal-header">
+                    <center class="panel-title" style="min-height:10px;">
+                        <h4 style="font-weight:300">Create New Part Transfer Out</h4>
+                    </center>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-condensed table-striped table-bordered">
+                        <tr></tr>
+                        <tr>
+                        <tr>
+                            <text> Search
+                            </text>
+                        </tr>
+                        <tr>
+                                @Html.DropDownList("CategoryID", ViewData["CategoryID"] as SelectList, "--Select Category--", htmlAttributes: new { @id = "categoryid", @class = "form-control", onchange = "FuncSection(this.value,'plant'), FuncStore(this.value)", @style = "color:blue;font-size:12px;height:30px;" })
+                        </tr>
+                        <tr>
+                            <td class="glyphicon glyphicon-xx" style="width:85%;color:blue;font-family:Arial;padding:13px;font-size:12px;height:40px;">Search Part Name</td>
+                            <td class="glyphicon glyphicon-search" style="width:15%;color:blue;padding:13px;font-weight:700"></td>
+                            <td>
+                                <input id="partName" style="max-height:28px;font-size:11px;color:blue" class="form-control" type="text" name="searchbox" placeholder="--Search Part Name--" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="glyphicon glyphicon-xx" style="width:85%;color:blue;font-family:Arial;padding:13px;font-size:12px;height:40px;">Search Part No/Barcode</td>
+                            <td class="glyphicon glyphicon-search" style="width:15%;color:blue;padding:13px;font-weight:700"></td>
+                            <td>
+                                <input id="partNo" style="max-height:28px;font-size:11px;color:blue" class="form-control" type="text" name="searchbox" placeholder="--Search Part No/Barcode--" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="glyphicon glyphicon-xx" style="width:85%;color:blue;font-family:Arial;padding:13px;font-size:12px;height:40px;">Search Maker</td>
+                            <td class="glyphicon glyphicon-search" style="width:15%;color:blue;padding:13px;font-weight:700"></td>
+                            <td>
+                                <input id="partMaker" style="max-height:28px;font-size:11px;color:blue" class="form-control" type="text" name="searchbox" placeholder="--Search Maker--" />
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <center>
+                        <div class="col-md-offset-2 col-md-10">
+                            <input id="savebutton" type="submit" value="Save & Submit" class="btn btn-primary" />
+                            @Html.ActionLink("Cancel", "IndexPartTransferChargeOut", null, new { @class = "btn btn-white" })
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+@section Styles {
+  
+    <style>
+        .white {
+    color: blue;
+    }
+    
+    </style>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatableCheckbox")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/notifyjs")
+
+
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+        var filterby = "partname";
+        $("#partName").autocomplete({
+            source: function (request, response) {
+                var partname = document.getElementById("partName").value;
+                  $.ajax({
+                      url: '@Url.Action("GetPartName", "PartTransferOut", new { area = "Part" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                          partname: partname,
+                          filterby: filterby
+                      },
+
+                      success: function (results) {
+                          $('#partid').html(""); // clear before appending new list
+                          $('#partid').append(
+                          $('<option></option>').val("").html("--Select Part--"));
+                          $.each(results, function (i, results) {
+                              $('#partid').append(
+                                  $('<option></option>').val(results.PartID).html(results.PartName));
+                              $('#partno').append(
+                                  $('<option></option>').val(results.PartID).html(results.PartNo));
+                              $('#partNo').append(
+                                  $('<option></option>').val(results.PartID).html(results.PartName));
+                          });
+                      },
+                      error: function (error) {
+                      }
+                  });
+
+        },
+        select: function (event, ui) {
+            $("#pettycodeid").val(ui.item.partName);
+        }
+         });
+    });
+
+    $(document).ready(function () {
+         var filterby = "partno";
+        $("#partNo").autocomplete({
+            source: function (request, response) {
+                var partno = document.getElementById("partNo").value;
+                  $.ajax({
+                      url: '@Url.Action("GetPartName", "PartTransferOut", new { area = "Part" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                          partno: partno,
+                          filterby: filterby
+                      },
+
+                      success: function (results) {
+                          $('#partid').html(""); // clear before appending new list
+                         
+                          $.each(results, function (i, results) {
+                             
+                              $('#partid').append(
+                                  $('<option></option>').val(results.PartID).html(results.PartName));
+                              $('#partno').append(
+                                  $('<option></option>').val(results.PartID).html(results.PartNo));
+                              $('#partNo').append(
+                                  $('<option></option>').val(results.PartID).html(results.PartName));
+                          });
+                      },
+                      error: function (error) {
+                      }
+                  });
+
+        },
+        select: function (event, ui) {
+            $("#pettycodeid").val(ui.item.partName);
+        }
+         });
+      });
+
+
+    function FuncSection(filterid, filtercat) {
+       // alert(filtercat);
+
+              if (filterid == null || filterid == "") {
+                  $('#sectionid').html(""); // clear before appending new list
+                  $('#sectionid').append(
+                      $('<option></option>').val("").html("--Select Section--"));
+              }
+              else {
+                  $.ajax({
+                      url: '@Url.Action("FillSection", "Section", new { area = "Part" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                          filterid: filterid,
+                          filtercat: filtercat
+                      },
+
+                      success: function (results) {
+                          $('#sectionid').html(""); // clear before appending new list
+                          $('#sectionid').append(
+                          $('<option></option>').val("").html("--Select Section--"));
+                          $.each(results, function (i, results) {
+                              $('#sectionid').append(
+                                  $('<option></option>').val(results.SectionID).html(results.SectionName));
+                          });
+                      },
+                      error: function (error) {
+                          $.notify(
+                              error,
+                              { position: "top center", className: "Please Select A Correct Section" }
+                          );
+                      }
+                  });
+              }
+    }
+
+     function FuncStore(filterid, filtercat) {
+      //  alert(filtercat);
+
+              if (filterid == null || filterid == "") {
+                  $('#storeid').html(""); // clear before appending new list
+                  $('#storeid').append(
+                      $('<option></option>').val("").html("--Select Store--"));
+              }
+              else {
+                  $.ajax({
+                      url: '@Url.Action("FillStore", "Section", new { area = "Part" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                          filterid: filterid,
+                          filtercat: filtercat
+                      },
+
+                      success: function (results) {
+                          $('#storeid').html(""); // clear before appending new list
+                          $('#storeid').append(
+                          $('<option></option>').val("").html("--Select Store--"));
+                          $.each(results, function (i, results) {
+                              $('#storeid').append(
+                                  $('<option></option>').val(results.WhouseID).html(results.WhouseName));
+                          });
+                      },
+                      error: function (error) {
+                          $.notify(
+                              error,
+                              { position: "top center", className: "Please Select A Correct Section" }
+                          );
+                      }
+                  });
+              }
+    }
+
+     function FuncCabinet(filterid, filtercat) {
+        //alert(filtercat);
+        // alert(filterid);
+
+              if (filterid == null || filterid == "") {
+                  $('#cabinetid').html(""); // clear before appending new list
+                  $('#cabinetid').append(
+                      $('<option></option>').val("").html("--Select Cabinet--"));
+              }
+              else {
+                  $.ajax({
+                      url: '@Url.Action("FillCabinet", "Section", new { area = "Part" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                          filterid: filterid,
+                          filtercat: filtercat
+                      },
+
+                      success: function (results) {
+                          $('#cabinetid').html(""); // clear before appending new list
+                          $('#cabinetid').append(
+                          $('<option></option>').val("").html("--Select Cabinet--"));
+                          $.each(results, function (i, results) {
+                              $('#cabinetid').append(
+                                  $('<option></option>').val(results.CabinetID).html(results.CabinetName));
+                          });
+                      },
+                      error: function (error) {
+                          $.notify(
+                              error,
+                              { position: "top center", className: "Please Select A Correct Section" }
+                          );
+                      }
+                  });
+              }
+    }
+
+      function FuncPart(filterid, filtercat) {
+
+              if (filterid == null || filterid == "") {
+                  $('#partid').html(""); // clear before appending new list
+                  $('#partid').append(
+                      $('<option></option>').val("").html("--Select Part--"));
+              }
+              else {
+                  $.ajax({
+                      url: '@Url.Action("FillPart", "Section", new { area = "Part" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                          filterid: filterid,
+                          filtercat: filtercat
+                      },
+
+                      success: function (results) {
+                          $('#partid').html(""); // clear before appending new list
+                          $('#partid').append(
+                          $('<option></option>').val("").html("--Select Part--"));
+                          $.each(results, function (i, results) {
+                              $('#partid').append(
+                                  $('<option></option>').val(results.PartID).html(results.PartName));
+                          });
+                      },
+                      error: function (error) {
+                          $.notify(
+                              error,
+                              { position: "top center", className: "Please Select A Correct Section" }
+                          );
+                      }
+                  });
+              }
+    }
+
+     function FuncPartInfo(filterid, filtercat) {
+    
+         {
+               $.ajax({
+                    url: "/PartTransferOut/GetPartInfo",
+                    dataType: "json",
+                    type: "GET",
+                    contentType: 'application/json; charset=utf-8',
+                    cache: false,
+                    data: { strSelected: filterid },
+                    success: function (data) {
+                        if (data.success) {
+                            partno: $("#partNo").val(data.partno);
+                            partmaker: $("#makerName").val(data.makername);
+                            stockqty: $("#stockqty").val(data.qty);
+                        }
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+               });
+              }
+    }
+
+    function FuncPartInfo2(filterid, filtercat) {
+         {
+               $.ajax({
+                    url: "/PartTransferOut/GetPartInfo2",
+                    dataType: "json",
+                    type: "GET",
+                    contentType: 'application/json; charset=utf-8',
+                    cache: false,
+                    data: { strSelected: filterid },
+                    success: function (data) {
+                        if (data.success) {
+                            partmaker: $("#makerName").val(data.makername);
+                            stockqty: $("#stockqty").val(data.qty);
+                        }
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+               });
+              }
+    }
+
+
+    function CheckStockQty(transferqty) {
+        var currqty = document.getElementById('stockqty').value;
+
+        if (currqty < transferqty) {
+            document.getElementById("savebutton").style.visibility = "hidden";
+            alert("Request Quantity Is Not Enough");
+            document.getElementById('requestqty').value = 0;
+        }
+        else {
+
+        }
+    }
+
+        $(document).ready(function () {
+
+            $("#transactiondate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+        });
+
+    </script>
+}

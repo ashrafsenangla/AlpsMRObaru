@@ -1,0 +1,65 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    var claimsIdentity = User.Identity as System.Security.Claims.ClaimsIdentity;
+    var displayNameClaim = claimsIdentity != null
+        ? claimsIdentity.Claims.SingleOrDefault(x => x.Type == "FullName")
+        : null;
+    var nameToDisplay = displayNameClaim == null ? User.Identity.GetUserName() : displayNameClaim.Value;
+}
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+
+    <ul class="nav navbar-top-links navbar-right" style="max-height:10px; font-size:11px;color:white;">
+        <li><a href="javascript:document.getElementById('logoutForm').submit()"><p><span title="Logout" class="glyphicon glyphicon-log-out" style="color:red;"></span></p></a></li>
+        <li class="dropdown user user-menu ">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="hidden-xs glyphicon glyphicon-user" style="color:orange;max-height:11px" title="Profile"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li class="user-header">
+                        @Html.ActionLink(nameToDisplay, "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>
+                <!-- Menu Body -->
+                <li class="user-body">
+                    <div class="row">
+                        <div class="col-xs-4 text-center">
+                            <a href="#">Followers</a>
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <a href="#">Sales</a>
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <a href="#">Friends</a>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </li>
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                    <div class="pull-left">
+                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                    </div>
+                    <div class="pull-right">
+                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    }
+}
+else
+{
+    Response.Redirect("/Account/Login");
+    <ul class="nav navbar-top-links navbar-right">
+        @HttpContext.Current.User.Identity.IsAuthenticated
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+
+
+}

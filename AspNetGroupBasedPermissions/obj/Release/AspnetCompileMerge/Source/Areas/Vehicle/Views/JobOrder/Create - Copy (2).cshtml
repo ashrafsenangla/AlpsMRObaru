@@ -1,0 +1,1059 @@
+﻿@model Core.Entities.Data.Kenderaan.JobOrder
+@{ ViewBag.Title = "Create Job Order";
+    string fileUploadPath = "/FileUpload/";
+}
+
+
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+
+
+        @using (Html.BeginForm("Create", "JobOrder", FormMethod.Post, new { enctype = "multipart/Form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.ValidationSummary(true)
+
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title " style="padding-top:32px;"></div>
+                    <div class="ibox-content" style="background-color:#f7f5f5;">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="pull-left btn btn-xs btn-primary btn-block" style="font-weight:bolder; background-color:#37a5ed; border-color:#37a5ed;">Create New Job Order</label>
+                            </div>
+                            @Html.ValidationSummary()
+                            <div class="welldetailsContactedit" style="background-color:#c5e5fa;">
+                                <br />
+                                <div class="wellpob" style="min-height:350px;  background-color:#c5e5fa; padding:10px;  margin-bottom:20px;">
+                                    <div class="circle-border">
+                                        <div class="col-lg-4">
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.BusinessUnit, "Business Unit", new { @class = "control-label col-md-4" })
+                                                <div class="col-md-7">
+                                                    @Html.DropDownList("BusinessUnit", (IEnumerable<SelectListItem>)Session["BusinessUnit"], " < Select Business Unit >", new { @id = "bizunit", @class = "form-control", @onchange = "FillJObOrderCode(this)", @style = "font-size:12px;height:30px;", @required = "required" })
+                                                    @Html.HiddenFor(model => model.BusinessUnit)
+                                                    @Html.ValidationMessageFor(model => model.BusinessUnit)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.BranchID, "Branch", new { @class = "control-label col-md-4" })
+                                                <div class="col-md-7">
+                                                    @Html.DropDownList("BranchID", (IEnumerable<SelectListItem>)Session["BranchID"], " < Select Branch >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                    @Html.HiddenFor(model => model.BranchID)
+                                                    @Html.ValidationMessageFor(model => model.BranchID)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.ChargeTo_BranchID, "Charge To", new { @class = "control-label col-md-4" })
+                                                <div class="col-md-7">
+                                                    @Html.DropDownList("ChargeTo_BranchID", (IEnumerable<SelectListItem>)Session["BranchID"], " < Select Branch >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                    @Html.ValidationMessageFor(model => model.ChargeTo_BranchID)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.JobDate, "Job Order Date", new { @class = "control-label col-md-4", @style = " " })
+                                                <div class="input-group date col-md-7" style="padding-left:3px">
+                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                    @Html.TextBoxFor(model => model.JobDate, "DateTime", new { @class = "form-control", @style = "font-size:12px;height:30px;", @id = "JODate", onkeyup = "sync(this)" })
+                                                    @Html.ValidationMessageFor(model => model.JobDate)
+                                                </div>
+                                            </div>
+                                            @*<div class="row">
+                                                    @Html.LabelFor(model => model.JobOrderNo, "Job Order #", new { @class = "control-label col-md-4" })
+                                                    <div class="col-md-7">
+                                                        @Html.EditorFor(model => model.JobOrderNo, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" } })
+                                                        @Html.ValidationMessageFor(model => model.JobOrderNo)
+                                                    </div>
+                                                </div>*@
+                                            <div class="row">
+                                                @Html.Label("Job Order No", new { @class = "control-label col-sm-3" })
+                                                <div class="col-md-3">
+                                                    @Html.TextBox("JobOrderNo", ViewData["VendorCode"], new { id = "jocode", @class = "form-control", @readonly = "readonly", @style = "font-size:12px;height:30px;color:black;background-color: #edfcf9;" })
+                                                    @Html.ValidationMessageFor(model => model.JobOrderNo)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.VehicleID, "Vehicle ID", new { @class = "control-label col-sm-4" })
+                                                <div class="col-md-7">
+                                                    @Html.DropDownList("VehicleID", (IEnumerable<SelectListItem>)Session["VehicleNo"], " < Select Vehicle>", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                    @Html.ValidationMessageFor(model => model.VehicleID)
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="col-sm-4" style="padding-left:20px;">
+
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.CurrentSpeedoKM, "Current Speedo KM", new { @class = "control-label col-sm-6" })
+                                                <div class="col-md-6">
+                                                    @Html.EditorFor(model => model.CurrentSpeedoKM, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.CurrentSpeedoKM)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.NextServiceKM, "Next Service KM", new { @class = "control-label col-sm-6" })
+                                                <div class="col-md-6">
+                                                    @Html.EditorFor(model => model.NextServiceKM, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.NextServiceKM)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.EstimateCost, "Estimate Cost (RM)", new { @class = "control-label col-sm-6" })
+                                                <div class="col-md-6">
+                                                    @Html.EditorFor(model => model.EstimateCost, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.EstimateCost)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.EstimateTax, "Estimate Tax (RM)", new { @class = "control-label col-sm-6" })
+                                                <div class="col-md-6">
+                                                    @Html.EditorFor(model => model.EstimateTax, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.EstimateTax)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.EstimateTotal, "Estimate Total (RM)", new { @class = "control-label col-sm-6" })
+                                                <div class="col-md-6">
+                                                    @Html.EditorFor(model => model.EstimateTotal, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.EstimateTotal)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-pull-12">
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.JobOrderNo, "Job OrderCategory", new { @class = "control-label col-md-9" })
+                                                        <div class="col-md-9 m-c-xl" style="width:425px">
+                                                            @Html.DropDownList("ServiceType", (IEnumerable<SelectListItem>)Session["ServiceType"], new { @class = "form-control chosen-select m-b-xs", id = "witnessId", @multiple = "multiple" })
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4" style="padding-left:45px;">
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.QuotationDocLink, "Quotation ", new { @class = "control-label col-sm-4" })
+                                                <div class="col-md-8">
+                                                    <input type="file" name="file" id="file" style="width:100%" />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.OtherDocumentLink, "Photo", new { @class = "control-label col-md-4" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.OtherDocumentLink, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.OtherDocumentLink)
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.OtherDocumentLink, "Other File", new { @class = "control-label col-md-4" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.OtherDocumentLink, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.OtherDocumentLink)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.VendorID, "Workshop", new { @class = "control-label col-md-4" })
+                                                <div class="col-md-8">
+                                                    @Html.DropDownList("VendorID", (IEnumerable<SelectListItem>)Session["VendorID"], " < Select Workshop >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                    @Html.ValidationMessageFor(model => model.VendorID)
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="wellh2" style=" padding-top: 30px; margin-bottom: 2px; background-color: #c5e5fa;">
+                                            <div class="col-md-12" style="padding-left:5px;padding-top:20px;">
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.ServiceDescription, "Job Order Description", new { @class = "control-label" })
+                                                    <div class="col-md-12 m-b-xs">
+                                                        @Html.TextAreaFor(model => model.ServiceDescription, new { @class = "form-control ", id = "immediateActionId", @style = "font-size:12px;", rows = "5", @placeholder = "Please specify job order description, 1000 character maximum..." })
+                                                        @Html.ValidationMessageFor(model => model.ServiceDescription)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-offset-5 col-md-9">
+                            <input type="submit" value="Save & Next Page" class="btn btn-primary" />
+                            @Html.ActionLink("Cancel", "IndexJO", null, new { @class = "btn btn-white" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+    @Styles.Render("~/plugins/wizardStepsStyles")
+    @Styles.Render("~/plugins/clockpickerStyles")
+    @Styles.Render("~/plugins/dataPickerStyles")
+    @Styles.Render("~/plugins/imagecropperStyles")
+    @Styles.Render("~/Content/plugins/chosen/chosenStyles")
+    @Styles.Render("~/Content/plugins/dropzone/dropZoneStyles")
+    @Styles.Render("~/Content/plugins/blueimp/css/")
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/wizardSteps")
+    @Scripts.Render("~/plugins/iCheck")
+    @Scripts.Render("~/plugins/validate")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/clockpicker")
+    @Scripts.Render("~/plugins/imagecropper")
+    @Scripts.Render("~/plugins/chosen")
+    @Scripts.Render("~/plugins/lightboxGallery")
+    @Scripts.Render("~/plugins/dropZone")
+
+    @Scripts.Render("~/plugins/notifyjs")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/iCheck")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/validate")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/plugins/dataTables")
+
+    <script type="text/javascript">
+
+        $('#bizunit').change(function () {
+            var comments = $('#bizunit').val();
+
+            $.ajax({
+
+                url: "/WorkShop/FillWShopRunNo",
+                dataType: "json",
+                type: "GET",
+                contentType: 'application/json; charset=utf-8', //define a contentType of your request
+                cache: false,
+                data: { strSelected: comments },
+                success: function (data) {
+                    // data is your result from controller
+                    if (data.success) {
+                        wshopcode: $("#wshopcode").val(data.workshopCode);
+                        // alert(data.workshopCode);
+                    }
+                },
+                error: function (xhr) {
+                    alert('error');
+                }
+            });
+        });
+
+
+        $(document).ready(function () {
+
+            $("#StartDateId").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+        });
+
+    </script>
+
+
+    <script type="text/javascript">
+
+        function getReportedDate(reportedDate) {
+            //Date Comparison
+            var incidentDateValue = document.getElementById('incidentDateId').value;
+            var reportedDateValue = document.getElementById('incidentDateId').value;
+            if (reportedDateValue < incidentDateValue && incidentDateValue != "") {
+                alert('Reported date should not be less than incodent date !!');
+            }
+            return 0;
+        }
+
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#JODate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+            $("#reportedDateId").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                //startDate: '+d',
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+            var config = {
+                '.chosen-select': {},
+                '.chosen-select-deselect': { allow_single_deselect: true },
+                '.chosen-select-no-single': { disable_search_threshold: 10 },
+                '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+                '.chosen-select-width': { width: "95%" }
+            }
+            for (var selector in config) {
+                $(selector).chosen(config[selector]);
+            }
+
+        });
+    </script>
+
+    <script type="text/javascript">
+
+    $('#bizunit').change(function () {
+    var comments = $('#bizunit').val();
+
+    $.ajax({
+
+        url: "/JobOrder/FillJobOrderRunNo",
+        dataType: "json",
+        type: "GET",
+        contentType: 'application/json; charset=utf-8', //define a contentType of your request
+        cache: false,
+        data: { strSelected: comments  },
+        success: function (data) {
+            // data is your result from controller
+            if (data.success) {
+                jocode: $("#jocode").val(data.joborderCode);
+               // alert(data.workshopCode);
+            }
+        },
+        error: function (xhr) {
+            alert('error');
+        }
+    });
+
+
+                    function getLocation(locationID,incidentdate) {
+                        var incidentDateValue = document.getElementById('incidentDateId').value;
+                        var incidentYear = incidentDateValue.split('/');
+                        $("#POBInfo2_POBName").autocomplete({
+                            source: function (request, response) {
+                                $.ajax({
+                                    url: '@Url.Action("GetVisitReporter", "Hazards")',
+                                    datatype: "json",
+                                    data: {
+                                        term: request.term,
+                                        loc: locationID,
+                                        hazarddate: incidentDateValue
+
+                                    },
+                                    success: function (data) {
+                                        response($.map(data, function (val, item) {
+                                            return {
+                                                label: val.Name,
+                                                value: val.Name,
+                                                customerId: val.ID
+                                            }
+                                        }))
+                                    }
+                                })
+                            }, select: function (event, ui) {
+                                $("#reporterId").val(ui.item.customerId);
+                            }
+
+                        });
+                        $.ajax({
+                            url: '/INRs/FillINRNoByDate?pob=' + locationID + '&year=' + incidentYear[2],
+                            type: "GET",
+                            dataType: "JSON",
+                            success: function (pobSubs) {
+                                var inrrValue = document.getElementById('inrrNo').value;
+                                var element = inrrValue.split('-');
+                                var newinrrNo = element[0] + '-' + locationID + '-' + incidentYear[2] + '-' + pobSubs;
+
+                                var inrVal = document.getElementById('inrrNo');
+                                inrVal.value = newinrrNo;
+                                $('#inrrNo').val(newinrrNo);
+                            }
+                        });
+
+                        ////$.ajax({
+                        ////    url: '/POBs/OIMForLocation?pob=' + locationID,
+                        ////    type: "GET",
+                        ////    dataType: "JSON",
+                        ////    success: function (pobSubs) {
+                        ////        $('#oim').html(""); // clear before appending new list
+                        ////        $.each(pobSubs, function (i, pobSub) {
+                        ////            $('#oim').append(
+                        ////                $('<option></option>').val(pobSub.POBCode).html(pobSub.POBName));
+                        ////        });
+                        ////    }
+                        ////});
+
+
+                        //$.ajax({
+                        //    url: '/POBs/ReporterForLocation?pob=' + locationID,
+                        //    type: "GET",
+                        //    dataType: "JSON",
+                        //    success: function (pobSubs) {
+                        //        $('#reporterId').html(""); // clear before appending new list
+                        //        $('#reporterId').append(
+                        //        $('<option></option>').val("").html("---Select Reporter---"));
+                        //        $.each(pobSubs, function (i, pobSub) {
+                        //            $('#reporterId').append(
+                        //                $('<option></option>').val(pobSub.POBCode).html(pobSub.POBName));
+                        //        });
+                        //    }
+                        //});
+
+                        //////$.ajax({
+                        //////    url: '/POBs/DsIdForLocation?pob=' + locationID,
+                        //////    type: "GET",
+                        //////    dataType: "JSON",
+                        //////    success: function (pobSubs) {
+                        //////        $('#supervisorId').html(""); // clear before appending new list
+                        //////        $.each(pobSubs, function (i, pobSub) {
+                        //////            $('#supervisorId').append(
+                        //////                $('<option></option>').val(pobSub.POBCode).html(pobSub.POBName));
+                        //////        });
+                        //////    }
+                        //////});
+                        //////$.ajax({
+                        //////    url: '/POBs/QHSEForLocation?pob=' + locationID,
+                        //////    type: "GET",
+                        //////    dataType: "JSON",
+                        //////    success: function (pobSubs) {
+                        //////        $('#qhseId').html(""); // clear before appending new list
+                        //////        $.each(pobSubs, function (i, pobSub) {
+                        //////            $('#qhseId').append(
+                        //////                $('<option></option>').val(pobSub.POBCode).html(pobSub.POBName));
+                        //////        });
+                        //////    }
+                        //////});
+
+                        $.ajax({
+                            url: '/POBs/ReporterForLocation?pob=' + locationID,
+                            type: "GET",
+                            dataType: "JSON",
+                            success: function (pobSubs) {
+                                $('#witnessId').empty();
+                                $.each(pobSubs, function (i, pobSub) {
+                                    $('#witnessId').append(
+                                        $('<option></option>').val(pobSub.POBCode).html(pobSub.POBName));
+                                });
+                                $('#witnessId').trigger("chosen:updated");
+                            }
+                        });
+
+
+
+                        return 0;
+                    }
+
+                    function getIncidentDate(incidentDate)
+                    {
+                        var locationID = document.getElementById('locationId').value;
+                        var incidentYear = incidentDate.split('/');
+                        var inrrValue = document.getElementById('inrrNo').value;
+                        var element = inrrValue.split('-');
+                        var incidentYear = incidentDate.split('/');
+                        getLocation(locationID,incidentDate)
+                        $.ajax({
+                            url: '/INRs/FillINRNoByDate?pob=' + locationID + '&year=' + incidentYear[2],
+                            type: "GET",
+                            dataType: "JSON",
+                            success: function (pobSubs) {
+                                var newinrrNo = element[0] + '-' + locationID + '-' + incidentYear[2] + '-' + pobSubs;
+                                $('#inrrNo').val(newinrrNo);
+                            }
+                        });
+
+                        //Date Comparison
+                        var incidentDateValue = document.getElementById('incidentDateId').value;
+                        var reportedDateValue = document.getElementById('incidentDateId').value;
+                        if (reportedDateValue < incidentDateValue) {
+                            alert('Reported date should not be less than incodent date !!');
+                        }
+                        return 0;
+                    }
+
+                    var needValidate = true;
+
+                    $('#submitSave').click(function (e) {
+                        e.preventDefault();
+                        FormValidation();
+                    });
+                    function process(date) {
+                        var parts = date.split("/");
+                        return new Date(parts[2], parts[1] - 1, parts[0]);
+                    }
+                    function addDays(date, days) {
+                        var result = new Date(date);
+                        result.setDate(result.getDate() + days);
+                        return result;
+                    }
+                    function addMonths(date, months) {
+                        var result = new Date(date);
+                        result.setMonth(result.getMonth() + months);
+                        return result;
+                    }
+                    function FormValidation() {
+
+                        if (needValidate == false) {
+                            $('form').submit();
+                            return 0;
+                        }
+                        var inrrValue = document.getElementById('inrrNo').value;
+                        var element = inrrValue.split('-');
+                        $('#locationCode').val(element[1]);
+                        $('#countYear').val(element[2]);
+                        $('#lastCount').val(element[3]);
+
+                        // Period Control Start For Incident Date
+                        var incidentDateValue = document.getElementById('incidentDateId').value;
+                        var stDateValue = document.getElementById('stDateId').value;
+                        var endDateValue = document.getElementById('endDateId').value;
+                        var stSplitted = stDateValue.split(' ');
+                        var endSplitted = endDateValue.split(' ');
+                        var stDateModified = stSplitted[0];
+                        var endDateModified = endSplitted[0];
+
+                        //if ((stDateModified.substr(6, 4)) > (incidentDateValue.substr(6, 4)) || (incidentDateValue.substr(6, 4)) > (endDateModified.substr(6, 4))) {
+                        //    document.getElementById('incidentDateId').style.borderColor = "red";
+                        //    alert('Incident date should be within' + ' ' + stDateModified + ' ' + 'and' + ' ' + endDateModified);
+                        //    return false;
+                        //}
+                        //else if ((stDateModified.substr(3, 2)) > (incidentDateValue.substr(3, 2)) || (incidentDateValue.substr(3, 2)) > (endDateModified.substr(3, 2))) {
+                        //    document.getElementById('incidentDateId').style.borderColor = "red";
+                        //    alert('Incident date should be within' + ' ' + stDateModified + ' ' + 'and' + ' ' + endDateModified);
+                        //    return false;
+                        //}
+                        //else if ((stDateModified.substr(0, 2)) > (incidentDateValue.substr(0, 2)) || (incidentDateValue.substr(0, 2)) > (endDateModified.substr(0, 2))) {
+                        //    document.getElementById('incidentDateId').style.borderColor = "red";
+                        //    alert('Incident date should be within' + ' ' + stDateModified + ' ' + 'and' + ' ' + endDateModified);
+                        //    return false;
+                        //}
+                        var startDateFormat = process(stDateValue.substring(0, 10));
+                        var endDateFormat = process(endDateValue.substring(0, 10));
+                        var hDateFormat = process(incidentDateValue);
+                        var today = new Date();
+                        var dd = today.getDate();
+                        var mm = today.getMonth() + 1; //January is 0!
+
+                        var yyyy = today.getFullYear();
+                        if (dd < 10) {
+                            dd = '0' + dd;
+                        }
+                        if (mm < 10) {
+                            mm = '0' + mm;
+                        }
+                        var today = dd + '/' + mm + '/' + yyyy;
+                        var defaultdate = process(today);
+
+
+                        //if ((hDateFormat > endDateFormat) || (hDateFormat < (addDays(startDateFormat, 4) < defaultdate ? startDateFormat : addMonths(startDateFormat, -1)))) {
+                        if ((hDateFormat > endDateFormat) || (hDateFormat < startDateFormat)) {
+                        document.getElementById('incidentDateId').style.borderColor = "red";
+                                alert('Incident date should be within' + ' ' + stDateModified + ' ' + 'and' + ' ' + endDateModified);
+
+                            return false;
+                        }
+                        else {
+                            document.getElementById('incidentDateId').style.borderColor = "green";
+                        }
+                        // Period Control End For Incident Date
+
+                        // Period Control Start For Reported Date
+                        var reportedDateValue = document.getElementById('reportedDateId').value;
+                        var stDateValue = document.getElementById('stDateId').value;
+                        var endDateValue = document.getElementById('endDateId').value;
+                        var stSplitted = stDateValue.split(' ');
+                        var endSplitted = endDateValue.split(' ');
+                        var stDateModified = stSplitted[0];
+                        var endDateModified = endSplitted[0];
+                        var rDateFormat = process(reportedDateValue);
+                        if ((hDateFormat > endDateFormat) || (hDateFormat < startDateFormat)) {
+                            document.getElementById('reportedDateId').style.borderColor = "red";
+                            alert('Reported date should be within' + ' ' + stDateModified + ' ' + 'and' + ' ' + endDateModified);
+
+                            return false;
+                        }
+                        else {
+                            document.getElementById('reportedDateId').style.borderColor = "green";
+                        }
+                        //if ((stDateModified.substr(6, 4)) > (reportedDateValue.substr(6, 4)) || (reportedDateValue.substr(6, 4)) > (endDateModified.substr(6, 4))) {
+                        //    document.getElementById('reportedDateId').style.borderColor = "red";
+                        //    alert('Reported date should be within' + ' ' + stDateModified + ' ' + 'and' + ' ' + endDateModified);
+                        //    return false;
+                        //}
+                        //else if ((stDateModified.substr(3, 2)) > (reportedDateValue.substr(3, 2)) || (reportedDateValue.substr(3, 2)) > (endDateModified.substr(3, 2))) {
+                        //    document.getElementById('reportedDateId').style.borderColor = "red";
+                        //    alert('Reported date should be within' + ' ' + stDateModified + ' ' + 'and' + ' ' + endDateModified);
+                        //    return false;
+                        //}
+                        //else if ((stDateModified.substr(0, 2)) > (reportedDateValue.substr(0, 2)) || (reportedDateValue.substr(0, 2)) > (endDateModified.substr(0, 2))) {
+                        //    document.getElementById('reportedDateId').style.borderColor = "red";
+                        //    alert('Reported date should be within' + ' ' + stDateModified + ' ' + 'and' + ' ' + endDateModified);
+                        //    return false;
+                        //}
+                        //else {
+                        //    document.getElementById('reportedDateId').style.borderColor = "green";
+                        //}
+
+                        // Period Control End For Incident Date
+
+                        // Compare Date ST
+                        var incidentYear = incidentDateValue.substr(6, 4);
+                        var incidentMonth = incidentDateValue.substr(3, 2);
+                        var incidentDay = incidentDateValue.substr(0, 2);
+                        var incidentDateFormatted = incidentYear + incidentMonth + incidentDay;
+                        var reportedYear = reportedDateValue.substr(6, 4);
+                        var reportedMonth = reportedDateValue.substr(3, 2);
+                        var reportedDay = reportedDateValue.substr(0, 2);
+                        var reportedDateFormatted = reportedYear + reportedMonth + reportedDay;
+
+                        if (incidentDateFormatted > reportedDateFormatted) {
+                            alert("Incident Date Should Not be greater than Reported Date");
+                            document.getElementById('reportedDateId').style.borderColor = "red";
+                            return false;
+                        }
+                        else {
+                            document.getElementById('reportedDateId').style.borderColor = "green";
+                        }
+                        // Compare Date END
+
+                        // Compare Current Date ST
+                        var d = new Date();
+                        var dd = d.getDate();
+                        var mm = d.getMonth() + 1;
+                        var yyyy = d.getFullYear();
+                        if (mm < 10) {
+                            mm = "0" + mm;
+                        }
+                        if (dd < 10) {
+                            dd = "0" + dd;
+                        }
+                        var toDay = dd + "/" + mm + "/" + yyyy;
+
+                        if ((incidentDateValue.substr(6, 4)) < (toDay.substr(6, 4))) {
+                            document.getElementById('incidentDateId').style.borderColor = "green";
+                        }
+                        else if ((incidentDateValue.substr(3, 2)) < (toDay.substr(3, 2))) {
+                            document.getElementById('incidentDateId').style.borderColor = "green";
+                        }
+                        else if ((incidentDateValue.substr(0, 2)) <= (toDay.substr(0, 2))) {
+                            document.getElementById('incidentDateId').style.borderColor = "green";
+                        }
+                        else {
+                            alert("Incident Date Should not be greater than Current Date");
+                            document.getElementById('incidentDateId').style.borderColor = "red";
+                            return false;
+                        }
+
+                        //Report Date
+                        if ((reportedDateValue.substr(6, 4)) < (toDay.substr(6, 4))) {
+                            document.getElementById('reportedDateId').style.borderColor = "green";
+                        }
+                        else if ((reportedDateValue.substr(3, 2)) < (toDay.substr(3, 2))) {
+                            document.getElementById('reportedDateId').style.borderColor = "green";
+                        }
+                        else if ((reportedDateValue.substr(0, 2)) <= (toDay.substr(0, 2))) {
+                            document.getElementById('reportedDateId').style.borderColor = "green";
+                        }
+                        else {
+                            alert("Reported Date Should not be greater than Current Date");
+                            document.getElementById('reportedDateId').style.borderColor = "red";
+                            return false;
+                        }
+                        // Compare Current Date END
+
+                        //Validation
+                        //var locationValue = document.getElementById('Locations').value;
+                        var incidentTimeValue = document.getElementById('incidentTimeId').value;
+                        var OIMValue = document.getElementById('oim').value;
+                        var supervisorValue = document.getElementById('supervisorId').value;
+                        //var consequencesValue = document.getElementById("consequencesId").value;
+                        //var likelihoodValue = document.getElementById("likelihoodId").value;
+                        var reporterValue = document.getElementById('reporterId').value;
+                        var incidentWitnessValue = document.getElementById('witnessId').value;
+                        var incidentTitleValue = document.getElementById('incidentTitleId').value;
+                        var incidentSpecificLocValue = document.getElementById('incidentSpecificLocId').value;
+                        var incidentTypeValue = $('#incidentTypeId:checked').val();
+                        var incidentDescValue = document.getElementById('incidentDescId').value;
+                        var initialActionValue = document.getElementById('initialActionId').value;
+
+                        if (incidentDateValue == "") {
+                            document.getElementById('incidentDateId').style.borderColor = "red";
+                            return false;
+                        }
+                        else {
+                            document.getElementById('incidentDateId').style.borderColor = "green";
+                        }
+                        if (incidentTimeValue == "") {
+                            document.getElementById('incidentTimeId').style.borderColor = "red";
+                            return false;
+                        }
+                        else {
+                            document.getElementById('incidentTimeId').style.borderColor = "green";
+                        }
+
+                        if (reportedDateValue == "") {
+                            document.getElementById('reportedDateId').style.borderColor = "red";
+                            return false;
+                        }
+                        else {
+                            document.getElementById('reportedDateId').style.borderColor = "green";
+                        }
+                        if (OIMValue == "") {
+                            document.getElementById('oim').style.borderColor = "red";
+                            return false;
+                        }
+                        else {
+                            document.getElementById('oim').style.borderColor = "green";
+                        }
+                        if (supervisorValue == "") {
+                            document.getElementById('supervisorId').style.borderColor = "red";
+                            return false;
+                        }
+                        else {
+                            document.getElementById('supervisorId').style.borderColor = "green";
+                        }
+                        //if (consequencesValue == "") {
+                        //    document.getElementById("consequencesId").style.borderColor = "red";
+                        //    return false;
+                        //}
+                        //else {
+                        //    document.getElementById("consequencesId").style.borderColor = "green";
+                        //}
+
+                        if (reporterValue == "") {
+                            document.getElementById('POBInfo2_POBName').style.borderColor = "red";
+                            return false;
+                        }
+                        else {
+                            document.getElementById('POBInfo2_POBName').style.borderColor = "green";
+                        }
+                        //if (likelihoodValue == "") {
+                        //    document.getElementById("likelihoodId").style.borderColor = "red";
+                        //    return false;
+                        //}
+                        //else {
+                        //    document.getElementById("likelihoodId").style.borderColor = "green";
+                        //}
+                        if (incidentWitnessValue == "") {
+                            document.getElementById('witnessId').style.borderColor = "red";
+                            return false;
+                        }
+                        else {
+                            document.getElementById('witnessId').style.borderColor = "green";
+                        }
+                        if (incidentTitleValue == "") {
+                            document.getElementById('incidentTitleId').style.borderColor = "red";
+                            return false;
+                        }
+                        else {
+                            document.getElementById('incidentTitleId').style.borderColor = "green";
+                        }
+                        if (incidentSpecificLocValue == "") {
+                            document.getElementById('incidentSpecificLocId').style.borderColor = "red";
+                            return false;
+                        }
+                        else {
+                            document.getElementById('incidentSpecificLocId').style.borderColor = "green";
+                        }
+                        if (incidentTypeValue == "") {
+                            document.getElementById('incidentTypeId').style.borderColor = "red";
+                            return false;
+                        }
+                        else {
+                            document.getElementById('incidentTypeId').style.borderColor = "green";
+                        }
+
+                        if (incidentDescValue == "") {
+                            document.getElementById('incidentDescId').style.borderColor = "red";
+                            return false;
+                        }
+                        else {
+                            document.getElementById('incidentDescId').style.borderColor = "green";
+                        }
+
+                        if (initialActionValue == "") {
+                            document.getElementById('initialActionId').style.borderColor = "red";
+                            return false;
+                        }
+                        else {
+                            document.getElementById('initialActionId').style.borderColor = "green";
+                        }
+                        //Check duplicate Report No.
+                        $.ajax({
+                            url: '/INRs/DuplicateNoCheck?inrNo=' + inrrValue,
+                            type: "GET",
+                            dataType: "JSON",
+                            success: function (inrs) {
+                                if (inrs != '')
+                                {
+                                    $('#inrrNo').val(inrs);
+                                    var element = inrs.split('-');
+                                    $('#locationCode').val(element[1]);
+                                    $('#countYear').val(element[2]);
+                                    $('#lastCount').val(element[3]);
+                                    alert("Report No Has been Updated as: " + inrs);
+                                }
+                                needValidate = false;
+                                FormValidation();
+                            }
+                        });
+                        return false;
+                    }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#wizard").steps();
+            $("#form").steps({
+                bodyTag: "fieldset",
+                onStepChanging: function (event, currentIndex, newIndex) {
+                    // Always allow going backward even if the current step contains invalid fields!
+                    if (currentIndex > newIndex) {
+                        return true;
+                    }
+                    var form = $(this);
+                    // Clean up if user went backward before
+                    if (currentIndex < newIndex) {
+                        // To remove error styles
+                        $(".body:eq(" + newIndex + ") label.error", form).remove();
+                        $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                    }
+                    // Disable validation on fields that are disabled or hidden.
+                    form.validate().settings.ignore = ":disabled,:hidden";
+                    // Start validation; Prevent going forward if false
+                    return form.valid();
+                },
+
+                onFinishing: function (event, currentIndex) {
+                    var form = $(this);
+                    form.validate().settings.ignore = ":disabled";
+                    return form.valid();
+                },
+                onFinished: function (event, currentIndex) {
+                    var form = $(this);
+                    form.submit();
+                }
+            }).validate({
+                errorPlacement: function (error, element) {
+                    element.before(error);
+                },
+                rules: {
+                    confirm: {
+                        equalTo: "#password"
+                    }
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+            $('.clockpicker').clockpicker();
+
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var $image = $(".image-crop > img")
+            $($image).cropper({
+                aspectRatio: 1.618,
+                preview: ".img-preview",
+                done: function (data) {
+                }
+            });
+
+            var $inputImage = $("#inputImage");
+            if (window.FileReader) {
+                $inputImage.change(function () {
+                    var fileReader = new FileReader(),
+                        files = this.files,
+                        file;
+
+                    if (!files.length) {
+                        return;
+                    }
+
+                    file = files[0];
+
+                    if (/^image\/\w+$/.test(file.type)) {
+                        fileReader.readAsDataURL(file);
+                        fileReader.onload = function () {
+                            $inputImage.val("");
+                            $image.cropper("reset", true).cropper("replace", this.result);
+                        };
+                    } else {
+                        showMessage("Please choose an image file.");
+                    }
+                });
+            } else {
+                $inputImage.addClass("hide");
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var $image = $(".image-crop1 > img")
+            $($image).cropper({
+                aspectRatio: 1.618,
+                preview: ".img-preview",
+                done: function (data) {
+                    // Output the result data for cropping image.
+                }
+            });
+
+            var $inputImage1 = $("#inputImage1");
+            if (window.FileReader) {
+                $inputImage1.change(function () {
+                    var fileReader = new FileReader(),
+                        files = this.files,
+                        file;
+
+                    if (!files.length) {
+                        return;
+                    }
+
+                    file = files[0];
+
+                    if (/^image\/\w+$/.test(file.type)) {
+                        fileReader.readAsDataURL(file);
+                        fileReader.onload = function () {
+                            $inputImage1.val("");
+                            $image.cropper("reset", true).cropper("replace", this.result);
+                        };
+                    } else {
+                        showMessage("Please choose an image file.");
+                    }
+                });
+            } else {
+                $inputImage1.addClass("hide");
+            }
+        });
+
+    </script>
+
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var locationID = document.getElementById('locationId').value;
+        var incidentDate = document.getElementById('incidentDateId').value;
+        $("#POBInfo2_POBName").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("GetVisitReporter", "Hazards")',
+                    datatype: "json",
+                    data: {
+                        term: request.term,
+                        loc: locationID,
+                        hazarddate:incidentDate
+
+                    },
+                    success: function (data) {
+                        response($.map(data, function (val, item) {
+                            return {
+                                label: val.Name,
+                                value: val.Name,
+                                customerId: val.ID
+                            }
+                        }))
+                    }
+                })
+            }, select: function (event, ui) {
+                $("#reporterId").val(ui.item.customerId);
+            }
+
+        });
+    });
+
+    </script>
+    <script type="text/javascript">
+        $(document).on('submit', 'form', function () {
+
+            var buttons = $(this).find('[type="submit"]');
+            if ($(this).valid()) {
+                $('#dialog-Loading').dialog("open");
+
+            } else {
+
+                $('#dialog-Loading').dialog("close");
+
+            }
+
+            var button = $(this).find('[type="button"]');
+            if ($(this).valid()) {
+                $('#dialog-Loading').dialog("open");
+
+            } else {
+
+                $('#dialog-Loading').dialog("close");
+
+            }
+        });
+
+
+    </script>
+    @*<script type="text/javascript">
+            $(document).on('submit', 'form', function () {
+                var buttons = $(this).find('[type="submit"]');
+                if ($(this).valid()) {
+                    $("a").attr("disabled", "disabled");
+                    buttons.each(function (btn) {
+                        $(buttons[btn]).prop('disabled', true);
+                    });
+                } else {
+                    buttons.each(function (btn) {
+                        $(buttons[btn]).prop('disabled', false);
+                    });
+                }
+
+                var button = $(this).find('[type="button"]');
+                if ($(this).valid()) {
+                    $("a").attr("disabled", "disabled");
+                    button.each(function (btn) {
+                        $(button[btn]).prop('disabled', true);
+                    });
+                } else {
+                    button.each(function (btn) {
+                        $(button[btn]).prop('disabled', false);
+                    });
+                }
+            });
+
+            //$("a").on('click', function (event) {
+            //    $("a").attr("disabled", "disabled");
+            //    $('[type="submit"]').prop('disabled', true);
+            //    $('[type="button"]').prop('disabled', true);
+            //});
+
+        </script>*@
+
+}
+

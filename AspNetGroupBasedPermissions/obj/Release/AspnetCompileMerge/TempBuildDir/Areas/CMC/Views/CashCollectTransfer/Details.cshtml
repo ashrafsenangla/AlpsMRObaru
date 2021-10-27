@@ -1,0 +1,56 @@
+﻿@model Core.Entities.Data.CMC.CCTransfer
+@using AspNetGroupBasedPermissions.Helpers
+@using AspNetGroupBasedPermissions.Helpers.Enums
+@using AspNetGroupBasedPermissions.Helpers.Constant;
+
+@{
+    ViewBag.Title = "Details MSR";
+}
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.ID)
+
+            <div class="col-lg-12">
+                <div class="wellPRGeneral" style="min-height:200px !important">
+                    <div class="form-group">
+                        <text>@Html.FileActionLink(Model.FileName, new { @class = "btn-white" })</text>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+
+
+    @section Scripts {
+        @Scripts.Render("~/plugins/wizardSteps")
+        @Scripts.Render("~/plugins/iCheck")
+        @Scripts.Render("~/plugins/validate")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/plugins/knockout")
+        @Scripts.Render("~/plugins/dataTables")
+        @Scripts.Render("~/plugins/notifyjs")
+
+
+
+
+        </script>
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+

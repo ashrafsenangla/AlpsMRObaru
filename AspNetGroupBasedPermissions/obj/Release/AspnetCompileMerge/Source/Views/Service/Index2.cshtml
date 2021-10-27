@@ -1,0 +1,247 @@
+﻿@using AspNetGroupBasedPermissions.Helpers
+@{ ViewBag.Title = "List Of Services";}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title " style="padding-top:32px;"></div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        <label style="background-color:steelblue;border-color:steelblue;font-weight:bolder" class="pull-left btn btn-xs btn-primary btn-block">List Of Service</label>
+                    </div>
+                    <div class="dataTables_wrapper form-inline no-footer">
+                        @Html.Partial("_IndexBodyNoFilter")
+                        <table id="mainTable" class="display table table-striped table-bordered table-hover dataTables-example">
+                            <thead>
+                                <tr>
+                                    <td data-bind="style : {width: '3%' } "></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th><input name="select_all" value="1" type="checkbox"></th>
+                                    <th>Name</th>
+                                    <th>Is Parent</th>
+                                    <th>Controller</th>
+                                    <th>Image Class</th>
+                                    <th>Sequence#</th>
+                                    <th>Edit</th>
+                                    <th>Detail</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="dataTablesForEach:
+                                   @Html.Partial("_IndexColumn9")
+                                <tr>
+                                    <td style="width:3%"><input type='checkbox'></td>
+                                    <td data-bind="text:ServiceName, style : {width: '30%'} "></td>
+                                    <td data-bind="text:ParentName, style : {width: '8%' } "></td>
+                                    <td data-bind="text:Controller, style : {width: '11%' } "></td>
+                                    <td data-bind="text:ImageClass, style : {width: '10%' } "></td>
+                                    <td data-bind="text:SequenceNo, style : {width: '8%' } "></td>
+
+                                    <td data-bind="style : {width: '4%' } ">
+                                        <a data-bind="visible:ShowButton==true,attr: { href: BranchURL}" title="Click To View" style="font-size:7px" class="btn-primary glyphicon glyphicon-home btn-rounded"></a>
+                                    </td>
+                                    <td data-bind="style : {width: '4%' } ">
+                                        <a data-bind="visible:ShowButton==true,attr: { href: ServiceURL}" title="Click To View" style="font-size:7px" class="btn-primary glyphicon glyphicon-time btn-rounded"></a>
+                                    </td>
+                                    <td data-bind="style : {width: '4%' } ">
+                                        <a data-bind="visible:ShowButton==true,attr: { href: EditURL}" title="Click To View" style="font-size:7px" class="btn-primary glyphicon glyphicon-edit btn-rounded"></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        @Html.Partial("_IndexPage")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    @Styles.Render("~/Scripts/plugins/jquery-ui/jqueryuiStyles")
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatableCheckbox")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/notifyjs")
+
+    <script type="text/javascript">
+
+         //Begin: Format date soring
+            jQuery.extend(jQuery.fn.dataTableExt.oSort,
+            {
+            "customDate-pre": function (a) {
+                var ukDatea = a.split('/');
+                return (ukDatea[2] + ukDatea[1] + ukDatea[0]) * 1;
+            },
+
+            "customDate-asc": function (a, b) {
+                return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+            },
+
+            "customDate-desc": function (a, b) {
+                return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+            }
+            });
+         //End: Format date soring
+
+        //Begin: Format date
+        Date.prototype.toFormattedDate = function ()
+            {
+            var dd = this.getDate();
+            if (dd < 10) dd = '0' + dd;
+            var mm = this.getMonth() + 1;
+            if (mm < 10) mm = '0' + mm;
+            var yyyy = this.getFullYear();
+            return String(dd + "/" + mm + "/" + yyyy);
+            };
+        //End: Format date
+
+        //Begin: Data Column
+        var TableColumn = function (data)
+            {
+            var self = this;
+            this.ServiceName = ko.observable(data.ServiceName);
+            this.ParentName = ko.observable(data.ParentName);
+            this.Controller = ko.observable(data.Controller);
+            this.ImageClass = ko.observable(data.ImageClass);
+            this.SequenceNo = ko.observable(data.SequenceNo);
+            this.EditURL = ko.observable(data.EditURL);
+            this.DetailURL = ko.observable(data.DetailURL);
+            this.DeleteURL = ko.observable(data.DeleteURL);
+            this.ShowButton = ko.observable(data.ShowButton);
+            };
+        //End: Data Column
+
+        //Begin: View Model
+        var ViewModel = new function ()
+            {
+            var self = this;
+            var defaultDropdownText = 'All';
+            self.pageSize = ko.observable(10);
+            self.indexPage = ko.observable(0);
+            self.totalPage = ko.observable(1);
+            self.totalRow = ko.observable(0);
+            self.hocs = ko.observableArray([]);
+            self.formVendorSearch = ko.observable("");
+
+            var defaultdate = new Date().toFormattedDate();
+
+
+            self.nextPage = function () {
+                if ((self.indexPage() + 1) < self.totalPage()) {
+                    self.indexPage(self.indexPage() + 1);
+                    self.loadhoc();
+                }
+            }
+            self.prevPage = function () {
+                if (self.indexPage() > 0) {
+                    self.indexPage(self.indexPage() - 1);
+                    self.loadhoc();
+                }
+            }
+
+            self.loadhoc = function () {
+                self.hocs.removeAll();
+
+                $.ajax('@Url.Action("GetService", "Service")', {
+                    data: ko.toJSON({
+                        search: self.formVendorSearch(),
+                        pageSize: self.pageSize(),
+                        pageIndex: self.indexPage(),
+
+                        // Begin: Parameter from controller : GetBranch
+                        // Begin: Parameter from controller : GetBranch
+
+                    }),
+                    type: "post",
+                    contentType: "application/json",
+                    success: function (result) {
+                        self.hocs.removeAll();
+                        var underlyingArray = self.hocs();
+                        for (var i = 0; i < result.hocs.length; i++) {
+                            var row = result.hocs[i];
+                            var record = {
+
+                                ServiceName: row.ServiceName,
+                                ParentName: row.ParentName,
+                                Controller: row.Controller,
+                                ImageClass: row.ImageClass,
+                                SequenceNo: row.SequenceNo,
+                                EditURL: row.EditURL,
+                                DetailURL: row.DetailURL,
+                                DeleteURL: row.DeleteURL,
+                                ShowButton: row.ShowButton,
+                            }
+                            underlyingArray.push(record);
+                        }
+                        self.hocs.valueHasMutated();
+                        self.totalPage(result.totalPage);
+                        self.totalRow(result.totalRow);
+                        $('#dialog-Loading').dialog("close");
+                    },
+
+                });
+            }
+
+            self.restartSearchPagination = function () {
+                self.hocs.removeAll();
+                self.indexPage(0);
+                self.totalPage(1);
+                self.totalRow(0);
+                }
+            self.formVendorSearch.subscribe(function (value) {
+                if (value == '') self.formVendorSearch("");
+
+                self.restartSearchPagination();
+                self.loadhoc();
+            });
+            self.pageSize.subscribe(function (value) {
+                if (self.formVendorSearch() == '') self.formVendorSearch("");
+                self.restartSearchPagination();
+                self.loadhoc();
+            });
+            self.vendorsComputed = ko.computed(function () {
+                var records = self.hocs;
+                return records;
+            });
+
+            self.loadhoc();
+            };
+        //End: View Model
+
+        $(document).ready(function () {
+
+            $('#StartDate').datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true,
+            }).datepicker("setDate", new Date());
+            ko.applyBindings(ViewModel);
+        });
+
+    </script>
+}
+
+

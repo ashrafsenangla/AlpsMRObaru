@@ -1,0 +1,343 @@
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyRequesterNewMSRHasBeenSent.cshtml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyMSRHasBeenRejected.cshtml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyNewMSRRequestHasBeenReceived.cshtml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyMSRHasBeenReturned.cshtml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyMSRHasBeenFinished.cshtml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyCapexHasBeenFinished.cshtml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyCapexHasBeenRejected.cshtml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyCapexHasBeenReturned.cshtml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyNewCapexRequestHasBeenReceived.cshtml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyCapexRequestHasBeenReceivedForBuyer.cshtml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyPRHasBeenFinished.cshtml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyPRHasBeenRejected.cshtml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyPRHasBeenReturned.cshtml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyNewPRRequestHasBeenReceived.cshtml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyRequesterNewPRHasBeenSent - Copy.cshtml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyPRHasBeenFinishedToRequester.cshtml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\AspNetGroupBasedPermissions.Test.dll.config
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\AspNetGroupBasedPermissions.Test.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\AspNetGroupBasedPermissions.Test.pdb
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\AspNetGroupBasedPermissions.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Core.Entities.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Core.Framework.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EntityFramework.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EntityFramework.SqlServer.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Infrastructures.Data.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Repository.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Service.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\ReportViewerForMvc.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Services.EPR.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Helpers.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Mvc.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Razor.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.Razor.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\RazorEngine.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Agent.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Infrastructures.Agents.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Optimization.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Owin.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Newtonsoft.Json.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Core.Entities.pdb
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Core.Framework.pdb
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Repository.pdb
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Service.pdb
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Services.EPR.pdb
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Infrastructures.Data.pdb
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\AspNetGroupBasedPermissions.pdb
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EntityFramework.xml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EntityFramework.SqlServer.xml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Helpers.xml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Mvc.xml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Razor.xml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.xml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.Razor.xml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\RazorEngine.xml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Agent.pdb
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Infrastructures.Agents.pdb
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Optimization.xml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.xml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.xml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Newtonsoft.Json.xml
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\obj\Debug\AspNetGroupBasedPermissions.Test.csprojResolveAssemblyReference.cache
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\obj\Debug\AspNetGroupBasedPermissions.Test.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\obj\Debug\AspNetGroupBasedPermissions.Test.pdb
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\itextsharp.dll
+C:\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\itextsharp.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyRequesterNewMSRHasBeenSent.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyMSRHasBeenRejected.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyNewMSRRequestHasBeenReceived.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyMSRHasBeenReturned.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyMSRHasBeenFinished.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyCapexHasBeenFinished.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyCapexHasBeenRejected.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyCapexHasBeenReturned.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyNewCapexRequestHasBeenReceived.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyCapexRequestHasBeenReceivedForBuyer.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyPRHasBeenFinished.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyPRHasBeenRejected.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyPRHasBeenReturned.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyNewPRRequestHasBeenReceived.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyRequesterNewPRHasBeenSent - Copy.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyPRHasBeenFinishedToRequester.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\AspNetGroupBasedPermissions.Test.dll.config
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\AspNetGroupBasedPermissions.Test.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\AspNetGroupBasedPermissions.Test.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\AspNetGroupBasedPermissions.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Core.Entities.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Core.Framework.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EntityFramework.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EntityFramework.SqlServer.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Infrastructures.Data.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Repository.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Service.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\ReportViewerForMvc.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Services.EPR.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Helpers.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Mvc.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Razor.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\RazorEngine.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Agent.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Infrastructures.Agents.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Optimization.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Owin.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\itextsharp.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Newtonsoft.Json.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Core.Entities.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Core.Framework.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Repository.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Service.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Services.EPR.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Infrastructures.Data.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\AspNetGroupBasedPermissions.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EntityFramework.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EntityFramework.SqlServer.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Helpers.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Mvc.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Razor.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\RazorEngine.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Agent.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Infrastructures.Agents.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Optimization.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Newtonsoft.Json.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\obj\Debug\AspNetGroupBasedPermissions.Test.csprojResolveAssemblyReference.cache
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\obj\Debug\AspNetGroupBasedPermissions.Test.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\obj\Debug\AspNetGroupBasedPermissions.Test.pdb
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyRequesterNewMSRHasBeenSent.cshtml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyMSRHasBeenRejected.cshtml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyNewMSRRequestHasBeenReceived.cshtml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyMSRHasBeenReturned.cshtml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyMSRHasBeenFinished.cshtml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyCapexHasBeenFinished.cshtml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyCapexHasBeenRejected.cshtml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyCapexHasBeenReturned.cshtml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyNewCapexRequestHasBeenReceived.cshtml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyCapexRequestHasBeenReceivedForBuyer.cshtml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyPRHasBeenFinished.cshtml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyPRHasBeenRejected.cshtml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyPRHasBeenReturned.cshtml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyNewPRRequestHasBeenReceived.cshtml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyRequesterNewPRHasBeenSent - Copy.cshtml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyPRHasBeenFinishedToRequester.cshtml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\AspNetGroupBasedPermissions.Test.dll.config
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\AspNetGroupBasedPermissions.Test.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\AspNetGroupBasedPermissions.Test.pdb
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\AspNetGroupBasedPermissions.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Core.Entities.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Core.Framework.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EntityFramework.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EntityFramework.SqlServer.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Infrastructures.Data.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Repository.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Service.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\ReportViewerForMvc.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Services.EPR.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Helpers.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Mvc.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Razor.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.Razor.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\RazorEngine.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Agent.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Infrastructures.Agents.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Optimization.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Owin.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\itextsharp.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Newtonsoft.Json.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Core.Entities.pdb
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Core.Framework.pdb
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Repository.pdb
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Service.pdb
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Services.EPR.pdb
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Infrastructures.Data.pdb
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\AspNetGroupBasedPermissions.pdb
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EntityFramework.xml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EntityFramework.SqlServer.xml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Helpers.xml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Mvc.xml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Razor.xml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.xml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.Razor.xml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\RazorEngine.xml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Agent.pdb
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Infrastructures.Agents.pdb
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Optimization.xml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.xml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.xml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Newtonsoft.Json.xml
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\obj\Debug\AspNetGroupBasedPermissions.Test.csprojResolveAssemblyReference.cache
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\obj\Debug\AspNetGroupBasedPermissions.Test.dll
+C:\From Old Notebook\EPR_DEV\Test\AspNetGroupBasedPermissions.Test\obj\Debug\AspNetGroupBasedPermissions.Test.pdb
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyRequesterNewMSRHasBeenSent.cshtml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyMSRHasBeenRejected.cshtml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyNewMSRRequestHasBeenReceived.cshtml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyMSRHasBeenReturned.cshtml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyMSRHasBeenFinished.cshtml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyCapexHasBeenFinished.cshtml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyCapexHasBeenRejected.cshtml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyCapexHasBeenReturned.cshtml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyNewCapexRequestHasBeenReceived.cshtml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyCapexRequestHasBeenReceivedForBuyer.cshtml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyPRHasBeenFinished.cshtml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyPRHasBeenRejected.cshtml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyPRHasBeenReturned.cshtml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyNewPRRequestHasBeenReceived.cshtml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyRequesterNewPRHasBeenSent - Copy.cshtml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EmailTemplate\NotifyPRHasBeenFinishedToRequester.cshtml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\AspNetGroupBasedPermissions.Test.dll.config
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\AspNetGroupBasedPermissions.Test.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\AspNetGroupBasedPermissions.Test.pdb
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\AspNetGroupBasedPermissions.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Core.Entities.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Core.Framework.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EntityFramework.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EntityFramework.SqlServer.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Infrastructures.Data.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Repository.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Service.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\ReportViewerForMvc.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Services.EPR.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Helpers.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Mvc.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Razor.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.Razor.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\RazorEngine.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Agent.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Infrastructures.Agents.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Optimization.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Owin.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\itextsharp.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Newtonsoft.Json.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Core.Entities.pdb
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Core.Framework.pdb
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Repository.pdb
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Service.pdb
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Services.EPR.pdb
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Infrastructures.Data.pdb
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\AspNetGroupBasedPermissions.pdb
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EntityFramework.xml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\EntityFramework.SqlServer.xml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Helpers.xml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Mvc.xml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Razor.xml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.xml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.WebPages.Razor.xml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\RazorEngine.xml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Interfaces.Agent.pdb
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Infrastructures.Agents.pdb
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\System.Web.Optimization.xml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.xml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.xml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\bin\Debug\Newtonsoft.Json.xml
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\obj\Debug\AspNetGroupBasedPermissions.Test.csprojResolveAssemblyReference.cache
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\obj\Debug\AspNetGroupBasedPermissions.Test.dll
+C:\iSRTEON-New\Test\AspNetGroupBasedPermissions.Test\obj\Debug\AspNetGroupBasedPermissions.Test.pdb
+C:\iSRTEON-Current\Test\AspNetGroupBasedPermissions.Test\obj\Debug\AspNetGroupBasedPermissions.Test.csproj.CoreCompileInputs.cache
+C:\iSRTEON-Current\Test\AspNetGroupBasedPermissions.Test\obj\Debug\AspNetGroupBasedPermissions.Test.csprojAssemblyReference.cache

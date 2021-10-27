@@ -1,0 +1,192 @@
+﻿<div class="wrapper wrapper-content animated fadeInRight" style="padding-top:40px">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center m-t-lg">
+                    <h1>
+                        @ViewData["SubTitle"]
+                    </h1>
+                    <small>@ViewData["Message"]</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+
+        <div class="row m-t-lg">
+            <div class="col-lg-12">
+                <div class="ibox-content">
+                    <h2>World map</h2>
+                    <div id="world-map" style="height: 300px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section Styles {
+        @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+    }
+
+    @section Scripts {
+        @Scripts.Render("~/plugins/iCheck")
+        @Scripts.Render("~/plugins/flot")
+        @Scripts.Render("~/plugins/vectorMap")
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                var d1 = [[1262304000000, 6], [1264982400000, 3057], [1267401600000, 20434], [1270080000000, 31982], [1272672000000, 26602], [1275350400000, 27826], [1277942400000, 24302], [1280620800000, 24237], [1283299200000, 21004], [1285891200000, 12144], [1288569600000, 10577], [1291161600000, 10295]];
+                var d2 = [[1262304000000, 5], [1264982400000, 200], [1267401600000, 1605], [1270080000000, 6129], [1272672000000, 11643], [1275350400000, 19055], [1277942400000, 30062], [1280620800000, 39197], [1283299200000, 37000], [1285891200000, 27000], [1288569600000, 21000], [1291161600000, 17000]];
+
+                var data1 = [
+                    { label: "Data 1", data: d1, color: '#17a084' },
+                    { label: "Data 2", data: d2, color: '#127e68' }
+                ];
+
+
+                var data2 = [
+                    { label: "Data 1", data: d1, color: '#19a0a1' }
+                ];
+
+                var data3 = [
+                    { label: "Data 1", data: d1, color: '#fbbe7b' },
+                    { label: "Data 2", data: d2, color: '#f8ac59' }
+                ];
+
+
+                $('.i-checks').iCheck({
+                    checkboxClass: 'icheckbox_square-green',
+                    radioClass: 'iradio_square-green',
+                });
+
+                var mapData = {
+                    "US": 498,
+                    "SA": 200,
+                    "CA": 1300,
+                    "DE": 220,
+                    "FR": 540,
+                    "CN": 120,
+                    "AU": 760,
+                    "BR": 550,
+                    "IN": 200,
+                    "GB": 120,
+                    "RU": 2000
+                };
+
+                $('#world-map').vectorMap({
+                    map: 'world_mill_en',
+                    backgroundColor: "transparent",
+                    regionStyle: {
+                        initial: {
+                            fill: '#e4e4e4',
+                            "fill-opacity": 1,
+                            stroke: 'none',
+                            "stroke-width": 0,
+                            "stroke-opacity": 0
+                        }
+                    },
+                    series: {
+                        regions: [{
+                            values: mapData,
+                            scale: ["#1ab394", "#22d6b1"],
+                            normalizeFunction: 'polynomial'
+                        }]
+                    },
+                });
+
+            });
+        </script>
+    }
+
+
+@*<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCe2nFHkWtsnzyCOCEExHqgIXcf4OMxBG0" type="text/javascript"></script>
+
+
+<style>
+    #map_canvas img {
+        max-width: none;
+    }
+</style>
+
+<!-- This css is to give a nice big popup "info window" when a marker is clicked on the map -->
+<style>
+    .infoDiv {
+        height: 200px;
+        width: 300px;
+        -webkit-user-select: none;
+        background-color: white;
+    }
+</style>
+<br />
+<!-- This is the div that will contain the Google Map -->
+<div id="map_canvas" style="height: 550px;"></div>
+
+<!-- Enclose the Javascript in a "section" so that it is rendered in the correct order after scripts have been loaded etc -->
+@section scripts {
+    <section class="scripts">
+
+        <script type="text/javascript">
+
+      //This code tells the browser to execute the "Initialize" method only when the complete document model has been loaded.
+                $(document).ready(function () {
+                    Initialize();
+                });
+
+            function Initialize() {
+
+                // Google has tweaked their interface somewhat - this tells the api to use that new UI
+                google.maps.visualRefresh = true;
+                var Malaysia = new google.maps.LatLng(4.08007,109.316056);
+
+                // These are options that set initial zoom level, where the map is centered globally to start, and the type of map to show
+                var mapOptions = {
+                    zoom: 6,
+                    center: Malaysia,
+                    mapTypeId: google.maps.MapTypeId.G_NORMAL_MAP
+                };
+
+                // This makes the div with id "map_canvas" a google map
+                var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+                // a sample list of JSON encoded data of places to visit in Tunisia
+                // you can either make up a JSON list server side, or call it from a controller using JSONResult
+
+
+
+                var data = [
+                    { "Id": 1, "PlaceName": "SRT-EON Kelana Jaya", "GeoLong": "3.103959", "GeoLat": "101.597088" },
+                    { "Id": 2, "PlaceName": "SRT-EON Klang ", "GeoLong": "3.044917", "GeoLat": "101.445562" },
+                    { "Id": 3, "PlaceName": "SRT-EON Kota Bharu", "GeoLong": "6.125308", "GeoLat": "102.237615" },
+                    { "Id": 4, "PlaceName": "SRT-EON Alor Setar", "GeoLong": "6.126307", "GeoLat": "100.36717" },
+                    { "Id": 5, "PlaceName": "Rumah Rosdida", "GeoLong": "3.398185", "GeoLat": "101.564381" }
+
+                ];
+
+                // Using the JQuery "each" selector to iterate through the JSON list and drop marker pins
+                $.each(data, function (i, item) {
+                    var marker = new google.maps.Marker({
+                        'position': new google.maps.LatLng(item.GeoLong, item.GeoLat),
+                        'map': map,
+                        'title': item.PlaceName
+                    });
+
+                    // Make the marker-pin blue!
+                    marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+
+                    // put in some information about each json object - in this case, the opening hours.
+                    var infowindow = new google.maps.InfoWindow({
+                        content: "<div class='infoDiv'><h2>" + item.PlaceName + "</div></div>"
+                    });
+
+                    // finally hook up an "OnClick" listener to the map so it pops up out info-window when the marker-pin is clicked!
+                    google.maps.event.addListener(marker, 'click', function () {
+                        infowindow.open(map, marker);
+                    });
+
+                })
+            }
+
+
+        </script>
+    </section>
+}*@

@@ -1,0 +1,406 @@
+﻿@model IEnumerable<Core.Entities.Data.SRTCenterGroup>
+
+@{
+    ViewBag.Title = "List Of Customer";
+}
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="ibox float-e-margins">
+                <div class="ibox-title" style=" padding: 1px 15px 7px;">
+                </div>
+                <div class="ibox-content">
+                    <div class="dataTables_wrapper form-inline no-footer">
+                        <div class="dataTables_length">
+                            <label>
+                                <select class="form-control input-sm" data-bind="value: pageSize">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select> <span> : Records/Page </span>
+                            </label>
+                        </div>
+                        <div class="ibox-tools">
+                                    <a data-bind="attr: { href: selectedVendor().DetailsURL},visible: selectedVendor().VendorCode()!=''" class="btn btn-primary">Details</a>
+                                    <a data-bind="click: assignCompany,visible: selectedVendor().VendorCode()!=''" class="btn btn-primary">Companies</a>
+                                    @Html.ActionLink("Create New", "CreateCustomer", null, new { @class = "btn btn-primary btn-xs" })
+                                    <a data-bind="attr: { href: selectedVendor().EditURL},visible: selectedVendor().VendorCode()!=''" class="btn btn-primary">Edit</a>
+                                    <a data-bind="visible:selectedVendor().DeleteURL()!='',attr: { href: selectedVendor().DeleteURL}" class="btn btn-white" style="color:inherit !important">Delete</a>
+                                    <select class="form-control input-sm" data-bind="options: companyOptions, value: selectedCompany, optionsText: 'value'"></select>
+                        </div>
+                        <div class="dataTables_filter">
+                            <label>Search:<input type="text" class="form-control input-sm" data-bind="value: formVendorSearch, valueUpdate: 'keyup'" placeholder="Search Customer Name/Code"></label>
+                        </div>
+                        <table id="itemSearchTable" class="table table-striped table-bordered table-hover dataTables-example dataTable no-footer">
+                            <thead>
+
+                                <tr>
+                                    <th>
+                                        Customer Code
+                                    </th>
+                                    <th>
+                                        Company Name
+                                    </th>
+                                    <th>
+                                        Phone Number
+                                    </th>
+                                    <th>
+                                        Fax #
+                                    </th>
+                                    <th>
+                                        Group Code
+                                    </th>
+                                    <th>
+                                        Status
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: vendorsComputed()">
+                                <tr data-bind="click: $root.selectVendor, css: { 'even': $index() % 2 == 0 , 'odd': $index() % 2 == 1}">
+                                    <td style="width: 10%" data-bind="text:CustomerCode"></td>
+                                    <td style="width: 30%" data-bind="text:CompanyName"></td>
+                                    <td style="width: 10%" data-bind="text:PhoneNumber1"></td>
+                                    <td style="width: 10%" data-bind="text:FaxNumber"></td>
+                                    <td style="width: 10%" data-bind="text:GroupCode"></td>
+                                    <td style="width: 10%">
+                                        <input type="checkbox" disabled="disabled" data-bind="checked: IsActive" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="dataTables_info">
+                            Showing <label data-bind="text: totalRow()==0 ? 0 : (indexPage()*pageSize())+1"></label> to <label data-bind="text: (indexPage()+1)*pageSize() > totalRow() ? totalRow():(indexPage()+1)*pageSize()"></label> of <label data-bind="text: totalRow"></label> entries
+                        </div>
+                        <div class="dataTables_paginate paging_simple_numbers">
+                            <ul class="pagination">
+                                <li class="paginate_button previous" data-bind="click: prevPage, disable: indexPage()==0, css: { 'disabled': indexPage()==0}" tabindex="0"><a href="#">Previous</a></li>
+                                <li class="paginate_button active" tabindex="0"><a href="#"><label data-bind="text: indexPage()+1"></label></a></li>
+                                <li class="paginate_button next" data-bind="click: nextPage, disable: (indexPage()+1)==totalPage(), css: { 'disabled': (indexPage()+1)==totalPage()}" tabindex="0"><a href="#">Next</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    @Styles.Render("~/Scripts/plugins/jquery-ui/jqueryuiStyles")
+    <style>
+        .ui-dialog-3000 {
+            z-index: 3000 !important;
+        }
+
+        .ui-dialog-2900 {
+            z-index: 2900 !important;
+        }
+
+        .disable-background-eee {
+            background: #eee !important;
+        }
+
+        .backgroundSelected {
+            background-color: rgb(102, 204, 204) !important;
+        }
+    </style>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatable")
+    @Scripts.Render("~/plugins/notifyjs")
+
+    <script>
+        function Company(data) {
+            var self = this;
+
+            this.CompanyName = ko.observable(data.CompanyName);
+            this.CompanyCode = ko.observable(data.CompanyCode);
+            this.Selected = ko.observable(data.Selected);
+            this.Editable = ko.observable(data.Editable);
+
+            this.VendGroupCodeOptions = ko.observableArray([]);
+            this.TaxGroupCodeOptions = ko.observableArray([]);
+            this.PaymModeOptions = ko.observableArray([]);
+            this.StatusOptions = ko.observableArray([]);
+
+            this.VendGroupCodeSelected = ko.observable(data.VendGroupCodeSelected);
+            this.TaxGroupCodeSelected = ko.observable(data.TaxGroupCodeSelected);
+            this.PaymModeSelected = ko.observable(data.PaymModeSelected);
+            this.StatusSelected = ko.observable(data.StatusSelected);
+
+            this.VendGroupCode = ko.computed(function () {
+                if (self.VendGroupCodeSelected() == null)
+                    return null;
+                return self.VendGroupCodeSelected().Key;
+            });
+            this.TaxGroupCode = ko.computed(function () {
+                if (self.TaxGroupCodeSelected() == null)
+                    return null;
+                return self.TaxGroupCodeSelected().Key;
+            });
+            this.PaymMode = ko.computed(function () {
+                if (self.PaymModeSelected() == null)
+                    return null;
+                return self.PaymModeSelected().Key;
+            });
+            this.StatusAction = ko.computed(function () {
+                if (self.StatusSelected() == null)
+                    return null;
+                return self.StatusSelected().Key;
+            });
+        }
+        
+
+    </script>
+    <script type="text/javascript">
+
+        var Vendor = function (data) {
+            var self = this;
+            this.Id = ko.observable(data.Id);
+            this.VendorCode = ko.observable(data.VendorCode);
+            this.CompanyName = ko.observable(data.CompanyName);
+            this.PhoneNumber1 = ko.observable(data.PhoneNumber1);
+            this.FaxNumber = ko.observable(data.FaxNumber);
+            this.RegistrationNo = ko.observable(data.RegistrationNo);
+            this.Status = ko.observable(data.Status);
+            this.IsActive = ko.observable(data.IsActive);
+            this.GSTVatRegNo = ko.observable(data.GSTVatRegNo);
+            this.EditURL = ko.observable(data.EditURL);
+            this.ViewURL = ko.observable(data.ViewURL);
+            this.DeleteURL = ko.observable(data.DeleteURL);
+            this.CompaniesURL = ko.observable(data.CompaniesURL);
+            this.DetailsURL = ko.observable(data.DetailsURL);
+        };
+
+        var ViewModel = new function () {
+            var self = this;
+            var defaultDropdownText = 'All';
+            self.pageSize = ko.observable(10);
+            self.indexPage = ko.observable(0);
+            self.totalPage = ko.observable(1);
+            self.totalRow = ko.observable(0);
+            self.formVendorSearch = ko.observable("");
+            self.companyOptions = [
+                { key: "-1", value: "All" },
+                @foreach (var location in Model)
+            {
+                <text>{ key: "@location.LocationCode", value: "@Html.Raw(location.LocationName)" },</text>
+            }
+            ];
+            self.selectedCompany = ko.observable();
+
+            self.selectedVendor = ko.observable(
+                    new Vendor({
+                        Id: 0,
+                        VendorCode: '',
+                        CompanyName: '',
+                        PhoneNumber1: '',
+                        FaxNumber: '',
+                        RegistrationNo: '',
+                        Status: '',
+                        IsActive: '',
+                        EditURL: '',
+                        ViewURL: '',
+                        DeleteURL: '',
+                        CompaniesURL: '',
+                        DetailsURL: '',
+                    })
+                );
+            self.vendors = ko.observableArray([]);
+            self.nextPage = function () {
+                if ((self.indexPage() + 1) < self.totalPage()) {
+                    self.indexPage(self.indexPage() + 1);
+                    self.loadVendor();
+                }
+            }
+            self.prevPage = function () {
+                if (self.indexPage() > 0) {
+                    self.indexPage(self.indexPage() - 1);
+                    self.loadVendor();
+                }
+            }
+            self.loadVendor = function () {
+                self.vendors.removeAll();
+                if (self.selectedCompany() == null) {
+                    $('#dialog-Loading').dialog("close");
+                    return;
+                }
+                $.ajax('@Url.Action("SearchVendorByCompany", "VendorApplication")', {
+                    data: ko.toJSON({
+                        search: self.formVendorSearch(),
+                        pageSize: self.pageSize(),
+                        pageIndex: self.indexPage(),
+                        companyCode: self.selectedCompany().key
+                    }),
+                    type: "post",
+                    contentType: "application/json",
+                    success: function (result) {
+                        self.vendors.removeAll();
+                        var underlyingArray = self.vendors();
+                        for (var i = 0; i < result.vendors.length; i++) {
+                            var row = result.vendors[i];
+                            var record = {
+                                Id: row.ID,
+                                VendorCode: row.VendorCode,
+                                CompanyName: row.CompanyName,
+                                PhoneNumber1: row.PhoneNumber1,
+                                FaxNumber: row.FaxNumber,
+                                RegistrationNo: row.RegistrationNo,
+                                Status: row.Status,
+                                IsActive: row.IsActive,
+                                ViewURL: row.ViewURL,
+                                DetailsURL: row.DetailsURL,
+                                CompaniesURL: row.CompaniesURL,
+                                EditURL: row.EditURL,
+                                DeleteURL: row.DeleteURL,
+                            }
+                            underlyingArray.push(record);
+                        }
+                        self.vendors.valueHasMutated();
+                        self.totalPage(result.totalPage);
+                        self.totalRow(result.totalRow);
+                        $('#dialog-Loading').dialog("close");
+                    },
+                    error: function (error) {
+                        $.notify(
+                            error.responseText, {
+                                position: "top center",
+                                className: "error"
+                            }
+                        );
+                        $('#dialog-Loading').dialog("close");
+                    }
+                });
+            }
+
+            self.restartSearchPagination = function () {
+                self.vendors.removeAll();
+                self.indexPage(0);
+                self.totalPage(1);
+                self.totalRow(0);
+            }
+            self.formVendorSearch.subscribe(function (value) {
+                if (value == '') self.formVendorSearch("");
+                @*if (value.length < 3) {
+                self.restartSearchPagination();
+                return;
+            };*@
+                self.restartSearchPagination();
+                self.loadVendor();
+            });
+            self.pageSize.subscribe(function (value) {
+                if (self.formVendorSearch() == '') self.formVendorSearch("");
+                self.restartSearchPagination();
+                self.loadVendor();
+            });
+            self.selectVendor = function (vendor) {
+                // if (vendor.VendorCode != self.selectedVendor().VendorCode()) {
+                if (vendor.Id != self.selectedVendor().Id()) {
+                    self.selectedVendor().Id(vendor.Id);
+                    self.selectedVendor().VendorCode(vendor.VendorCode);
+                    self.selectedVendor().CompanyName(vendor.CompanyName);
+                    self.selectedVendor().PhoneNumber1(vendor.PhoneNumber1);
+                    self.selectedVendor().FaxNumber(vendor.FaxNumber);
+                    self.selectedVendor().RegistrationNo(vendor.RegistrationNo);
+                    self.selectedVendor().GSTVatRegNo(vendor.GSTVatRegNo);
+                    self.selectedVendor().IsActive(vendor.IsActive);
+                    self.selectedVendor().ViewURL(vendor.ViewURL);
+                    self.selectedVendor().DetailsURL(vendor.DetailsURL);
+                    self.selectedVendor().CompaniesURL(vendor.CompaniesURL);
+                    self.selectedVendor().EditURL(vendor.EditURL);
+                    self.selectedVendor().DeleteURL(vendor.DeleteURL);
+                }
+                else {
+                    self.resetSelectedVendor();
+                }
+            }
+            self.resetSelectedVendor = function () {
+                self.selectedVendor().Id(0);
+                self.selectedVendor().VendorCode("");
+                self.selectedVendor().CompanyName("");
+                self.selectedVendor().PhoneNumber1("");
+                self.selectedVendor().FaxNumber("");
+                self.selectedVendor().RegistrationNo("");
+                self.selectedVendor().GSTVatRegNo("");
+                self.selectedVendor().IsActive("");
+                self.selectedVendor().ViewURL("");
+                self.selectedVendor().DetailsURL("");
+                self.selectedVendor().CompaniesURL("");
+                self.selectedVendor().EditURL("");
+                self.selectedVendor().DeleteURL("");
+            }
+            self.assignCompany = function () {
+                self.ViewModelAssignCompany.openDialog(self.selectedVendor().Id(), self.selectedVendor().VendorCode());
+            }
+
+            self.assignSupplyBased = function () {
+                self.ViewModelAssignSupplyBased.openDialog(self.selectedVendor().Id());
+            }
+            self.assignCategory = function () {
+                self.ViewModelAssignCategory.openDialog(self.selectedVendor().Id());
+            }
+
+            self.vendors.subscribe(function (value) {
+                self.resetSelectedVendor();
+            });
+            self.vendorsComputed = ko.computed(function () {
+                var records = self.vendors;
+                return records;
+            });
+
+            self.selectedCompany.subscribe(function (value) {
+                $('#dialog-Loading').dialog("open");
+                self.restartSearchPagination();
+                self.loadVendor();
+            });
+            self.ViewModelAssignCompany.init();
+            self.ViewModelAssignSupplyBased.init();
+            self.ViewModelAssignCategory.init();
+            self.loadVendor();
+        };
+        $(document).ready(function () {
+
+            $('#dialog-Loading').dialog("open");
+            ko.applyBindings(ViewModel);
+
+            $('#itemSearchTable tbody').on('click', 'tr', function () {
+                if ($(this).hasClass('backgroundSelected')) {
+                    $(this).removeClass('backgroundSelected');
+                }
+                else {
+                    $('tr.backgroundSelected').removeClass('backgroundSelected');
+                    $(this).addClass('backgroundSelected');
+                }
+            });
+        });
+        $('#submitSave').click(function (e) {
+            e.preventDefault();
+            FormValidation();
+        });
+        function FormValidation() {
+
+            var category = document.getElementById('category').value;
+
+            if (category == "") {
+                document.getElementById('category').style.borderColor = "red";
+                return false;
+            }
+            else {
+                document.getElementById('category').style.borderColor = "green";
+            }
+
+
+        }
+    </script>
+}

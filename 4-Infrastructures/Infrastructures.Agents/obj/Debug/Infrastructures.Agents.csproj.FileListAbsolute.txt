@@ -1,0 +1,332 @@
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.dll
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.pdb
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.dll
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.dll
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.dll
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\ReportViewerForMvc.dll
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.dll
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.dll
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.dll
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.pdb
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.pdb
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.pdb
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.xml
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.xml
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.xml
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csprojResolveAssemblyReference.cache
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.dll
+C:\EPR_DEV\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\ReportViewerForMvc.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csprojResolveAssemblyReference.cache
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.pdb
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.dll
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.pdb
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.dll
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.dll
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.dll
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\ReportViewerForMvc.dll
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.dll
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.dll
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.dll
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.pdb
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.pdb
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.pdb
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.xml
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.xml
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.xml
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csprojResolveAssemblyReference.cache
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.dll
+C:\From Old Notebook\EPR_DEV\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.pdb
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.dll
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.pdb
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.dll
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.dll
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.dll
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\ReportViewerForMvc.dll
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.dll
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.dll
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.dll
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.pdb
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.pdb
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.pdb
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.xml
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.xml
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.xml
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csprojResolveAssemblyReference.cache
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.dll
+C:\iSRTEON-New\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.pdb
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.dll
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.pdb
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.dll
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.dll
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.dll
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\ReportViewerForMvc.dll
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.dll
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.dll
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.dll
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.pdb
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.dll.config
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.pdb
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.dll.config
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.pdb
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.xml
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.xml
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.xml
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csprojAssemblyReference.cache
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csproj.CoreCompileInputs.cache
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csproj.CopyComplete
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.dll
+C:\iSRTEON-Current\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.pdb
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.dll
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.pdb
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.dll
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.dll
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.dll
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\ReportViewerForMvc.dll
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.dll
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.dll
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.dll
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.pdb
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.dll.config
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.pdb
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.dll.config
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.pdb
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.xml
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.xml
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.xml
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csprojAssemblyReference.cache
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csproj.CoreCompileInputs.cache
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csproj.CopyComplete
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.dll
+C:\iSRTEON-Current 24 Jul\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.pdb
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csproj.CoreCompileInputs.cache
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.dll
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.pdb
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.dll
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.dll
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.dll
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\ReportViewerForMvc.dll
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.dll
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.dll
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.dll
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.pdb
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.dll.config
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.pdb
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.dll.config
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.pdb
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.xml
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.xml
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.xml
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csprojAssemblyReference.cache
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csproj.CopyComplete
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.dll
+C:\iSRTEONv2\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.pdb
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.dll
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.pdb
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.dll
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.dll
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.dll
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\ReportViewerForMvc.dll
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.dll
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.dll
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.dll
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.pdb
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.dll.config
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.pdb
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.dll.config
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.pdb
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.xml
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.xml
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.xml
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csprojAssemblyReference.cache
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csproj.CoreCompileInputs.cache
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csproj.CopyComplete
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.dll
+C:\MvcStudio201\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.pdb
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.dll
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.pdb
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.dll
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.dll
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.dll
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\ReportViewerForMvc.dll
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.dll
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.dll
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.dll
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.pdb
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.dll.config
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.pdb
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.dll.config
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.pdb
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.xml
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.xml
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.xml
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csprojAssemblyReference.cache
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csproj.CoreCompileInputs.cache
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csproj.CopyComplete
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.dll
+C:\AlpsStudio\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.pdb
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.dll
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.pdb
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.dll
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.dll
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.dll
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\ReportViewerForMvc.dll
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.dll
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.dll
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.dll
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.pdb
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.dll.config
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.pdb
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.dll.config
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.pdb
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.xml
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.xml
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.xml
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csprojAssemblyReference.cache
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csproj.CoreCompileInputs.cache
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csproj.CopyComplete
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.dll
+C:\AlpsStudio4\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.pdb
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.dll
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.pdb
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.dll
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.dll
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.dll
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\ReportViewerForMvc.dll
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.dll
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.dll
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.dll
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.pdb
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.dll.config
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.pdb
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.dll.config
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.pdb
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.xml
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.xml
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.xml
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csprojAssemblyReference.cache
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csproj.CoreCompileInputs.cache
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csproj.CopyComplete
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.dll
+C:\AlpsMRO\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.pdb
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Infrastructures.Agents.pdb
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\ReportViewerForMvc.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.pdb
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Entities.dll.config
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.pdb
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Core.Framework.dll.config
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Interfaces.Agent.pdb
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\RazorEngine.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\EntityFramework.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\bin\Debug\System.Web.Razor.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csprojAssemblyReference.cache
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csproj.CoreCompileInputs.cache
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.csproj.CopyComplete
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\4-Infrastructures\Infrastructures.Agents\obj\Debug\Infrastructures.Agents.pdb

@@ -1,0 +1,372 @@
+﻿@using AspNetGroupBasedPermissions.Helpers
+@{ ViewBag.Title = "List Of Uploaded Data For TT";}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title " style="padding-top:40px;">
+                </div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        <label style="background-color:lightgray;border-color:lightgray;font-weight:bolder" class="pull-left btn btn-xs btn-white btn-block">List Of Vehicle</label>
+                    </div>
+                    <div class="dataTables_wrapper form-inline no-footer" style="padding-top:30px;">
+                        @Html.Partial("_IndexFilter3-1")
+                        <table id="mainTable" class="display table table-striped table-bordered table-hover dataTables-example">
+                            <thead>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Data Upload#</th>
+                                    <th>Project Name</th>
+                                    <th>Location Code</th>
+                                    <th>Post Code</th>
+                                    <th>Operation Date</th>
+                                    <th>Collection Date</th>
+                                    <th>Batch Number</th>
+                                    <th>Notes</th>
+                                    <th>Coins</th>
+                                    <th>Remarks</th>
+                                    <th>Status</th>
+                                    <th><input name="select_all" type="hidden" disabled></th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="dataTablesForEach:
+                                   @Html.Partial("_IndexColumn12")
+                                <tr>
+                                    <td data-bind="text:RecBatchNumber, style : {width: '5%' } "></td>
+                                    <td data-bind="text:ProjectName, style : {width: '15%' } "></td>
+                                    <td data-bind="text:LocationCode, style : {width: '8%' } "></td>
+                                    <td data-bind="text:KioskPostCode, style : {width: '8%' } "></td>
+                                    <td data-bind="text:OperationDate, style : {width: '8%' } "></td>
+                                    <td data-bind="text:CollectionDate, style : {width: '8%' } "></td>
+                                    <td data-bind="text:BatchNumber, style : {width: '8%' } "></td>
+                                    <td data-bind="numericText: Notes, precision: 2, style : {textAlign: 'right' ,  width:'10%'}"></td>
+                                    <td data-bind="numericText: Coins, precision: 2, style : {textAlign: 'right' ,  width:'10%'}"></td>
+                                    <td data-bind="text:Remarks, style : {textAlign: 'left' , color: 'red', width:'10%'} "></td>
+                                    <td data-bind="text:Status, style : {textAlign: 'left' ,  width:'10%'} "></td>
+                                    <td data-bind="style : {width: '4%' } ">
+                                        <a data-bind="visible:ShowButton==true,attr: { href: DetailURL}" title="Click To View" style="font-size:10px" class="btn-primary">View</a>
+                                    </td>
+                                    <td data-bind="style : {width: '4%' } ">
+                                        <a data-bind="visible:ShowButton==true,attr: { href: DetailURL}" title="Click To View" style="font-size:10px" class="btn-primary">View</a>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                        @Html.Partial("_IndexPage")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    @Styles.Render("~/Scripts/plugins/jquery-ui/jqueryuiStyles")
+    <style>
+        .ui-dialog-3000 {
+            z-index: 3000 !important;
+        }
+
+        .ui-dialog-2900 {
+            z-index: 2900 !important;
+        }
+
+        .disable-background-eee {
+            background: #eee !important;
+        }
+
+        .backgroundSelected {
+            background-color: rgb(102, 204, 204) !important;
+        }
+
+        .label_p {
+            display: inline-block;
+            max-width: 100%;
+            margin-bottom: 0px;
+            font-weight: normal !important;
+        }
+    </style>
+
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatableCheckbox")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/notifyjs")
+
+    <script type="text/javascript">
+
+     function submitAll2()
+    {
+        data: { hazardIds: custom_datatables_rows_selected };
+        var url = '';
+        alert(custom_datatables_rows_selected);
+        alert(custom_datatables_rows_selected.length);
+        var id = $(this).attr("ID");
+        if (custom_datatables_rows_selected.length = 1)
+        {
+
+            $("#dialog").dialog(
+                {
+                autoOpen: true,
+                title: 'Edit Record',
+                position: { my: "right top", at: "right bottom", of: window },
+                modal: true,
+                height: 440,
+                width: 1030,
+                url: url,
+                    open: function (recID)
+                    {
+                        recID = custom_datatables_rows_selected;
+                        recID = "H20190607-N2-10004";
+                    link = "@Url.Action( "_EditHazard", "Customer",new { HazardID = "recID"})";
+                    link = link.replace("recID", recID);
+                    $(this).load(link);
+                    },
+                    close: function (event, ui)
+                    {
+                    location.reload();
+                    $(this).dialog('close');
+                    },
+        });
+        }
+    }
+
+
+    function submitAll()
+    {
+        data: { VehicleNo: custom_datatables_rows_selected };
+        var url = '';
+        alert(custom_datatables_rows_selected);
+        var id = $(this).attr("ID");
+        if (custom_datatables_rows_selected.length = 1)
+        {
+            $("#dialog").dialog(
+                {
+
+                url: url,
+                    open: function (recID)
+                    {
+                     // recID = custom_datatables_rows_selected;
+                     recID = "H20190607-N2-10004";
+                     link = "@Url.Action( "_EditHazard", "Customer",new { HazardID = "recID"})";
+                    link = link.replace("recID", recID);
+                    $(this).load(link);
+                    },
+
+        });
+        }
+    }
+
+
+        jQuery.extend(jQuery.fn.dataTableExt.oSort, {
+            "customDate-pre": function (a) {
+                var ukDatea = a.split('/');
+                return (ukDatea[2] + ukDatea[1] + ukDatea[0]) * 1;
+            },
+
+            "customDate-asc": function (a, b) {
+                return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+            },
+
+            "customDate-desc": function (a, b) {
+                return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+            }
+        });
+        Date.prototype.toFormattedDate = function () {
+            var dd = this.getDate();
+            if (dd < 10) dd = '0' + dd;
+            var mm = this.getMonth() + 1;
+            if (mm < 10) mm = '0' + mm;
+            var yyyy = this.getFullYear();
+            /* change format here */
+            return String(dd + "/" + mm + "/" + yyyy);
+        };
+
+        var MSR = function (data) {
+            var self = this;
+            this.RecBatchNumber = ko.observable(data.RecBatchNumber);
+            this.KioskPostCode = ko.observable(data.KioskPostCode);
+            this.ProjectName = ko.observable(data.ProjectName);
+            this.OperationDate = ko.observable(data.OperationDate );
+            this.CollectionDate = ko.observable(data.CollectionDate);
+            this.BatchNumber = ko.observable(data.BatchNumber);
+            this.Notes = ko.observable(data.Notes).extend({numeric: 2});
+            this.Coins = ko.observable(data.Coins);
+            this.Status = ko.observable(data.Status);
+            this.IsActive = ko.observable(data.IsActive);
+            this.Remarks = ko.observable(data.Remarks);
+            this.FileName = ko.observable(data.FileName);
+            this.UploadDate = ko.observable(data.UploadDate);
+            this.DetailURL = ko.observable(data.DetailURL);
+            this.ShowButton = ko.observable(data.ShowButton);
+        };
+
+        var ViewModel = new function () {
+            var self = this;
+            var defaultDropdownText = 'All';
+          //  var defaultDropdownTextStatus = 'Draft';
+         //   var defaultdate = new Date().toFormattedDate();
+            self.pageSize = ko.observable(10);
+            self.indexPage = ko.observable(0);
+            self.totalPage = ko.observable(1);
+            self.totalRow = ko.observable(0);
+            self.hocs = ko.observableArray([]);
+            self.formVendorSearch = ko.observable("");
+
+            var defaultdate = new Date().toFormattedDate();
+      
+            self.nextPage = function () {
+                if ((self.indexPage() + 1) < self.totalPage()) {
+                    self.indexPage(self.indexPage() + 1);
+                    self.loadhoc();
+                }
+            }
+            self.prevPage = function () {
+                if (self.indexPage() > 0) {
+                    self.indexPage(self.indexPage() - 1);
+                    self.loadhoc();
+                }
+            }
+
+            self.loadhoc = function () {
+                self.hocs.removeAll();
+
+                $.ajax('@Url.Action("GetCCTData", "CashCollectTransfer")', {
+                    data: ko.toJSON({
+                        search: self.formVendorSearch(),
+                        pageSize: self.pageSize(),
+                        pageIndex: self.indexPage(),
+
+                    }),
+                    type: "post",
+                    contentType: "application/json",
+                    success: function (result) {
+                        self.hocs.removeAll();
+                        var underlyingArray = self.hocs();
+                        for (var i = 0; i < result.hocs.length; i++) {
+                            var row = result.hocs[i];
+                            var record = {
+
+                                LocationCode: row.LocationCode,
+                                KioskPostCode: row.KioskPostCode,
+                                RecBatchNumber: row.RecBatchNumber,
+                                ProjectName: row.ProjectName,
+                                OperationDate: row.OperationDate,
+                                CollectionDate: row.CollectionDate,
+                                BatchNumber: row.BatchNumber,
+                                Notes: row.Notes,
+                                Coins: row.Coins,
+                                Status: row.Status,
+                                IsActive: row.IsActive,
+                                Remarks: row.Remarks,
+                                FileName: row.FileName,
+                                UploadDate: row.UploadDate,
+                                DetailURL: row.DetailURL,
+                                ShowButton: row.ShowButton,
+                            }
+                            underlyingArray.push(record);
+                        }
+                        self.hocs.valueHasMutated();
+                        self.totalPage(result.totalPage);
+                        self.totalRow(result.totalRow);
+                        $('#dialog-Loading').dialog("close");
+                    },
+                    error: function (error) {
+                        $.notify(
+                            error.responseText, {
+                                position: "top center",
+                                className: "error"
+                            }
+                        );
+                        $('#dialog-Loading').dialog("close");
+                    }
+                });
+            }
+
+                self.restartSearchPagination = function () {
+                self.hocs.removeAll();
+                self.indexPage(0);
+                self.totalPage(1);
+                self.totalRow(0);
+            }
+            self.formVendorSearch.subscribe(function (value) {
+                if (value == '') self.formVendorSearch("");
+                self.restartSearchPagination();
+                self.loadhoc();
+            });
+            self.pageSize.subscribe(function (value) {
+                if (self.formVendorSearch() == '') self.formVendorSearch("");
+                self.restartSearchPagination();
+                self.loadhoc();
+            });
+
+            self.vendorsComputed = ko.computed(function () {
+                var records = self.hocs;
+                return records;
+            });
+         
+
+            self.loadhoc();
+
+    };
+
+     $(document).ready(function () {
+
+    //$("#checkAll").click(function () {
+    //    $(".checkBox").prop('checked',
+    //        $(this).prop('checked'));
+    //});
+
+     });
+
+    $('#mainTable tbody').on( 'click', 'tr td:nth-of-type(4)', function (){
+    alert("-" );
+    });
+
+    $(".use-address").click(function() {
+    var $row = $(this).closest("tr");    // Find the row
+    var $text = $row.find(".nr").text(); // Find the text
+
+    // Let's test it out
+    alert($text);
+     });
+
+        $(document).ready(function () {
+
+            $('#StartDate').datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true,
+            }).datepicker("setDate", new Date());
+
+            ko.applyBindings(ViewModel);
+        });
+    </script>
+}
+

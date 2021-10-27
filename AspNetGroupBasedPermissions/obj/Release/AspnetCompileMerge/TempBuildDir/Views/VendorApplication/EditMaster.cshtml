@@ -1,0 +1,794 @@
+﻿@model AspNetGroupBasedPermissions.ViewModels.VendorApplicationEditViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    
+@using (Html.BeginForm())
+                    {
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.VendorMaster.ID)
+    <div class="row">
+    <div class="col-lg-9">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Details Vendor Information</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row">
+
+                    <div class="col-md-5">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="pull-left btn btn-xs btn-primary btn-block"><i class="fa fa-child"></i>&nbsp;&nbsp;Login Info</label>
+                            </div>
+                            <div class="welldetailsvendoredit">
+                                <br />
+                                <div class="form-group">
+                                    <div> <i class="fa fa-briefcase control-label col-md-1"></i></div>
+                                    @Html.LabelFor(model => model.VendorMaster.TitleCode, "Title", new { @class = "control-label col-md-4" })
+                                    <div class="col-md-7 m-b-xs m-b-xs ">
+                                        @*@Html.DropDownList("VendorMaster.TitleCode", ViewData["RTMTitle"] as SelectList, "-- Select Title --", htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.VendorMaster.TitleCode)*@
+                                        @Html.DisplayFor(model => model.VendorMaster.RTMTitle.TitleDesc)
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <div> <i class="fa fa-user control-label col-md-1"></i></div>
+                                    @Html.LabelFor(model => model.VendorMaster.FirstName, "First Name", new { @class = "control-label col-md-4" })
+                                    <div class="col-md-7 m-b-xs m-b-xs ">
+                                        @Html.DisplayFor(model => model.VendorMaster.FirstName, new { @class = "form-control" })
+                                      @*  @Html.ValidationMessageFor(model => model.VendorMaster.FirstName)*@
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div> <i class="fa fa-user control-label col-md-1"></i></div>
+                                    @Html.LabelFor(model => model.VendorMaster.LastName, "Last Name", new { @class = "control-label col-md-4" })
+                                    <div class="col-md-7 m-b-xs m-b-xs ">
+                                        @Html.DisplayFor(model => model.VendorMaster.LastName, new { @class = "form-control" })
+                                       @* @Html.ValidationMessageFor(model => model.VendorMaster.LastName)*@
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div> <i class="fa fa-phone control-label col-md-1"></i></div>
+                                    @Html.LabelFor(model => model.VendorMaster.MobileNumber1, "Mobile Number", new { @class = "control-label col-md-4" })
+                                    <div class="col-md-7 m-b-xs m-b-xs ">
+                                        @Html.DisplayFor(model => model.VendorMaster.MobileNumber1, new { @class = "form-control" })
+                                       @* @Html.ValidationMessageFor(model => model.VendorMaster.MobileNumber1)*@
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div> <i class="fa fa-phone control-label col-md-1"></i></div>
+                                    @Html.LabelFor(model => model.VendorMaster.MobileNumber2, "Mobile Number", new { @class = "control-label col-md-4" })
+                                    <div class="col-md-7 m-b-xs m-b-xs ">
+                                        @Html.DisplayFor(model => model.VendorMaster.MobileNumber2, new { @class = "form-control" })
+                                       @* @Html.ValidationMessageFor(model => model.VendorMaster.MobileNumber2)*@
+                                    </div>
+                                </div>
+                                <div> <i class="fa fa-envelope control-label col-md-1"></i></div><div class="form-group">
+                                    @Html.LabelFor(model => model.VendorMaster.EmailAddress, "Email Address", new { @class = "control-label col-md-4" })
+                                                                                                     <div class="col-md-7 m-b-xs m-b-xs ">
+                                                                                                         @Html.DisplayFor(model => model.VendorMaster.EmailAddress)
+                                                                                                         @*@Html.ValidationMessageFor(model => model.VendorMaster.EmailAddress)*@
+
+                                                                                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="pull-left btn btn-xs btn-primary btn-block">Contact Person</label>
+                            </div>
+
+                            <div class="welldetailsContactedit">
+                                <br />
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorMaster.PositionCode, "Position", new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xxs">
+                                        @Html.DropDownList("VendorMaster.PositionCode", ViewData["RTMPosition"] as SelectList, "-- Select Position --", htmlAttributes: new { @class = "form-control" })
+@Html.ValidationMessageFor(model => model.VendorMaster.PositionCode)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorMaster.ContactPerson, "Contact Person", new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xxs">
+                                        @Html.EditorFor(model => model.VendorMaster.ContactPerson)
+                                        @Html.ValidationMessageFor(model => model.VendorMaster.ContactPerson)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="form-group"><label class="pull-left btn btn-xs btn-primary btn-block">Vendor Info</label></div>
+                        <div class="welldetailsCompanyedit">
+                            <br />
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.VendorMaster.CompanyName, "Company Name", new { @class = "control-label col-md-4" })
+                                <div class="col-md-8 m-b-xxs">
+                                    @Html.EditorFor(model => model.VendorMaster.CompanyName, new { @class = "form-control"})
+                                  @*  @Html.ValidationMessageFor(model => model.VendorMaster.CompanyName)*@
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.VendorMaster.Address, new { @class = "control-label col-md-12" })
+                                <div class="col-md-12 m-b-xxs">
+                                    @Html.TextAreaFor(model => model.VendorMaster.Address, new { @class = "form-control", rows = "2" })
+                                    @Html.ValidationMessageFor(model => model.VendorMaster.Address)
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.VendorMaster.Postcode, new { @class = "control-label col-md-2" })
+                                <div class="col-md-4 m-b-xxs">
+                                    @Html.EditorFor(model => model.VendorMaster.Postcode)
+                                    @Html.ValidationMessageFor(model => model.VendorMaster.Postcode)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.VendorMaster.City, new { @class = "control-label col-md-2" })
+                                <div class="col-md-4 m-b-xxs">
+                                    @Html.EditorFor(model => model.VendorMaster.City)
+                                    @Html.ValidationMessageFor(model => model.VendorMaster.City)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.VendorMaster.StateCode, "State", new { @class = "control-label col-md-2" })
+                                <div class="col-md-4 m-b-xxs">
+                                   @Html.DropDownList("VendorMaster.StateCode", ViewData["RTMState"] as SelectList, "-- Select State --", htmlAttributes: new { @class = "form-control" })
+@Html.ValidationMessageFor(model => model.VendorMaster.StateCode)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.VendorMaster.CountryCode, "Country", new { @class = "control-label col-md-2" })
+                                <div class="col-md-4 m-b-xxs">
+                                    @Html.DropDownList("VendorMaster.CountryCode", ViewData["RTMCountry"] as SelectList, "-- Select Country --", htmlAttributes: new { @class = "form-control" })
+@Html.ValidationMessageFor(model => model.VendorMaster.CountryCode)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.VendorMaster.PhoneNumber1, "Phone Number 1", new { @class = "control-label col-md-3" })
+                                <div class="col-md-3 m-b-xxs">
+                                    @Html.EditorFor(model => model.VendorMaster.PhoneNumber1)
+                                    @Html.ValidationMessageFor(model => model.VendorMaster.PhoneNumber1)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.VendorMaster.PhoneNumber2, new { @class = "control-label col-md-3" })
+                                <div class="col-md-3 m-b-xxs">
+                                    @Html.EditorFor(model => model.VendorMaster.PhoneNumber2)
+                                    @Html.ValidationMessageFor(model => model.VendorMaster.PhoneNumber2)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.VendorMaster.FaxNumber, new { @class = "control-label col-md-3" })
+                                <div class="col-md-3 m-b-xxs">
+                                    @Html.EditorFor(model => model.VendorMaster.FaxNumber)
+                                    @Html.ValidationMessageFor(model => model.VendorMaster.FaxNumber)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6 m-b-xxs">&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.VendorMaster.EmailAddress, new { @class = "control-label col-md-3" })
+                                <div class="col-md-8 m-b-xxs">
+                                    @Html.EditorFor(model => model.VendorMaster.EmailAddress)
+                                    @Html.ValidationMessageFor(model => model.VendorMaster.EmailAddress)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.VendorMaster.Website, new { @class = "control-label col-md-3" })
+                                <div class="col-md-8 m-b-xxs">
+                                    @Html.EditorFor(model => model.VendorMaster.Website)
+                                    @Html.ValidationMessageFor(model => model.VendorMaster.Website)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group"><label class="pull-left btn btn-xs btn-primary btn-block">Incorporation</label></div>
+                        <div class="welldetailsIncorportionedit">
+                            <br />
+                            @Html.HiddenFor(model => model.VendorMaster.ID)
+                            <div class="col-md-5">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorMaster.RegistrationID, "Type of Registration", new { @class = "control-label col-lg-6" })
+                                        <div class="col-lg-6 m-b-xxs">
+                                            @Html.DropDownList("VendorMaster.RegistrationID", ViewData["RTMRegistrationType"] as SelectList, "-- Select Registration --", htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.VendorMaster.RegistrationID)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorMaster.RegistrationNo, "Registration No", new { @class = "control-label col-lg-6" })
+                                        <div class="col-lg-6 m-b-xxs">
+                                            @Html.EditorFor(model => model.VendorMaster.RegistrationNo)
+                                            @Html.ValidationMessageFor(model => model.VendorMaster.RegistrationNo)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group" id="data_1">
+                                        @Html.LabelFor(model => model.VendorMaster.DateIncorporatedStart, "Date Incorporated (Start)", new { @class = "control-label col-md-6" })
+                                        <div class="col-md-6 m-b-xxs">
+                                            <div class="input-group date">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                @Html.TextBoxFor(model => model.VendorMaster.DateIncorporatedStart, "{0:dd/MM/yyyy}", new { @class = "form-control", @style = "background-color:white;" })
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group" id="data_1">
+                                        @Html.LabelFor(model => model.VendorMaster.DateIncorporatedEnd, "Date Incorporated (End)", new { @class = "control-label col-md-6" })
+                                        <div class="col-md-6 m-b-xxs">
+                                            <div class="input-group date">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                @Html.TextBoxFor(model => model.VendorMaster.DateIncorporatedEnd, "{0:dd/MM/yyyy}", new { @class = "form-control", @style = "background-color:white;" })
+
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorMaster.IncorporationCode, "Type Of Incorporation", new { @class = "control-label col-md-6" })
+                                        <div class="col-md-6 m-b-xxs">
+                                            @Html.DropDownList("VendorMaster.IncorporationCode", ViewData["RTMCountry"] as SelectList, "-- Select Incorporation --", htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.VendorMaster.IncorporationCode)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorMaster.BusinessCode, "Business Provide", new { @class = "control-label col-md-6" })
+                                        <div class="col-md-6 m-b-xxs">
+                                            @Html.DropDownList("VendorMaster.BusinessCode", ViewData["RTMBusinessProvide"] as SelectList, "-- Select Business Type --", htmlAttributes: new { @class = "form-control" })
+                                            @*@Html.DropDownList("BusinessCode", String.Empty)*@
+                                            @Html.ValidationMessageFor(model => model.VendorMaster.BusinessCode)
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-7">
+                                <div class="col-md-12">
+                                    <div class="form-group ">
+                                        @Html.LabelFor(model => model.VendorMaster.IsLocal, new { @class = "control-label col-md-6" })
+                                        <div class="col-md-6 i-checks">
+                                            @Html.EditorFor(model => model.VendorMaster.IsLocal)
+                                            @Html.ValidationMessageFor(model => model.VendorMaster.IsLocal)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorRegistration.RegAddress, "Registered Address", new { @class = "control-label col-md-4" })
+                                        <input id="sameadd" class="" name="sameadd" type="checkbox" value="Sameadd" onchange="CopyAdd();"> Same Like Address Above?
+
+                                         <div class="col-md-12 m-b-xxs">
+                                            @Html.TextAreaFor(model => model.VendorMaster.RegAddress, new { @class = "form-control", rows = "4" })
+                                            @*@Html.EditorFor(model => model.RegAddress)*@
+                                            @Html.ValidationMessageFor(model => model.VendorMaster.RegAddress)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorMaster.RegPostcode, new { @class = "control-label col-md-5" })
+                                        <div class="col-md-7 m-b-xxs">
+                                            @Html.EditorFor(model => model.VendorMaster.RegPostcode)
+                                            @Html.ValidationMessageFor(model => model.VendorMaster.RegPostcode)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorMaster.RegCity, new { @class = "control-label col-md-5" })
+                                        <div class="col-md-7 m-b-xxs">
+                                            @Html.EditorFor(model => model.VendorMaster.RegCity)
+                                            @Html.ValidationMessageFor(model => model.VendorMaster.RegCity)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorMaster.RegStateCode, "State", new { @class = "control-label col-md-5" })
+                                        <div class="col-md-7 m-b-xxs">
+                                            @Html.DropDownList("VendorMaster.RegStateCode", ViewData["RTMState"] as SelectList, "-- Select State --", htmlAttributes: new { @class = "form-control" })
+                                            @*Html.DropDownList("RegStateCode", String.Empty)*@
+                                            @Html.ValidationMessageFor(model => model.VendorMaster.RegStateCode)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorMaster.RegisterCountryCode, "Country", new { @class = "control-label col-md-5" })
+                                        <div class="col-md-7 m-b-xxs">
+                                            @Html.DropDownList("VendorMaster.RegisterCountryCode", ViewData["RTMCountry"] as SelectList, "-- Select Country --", htmlAttributes: new { @class = "form-control" })
+                                            @*Html.DropDownList("RegisterCountryCode", String.Empty)*@
+                                            @Html.ValidationMessageFor(model => model.VendorMaster.RegisterCountryCode)
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group"><label class="pull-left btn btn-xs btn-primary btn-block">Finance</label></div>
+                        <div class="welldetailsFinanceedit">
+                            <br />
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorMaster.PaidUpCapital, new { @class = "control-label col-md-12" })
+                                    <div class="col-md-12 m-b-xxs">
+                                        @Html.EditorFor(model => model.VendorMaster.PaidUpCapital)
+                                        @Html.ValidationMessageFor(model => model.VendorMaster.PaidUpCapital)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorMaster.AuthorizedCapital, new { @class = "control-label col-md-12" })
+                                    <div class="col-md-12 m-b-xxs">
+                                        @Html.EditorFor(model => model.VendorMaster.AuthorizedCapital)
+                                        @Html.ValidationMessageFor(model => model.VendorMaster.AuthorizedCapital)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-9">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Asset (A)</th>
+                                            <th>Liabilities (B)</th>
+                                            <th>Nett Worth (A-B)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><b>Current</b></td>
+                                            <td>@Html.EditorFor(model => model.VendorMaster.CurrentAsset, new { id = "CurrentAsset", name = "CurrentAsset", @data_bind = "value: CurrentAsset", @class = "form-control m-b-xxs" })</td>
+                                            <td>@Html.EditorFor(model => model.VendorMaster.CurrentLiabilities, new { id = "CurrentLiabilities", name = "CurrentLiabilities", @data_bind = "value: CurrentLiabilities", @class = "form-control" })</td>
+                                            <td class="text-navy font-bold">@*@Html.Label("")*@ <input type="text" id="CurrentNetWorth" name="CurrentNetWorth" data-bind="value:CurrentNetWorth()" class="form-control" disabled></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Fixed</b></td>
+                                            <td>@Html.EditorFor(model => model.VendorMaster.FixedAsset, new { id = "FixedAsset", name = "FixedAsset", @data_bind = "value: FixedAsset", @class = "form-control m-b-xxs" })</td>
+                                          
+                                                @*<input class="form-control m-b-xxs" data-bind="value: FixedAsset" data-val="true" data-val-number="The field Fixed must be a number." data-val-required="The Fixed field is required." id="FixedAsset" name="VendorMaster.FixedAsset" type="text">*@
+                                            
+                                            <td>@Html.EditorFor(model => model.VendorMaster.FixedLiabilities, new { id = "FixedLiabilities", name = "FixedLiabilities", @data_bind = "value: FixedLiabilities", @class = "form-control m-b-xxs" })</td>
+                                            <td class="text-navy font-bold">
+                                                @*@Html.Label("")*@
+                                                <input type="text" id="FixedNetWorth" name="FixedNetWorth" data-bind="value: FixedNetWorth()" class="form-control" disabled>
+                                            </td>
+                                            @*<label id="FixedNetWorth" name="FixedNetWorth" value="" class="form-control" disabled></label>*@
+                                        </tr>
+                                        <tr>
+                                            <td><b>Total</b></td>
+                                            <td class="text-navy font-bold">@*@Html.Label("")*@<input type="text" id="TotalAsset" name="TotalAsset" data-bind="value:TotalAsset()" class="form-control" disabled></td>
+                                            <td class="text-navy font-bold">@*@Html.Label("")*@<input type="text" id="TotalLiabilities" name="TotalLiabilities" data-bind="value:TotalLiabilities()" class="form-control" disabled></td>
+                                            <td class="text-navy font-bold">@*@Html.Label("")*@<input type="text" id="TotalNetWorth" name="TotalNetWorth" value="" data-bind="value:Total()" class="form-control" disabled></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group"><label class="pull-left btn btn-xs btn-primary btn-block">Status</label></div>
+                        <div class="wellNatureBussedit">
+                            <br />
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.VendorMaster.StatusCode, new { @class = "control-label col-md-3" })
+                                <div class="col-md-9 m-b-xxs">
+                                    @Html.DropDownList("VendorMaster.StatusCode", ViewData["RTMStatus"] as SelectList, "-- Select Status --", htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.VendorMaster.StatusCode)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.VendorMaster.IsActive,"Is Active?", new { @class = "control-label col-md-3" })
+                                <div class="col-md-6 i-checks">
+                                    @Html.EditorFor(model => model.VendorMaster.IsActive)
+                                    @Html.ValidationMessageFor(model => model.VendorMaster.IsActive)
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        @*<div class="col-md-4">
+            <div class="form-group"><label class="pull-left btn btn-xs btn-primary btn-block">Nature Business</label></div>
+            <div class="wellNatureBussedit">
+                <br />
+                <div class="scroll-content">
+                <table>
+                    <tr>
+                        @{
+            int cnt = 0;
+            List<AspNetGroupBasedPermissions.ViewModels.AssignedBussinessNature> NatureBusiness = ViewBag.RTMNatureBusiness;
+            if (ViewBag.RTMNatureBusiness != null)
+            {
+                foreach (var item in NatureBusiness)
+                {
+                    if (cnt++ % 1 == 0)
+                    {
+                        @:</tr><tr>
+                    }
+                    @:<td>
+                    @:<td>
+                     <input type="checkbox" class="i-checks" name="selectedBusiness" value="@item.BussinessID"
+                @(Html.Raw(item.Assigned?"checked=\"checked\"":""))/>
+                            @item.BussinessName@:<br />
+                            }
+
+            }
+            @:</tr>
+                        }
+
+
+
+
+                    </tr>
+
+
+                </table>
+
+                    </div>
+
+                </div>
+            </div>*@
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5></h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group"><label class="pull-left btn btn-xs btn-primary btn-block"><i class="fa fa-envelope"></i>&nbsp;&nbsp;Shipping Address</label></div>
+                            <div class="welldetailsShippingedit">
+                                <br />
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorMaster.AddressShipTo, "Addresses ( Ship To )", new { @class = "control-label col-md-12" })
+                                    <div class="col-md-12 m-b-xxs">
+                                        @Html.TextAreaFor(model => model.VendorMaster.AddressShipTo, new { @class = "form-control", rows = "3" })
+                                        @Html.ValidationMessageFor(model => model.VendorMaster.AddressShipTo)
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorMaster.AddressShipFrom, "Addresses ( Ship From )", new { @class = "control-label col-md-12" })
+                                    <div class="col-md-12 m-b-xxs">
+                                        @Html.TextAreaFor(model => model.VendorMaster.AddressShipFrom, new { @class = "form-control", rows = "3" })
+                                        @Html.ValidationMessageFor(model => model.VendorMaster.AddressShipFrom)
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group"><label class="pull-left btn btn-xs btn-primary btn-block">Tax</label></div>
+                            <div class="welldetailsTaxedit">
+                                <br />
+
+                                                          <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorMaster.GSTVatRegNo, "GST / VAT Registration No", new { @class = "control-label col-md-12" })
+                                    <div class="col-md-12 m-b-xxs">
+                                        @Html.EditorFor(model => model.VendorMaster.GSTVatRegNo)
+                                        @Html.ValidationMessageFor(model => model.VendorMaster.GSTVatRegNo)
+                                    </div>
+                                </div>
+                                <div class="form-group" id="data_1">
+                                    @Html.LabelFor(model => model.VendorMaster.GSTVatRegDate, "GST Vat Registration Date", new { @class = "control-label col-md-12" })
+                                    <div class="col-md-12 m-b-xxs">
+                                        <div class="input-group date">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            @Html.TextBoxFor(model => model.VendorMaster.GSTVatRegDate, "{0:dd/MM/yyyy}", new { @class = "form-control", @style = "background-color:white;" })
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorMaster.CurrencyCode, "Billing and Payment Currency", new { @class = "control-label col-md-12" })
+                                    <div class="col-md-12 m-b-xxs">
+                                        @Html.DropDownList("VendorMaster.CurrencyCode", ViewData["RTMCurrency"] as SelectList, "-- Select Currency --", htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.VendorMaster.CurrencyCode)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorMaster.BankCode, "Payment Bank", new { @class = "control-label col-md-12" })
+                                    <div class="col-md-12 m-b-xxs">
+                                        @Html.DropDownList("VendorMaster.BankCode", ViewData["RTMBank"] as SelectList, "-- Select Bank --", htmlAttributes: new { @class = "form-control" })
+
+                                        @Html.ValidationMessageFor(model => model.VendorMaster.BankCode)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorMaster.BankAccName, "Bank Account Name", new { @class = "control-label col-md-12" })
+                                    <div class="col-md-12 m-b-xxs">
+                                        @Html.EditorFor(model => model.VendorMaster.BankAccName)
+                                        @Html.ValidationMessageFor(model => model.VendorMaster.BankAccName)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorMaster.BankAccNo, "Bank Account No", new { @class = "control-label col-md-12" })
+                                    <div class="col-md-12 m-b-xxs">
+                                        @Html.EditorFor(model => model.VendorMaster.BankAccNo)
+                                        @Html.ValidationMessageFor(model => model.VendorMaster.BankAccNo)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorMaster.PaymentTermCode, "Payment Term", new { @class = "control-label col-md-12" })
+                                    <div class="col-md-12 m-b-xxs">
+                                        @Html.DropDownList("VendorMaster.PaymentTermCode", ViewData["RTMPaymentTerm"] as SelectList, "-- Select Payment Term --", htmlAttributes: new { @class = "form-control" })
+
+                                        @Html.ValidationMessageFor(model => model.VendorMaster.PaymentTermCode)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VendorMaster.SwiftCode, "SWIFT Code", new { @class = "control-label col-md-12" })
+                                    <div class="col-md-12 m-b-xxs">
+                                        @Html.EditorFor(model => model.VendorMaster.SwiftCode)
+                                        @Html.ValidationMessageFor(model => model.VendorMaster.SwiftCode)
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+       
+    </div>
+    <div class="form-group">
+        <div class="col-md-12">
+            <input type="submit" value="Update" class="btn btn-primary" />
+            @Html.ActionLink("Cancel", "IndexMaster", null, new { @class = "btn btn-white" })
+        </div>
+    </div> 
+                                    }
+</div>
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+    @Styles.Render("~/plugins/wizardStepsStyles")
+    <style>
+    .field-validation-error {
+        color: red;
+    }
+    </style>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/iCheck")
+
+    @Scripts.Render("~/plugins/wizardSteps")
+    @Scripts.Render("~/plugins/validate")
+    @Scripts.Render("~/plugins/knockout")
+    <script type="text/javascript">
+        var testviewModel = new testviewModel();
+        function testviewModel() {
+            var self = this;
+            self.CurrentAsset = ko.observable(0);
+            self.FixedAsset = ko.observable(0);
+            self.CurrentLiabilities = ko.observable(0);
+            self.FixedLiabilities = ko.observable(0);
+            self.CurrentNetWorth = ko.computed(function () {
+                return parseFloat(parseFloat(self.CurrentAsset()) - parseFloat(self.CurrentLiabilities())).toFixed(2);
+            });
+            self.FixedNetWorth = ko.computed(function () {
+                return parseFloat(parseFloat(self.FixedAsset()) - parseFloat(self.FixedLiabilities())).toFixed(2);
+            });
+            self.TotalAsset = ko.computed(function () {
+                return parseFloat(parseFloat(self.CurrentAsset()) + +parseFloat(self.FixedAsset())).toFixed(2);
+            });
+            self.TotalLiabilities = ko.computed(function () {
+                return parseFloat(parseFloat(self.FixedLiabilities()) + +parseFloat(self.CurrentLiabilities())).toFixed(2);
+            });
+            self.Total = ko.computed(function () {
+                return parseFloat(parseFloat(self.TotalAsset()) - parseFloat(self.TotalLiabilities())).toFixed(2);
+            });
+        }
+        $(document).ready(function () {
+
+
+            $("#wizard").steps();
+            $("#form").steps({
+                bodyTag: "fieldset",
+                onStepChanging: function (event, currentIndex, newIndex) {
+                    // Always allow going backward even if the current step contains invalid fields!
+                    if (currentIndex > newIndex) {
+                        return true;
+                    }
+
+                    var form = $(this);
+
+                    // Clean up if user went backward before
+                    if (currentIndex < newIndex) {
+                        // To remove error styles
+                        $(".body:eq(" + newIndex + ") label.error", form).remove();
+                        $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                    }
+
+                    // Disable validation on fields that are disabled or hidden.
+                    form.validate().settings.ignore = ":disabled,:hidden";
+
+                    // Start validation; Prevent going forward if false
+                    return form.valid();
+                },
+                onFinishing: function (event, currentIndex) {
+                    var form = $(this);
+
+                    // Disable validation on fields that are disabled.
+                    // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
+                    form.validate().settings.ignore = ":disabled";
+
+                    // Start validation; Prevent form submission if false
+                    return form.valid();
+                },
+                onFinished: function (event, currentIndex) {
+                    var form = $(this);
+
+                    // Submit form input
+                    form.submit();
+                }
+            }).validate({
+                errorPlacement: function (error, element) {
+                    element.before(error);
+                },
+                rules: {
+                    confirm: {
+                        equalTo: "#password"
+                    }
+                }
+            });
+        });
+
+        //function sumAsset() {
+        //    var txtFirstNumberValue = document.getElementById('CurrentAsset').value;
+        //    var txtSecondNumberValue = document.getElementById('FixedAsset').value;
+
+        //    var txtThirdNumberValue = document.getElementById('CurrentLiabilities').value;
+        //    var txtFourthNumberValue = document.getElementById('FixedLiabilities').value;
+
+        //    var txtFifthNumberValue = document.getElementById('CurrentNetWorth').value;
+        //    var txtSixthNumberValue = document.getElementById('FixedNetWorth').value;
+
+        //    var result = parseInt(txtFirstNumberValue) + parseInt(txtSecondNumberValue);
+        //    var totalAsset = parseInt(txtFirstNumberValue) - parseInt(txtThirdNumberValue);
+        //    var totalLib = parseInt(txtSecondNumberValue) - parseInt(txtFourthNumberValue);
+        //    var total = parseInt(txtFifthNumberValue) + parseInt(txtSixthNumberValue);
+
+        //    if (!isNaN(result)) {
+        //        document.getElementById('TotalAsset').value = result;
+        //        document.getElementById('CurrentNetWorth').value = totalAsset;
+        //        document.getElementById('FixedNetWorth').value = totalLib;
+        //        document.getElementById('TotalNetWorth').value = total;
+        //        //TotalNetWorth
+        //    }
+        //}
+
+        //function sumLiabilities() {
+        //    var txtFirstNumberValue = document.getElementById('CurrentLiabilities').value;
+        //    var txtSecondNumberValue = document.getElementById('FixedLiabilities').value;
+
+        //    var txtThirdNumberValue = document.getElementById('CurrentAsset').value;
+        //    var txtFourthNumberValue = document.getElementById('FixedAsset').value;
+
+        //    var txtFifthNumberValue = document.getElementById('CurrentNetWorth').value;
+        //    var txtSixthNumberValue = document.getElementById('FixedNetWorth').value;
+
+        //    //var txtFifthNumberValue = document.getElementById('CurrentNetWorth').value;
+        //    //var txtSixthNumberValue = document.getElementById('FixedNetWorth').value;
+
+        //    var result = parseInt(txtFirstNumberValue) + parseInt(txtSecondNumberValue);
+        //    var totalLib = parseInt(txtFourthNumberValue) - parseInt(txtSecondNumberValue);
+        //    var totalAsset = parseInt(txtThirdNumberValue) - parseInt(txtFirstNumberValue);
+        //    var total = parseInt(txtFifthNumberValue) + parseInt(txtSixthNumberValue);
+
+        //    if (!isNaN(result)) {
+        //        document.getElementById('TotalLiabilities').value = result;
+        //        document.getElementById('FixedNetWorth').value = totalLib;
+        //        document.getElementById('CurrentNetWorth').value = totalAsset;
+        //        document.getElementById('TotalNetWorth').value = total;
+        //    }
+        //}
+
+    </script>
+
+    @Scripts.Render("~/plugins/dataPicker")
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+            $('.scroll_content').slimscroll({
+                height: '250px'
+            })
+            $('.full-height-scroll').slimscroll({
+                height: '100%'
+            })
+            ko.applyBindings(testviewModel);
+        });
+
+        function CopyAdd() {
+
+            var cb1 = document.getElementById('sameadd');
+            var address = document.getElementById('VendorMaster_Address');
+            var regaddress = document.getElementById('VendorMaster_RegAddress');
+            var postcode = document.getElementById('VendorMaster_Postcode');
+            var regpostcode = document.getElementById('VendorMaster_RegPostcode');
+            var city = document.getElementById('VendorMaster_City');
+            var regcity = document.getElementById('VendorMaster_RegCity');
+            var statecode = document.getElementById('VendorMaster_StateCode');
+            var regstatecode = document.getElementById('VendorMaster_RegStateCode');
+            var countrycode = document.getElementById('VendorMaster_CountryCode');
+            var regcountrycode = document.getElementById('VendorMaster_RegisterCountryCode');
+
+            if (cb1.checked) {
+                regaddress.value = address.value;
+                regpostcode.value = postcode.value;
+                regcity.value = city.value;
+                regstatecode.value = statecode.value;
+                regcountrycode.value = countrycode.value;
+
+
+            } else {
+                regaddress.value = '';
+                regpostcode.value = '';
+                regcity.value = '';
+                regstatecode.value = '';
+                regcountrycode.value = '';
+
+            }
+        }
+    </script>
+}

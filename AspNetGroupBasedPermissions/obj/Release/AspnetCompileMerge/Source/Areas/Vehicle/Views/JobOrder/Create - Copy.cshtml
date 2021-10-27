@@ -1,0 +1,291 @@
+﻿@model Core.Entities.Data.Kenderaan.JobOrder
+@{ ViewBag.Title = "Create Job Order";
+    string fileUploadPath = "/FileUpload/";
+}
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+
+
+        @using (Html.BeginForm("Create", "JobOrder", FormMethod.Post, new { enctype = "multipart/Form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.ValidationSummary(true)
+
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title " style="padding-top:32px;"></div>
+                    <div class="ibox-content" style="background-color:#f7f5f5;">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="pull-left btn btn-xs btn-primary btn-block" style="font-weight:bolder; background-color:#37a5ed; border-color:#37a5ed;">Create New Job Order</label>
+                            </div>
+                            @Html.ValidationSummary()
+                            <div class="welldetailsContactedit" style="background-color:#c5e5fa;">
+                                <br />
+                                <div class="wellpob" style="min-height:350px;  background-color:#c5e5fa; padding:10px;  margin-bottom:20px;">
+                                    <div class="circle-border">
+                                        <div class="col-lg-4">
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.BusinessUnit, "Business Unit", new { @class = "control-label col-md-4" })
+                                                <div class="col-md-7">
+                                                    @Html.DropDownList("BusinessUnit", (IEnumerable<SelectListItem>)Session["BusinessUnit"], " < Select Business Unit >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                    @Html.HiddenFor(model => model.BusinessUnit)
+                                                    @Html.ValidationMessageFor(model => model.BusinessUnit)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.BranchID, "Branch", new { @class = "control-label col-md-4" })
+                                                <div class="col-md-7">
+                                                    @Html.DropDownList("BranchID", (IEnumerable<SelectListItem>)Session["BranchID"], " < Select Branch >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                    @Html.HiddenFor(model => model.BranchID)
+                                                    @Html.ValidationMessageFor(model => model.BranchID)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.ChargeTo_BranchID, "Charge To", new { @class = "control-label col-md-4" })
+                                                <div class="col-md-7">
+                                                    @Html.DropDownList("ChargeTo_BranchID", (IEnumerable<SelectListItem>)Session["BranchID"], " < Select Branch >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                    @Html.ValidationMessageFor(model => model.ChargeTo_BranchID)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.JobDate, "Job Order Date", new { @class = "control-label col-md-4", @style = " " })
+                                                <div class="input-group date col-md-7" style="padding-left:3px">
+                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                    @Html.TextBoxFor(model => model.JobDate, "DateTime", new { @class = "form-control", @style = "font-size:12px;height:30px;", @id = "PuspakomDate", onkeyup = "sync(this)" })
+                                                    @Html.ValidationMessageFor(model => model.JobDate)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.JobOrderNo, "Job Order #", new { @class = "control-label col-md-4" })
+                                                <div class="col-md-7">
+                                                    @Html.EditorFor(model => model.JobOrderNo, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.JobOrderNo)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.ServiceType, "Service Type", new { @class = "control-label col-sm-4" })
+                                                <div class="col-md-7">
+                                                    @Html.DropDownList("ServiceType", (IEnumerable<SelectListItem>)Session["ServiceType"], " < Select Service Type>", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                    @Html.ValidationMessageFor(model => model.ServiceType)
+                                                </div>
+                                            </div>
+                                            @*<div class="col-lg-12">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.ServiceType, "Service Type", new { @class = "control-label col-md-3" })
+                                                    <div class="col-md-8 m-c-xl">
+                                                        @Html.DropDownList("ServiceType", (IEnumerable<SelectListItem>)Session["ServiceType"], new { @class = "form-control chosen-select m-b-xs", id = "witnessId", @multiple = "multiple" })
+                                                        @Html.ListBox("ServiceType", (IEnumerable<SelectListItem>)Session["ServiceType"], new { @class = "form-control chosen-select m-b-xs", id = "witnessId", @multiple = "multiple" })
+                                                    </div>
+                                                </div>
+                                            </div>*@
+                                        </div>
+                                        <div class="col-sm-4" style="padding-left:20px;">
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.VehicleID, "Vehicle ID", new { @class = "control-label col-sm-6" })
+                                                <div class="col-md-6">
+                                                    @Html.DropDownList("VehicleID", (IEnumerable<SelectListItem>)Session["VehicleNo"], " < Select Vehicle>", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                    @Html.ValidationMessageFor(model => model.VehicleID)
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.CurrentSpeedoKM, "Current Speedo KM", new { @class = "control-label col-sm-6" })
+                                                <div class="col-md-6">
+                                                    @Html.EditorFor(model => model.CurrentSpeedoKM, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.CurrentSpeedoKM)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.NextServiceKM, "Next Service KM", new { @class = "control-label col-sm-6" })
+                                                <div class="col-md-6">
+                                                    @Html.EditorFor(model => model.NextServiceKM, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.NextServiceKM)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.EstimateCost, "Estimate Cost (RM)", new { @class = "control-label col-sm-6" })
+                                                <div class="col-md-6">
+                                                    @Html.EditorFor(model => model.EstimateCost, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.EstimateCost)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.EstimateTax, "Estimate Tax (RM)", new { @class = "control-label col-sm-6" })
+                                                <div class="col-md-6">
+                                                    @Html.EditorFor(model => model.EstimateTax, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.EstimateTax)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.EstimateTotal, "Estimate Total (RM)", new { @class = "control-label col-sm-6" })
+                                                <div class="col-md-6">
+                                                    @Html.EditorFor(model => model.EstimateTotal, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.EstimateTotal)
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4" style="padding-left:45px;">
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.QuotationDocLink, "Quotation ", new { @class = "control-label col-sm-4" })
+                                                <div class="col-md-8">
+                                                    <input type="file" name="file" id="file" style="width:100%" />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.OtherDocumentLink, "Photo", new { @class = "control-label col-md-4" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.OtherDocumentLink, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.OtherDocumentLink)
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.OtherDocumentLink, "Other File", new { @class = "control-label col-md-4" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.OtherDocumentLink, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.OtherDocumentLink)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.VendorID, "Workshop", new { @class = "control-label col-md-4" })
+                                                <div class="col-md-8">
+                                                    @Html.DropDownList("VendorID", (IEnumerable<SelectListItem>)Session["VendorID"], " < Select Workshop >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                    @Html.ValidationMessageFor(model => model.VendorID)
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="wellh2" style=" padding-top: 30px; margin-bottom: 2px; background-color: #c5e5fa;">
+                                            <div class="col-md-12" style="padding-left:5px;padding-top:20px;">
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.ServiceDescription, "Job Order Description", new { @class = "control-label" })
+                                                    <div class="col-md-12 m-b-xs">
+                                                        @Html.TextAreaFor(model => model.ServiceDescription, new { @class = "form-control ", id = "immediateActionId", @style = "font-size:12px;", rows = "5", @placeholder = "Please specify job order description, 1000 character maximum..." })
+                                                        @Html.ValidationMessageFor(model => model.ServiceDescription)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                      
+
+                        <div class="col-md-offset-5 col-md-9">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                            @Html.ActionLink("Cancel", "IndexJO", null, new { @class = "btn btn-white" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Styles.Render("~/Content/plugins/chosen/chosenStyles")
+    @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+    @Styles.Render("~/plugins/wizardStepsStyles")
+    @Styles.Render("~/plugins/clockpickerStyles")
+    @Styles.Render("~/plugins/dataPickerStyles")
+    @Styles.Render("~/plugins/imagecropperStyles")
+    @Styles.Render("~/Content/plugins/chosen/chosenStyles")
+    @Styles.Render("~/Content/plugins/dropzone/dropZoneStyles")
+    @Styles.Render("~/Content/plugins/blueimp/css/")
+    @Scripts.Render("~/plugins/wizardSteps")
+    @Scripts.Render("~/plugins/iCheck")
+    @Scripts.Render("~/plugins/validate")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/clockpicker")
+    @Scripts.Render("~/plugins/imagecropper")
+    @Scripts.Render("~/plugins/chosen")
+    @Scripts.Render("~/plugins/lightboxGallery")
+    @Scripts.Render("~/plugins/dropZone")
+
+    @Scripts.Render("~/plugins/notifyjs")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/iCheck")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/validate")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/plugins/dataTables")
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#RoadTaxDate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+            $("#PuspakomDate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+            $("#SPADDate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+            $("#InsDate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+            $("#PurchaseDt").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+            $("#ContractDate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+        });
+
+        function FormValidation() {
+            var incidentWitnessValue = document.getElementById('witnessId').value;
+            if (incidentWitnessValue == "") {
+                document.getElementById('witnessId').style.borderColor = "red";
+                return false;
+            }
+            else {
+                document.getElementById('witnessId').style.borderColor = "green";
+            }
+
+        }
+
+    </script>
+}

@@ -1,0 +1,57 @@
+﻿
+    <div style="padding-bottom:25px">
+
+
+        <div class="ibox-tools">
+            @Html.ActionLink("Confirm ", "Create", null, new { @class = "modal-link  pull-right btn btn-xs btn-primary btn-block", @style = "padding-left:3px;padding-right:3px;padding-bottom:3px;padding-top:3px;width:79px;height:28px; " })
+        </div>
+
+        <div class="ibox-tools pull-left">
+            <select class="form-control input-sm" data-bind="options:availableProjectName, value:selectedProjectName" style="font-size:12px"></select>&nbsp;
+        </div>
+        <div class="dataTables_filter pull-left left">
+            <label><input id="projID" type="text" class="form-control input-sm pull-left" style="font-size:12px" data-bind="value: formVendorSearch, valueUpdate: 'keyup'" placeholder="Batch Upload Number">&nbsp;</label>
+            <br style="margin-bottom:2px;" />
+        </div>
+        <div class="ibox-tools pull-left">
+            <label style="padding-top:5px;">Project :</label>&nbsp;
+        </div>
+        @*<div class="ibox-tools pull-left">
+            <select class="form-control input-sm" data-bind="options:availableBatchUpload, value:selectedBatchUpload" style="font-size:12px"></select>&nbsp;
+        </div>*@
+
+        <div class="dataTables_length pull-right">
+            <label>
+                @*<select class="form-control input-sm" style=" list-style:decimal; font-size:12px;" data-bind="value: pageSize">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>*@
+            </label>
+        </div>
+
+
+        @using (Html.BeginForm("IndexCCT", "CashCollectTransfer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="ibox-tools pull-left" style="padding-top:5px;height:40px">
+                <input type="file" name="file" />
+                <p style="color:red">@ViewBag.ErrorMsg</p>
+
+            </div>
+            <div class="ibox-tools pull-left" style="padding-top:5px;">
+                <input type="submit" value="OK" />
+
+            </div>
+
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+        }
+
+        <div class="dataTables_filter">
+            <label><input type="text" class="form-control input-sm pull-left" style="font-size:12px" data-bind="value: formVendorSearch, valueUpdate: 'keyup'" placeholder="Search">&nbsp;</label>
+            <br style="margin-bottom:2px;" />
+        </div>
+
+    </div>

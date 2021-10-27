@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="NAGA3">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=192.168.47.253\sqlexpress;Initial Catalog=EProcurement_Prod</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>f5839b43-d03c-4054-a2f6-b3eb222b818f</DataSourceID>
+</RptDataSource>

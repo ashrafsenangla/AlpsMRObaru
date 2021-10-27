@@ -1,0 +1,7 @@
+﻿
+@{
+    ViewBag.Title = "_readyMenifestJS";
+}
+
+<h2>_readyMenifestJS</h2>
+

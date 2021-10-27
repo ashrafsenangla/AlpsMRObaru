@@ -1,0 +1,20 @@
+﻿@model dynamic
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Subject Notification on Unprocess Invoice(@Model.InvoiceHeader.InvoiceNo)</title>
+</head>
+<body>
+    <p>
+        Dear Mr/Mrs,<br /><br />
+        @Model.InvoiceHeader.EmailRemarks<br />
+    </p>
+    
+    <p>
+        <span style="color:red">*** This is an automatically generated email, please do not reply ***</span>
+    </p>
+</body>
+</html>

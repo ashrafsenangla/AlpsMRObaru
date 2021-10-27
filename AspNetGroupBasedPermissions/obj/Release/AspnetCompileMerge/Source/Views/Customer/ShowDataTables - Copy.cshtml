@@ -1,0 +1,81 @@
+﻿
+        <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        <html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+            <title>Index</title>
+            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Customer/GetCountries',
+                        datatype: 'JSON',
+                        data: {},
+                        success: function (data) {
+                            $('#employeeDropDownList').empty();
+                            $('#employeeDropDownList').append("<option value='0'>Select</option>");
+                            $.each(data, function (i, item) {
+                                $('#employeeDropDownList').append("<option value='" + item.CountryCode + "'>" + item.CountryDesc + "</option>");
+                            });
+                        },
+                        error: function (data) { alert(data.responseText); }
+                    });
+
+                    $("#employeeDropDownList").change(function () {
+                        $.ajax({
+                            type: 'POST',
+                            url: '/Customer/GetEmployees',
+                            datatype: 'JSON',
+                            data: { 'country': $(this).val() },
+                            success: function (data) {
+                                $('#example1 tbody').empty();
+                                $.each(data, function (i, item) {
+                                    var rows = "<tr>" +
+                                               "<td>" + item.CustomerID + "</td>" +
+                                               "<td>" + item.CompanyName + "</td>" +
+                                               "<td>" + item.ContactName + "</td>" +
+                                               "<td>" + item.Country + "</td>" +
+                                               "<td>" + item.Status + "</td>" +
+                                               "</tr>";
+                                    $('#example1 tbody').append(rows);
+                                });
+                            },
+                            error: function (data) { alert(data.responseText); }
+                        });
+                    });
+                });
+            </script>
+        </head>
+        <body>
+            <div class="row wrapper border-bottom white-bg page-heading" style="padding: 5px 5px 56px"></div>
+            <div class="col-md-3">
+                <div class="input-group">
+                    <div class="input-group-btn search-panel">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span id="search_concept">Filter</span> <span class="caretuse "></span>
+                        </button>
+                    </div>
+                    <select id="employeeDropDownList" name="employeeDropDownList" class="form-control select2 select2-hidden-accessible"
+                            style="width: 100%;" tabindex="-1" aria-hidden="true">
+                        <option value="0">Select</option>
+                    </select>
+                </div>
+            </div>
+            <br />
+            <br />
+            <table id="example1" class="table table-striped table-bordered table-hover dataTables-example">
+
+                <thead>
+                    <tr>
+                        <th>CustomerID</th>
+                        <th>CompanyName</th>
+                        <th>ContactName</th>
+                        <th>Country</th>
+                        <th>Phone</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+            </table>
+        </body>
+    </html>

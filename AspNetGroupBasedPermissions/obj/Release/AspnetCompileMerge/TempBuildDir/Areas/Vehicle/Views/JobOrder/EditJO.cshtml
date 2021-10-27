@@ -1,0 +1,239 @@
+﻿@model Core.Entities.Data.Kenderaan.srtVehicle
+
+
+@using System.Web.Mvc
+@{
+    ViewBag.Title = "Vehicle Management";
+}
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title " style="padding-top:50px;"></div>
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="pull-left btn btn-xs btn-primary btn-block">Edit Vehicle</label>
+                                </div>
+                                <div class="welldetailsContactedit">
+                                    <br />
+                                    <div class="wellpob" style="min-height:350px;  padding:10px;  margin-bottom:20px;">
+                                        <div class="circle-border">
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Vehicle_No, "Registration No.", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.EditorFor(model => model.Vehicle_No)
+                                                        @Html.ValidationMessageFor(model => model.Vehicle_No)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Brand_Name, "Model", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.EditorFor(model => model.Brand_Name)
+                                                        @Html.ValidationMessageFor(model => model.Brand_Name)
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.VehicleType, "Use As", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.EditorFor(model => model.VehicleType)
+                                                        @Html.ValidationMessageFor(model => model.VehicleType)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Fuel_Type, "Fuel Type", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.EditorFor(model => model.Fuel_Type)
+                                                        @Html.ValidationMessageFor(model => model.Fuel_Type)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Year_Purchase, "Year Purchase", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.EditorFor(model => model.Year_Purchase)
+                                                        @Html.ValidationMessageFor(model => model.Year_Purchase)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.MFG_Year, "MFG Year", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.EditorFor(model => model.MFG_Year)
+                                                        @Html.ValidationMessageFor(model => model.MFG_Year)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Body_No, "Body Number", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.EditorFor(model => model.Body_No)
+                                                        @Html.ValidationMessageFor(model => model.Body_No)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.RoadTax_No, "Road Tax #", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.EditorFor(model => model.RoadTax_No)
+                                                        @Html.ValidationMessageFor(model => model.RoadTax_No)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Puspakom_Tax_No, "Puspakom Tax #", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.EditorFor(model => model.Puspakom_Tax_No)
+                                                        @Html.ValidationMessageFor(model => model.Puspakom_Tax_No)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.SPAD_No, "SPAD #", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.EditorFor(model => model.SPAD_No)
+                                                        @Html.ValidationMessageFor(model => model.SPAD_No)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Fuel_Card_No, "Fuel Card #", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.EditorFor(model => model.Fuel_Card_No)
+                                                        @Html.ValidationMessageFor(model => model.Fuel_Card_No)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Bleet_Card_No, "Bleet Card #", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.EditorFor(model => model.Bleet_Card_No)
+                                                        @Html.ValidationMessageFor(model => model.Bleet_Card_No)
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Insurance_No, "Insurance #", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.EditorFor(model => model.Insurance_No)
+                                                        @Html.ValidationMessageFor(model => model.Insurance_No)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Leasor, "Leasor Name", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.EditorFor(model => model.Leasor)
+                                                        @Html.ValidationMessageFor(model => model.Leasor)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.RoadTax_Exp_Date, "Road Tax Expiry", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.EditorFor(model => model.RoadTax_Exp_Date)
+                                                        @Html.ValidationMessageFor(model => model.RoadTax_Exp_Date)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Puspakom_Exp_Date, "Puspakom Expiry", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.EditorFor(model => model.Puspakom_Exp_Date)
+                                                        @Html.ValidationMessageFor(model => model.Puspakom_Exp_Date)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.SPAD_Exp_Date, "SPAD Expiry", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.EditorFor(model => model.SPAD_Exp_Date)
+                                                        @Html.ValidationMessageFor(model => model.SPAD_Exp_Date)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Bullet_Proof, "Is Bullet Proof?", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.EditorFor(model => model.Bullet_Proof)
+                                                        @Html.ValidationMessageFor(model => model.Bullet_Proof)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.HasGPS, "Has GPS Tracker", new { @class = "control-label col-md-4" })
+                                                    <div class="col-md-3">
+                                                        @Html.EditorFor(model => model.HasGPS)
+                                                        @Html.ValidationMessageFor(model => model.HasGPS)
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.BusinessUnit, "Business Unit", new { @class = "control-label col-md-1" })
+                                                    <div class="col-md-3">
+                                                        @Html.DropDownList("BusinessUnit ", ViewData["BusinessUnit"] as SelectList, "< Bussiness Unit >", htmlAttributes: new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(model => model.BusinessUnit)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Branch_ID, "Branch", new { @class = "control-label col-md-1" })
+                                                    <div class="col-md-3">
+                                                        @Html.DropDownList("Branch_ID", ViewData["BranchDesc"] as SelectList, "< Branch >", htmlAttributes: new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(model => model.Branch_ID)
+                                                    </div>
+                                                </div>
+                                                @*<div class="form-group">
+                                                    @Html.LabelFor(model => model.PBEDCodes, "PBED", new { @class = "control-label col-md-4" })
+                                                    <div class="col-md-8">
+                                                        @Html.DropDownList("PBEDCodes", ViewData["PBEDCode"] as SelectList, "-- Select PBED --", htmlAttributes: new { @class = "form-control", id = "pbedId" })
+                                                        @Html.ValidationMessageFor(model => model.PBEDCodes)
+
+                                                    </div>
+                                                </div>*@
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Status, "Status", new { @class = "control-label col-md-1" })
+                                                    <div class="col-md-3">
+                                                        @Html.DropDownList("Status", ViewData["StatusDesc"] as SelectList, "< Status >", htmlAttributes: new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(model => model.Status)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-offset-5 col-md-9">
+                                <input type="submit" value="Create" class="btn btn-primary" />
+                                @Html.ActionLink("Cancel", "IndexVehicle", null, new { @class = "btn btn-white" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+        });
+
+    </script>
+}

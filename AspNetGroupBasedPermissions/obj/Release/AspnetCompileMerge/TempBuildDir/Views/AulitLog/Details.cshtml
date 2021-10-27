@@ -1,0 +1,108 @@
+﻿@model Core.Entities.Data.Admin.AuditLog
+@using AspNetGroupBasedPermissions.Helpers
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Details AuditLog</h5>
+                </div>
+                <div class="ibox-content">
+
+
+				    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.userid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eventdateutc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eventdateutc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eventtype)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eventtype)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tablename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tablename)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.recordid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.recordid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.columnname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.columnname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.originalvalue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.originalvalue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.newvalue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.newvalue)
+        </dd>
+
+    </dl>
+
+
+	    @Html.EncodedActionLink("Edit", "Edit","#routevalues", new { id=Model.auditlogid }, new { @class = "btn-primary"})
+    @Html.EncodedActionLink("Back to List", "Index", null, new { id=Model.auditlogid }, new { @class = "btn-white"})   
+ 
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+

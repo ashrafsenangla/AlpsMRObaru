@@ -1,0 +1,50 @@
+﻿@model Core.Entities.Data.Vendor.SelectVendorViewModel
+@{ ViewBag.Title = "Vendor Master"; }
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    @using (Html.BeginForm("VendorMaster", "VendorApplication", FormMethod.Post, new { encType = "multipart/form-data", name = "myform" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true)
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    @*@Html.HiddenFor(model => model.ID)*@
+                                </div>
+                            </div>
+                            <h4>test page</h4>
+                            <br />
+                          
+                            <table>
+                                <tr>
+                                    <th>
+                                        Select
+                                    </th>
+                                    <th>
+                                        Cost Center
+                                    </th>
+                                </tr>
+                                @Html.EditorFor(model => model.VendorRegistration)
+                            </table>
+                            <br />
+                            <hr />
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Save" class="btn btn-primary" />
+                                    @Html.ActionLink("Back To List", "Index", null, new { @class = "btn btn-white" })
+                                </div>
+                            </div>
+                        
+                        </div>
+                    }                
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

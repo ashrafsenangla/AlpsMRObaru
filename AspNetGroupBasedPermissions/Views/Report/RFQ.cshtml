@@ -1,0 +1,244 @@
+﻿@using AspNetGroupBasedPermissions;
+
+@{
+    ViewBag.Title = "Report";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6">
+
+        <div class="ibox float-e-margins">
+            <div class="ibox-content">
+                <div class="row">
+                    <span class="label label-info">Print Option</span>
+                    <hr />
+                    <div class="form-group">
+                        @Html.Label( "Company", new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.DropDownList("CompanyCode", ViewData["Company"] as SelectList, "-- Select Company --", htmlAttributes: new { onchange = "CompanyCodeChange(this.value)", @class = "form-control m-b-xs", id = "CompanyCode" })
+                         
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label( "Cost Center", new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.DropDownList("CostCenter", ViewData["RTMCostCenter"] as SelectList, "-- Select Cost Center --", htmlAttributes: new { onchange = "CostCentreChange(this.value)", id = "CostCentreCode", @class = "form-control col-md-5 m-b-xs" })
+                           
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("MSR No", new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.DropDownList("MSRNo", ViewData["MSRNo"] as SelectList, "-- Select MSR No --", htmlAttributes: new { onchange = "MSRNumberChange(this.value)", id = "MSRNumber", @class = "form-control col-md-5 m-b-xs" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("RFQ No", new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.DropDownList("MSRRFQNo", ViewData["RFQNo"] as SelectList, "-- Select RFQ No --", htmlAttributes: new { onchange = "RFQNumberChange(this.value)", @class = "form-control m-b-xs", id = "RFQNumber" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Vendor", new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.DropDownList("VendorCode", ViewData["Vendor"] as SelectList, "-- Select Vendor --", htmlAttributes: new { @class = "form-control m-b-xs", id = "VendorID" })
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div><div class="col-md-2"></div>
+    <div class="col-md-4">
+        <input type="submit" value="Show Report" class="btn btn-primary block full-width m-b" formtarget="_blank" />
+    </div>
+    <div class="col-md-4">
+        <input type="submit" value="Reset" class="btn btn-white block full-width m-b" formtarget="_blank" />
+    </div>
+    <div class="col-md-12">&nbsp;</div>
+</div>
+
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="col-md-3"></div>
+
+}
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+    @Styles.Render("~/plugins/wizardStepsStyles")
+    @Styles.Render("~/plugins/clockpickerStyles")
+    @Styles.Render("~/plugins/dataPickerStyles")
+    @Styles.Render("~/plugins/imagecropperStyles")
+    @Styles.Render("~/Content/plugins/chosen/chosenStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/wizardSteps")
+    @Scripts.Render("~/plugins/iCheck")
+    @Scripts.Render("~/plugins/validate")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/clockpicker")
+    @Scripts.Render("~/plugins/imagecropper")
+    @Scripts.Render("~/plugins/chosen")
+    @Scripts.Render("~/plugins/dataPicker")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+        });
+
+   
+            function CompanyCodeChange(CompanyCode) {
+            var ID = $('#CompanyCode').val();
+            //alert(CompanyCode);
+            if (CompanyCode == null) {
+                $('#CostCentreCode').html(""); // clear before appending new list
+                $('#CostCentreCode').append(
+                    $('<option></option>').val(CostCentreCode).html("--Select Cost Centre--"));
+            }
+            else {
+                $.ajax({
+                    url: '@Url.Action("FillCostCentre", "Report", new { area = "" })',
+                    type: "POST",
+                    dataType: "JSON",
+                    data: { CompanyCode: CompanyCode },
+                    success: function (costCentreCodes) {
+                        $('#CostCentreCode').html(""); // clear before appending new list
+                        $('#CostCentreCode').append(
+                    $('<option></option>').val(CostCentreCode).html("-- Select Cost Centre --"));
+                        $.each(costCentreCodes, function (i, costCentreCodes) {
+                            $('#CostCentreCode').append(
+                                $('<option></option>').val(costCentreCodes.ID).html(costCentreCodes.CostCentreName));
+                        });
+                    },
+                    error: function (error) {
+                        $.notify(
+                          error,
+                          { position: "top center", className: "error" }
+                        );
+                    }
+                });               
+            }
+            }
+
+        function CostCentreChange(CostCentreCode) {
+            var ID = $('#CostCentreCode').val();
+            if (CostCentreCode == null) {
+                $('#MSRNumber').html(""); // clear before appending new list
+                $('#MSRNumber').append(
+                    $('<option></option>').val(MSRNumber).html("-- Select MSR No --"));
+            }
+            else {
+                $.ajax({
+                    url: '@Url.Action("FillMSRNumber", "Report", new { area = "" })',
+                    type: "POST",
+                    dataType: "JSON",
+                    data: { CostCentreCode: CostCentreCode },
+                    success: function (MSRNumbers) {
+                        $('#MSRNumber').html(""); // clear before appending new list
+                        $('#MSRNumber').append(
+                    $('<option></option>').val(MSRNumber).html("-- Select MSR No --"));
+                        $.each(MSRNumbers, function (i, MSRNumbers) {
+                            $('#MSRNumber').append(
+                                $('<option></option>').val(MSRNumbers.ID).html(MSRNumbers.MSRNumber));
+                        });
+                    },
+                    error: function (error) {
+                        $.notify(
+                          error,
+                          { position: "top center", className: "error" }
+                        );
+                    }
+                });
+
+            }
+        }
+
+        function MSRNumberChange(MSRNumber) {
+            var ID = $('#MSRNumber').val();
+            if (MSRNumber == null) {
+                $('#RFQNumber').html(""); // clear before appending new list
+                $('#RFQNumber').append(
+                    $('<option></option>').val(RFQNumber).html("-- Select MSR RFQ No --"));
+            }
+            else {
+                $.ajax({
+                    url: '@Url.Action("FillMSRRFQNumber", "Report", new { area = "" })',
+                    type: "POST",
+                    dataType: "JSON",
+                    data: { MSRNumber: MSRNumber },
+                    success: function (RFQNumbers) {
+                        $('#RFQNumber').html(""); // clear before appending new list
+                        $('#RFQNumber').append(
+                    $('<option></option>').val(RFQNumber).html("-- Select MSR RFQ No --"));
+                        $.each(RFQNumbers, function (i, RFQNumbers) {
+                            $('#RFQNumber').append(
+                                $('<option></option>').val(RFQNumbers.MSRsRFQsNumber).html(RFQNumbers.MSRsRFQsNumber));
+                        });
+                    },
+                    error: function (error) {
+                        $.notify(
+                          error,
+                          { position: "top center", className: "error" }
+                        );
+                    }
+                });
+
+            }
+        }
+
+        function RFQNumberChange(RFQNumber) {
+            var ID = $('#RFQNumber').val();
+            if (RFQNumber == null) {
+                $('#VendorID').html(""); // clear before appending new list
+                $('#VendorID').append(
+                    $('<option></option>').val(VendorID).html("-- Select Vendor --"));
+            }
+            else {
+                $.ajax({
+                    url: '@Url.Action("FillVendorNumber", "Report", new { area = "" })',
+                    type: "POST",
+                    dataType: "JSON",
+                    data: { RFQNumber: RFQNumber },
+                    success: function (VendorIDs) {
+                        $('#VendorID').html(""); // clear before appending new list
+                        $('#VendorID').append(
+                    $('<option></option>').val(VendorID).html("-- Select Vendor --"));
+                        $.each(VendorIDs, function (i, VendorIDs) {
+                            $('#VendorID').append(
+                                $('<option></option>').val(VendorIDs.VendorCode).html(VendorIDs.AttentionTo));
+                        });
+                    },
+                    error: function (error) {
+                        $.notify(
+                          error,
+                          { position: "top center", className: "error" }
+                        );
+                    }
+                });
+
+            }
+        }
+
+</script>
+}
+
+
+
+    
+

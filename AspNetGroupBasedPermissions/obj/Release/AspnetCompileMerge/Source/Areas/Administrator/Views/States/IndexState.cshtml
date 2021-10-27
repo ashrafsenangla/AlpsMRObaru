@@ -1,0 +1,259 @@
+﻿@using AspNetGroupBasedPermissions.Helpers
+@{ ViewBag.Title = "List Of Branch";}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title " style="padding-top:32px;"></div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        <label style="background-color:steelblue;border-color:steelblue;font-weight:bolder" class="pull-left btn btn-xs btn-primary btn-block">List Of Vehicle @Html.ActionLink(" ", "Create", null, new { @class = "modal-link btn btn-primary btn-xs glyphicon glyphicon pull-right btn btn-xs btn-primary btn-block", @style = "padding-left:3px;padding-right:3px;padding-bottom:3px;padding-top:3px;width:29px;height:25px;" })</label>
+                    </div>
+                    <div class="dataTables_wrapper form-inline no-footer">
+                        @Html.Partial("_IndexBody")
+                        <table id="mainTable" class="display table table-striped table-bordered table-hover dataTables-example">
+                            <thead>
+                                <tr>
+                                    <td data-bind="style : {width: '5%' } ">
+                                        <select data-bind="options:availableStateName, value:selectedStateName" class="form-control input-xs" style="font-size:12px;height:30px"></select>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>State</th>
+                                    <th>Branch Code</th>
+                                    <th>Branch Name</th>
+                                    <th>Manager</th>
+                                    <th>Mgr/Mobile#</th>
+                                    <th>Email</th>
+                                    <th><input name="select_all" type="hidden"></th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="dataTablesForEach:
+                                   @Html.Partial("_IndexColumn7")
+                                <tr>
+
+                                    <td data-bind="style : {width: '5%' } ">
+                                        <span data-bind="text:StateName"></span>
+                                    </td>
+                                    <td data-bind="text:BranchCode, style : {width: '10%'} "></td>
+                                    <td data-bind="text:BranchName, style : {width: '15%' } "></td>
+                                    <td data-bind="text:Manager, style : {width: '15%' } "></td>
+                                    <td data-bind="text:ManagerMobileNumber, style : {width: '7%' } "></td>
+                                    <td data-bind="text:Email, style : {width: '8%' } "></td>
+                                    <td data-bind="style : {width: '4%' } ">
+                                        <a data-bind="visible:ShowButton==true,attr: { href: DetailURL}" title="Click To View" style="font-size:11px" class="btn-primary">View</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        @Html.Partial("_IndexPage")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    @Styles.Render("~/Scripts/plugins/jquery-ui/jqueryuiStyles")
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatableCheckbox")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/notifyjs")
+
+    <script type="text/javascript">
+
+         //Begin: Format date soring
+            jQuery.extend(jQuery.fn.dataTableExt.oSort,
+            {
+            "customDate-pre": function (a) {
+                var ukDatea = a.split('/');
+                return (ukDatea[2] + ukDatea[1] + ukDatea[0]) * 1;
+            },
+
+            "customDate-asc": function (a, b) {
+                return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+            },
+
+            "customDate-desc": function (a, b) {
+                return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+            }
+            });
+         //End: Format date soring
+
+        //Begin: Format date
+        Date.prototype.toFormattedDate = function ()
+            {
+            var dd = this.getDate();
+            if (dd < 10) dd = '0' + dd;
+            var mm = this.getMonth() + 1;
+            if (mm < 10) mm = '0' + mm;
+            var yyyy = this.getFullYear();
+            return String(dd + "/" + mm + "/" + yyyy);
+            };
+        //End: Format date
+
+        //Begin: Data Column
+        var TableColumn = function (data)
+            {
+            var self = this;
+            this.BusinessUnitName = ko.observable(data.BusinessUnitName);
+            this.BranchCode = ko.observable(data.BranchCode);
+            this.BranchName = ko.observable(data.BranchName);
+            this.StateName = ko.observable(data.StateName);
+            this.Manager = ko.observable(data.Manager);
+            this.ManagerMobileNumber = ko.observable(data.ManagerMobileNumber);
+            this.AdminOfficer = ko.observable(data.AdminOfficer);
+            this.Email = ko.observable(data.Email);
+            this.DetailURL = ko.observable(data.DetailURL);
+            this.ShowButton = ko.observable(data.ShowButton);
+            };
+        //End: Data Column
+
+        //Begin: View Model
+        var ViewModel = new function ()
+            {
+            var self = this;
+            var defaultDropdownText = 'All';
+            self.pageSize = ko.observable(10);
+            self.indexPage = ko.observable(0);
+            self.totalPage = ko.observable(1);
+            self.totalRow = ko.observable(0);
+            self.hocs = ko.observableArray([]);
+            self.formVendorSearch = ko.observable("");
+
+           var defaultdate = new Date().toFormattedDate();
+           self.availableStateName = ko.observableArray([defaultDropdownText,@foreach (var item in ViewBag.StateDesc){<text>'@item',</text>}]);
+           self.availableBusinessUnit = ko.observableArray([defaultDropdownText,@foreach (var item in ViewBag.BusinessUnitDesc){<text>'@item',</text>}]);
+
+           self.selectedStateName = ko.observable(defaultDropdownText);
+           self.selectedBusinessUnitName = ko.observable(defaultDropdownText);
+
+            self.nextPage = function () {
+                if ((self.indexPage() + 1) < self.totalPage()) {
+                    self.indexPage(self.indexPage() + 1);
+                    self.loadhoc();
+                }
+            }
+            self.prevPage = function () {
+                if (self.indexPage() > 0) {
+                    self.indexPage(self.indexPage() - 1);
+                    self.loadhoc();
+                }
+            }
+
+            self.loadhoc = function () {
+                self.hocs.removeAll();
+
+                $.ajax('@Url.Action("GetBranch", "Branch")', {
+                    data: ko.toJSON({
+                        search: self.formVendorSearch(),
+                        pageSize: self.pageSize(),
+                        pageIndex: self.indexPage(),
+
+                        // Begin: Parameter from controller : GetBranch
+                        businessunitname: self.selectedBusinessUnitName(),
+                        statename: self.selectedStateName(),
+                        // Begin: Parameter from controller : GetBranch
+
+                    }),
+                    type: "post",
+                    contentType: "application/json",
+                    success: function (result) {
+                        self.hocs.removeAll();
+                        var underlyingArray = self.hocs();
+                        for (var i = 0; i < result.hocs.length; i++) {
+                            var row = result.hocs[i];
+                            var record = {
+
+                                BranchCode: row.BranchCode,
+                                BranchName: row.BranchName,
+                                StateName: row.StateName,
+                                BusinessUnitName: row.BusinessUnitName,
+                                Manager: row.Manager,
+                                ManagerMobileNumber: row.ManagerMobileNumber,
+                                AdminOfficer: row.AdminOfficer,
+                                Email: row.Email,
+                                DetailURL: row.DetailURL,
+                                ShowButton: row.ShowButton,
+                            }
+                            underlyingArray.push(record);
+                        }
+                        self.hocs.valueHasMutated();
+                        self.totalPage(result.totalPage);
+                        self.totalRow(result.totalRow);
+                        $('#dialog-Loading').dialog("close");
+                    },
+
+                });
+            }
+
+            self.restartSearchPagination = function () {
+                self.hocs.removeAll();
+                self.indexPage(0);
+                self.totalPage(1);
+                self.totalRow(0);
+                }
+            self.formVendorSearch.subscribe(function (value) {
+                if (value == '') self.formVendorSearch("");
+
+                self.restartSearchPagination();
+                self.loadhoc();
+            });
+            self.pageSize.subscribe(function (value) {
+                if (self.formVendorSearch() == '') self.formVendorSearch("");
+                self.restartSearchPagination();
+                self.loadhoc();
+            });
+            self.vendorsComputed = ko.computed(function () {
+                var records = self.hocs;
+                return records;
+            });
+
+            self.selectedStateName.subscribe(function (value) {
+                $('#dialog-Loading').dialog("open");
+                self.restartSearchPagination();
+                self.loadhoc();
+            });
+              self.selectedBusinessUnitName.subscribe(function (value) {
+                $('#dialog-Loading').dialog("open");
+                self.restartSearchPagination();
+                self.loadhoc();
+              });
+            self.loadhoc();
+            };
+        //End: View Model
+
+        $(document).ready(function () {
+
+            $('#StartDate').datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true,
+            }).datepicker("setDate", new Date());
+            ko.applyBindings(ViewModel);
+        });
+
+    </script>
+}
+
+

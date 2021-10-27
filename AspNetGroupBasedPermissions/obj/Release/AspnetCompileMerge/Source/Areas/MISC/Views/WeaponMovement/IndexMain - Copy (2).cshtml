@@ -1,0 +1,497 @@
+﻿@model IEnumerable<AspNetGroupBasedPermissions.Areas.MISC.Models.WeaponMvmtViewModel>
+@using AspNetGroupBasedPermissions.Helpers
+
+@{
+    ViewBag.Title = "Weapon Movement";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox-title " style="padding-top:35px;"></div>
+            <div class="ibox-content">
+                <div class="form-group">
+                    <label style="background-color:steelblue;border-color:steelblue;font-weight:bolder" class="pull-left btn btn-xs btn-primary btn-block">List Of Weapon Movement<button id="PobSumarryAdded" onclick="Validation();" class="btn btn-primary btn-xs pull-right" style="margin-left:5px; margin-right:5px; padding-left:3px;padding-right:3px;padding-bottom:3px;padding-top:3px;height:25px;">Create Weapon Movementy</button> </label>
+                </div>
+                <div class="form-group" style="padding-top:5px;background-color:lightgray; height:70px;">
+                    <div class="col-lg-3" style="padding-top:5px;">
+                        <div class="form-group">
+                            <label class="control-label col-md-4" style="padding-top:5px">Business Unit</label>
+                            <div class="col-md-7">
+                                @Html.DropDownList("BusinessUnit", (IEnumerable<SelectListItem>)Session["BusinessUnit"], new { @class = "form-control m-b-xs", @required = "true" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" style="padding-top:5px;">
+                        <div class="form-group">
+                            <label class="control-label col-md-4" style="padding-top:5px;">Movement Date</label>
+                            <div class="input-group date ">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                <input class="form-control" id="StartDate" data-bind="event:{ change: Search} ">
+                            </div>
+                        </div>
+                    </div>
+
+                    @*<div class="form-group" >
+                        <label class="control-label pull-left" style="padding-top:9px">Date From </label>
+                        <div class="col-md-2" style="padding-top:5px;">
+                            <div class="input-group date">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                <input class="form-control" id="StartDate" data-bind="event:{ change: Search} ">
+                            </div>
+                        </div>
+                    </div>*@
+
+                    @Html.Partial("_IndexBody2")
+                </div>
+
+
+                @*<div class="col-lg-6">
+            <div class="form-group">
+                <button id="PobSumarryAdded" onclick="Validation();" class="btn btn-primary btn-xs" style="margin-left:5px; margin-right:5px">Create Weapon Movementy</button>
+            </div>
+        </div>*@
+
+
+                <div class="ibox-tools">
+                    <div class="ibox-tools">
+                        <button id="custom_datatables_submit_button" onclick="submitAll();" class="btn btn-primary btn-xs" style="display:none;margin-left:5px; margin-right:5px">Submit</button>
+                    </div>
+                </div>
+               
+                <table id="mainTable" class="table table-striped table-bordered table-hover dataTables-example" width="100%">
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <select data-bind="options:availableStatus, value:selectedStatus"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <input name="select_all" value="1" type="checkbox">
+                            </th>
+                            <th>@Html.DisplayName("ID")</th>
+                            <th>
+                                @Html.DisplayName("Branch")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Serial#")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Staff Name")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Date Out")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Date In")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Type")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Is Active")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Status")
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="dataTablesForEach:
+                           {
+                           data: listHSEs(), dataTableOptions: {
+                           paging: false,
+                           dom: 'T<\' clear\'>
+                        lfrtip',
+                        tableTools: {
+                        'sSwfPath': '../../../scripts/plugins/dataTables/swf/copy_csv_xls_pdf.swf'
+                        },
+                        aoColumns: [
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null
+                        ],
+                        responsive:true,
+                        columnDefs: [
+                        {
+                        'targets': 9,
+                        'searchable': false,
+                        'orderable': false
+                        }
+                        ],
+                        rowCallback: function (row, data, dataIndex) {
+                        var rowId = data[1];
+                        if ($.inArray(rowId, custom_datatables_rows_selected) !== -1) {
+                        $(row).find('input[type=\'checkbox\']').prop('checked', true);
+                        $(row).addClass('selected');
+                        }
+                        }
+                        }
+                        }">
+
+                        <tr>
+                            <td width="1%">
+                                <!-- ko if: Status()=='Draft' -->
+                                <input type='checkbox'>
+                                <!-- /ko -->
+                            </td>
+                            <td data-bind="text:ID, style : {width: '2%'}"></td>
+                            <td data-bind="text:POBCode, style : {width: '5%'} "></td>
+                            <td data-bind="style : {width: '12%' },text:POBName">
+                                <input class="form-control" data-bind="value: LocationCode" type="hidden" />
+                            </td>
+                            <td data-bind="style : {width: '5%' } ">
+                                <span data-bind="text:EffectiveDate "></span>
+                            </td>
+                            <td data-bind="style : {width: '6%' } ">
+                                <input class="" data-bind="value: RoomNumber ,enable: Status()=='Draft' ,style : {width: '100%'}" />
+                            </td>
+                            <td data-bind="style : {width: '6%' } ">
+                                <input class="" type="number" data-bind="value: LifeBoat ,enable: Status()=='Draft',style : {width: '100%'}" />
+                            </td>
+                            <td data-bind="style : {width: '6%' } ">
+                                <input class="" type="number" data-bind="value: LifeBoat2 ,enable:Status()=='Draft',style : {width: '100%'}" />
+                            </td>
+                            <td data-bind="style : {width: '6%' } ">
+                                <input class="" data-bind="value: Shift ,enable:Status()=='Draft',style : {width: '100%'}" />
+                            </td>
+
+                            <td data-bind="style : {width: '5%' } ">
+                                <span data-bind="text:Status"></span>
+                            </td>
+                            @*<td data-bind="style : {width: '5%' } ">
+                         <button class="btn btn-primary" data-bind="click: $root.removePOBSummary,enable:Status()=='Draft'" onclick="return false;">Delete</button>
+                    </td>*@
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="form-group">
+                    <div style="text-align:center">
+                        <button class="btn btn-primary" data-bind="click: savePOBSummary" onclick="return false;">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    @Styles.Render("~/Scripts/plugins/jquery-ui/jqueryuiStyles")
+    @Styles.Render("~/plugins/dataPickerStyles")
+
+    <style>
+        .ui-dialog-3000 {
+            z-index: 3000 !important;
+        }
+
+        .ui-dialog-2900 {
+            z-index: 2900 !important;
+        }
+
+        .disable-background-eee {
+            background: #eee !important;
+        }
+
+        .modal {
+            margin: auto;
+            padding-top: 100px;
+            min-height: 500px;
+            width: 1200px;
+        }
+
+        .numberCircle {
+            border-radius: 50%;
+            behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+            width: 20px;
+            height: 20px;
+            padding: 0px;
+            background: #1AB394;
+            border: 1px solid #1AB394;
+            text-align: center;
+            color: white;
+            font: 10px;
+        }
+
+        .datepicker {
+            z-index: 3000 !important; /*Date Picker in knockout*/
+        }
+    </style>
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatableCheckbox")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#StartDate").datepicker({
+            todayBtn: "linked",
+            format: "dd/mm/yyyy",
+            keyboardNavigation: false,
+            forceParse: false,
+            autoclose: true
+        }).datepicker("setDate", new Date());
+
+
+        ko.applyBindings(ViewModel);
+        ViewModel.loadHSEs();
+
+    });
+    function GetPOBSummary() {
+        $('#dialog-Loading').dialog("open");
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("CreatePOBSummary", "POBSummary")",
+            data: { dateHSESummary: $("#StartDate").val(), location: $("#Location").val() },
+            success: function (data) {
+                $('#dialog-Loading').dialog("close");
+                alert(data);
+
+                ViewModel.Search();
+            },
+            dataType: "json",
+            traditional: true
+        });
+    }
+
+      function submitAll() {
+          $('#dialog-Loading').dialog("open");
+        $.ajax({
+            type: "POST",
+
+            url: "@Url.Action("SubmitAllPOBSummary", "POBSummary")",
+            data: { Id: custom_datatables_rows_selected },
+            success: function (data) {
+                $('#dialog-Loading').dialog("close");
+                alert(data);
+                location.reload();
+            },
+            dataType: "json",
+            traditional: true
+        });
+    }
+
+    function Validation() {
+        var startdate = document.getElementById("StartDate").value;
+        var location = document.getElementById("Location").value;
+
+
+        if (startdate == "") {
+            document.getElementById('StartDate').style.borderColor = "red";
+            return false;
+        }
+        else {
+
+            document.getElementById('StartDate').style.borderColor = "green";
+            if (location == "") {
+                document.getElementById('Location').style.borderColor = "red";
+                return false;
+            }
+            else {
+                GetPOBSummary()
+                document.getElementById('Location').style.borderColor = "green";
+            }
+        }
+    }
+
+    jQuery.extend(jQuery.fn.dataTableExt.oSort, {
+        "customDate-pre": function (a) {
+            var ukDatea = a.split('/');
+            return (ukDatea[2] + ukDatea[1] + ukDatea[0]) * 1;
+        },
+
+        "customDate-asc": function (a, b) {
+            return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+        },
+
+        "customDate-desc": function (a, b) {
+            return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+        }
+    });
+
+    Date.isLeapYear = function (year) {
+        return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0));
+    };
+
+    Date.getDaysInMonth = function (year, month) {
+        return [31, (Date.isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+    };
+
+    Date.prototype.isLeapYear = function () {
+        return Date.isLeapYear(this.getFullYear());
+    };
+
+    Date.prototype.getDaysInMonth = function () {
+        return Date.getDaysInMonth(this.getFullYear(), this.getMonth());
+    };
+
+    Date.prototype.addMonths = function (value) {
+        var n = this.getDate();
+        this.setDate(1);
+        this.setMonth(this.getMonth() + value);
+        this.setDate(Math.min(n, this.getDaysInMonth()));
+        return this;
+    };
+
+    // Person ViewModel
+    var MSR = function (data) {
+        var self = this;
+        this.ID = ko.observable(data.ID);
+        this.HSEDate = ko.observable(data.HSEDate);
+        this.LocationCode = ko.observable(data.LocationCode);
+        this.POBCode = ko.observable(data.POBCode);
+        this.RoomNumber = ko.observable(data.RoomNumber);
+        this.Shift = ko.observable(data.Shift);
+        this.LifeBoat = ko.observable(data.LifeBoat);
+        this.LifeBoat2 = ko.observable(data.LifeBoat2);
+        this.ShiftType = ko.observable(data.ShiftType);
+        this.POBHSERemarks = ko.observable(data.POBHSERemarks);
+        this.POBName = ko.observable(data.POBName);
+        this.EffectiveDate = ko.observable(data.EffectiveDate);
+        this.Status = ko.observable(data.Status);
+        this.Priority = ko.observable(data.Priority);
+        this.Muster = ko.observable(data.Muster);
+        this.CompanyCode = ko.observable(data.CompanyCode);
+        this.PositionID = ko.observable(data.PositionID);
+    };
+
+    var ViewModel = new function () {
+        var self = this;
+        var defaultDropdownText = 'All';
+        self.test = ko.observableArray([]);
+        $("#testtry").dataTable().fnDestroy();
+        $("#mainTable").dataTable().fnDestroy();
+        self.HSEs = ko.observableArray([]);
+        self.loadHSEs = function () {
+            $('#dialog-Loading').dialog("open");
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("ListWeaponDailyMvmt", "WeaponMovement")',
+                data: {
+                    transdate: $("#StartDate").val(),
+                    businessunit: $("#BusinessUnit").val()
+                },
+                dataType: 'json',
+                success: function (data) {
+                    $("#mainTable").dataTable().fnDestroy();
+                    $('#dialog-Loading').dialog("close");
+                    self.HSEs($.map(data, function (user) {
+                        var msr = new MSR({
+                            ID: user.ID,
+                            HSEDate: user.HSEDate,
+                            EffectiveDate: user.EffectiveDate,
+                            LocationCode: user.LocationCode,
+                            POBCode: user.POBCode,
+                            POBName: user.POBName,
+                            POBHSERemarks: user.POBHSERemarks,
+                            Shift: user.Shift,
+                            ShiftType: user.ShiftType,
+                            RoomNumber: user.RoomNumber,
+                            Status: user.Status,
+                            LifeBoat: user.LifeBoat,
+                            LifeBoat2: user.LifeBoat2,
+                            Muster: user.Muster,
+                            Priority: user.Priority,
+                            CompanyCode: user.CompanyCode,
+                            PositionID: user.PositionID
+                        })
+                        return msr;
+                    }));
+                },
+                error: function (error) {
+                    alert(error);
+                }
+            })
+        };
+
+        self.columnNames = ko.computed(function () {
+            if (self.test().length === 0)
+                return [];
+            var props = [];
+            var obj = self.test()[0];
+            for (var name in obj)
+                props.push(name);
+            return props;
+
+        });
+        self.availableStatus = ko.observableArray([defaultDropdownText, 'Draft', 'Submit']);
+        self.availableShift= ko.observableArray(['','All','Day', 'Night'])
+        self.availablePriority = ko.observableArray(['', 'I', 'II', 'III','IV'])
+        self.selectedStatus = ko.observable(defaultDropdownText);
+        self.listHSEs = ko.computed(function () {
+            $("#mainTable").dataTable().fnDestroy();
+            var desiredStatus = self.selectedStatus();
+            var records = self.HSEs;
+            records = desiredStatus == defaultDropdownText ? records : ko.observableArray(ko.utils.arrayFilter(records(), function (msr) {
+                return msr.Status() == desiredStatus;
+            }));
+            return records;
+        });
+
+        self.Search = function () {
+            self.loadHSEs();
+        }
+        $("#Location").change(function () {
+            self.loadHSEs();
+        });
+
+        self.savePOBSummary = function (item) {
+                $('#dialog-Loading').dialog("open");
+                $.ajax("@Url.Action("POBSummarySave", "POBSummary", new { area = "QHSE" })", {
+                data: ko.toJSON({ locationcode: $("#Location").val(), hsedate: $("#StartDate").val(), model: self.HSEs }),
+                type: "post", contentType: "application/json",
+                success: function (result) {
+                    alert(result);
+                    $('#dialog-Loading').dialog("close");
+                },
+                error: function (error) {
+                    alert(error);
+                }
+            });
+        };
+
+        self.removePOBSummary = function (item) {
+            if (confirm('Are you sure want to delete this?')) {
+                $('#dialog-Loading').dialog("open");
+                $.ajax("@Url.Action("POBSummaryDelete", "POBSummary", new { area = "QHSE" })", {
+                    data: ko.toJSON({ ID: item.ID }),
+                    type: "post", contentType: "application/json",
+                    success: function (result) {
+                        self.Search();
+                        $('#dialog-Loading').dialog("close");
+                    },
+                    error: function (error) {
+                        alert(error);
+                    }
+                });
+            };
+        }
+    }
+    </script>
+
+}
+

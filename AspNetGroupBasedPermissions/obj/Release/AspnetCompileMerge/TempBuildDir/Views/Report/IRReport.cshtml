@@ -1,0 +1,430 @@
+﻿@*@model IEnumerable<AspNetGroupBasedPermissions.Models.Hazards>*@
+@model IEnumerable<Core.Entities.Data.QHSE.INR>
+@using AspNetGroupBasedPermissions.Helpers
+
+@{
+    ViewBag.Title = "Index-IR Report";
+    
+}
+@using (Html.BeginForm())
+                                        {
+    @Html.AntiForgeryToken()
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>List of Incident Report</h5>
+
+                </div>
+                <div class="ibox-content">
+
+                    @*<div class="form-group" id="data_1">
+                            Date HSE Summary :
+                            <div class="input-group date" id="StartDateId">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                @Html.TextBox("StartDate", (DateTime)ViewData["selectedDate"], new { @class = "form-control", @style = "width:15%", @required = "true" })
+
+
+                            </div>
+                            <br />
+                            <button id="custom_datatables_submit_button" onclick="Validation();" class="btn btn-primary btn-xs" style="margin-left:5px; margin-right:5px">Create HSE Summary</button>
+
+
+                        </div>*@
+
+                    <div class="col-lg-3">
+
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Date From :</label>
+                            <div class="col-md-7">
+                                <div class="input-group date">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+
+
+                                    <input class="form-control" name="StartDate" id="StartDate" data-bind="event:{ change: Search} ">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-lg-3">
+
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Date To :</label>
+                            <div class="col-md-7">
+                                <div class="input-group date">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+
+
+                                    <input class="form-control" id="EndDate" data-bind="event:{ change: Search} ">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-lg-3">
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Location :</label>
+                            <div class="col-md-7">
+                                @Html.DropDownList("Location", (IEnumerable<SelectListItem>)Session["Location"], new { @class = "form-control m-b-xs", @required = "true" })
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <b class="control-label col-md-3">Document Type :</b>
+                            <div class="col-md-8">
+                                @Html.DropDownList("documentType", ViewData["documentType"] as SelectList, htmlAttributes: new { @class = "form-control m-b-xs" })
+                            </div>
+                        </div>
+
+                        </div>
+
+
+                        <br />
+
+
+                        <table id="mainTable" class="table table-striped table-bordered table-hover dataTables-example">
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        @Html.DisplayName("Incident Date")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Location")
+                                    </th>
+                                   
+                                    <th>
+                                        @Html.DisplayName("Incident Title")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("IR Report No")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("IIR Report No")
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody data-bind="dataTablesForEach:
+                               {
+                                    data: listHSEs(), dataTableOptions: {
+                                      paging: true,
+                                      dom: 'T<\'clear\'>lfrtip',
+						              tableTools: {
+							              'sSwfPath': '../../../scripts/plugins/dataTables/swf/copy_csv_xls_pdf.swf'
+						              },
+                                      aoColumns: [
+                                                   null,
+                                                   null,
+                                                   null,
+                                                   null,
+                                                   null
+                                                   ],
+                                      responsive:true,
+
+                                    }
+                               }">
+
+                                <tr>
+                                    <td data-bind="style : {width: '15%' } ">
+                                        <span data-bind="text:IncidentDate "></span>
+                                    </td>
+                                    
+                                    <td data-bind="style : {width: '15%' },text:Location"></td>
+                                   
+
+                                    <td data-bind="style : {width: '35%' } ">
+                                        <span data-bind="text:IncidentTitle"></span>
+                                    </td>
+                                    <td data-bind=" style : {width: '15%'} ">
+                                        
+                                        <input type="submit" name="Report" formaction="@Url.Action("IRReport", "Report")" class="fakeLink" data-bind="attr: { value: INRReportNo  }" />
+                                    </td>
+                                    <td data-bind=" style : {width: '15%'} ">
+                                        <!-- ko if: IIRReportNo() !=null  -->
+                                        
+                                        <input type="submit" name="Report" formaction="@Url.Action("IIRReport", "Report")" class="fakeLink" data-bind="attr: { value: IIRReportNo }" />
+
+                                        <!-- /ko -->
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                                        }
+
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    @Styles.Render("~/Scripts/plugins/jquery-ui/jqueryuiStyles")
+    @Styles.Render("~/plugins/dataPickerStyles")
+
+    <style>
+        .ui-dialog-3000 {
+            z-index: 3000 !important;
+        }
+
+        .ui-dialog-2900 {
+            z-index: 2900 !important;
+        }
+
+        .disable-background-eee {
+            background: #eee !important;
+        }
+
+        .modal {
+            margin: auto;
+            padding-top: 100px;
+            min-height: 400px;
+            width: 1000px;
+        }
+
+        .numberCircle {
+            border-radius: 50%;
+            behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+            width: 20px;
+            height: 20px;
+            padding: 0px;
+            background: #1AB394;
+            border: 1px solid #1AB394;
+            text-align: center;
+            color: white;
+            font: 10px;
+        }
+
+        .datepicker {
+            z-index: 3000 !important; /*Date Picker in knockout*/
+        }
+        .fakeLink{
+    border: 0px;
+    background-color: transparent;
+    color: blue;
+    cursor: hand;
+} 
+.fakelink:hover{
+    text-decoration: underline;
+}
+    </style>
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatable")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#StartDate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+            $("#EndDate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+
+
+            ko.applyBindings(ViewModel);
+
+        });
+      
+
+        function Validation() {
+            var startdate = document.getElementById("StartDate").value;
+            var enddate = document.getElementById("EndDate").value;
+
+            var location = document.getElementById("Location").value;
+
+
+            if (startdate == "") {
+                document.getElementById('StartDate').style.borderColor = "red";
+                return false;
+            }
+            else {
+
+                document.getElementById('StartDate').style.borderColor = "green";
+                if (location == "") {
+                    document.getElementById('Location').style.borderColor = "red";
+                    return false;
+                }
+                else {
+                   
+                    document.getElementById('Location').style.borderColor = "green";
+                }
+            }
+
+            if (enddate == "") {
+                document.getElementById('EndDate').style.borderColor = "red";
+                return false;
+            }
+            else {
+
+                document.getElementById('EndDate').style.borderColor = "green";
+                if (location == "") {
+                    document.getElementById('Location').style.borderColor = "red";
+                    return false;
+                }
+                else {
+
+                    document.getElementById('Location').style.borderColor = "green";
+                }
+            }
+
+        }
+
+        jQuery.extend(jQuery.fn.dataTableExt.oSort, {
+            "customDate-pre": function (a) {
+                var ukDatea = a.split('/');
+                return (ukDatea[2] + ukDatea[1] + ukDatea[0]) * 1;
+            },
+
+            "customDate-asc": function (a, b) {
+                return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+            },
+
+            "customDate-desc": function (a, b) {
+                return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+            }
+        });
+
+        Date.isLeapYear = function (year) {
+            return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0));
+        };
+
+        Date.getDaysInMonth = function (year, month) {
+            return [31, (Date.isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+        };
+
+        Date.prototype.isLeapYear = function () {
+            return Date.isLeapYear(this.getFullYear());
+        };
+
+        Date.prototype.getDaysInMonth = function () {
+            return Date.getDaysInMonth(this.getFullYear(), this.getMonth());
+        };
+
+        Date.prototype.addMonths = function (value) {
+            var n = this.getDate();
+            this.setDate(1);
+            this.setMonth(this.getMonth() + value);
+            this.setDate(Math.min(n, this.getDaysInMonth()));
+            return this;
+        };
+        // Person ViewModel
+        var MSR = function (data) {
+            var self = this;
+            this.INRReportNo = ko.observable(data.INRReportNo);
+            this.IncidentTitle = ko.observable(data.IncidentTitle);
+            this.IncidentDate = ko.observable(data.IncidentDate);
+            this.Location = ko.observable(data.Location);
+            this.IIRReportNo = ko.observable(data.IIRReportNo);
+
+
+
+        };
+
+
+
+        var ViewModel = new function () {
+            var self = this;
+            var defaultDropdownText = 'All';
+
+            self.HSEs = ko.observableArray([]);
+            self.loadHSEs = function () {
+                $('#dialog-Loading').dialog("open");
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("ListINR", "INRs")',
+                    data: {
+
+                        startdate: $("#StartDate").val(),
+                        enddate: $("#EndDate").val(),
+                        location: $("#Location").val()
+
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        $("#mainTable").dataTable().fnDestroy();
+                        $('#dialog-Loading').dialog("close");
+                        self.HSEs($.map(data, function (user) {
+                            var msr = new MSR({
+                                INRReportNo: user.INRReportNo,
+                                Location: user.Location,
+                                IncidentTitle: user.IncidentTitle,
+                                IncidentDate: user.IncidentDate,
+                                IIRReportNo:user.IIRReportNo,
+
+
+                            })
+
+                            return msr;
+                        }));
+                    },
+                    error: function (error) {
+                        alert(error);
+                    }
+                })
+
+
+            };
+            
+            self.listHSEs = ko.computed(function () {
+
+                $("#mainTable").dataTable().fnDestroy();
+                var records = self.HSEs;
+
+                return records;
+            });
+
+            self.Search = function () {
+                self.loadHSEs();
+            }
+            $("#Location").change(function () {
+                self.loadHSEs();
+            });
+
+            //$("#documentType").change(function () {
+            //    self.loadHSEs();
+            //});
+
+        };
+
+
+    </script>
+}

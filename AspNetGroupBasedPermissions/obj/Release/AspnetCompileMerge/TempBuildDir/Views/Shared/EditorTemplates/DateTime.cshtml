@@ -1,0 +1,16 @@
+﻿@model DateTime?
+@{
+    String modelValue = "";
+    var dateFormatToDisplay =
+       System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern;
+
+    if (Model.HasValue)
+    {
+        if (Model.Value != DateTime.MinValue)
+        {
+            modelValue = Model.Value.ToString("dd/MM/yyyy");
+        }
+    }
+}
+
+@Html.TextBox("", modelValue)

@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewBag.Title = "Hazards Report";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6" style="padding-top: 100px">
+
+        <div class="ibox float-e-margins">
+            <div class="ibox-content">
+                <div class="row">
+
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        @Html.Label("Location", new { @class = "control-label col-md-4" })
+                        <div class="col-md-6">
+                            @Html.DropDownList("LocationCode", ViewData["Locations"] as SelectList, "---- Please Select Location ----", htmlAttributes: new { @class = "form-control m-b-xs", id = "txtLocCode" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Document Type", new { @class = "control-label col-md-4" })
+                        <div class="col-md-6">
+                            @Html.DropDownList("documentType", ViewData["documentType"] as SelectList, htmlAttributes: new { @class = "form-control m-b-xs" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("From Date :", new { @class = "control-label col-md-4" })
+                        <div class="col-md-6" id="data_1">
+                            <div class="input-group date">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                @Html.TextBox("txtHazardsReportFromDatePicker", "", new { id = "txtHazardsReportFromDatePickerID", @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("To Date :", new { @class = "control-label col-md-4" })
+                        <div class="col-md-6" id="data_1">
+                            <div class="input-group date">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                @Html.TextBox("txtHazardsReportToDatePicker", "", new { id = "txtHazardsReportToDatePickerID", @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-6">
+                        <input type="submit" value="Download" class="btn btn-primary block full-width m-b" />
+                    </div>
+                    <div class="col-md-6">
+                        <input type="submit" value="Reset" class="btn btn-white block full-width m-b" formtarget="_blank" style="visibility: hidden" />
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    @Styles.Render("~/Scripts/plugins/jquery-ui/jqueryuiStyles")
+    @Scripts.Render("~/plugins/dataPicker")
+    <style>
+        .ui-dialog-3000 {
+            z-index: 3000 !important;
+        }
+
+        .ui-dialog-2900 {
+            z-index: 2900 !important;
+        }
+
+        .disable-background-eee {
+            background: #eee !important;
+        }
+
+        .numberCircle {
+            border-radius: 50%;
+            behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+            width: 20px;
+            height: 20px;
+            padding: 0px;
+            background: #1AB394;
+            border: 1px solid #1AB394;
+            text-align: center;
+            color: white;
+            font: 10px;
+        }
+
+        .modal {
+            margin: auto;
+            padding-top: 100px;
+            min-height: 400px;
+            width: 600px;
+        }
+    </style>
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatableCheckbox")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+            $('#data_2 .input-group.date').datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+        });
+    </script>
+}
+

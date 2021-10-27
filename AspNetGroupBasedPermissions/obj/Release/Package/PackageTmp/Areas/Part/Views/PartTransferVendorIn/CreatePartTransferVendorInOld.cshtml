@@ -1,0 +1,231 @@
+﻿@model Core.Entities.Data.PartData.PartTransferVendorIn
+@using AspNetGroupBasedPermissions.Helpers
+@{ ViewBag.Title = "Create Receiving From Vendor";}
+@{
+    Layout = "~/Views/Shared/_LayoutPopUp.cshtml";
+}
+
+
+@using (Html.BeginForm("CreatePartTransferVendorIn", "PartTransferVendorIn", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.PartTransferVendorInID)
+
+
+
+    <div id="addcocbox" class="row" style="width:auto;max-width:750px">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="panel-heading btn-primary modal-header">
+                    <center class="panel-title" style="min-height:10px;">
+                        <h4 style="font-weight:300">Create New Receiving</h4>
+                    </center>
+                </div>
+
+                <div class="modal-body">
+                    <table class="table table-condensed table-striped table-bordered">
+                        <tr></tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Part Name</td>
+                            <td style="padding-top:7px;max-height:28px;font-size:11px;color:blue" class="form-control">@ViewBag.PartName</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Part No</td>
+                            <td style="padding-top:7px;max-height:28px;font-size:11px;color:blue" class="form-control">@ViewBag.PartNo</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Part Category</td>
+                            <td style="padding-top:7px;max-height:28px;font-size:11px;color:blue" class="form-control">@ViewBag.PartCategory</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Part Maker</td>
+                            <td style="padding-top:7px;max-height:28px;font-size:11px;color:blue" class="form-control">@ViewBag.MakerName</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Store In Cabinet</td>
+                            <td style="padding-top:7px;max-height:28px;font-size:11px;color:blue" class="form-control">@ViewBag.CabinetName</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Current Qty</td>
+                            <td style="padding-top:7px;max-height:28px;font-size:11px;color:blue" class="form-control">@ViewBag.CurrentQty</td>
+                        </tr>
+                        <tr>
+                            <td class="glyphicon glyphicon-xx" style="width:85%;color:blue;font-family:Arial;padding:13px;font-size:12px;height:40px;">Search Vendor</td>
+                            <td>
+                                <input id="vendorName" style="max-height:28px;font-size:11px;color:blue" class="form-control" type="text" name="searchbox" placeholder="--Search Vendor--" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Vendor Name</td>
+                            <td>
+                                @Html.DropDownList("VendorID", ViewData["VendorID"] as SelectList, "--Select Vendor--", htmlAttributes: new { @id = "vendorid", @required = "required", @style = "font-size:12px;height:30px;", @class = "form-control input-sm" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">New Price</td>
+                            <td>
+                                @Html.EditorFor(model => model.NewPrice, new { htmlAttributes = new { @id = "newprice", @Value = "0", @onchange = "CheckStockQty(this.value)", @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.NewPrice)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Quantity</td>
+                            <td>
+                                @Html.EditorFor(model => model.Qty, new { htmlAttributes = new { @id = "receiveqty", @Value = "0", @onchange = "CheckStockQty(this.value)", @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Qty)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Balance</td>
+                            <td>
+                                @Html.EditorFor(model => model.Balance, new { htmlAttributes = new { @id = "balanceqty", @Value = "0", @disabled = true, @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Balance)
+                                <input hidden id="bal" type="text" name="balance" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Description</td>
+                            <td>
+                                <input hidden type="text" name="partid" value="@ViewBag.PartID" />
+                                <input hidden type="text" name="cabinetid" value="@ViewBag.CabinetID" />
+
+                                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @id = "reportName1", @name = "reportName1", @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Description)
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                        @Html.ActionLink("Cancel", "IndexPartStoreInv", null, new { @class = "btn btn-white" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatableCheckbox")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/notifyjs")
+
+<script type="text/javascript">
+
+         function CheckStockQty(transferqty) {
+            var currqty = @ViewBag.CurrentQty;
+            var recqty = document.getElementById('receiveqty').value;
+            var balqty= parseInt(currqty,10) + parseInt(recqty,10);
+            document.getElementById('balanceqty').value = balqty;
+            document.getElementById('bal').value = balqty;
+
+            if (recqty <= 0) {
+                document.getElementById("savebutton").style.visibility = "hidden";
+                alert("Request Quantity Is Not Valid");
+                document.getElementById('receiveqty').value = 0;
+            }
+            else {
+                document.getElementById("savebutton").style.visibility = "visible";
+            }
+        }
+
+
+         $(document).ready(function () {
+        var filterby = "partname";
+        $("#partName").autocomplete({
+            source: function (request, response) {
+                var partname = document.getElementById("partName").value;
+                  $.ajax({
+                      url: '@Url.Action("GetPartName", "PartTransferOut", new { area = "Part" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                          partname: partname,
+                          filterby: filterby
+                      },
+
+                      success: function (results) {
+                          $('#partid').html(""); // clear before appending new list
+                          $('#partid').append(
+                          $('<option></option>').val("").html("--Select Part--"));
+                          $.each(results, function (i, results) {
+                              $('#partid').append(
+                                  $('<option></option>').val(results.PartID).html(results.PartName));
+                              $('#partno').append(
+                                  $('<option></option>').val(results.PartID).html(results.PartNo));
+                              $('#partNo').append(
+                                  $('<option></option>').val(results.PartID).html(results.PartName));
+                          });
+                      },
+                      error: function (error) {
+                      }
+                  });
+
+        },
+        select: function (event, ui) {
+            $("#pettycodeid").val(ui.item.partName);
+        }
+         });
+    });
+
+
+        $(document).ready(function () {
+           $("#vendorName").autocomplete({
+            source: function (request, response) {
+                var vendorname = document.getElementById("vendorName").value;
+                  $.ajax({
+                      url: '@Url.Action("GetVendorName", "PartTransferVendorIn", new { area = "Part" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                          vendorname: vendorname
+                      },
+
+                      success: function (results) {
+                          $('#vendorid').html(""); // clear before appending new list
+                          $('#vendorid').append(
+                          $('<option></option>').val("").html("--Select Vendor--"));
+                          $.each(results, function (i, results) {
+                              $('#vendorid').append(
+                                  $('<option></option>').val(results.VendorID).html(results.VendorName));
+
+                          });
+                      },
+                      error: function (error) {
+                      }
+                  });
+
+        },
+        select: function (event, ui) {
+            $("#pettycodeid").val(ui.item.vendorName);
+        }
+         });
+         });
+
+
+    $(document).ready(function () {
+            document.getElementById("savebutton").style.visibility = "hidden";
+            $("#transactiondate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+        });
+
+</script>
+}

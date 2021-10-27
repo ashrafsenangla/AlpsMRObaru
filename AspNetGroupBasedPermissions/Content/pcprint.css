@@ -1,0 +1,18 @@
+﻿table.alignright.info {background: none;}
+table.alignright.info td {background: none;padding: 2px;}
+table {background: #ccc;border-spacing: 1px;position: absolute;}
+td {background: #fff;padding: 5px;font-size:12px;}
+.alignleft {float: left;}
+.alignright {float: right;}
+/*td:first-child { display:block;page-break-before:avoid; page-break-after:auto;position:relative; }*/
+/*table > thead > tr:first-child > td {
+    background-color:green;
+}*/
+/*td:nth-child(4) {
+  background-color:green;
+}*/
+
+table thead tr[colspan]{
+    background-color:green;
+}
+

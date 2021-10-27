@@ -1,0 +1,19 @@
+﻿@model AspNetGroupBasedPermissions.Models.SelectServiceEditorViewModel
+
+@Html.HiddenFor(model => model.ServiceId)
+    <tr>
+        <td>
+            @Html.CheckBoxFor(model => model.Selected)
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.ServiceName)
+        </td>
+    </tr>
+                                
+                         
+              
+
+      
+
+

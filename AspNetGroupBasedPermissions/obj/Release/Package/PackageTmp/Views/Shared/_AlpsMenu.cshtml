@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AspNetGroupBasedPermissions.ViewModels.UserServices>
+
+@{
+    if (Model != null && Model.Count() > 0)
+    {
+        foreach (var item in Model)
+        {
+
+            <li class="@Html.IsSelected(controller: @item.Controller)">
+
+                @if (item.IsParent == true && item.ParentId == 0)
+                {
+                <a href="#"><i class="@item.ImageClass" style="font-size:17px"></i> <span class="nav-label" style="font-size:12px">@item.NameOption</span></a>
+                }
+                <ul>
+                    @foreach (var child in Model.Where(p => p.ParentId == item.Id).OrderBy(x => x.Sequence))
+                    {
+                        if (child.IsParent == true)
+                        {
+                    <li>
+                        <a href="" data-toggle="dropdown">@child.NameOption </a>
+                        @foreach (var child2 in Model.Where(p => p.ParentId == child.Id))
+                        {
+                            <span class="fa fa-play"></span>
+                            <li class="@Html.IsSelected(action: @child2.NameOption)"><a href="@Url.Action(child2.Action, child2.Controller)">@child2.NameOption</a></li>
+                                }
+                        </li>
+                        }
+                        else
+                        {
+                            <li class="@Html.IsSelected(action: @child.NameOption)"><a href="@Url.Action(child.Action, child.Controller)">@child.NameOption</a></li>
+                        }
+                    }
+                    </ul>
+                    </li>
+        }
+
+    }
+}

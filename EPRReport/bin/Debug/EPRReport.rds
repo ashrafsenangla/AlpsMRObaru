@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="EPRReport">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=klmsrdb01;Initial Catalog=EPR_</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>92c59190-dfae-4c23-821e-486666b6a409</DataSourceID>
+</RptDataSource>

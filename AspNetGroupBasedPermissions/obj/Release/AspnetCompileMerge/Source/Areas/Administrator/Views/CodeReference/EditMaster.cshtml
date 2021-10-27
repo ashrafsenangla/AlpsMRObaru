@@ -1,0 +1,96 @@
+﻿@model Core.Entities.Data.QHSE.HazardCategory
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class=" row">
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+
+            @Html.ValidationSummary(true)
+             @Html.HiddenFor(model => model.ID)
+            
+            <div class="col-lg-12">
+
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Edit Hazard Category</h5>
+                        <div class="ibox-tools">
+                            <div class="ibox-tools">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-sm-12">
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.HazardCatName, new { @class = "control-label col-md-3" })
+                                    <div class="col-md-9">
+                                        @Html.EditorFor(model => model.HazardCatName)
+                                        @Html.ValidationMessageFor(model => model.HazardCatName)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.IsActive, new { @class = "control-label col-md-3" })
+                                    <div class="col-md-9">
+                                        @Html.EditorFor(model => model.IsActive)
+                                        @Html.ValidationMessageFor(model => model.IsActive)
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Create" class="btn btn-primary" />
+                                        @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-white" })
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+        }
+
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+	@Scripts.Render("~/plugins/dataPicker")
+	  <script type="text/javascript">
+        $(document).ready(function () {
+
+         $('#data_1 .input-group.date').datepicker({
+             todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+        });
+    
+    </script>
+}

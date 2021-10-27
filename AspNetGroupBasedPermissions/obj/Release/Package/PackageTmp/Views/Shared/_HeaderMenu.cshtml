@@ -1,0 +1,97 @@
+﻿@model List<Core.Entities.Data.Admin.MenuItemViewModel>
+
+@{
+    ViewBag.Title = "headerMenu";
+}
+
+<style>
+    .headerMenu * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .headerMenu {
+        position: relative;
+        background-color: #78C8FA;
+        width: 100%;
+        text-align: center;
+        color: #FFFFFF;
+        clear: both;
+        float: left;
+        margin-top: 10px;
+    }
+
+        .headerMenu ul {
+            display: block;
+            list-style: none;
+            line-height: 3em;
+            height: 3em;
+        }
+
+            .headerMenu ul li {
+                display: inline-block;
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+
+                .headerMenu ul li a {
+                    display: block;
+                    text-decoration: none;
+                    color: white;
+                    font-size: 1.5em;
+                    padding-left: 2em;
+                    padding-right: 2em;
+                }
+
+                    .headerMenu ul li a:visited {
+                        color: white;
+                    }
+
+                    .headerMenu ul li a:hover, .menu ul li {
+                        color: #333333;
+                    }
+
+    .selected {
+        color: #333333 !important;
+        display: block !important;
+        background-color: #999999;
+    }
+
+    .headerMenu ul ul {
+        display: none;
+        position: absolute;
+        width: 100%;
+        right: 50%;
+        left: 0;
+        background-color: #999999;
+    }
+
+    .headerMenu li:hover > ul, .selected {
+        display: block;
+    }
+</style>
+
+<div class="headerMenu">
+    <ul>
+        @foreach (var menuItem in Model)
+        {
+            <li>
+                @Html.ActionLink(menuItem.Text, menuItem.Action, menuItem.Controller, null,
+        new { @class = menuItem.Selected ? "selected" : "" })
+            @if (menuItem.SubMenu.Count > 0)
+            {
+                <ul class="@(menuItem.Selected ? "selected" : "")">
+
+                    @foreach (var subMenu in menuItem.SubMenu)
+                    {
+                        <li>
+                            @Html.ActionLink(subMenu.Text, subMenu.Action, subMenu.Controller, null,
+        new { @class = subMenu.Selected ? "selected" : "" })
+                    </li>
+                    }
+                </ul>
+            }
+        </li>
+        }
+    </ul>
+</div>

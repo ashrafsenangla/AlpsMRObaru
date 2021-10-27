@@ -1,0 +1,185 @@
+﻿@model Core.Entities.Data.Vendor.VendorApplication
+@using AspNetGroupBasedPermissions.Helpers
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Details Vendor Application</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="pull-right btn btn-xs btn-white">Login Info</label>
+                                </div>
+                                <div class="welldetailsvendor">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.TitleCode, "Title", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs m-b-xs ">
+                                            @Html.DisplayFor(model => model.RTMTitle.TitleDesc)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.FirstName, "First Name", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs m-b-xs">
+                                            @Html.DisplayFor(model => model.FirstName)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.LastName, "Last Name", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs m-b-xs">
+                                            @Html.DisplayFor(model => model.LastName)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.MobileNumber1, "Mobile Number 1", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs m-b-xs">
+                                            @Html.DisplayFor(model => model.MobileNumber1)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.MobileNumber2, "Mobile Number 2", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs m-b-xs">
+                                            @Html.DisplayFor(model => model.MobileNumber2)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.EmailAddress, "Email Address", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs m-b-xs">
+                                            @Html.DisplayFor(model => model.EmailAddress)
+                                        </div>
+                                    </div>
+                                </div></div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="pull-right btn btn-xs btn-white">Contact Person</label>
+                                    </div>
+
+                                    <div class="welldetailsContact">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.PositionCode, "Position", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.DisplayFor(model => model.RTMPosition.PositionDesc)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.ContactPerson, "Contact Person", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.DisplayFor(model => model.ContactPerson)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="col-md-6">
+                            <div class="form-group"><label class="pull-right btn btn-xs btn-white">Vendor Info</label></div>
+                            <div class="welldetailsCompany">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.CompanyName, "Company Name", new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xs">
+                                        @Html.DisplayFor(model => model.CompanyName)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Address, new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xs">
+                                        @Html.DisplayFor(model => model.Address, new { @class = "form-control", rows = "4" })
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Postcode, new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xs">
+                                        @Html.DisplayFor(model => model.Postcode)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.City, new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xs">
+                                        @Html.DisplayFor(model => model.City)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.StateCode, "State", new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xs">
+                                        @Html.DisplayFor(model => model.RTMState.StateDesc)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.CountryCode, "Country", new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xs">
+                                        @Html.DisplayFor(model => model.RTMCountry.CountryDesc)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.PhoneNumber1, "Phone Number 1", new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xs">
+                                        @Html.DisplayFor(model => model.PhoneNumber1)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.PhoneNumber2, new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xs">
+                                        @Html.DisplayFor(model => model.PhoneNumber2)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.FaxNumber, new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xs">
+                                        @Html.DisplayFor(model => model.FaxNumber)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Website, new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8 m-b-xs">
+                                        @Html.DisplayFor(model => model.Website)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                   
+                </div>
+
+            </div>@Html.EncodedActionLink("Edit", "Edit", "VendorApplication", new { id = Model.ID }, new { @class = "btn-primary" })
+@Html.EncodedActionLink("Back to List", "Index", "VendorApplication", new { id = Model.ID }, new { @class = "btn-white" })
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

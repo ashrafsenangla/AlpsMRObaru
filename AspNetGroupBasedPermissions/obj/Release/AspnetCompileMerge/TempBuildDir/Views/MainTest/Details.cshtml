@@ -1,0 +1,92 @@
+﻿@model Core.Entities.Data.Testing.MainTest
+@using AspNetGroupBasedPermissions.Helpers
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Details MainTest</h5>
+                </div>
+                <div class="ibox-content">
+
+
+				    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RTMTitle.TitleDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RTMTitle.TitleDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateModified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateModified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserModified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserModified)
+        </dd>
+
+    </dl>
+
+
+	    @Html.EncodedActionLink("Edit", "Edit", "MainTest", new { id = Model.ID }, new { @class = "btn-primary" })
+    @Html.EncodedActionLink("Back to List", "Index", "MainTest", new { id=Model.ID }, new { @class = "btn-white"})   
+ 
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+

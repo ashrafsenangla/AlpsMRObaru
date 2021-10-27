@@ -1,0 +1,398 @@
+﻿@model Core.Entities.Data.PartData.PartInv
+@using AspNetGroupBasedPermissions.Helpers
+@{ ViewBag.Title = "Create Part Maker";}
+@{
+    Layout = "~/Views/Shared/_LayoutPopUp.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div id="addcocbox" class="row" style="width:auto;max-width:750px">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="panel-heading btn-primary modal-header">
+                    <center class="panel-title" style="min-height:10px;">
+                        <h4 style="font-weight:300">Create New Part Inventory</h4>
+                    </center>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-condensed table-striped table-bordered">
+                        <tr></tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Part</td>
+                            <td>
+                                <input id="partName" style="max-height:28px;font-size:11px;background-color:lightgoldenrodyellow" class="form-control" onchange="GetPartName(this.value)" type="text" name="searchbox" placeholder="--Search Part No--" />
+                                @Html.DropDownList("PartID", ViewData["PartID"] as SelectList, "--Select Part--", htmlAttributes: new { @id = "partid", @class = "form-control", onchange = "FuncChange(this.value)", @required = "required", @style = "font-size:12px;height:30px;" })
+                                @Html.ValidationMessageFor(model => model.PartID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Stock Inv</td>
+                            <td>
+                                @Html.EditorFor(model => model.StockInv, new { htmlAttributes = new { @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.StockInv)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Price</td>
+                            <td>
+                                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Price)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Min Qty</td>
+                            <td>
+                                @Html.EditorFor(model => model.MinQty, new { htmlAttributes = new { @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.MinQty)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Max Qty</td>
+                            <td>
+                                @Html.EditorFor(model => model.MaxQty, new { htmlAttributes = new { @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.MaxQty)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Low QTy</td>
+                            <td>
+                                @Html.EditorFor(model => model.LowQty, new { htmlAttributes = new { @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.LowQty)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Lead Time</td>
+                            <td>
+                                @Html.EditorFor(model => model.LeadTime, new { htmlAttributes = new { @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.LeadTime)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Maker</td>
+                            <td>
+                                <input id="makerName" style="max-height:28px;font-size:11px;background-color:lightgoldenrodyellow" class="form-control" onchange="GetMakerName(this.value)" type="text" name="searchbox" placeholder="--Search Maker Name--" />
+                                @Html.DropDownList("MakerID", ViewData["MakerID"] as SelectList, "--Select Maker--", htmlAttributes: new { @id = "makerid", @class = "form-control", onchange = "FuncChangeMaker(this.value)", @required = "required", @style = "font-size:12px;height:30px;" })
+                                @Html.HiddenFor(model => model.MakerID)
+                                @Html.ValidationMessageFor(model => model.MakerID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Vendor</td>
+                            <td>
+                                <input id="vendorName" style="max-height:28px;font-size:11px;background-color:lightgoldenrodyellow" class="form-control" onchange="GetVendorName(this.value)" type="text" name="searchbox" placeholder="--Search Vendor Name--" />
+                                @Html.DropDownList("VendorID", ViewData["VendorID"] as SelectList, "--Select Vendor--", htmlAttributes: new { @id = "vendorid", @class = "form-control", onchange = "FuncChangeVendor(this.value)", @required = "required", @style = "font-size:12px;height:30px;" })
+                                @Html.HiddenFor(model => model.VendorID)
+                                @Html.ValidationMessageFor(model => model.VendorID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Cabinet</td>
+                            <td>
+                                <input id="cabinetName" style="max-height:28px;font-size:11px;background-color:lightgoldenrodyellow" class="form-control" onchange="GetPartName(this.value)" type="text" name="searchbox" placeholder="--Search Cabinet Name--" />
+                                @Html.DropDownList("CabinetID", ViewData["CabinetID"] as SelectList, "--Select Cabinet--", htmlAttributes: new { @id = "cabinetid", @class = "form-control", onchange = "FuncChange(this.value)", @required = "required", @style = "font-size:12px;height:30px;" })
+                                @Html.HiddenFor(model => model.CabinetID)
+                                @Html.ValidationMessageFor(model => model.CabinetID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:13px;font-weight:700">Description</td>
+                            <td>
+                                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @style = "font-size:11px;height:28px;color:black;font-size:11px", } })
+                                @Html.ValidationMessageFor(model => model.Description)
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input id ="btnSave" type="submit" value="Save" class="btn btn-primary" />
+                        @Html.ActionLink("Cancel", "IndexPartInv", null, new { @class = "btn btn-white" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatableCheckbox")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/notifyjs")
+
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+        var filterby = "partname";
+        $("#partName").autocomplete({
+            source: function (request, response) {
+                var partname = document.getElementById("partName").value;
+                  $.ajax({
+                      url: '@Url.Action("GetPartName", "PartInv", new { area = "Part" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                          partname: partname,
+                          filterby: filterby
+                      },
+
+                      success: function (results) {
+                          $('#partid').html(""); // clear before appending new list
+                          $('#partid').append(
+                          $('<option></option>').val("").html("--Select Part--"));
+                          $.each(results, function (i, results) {
+                              $('#partid').append(
+                                  $('<option></option>').val(results.PartID).html(results.PartName));
+                              $('#partno').append(
+                                  $('<option></option>').val(results.PartID).html(results.PartNo));
+                              $('#partNo').append(
+                                  $('<option></option>').val(results.PartID).html(results.PartName));
+                          });
+                      },
+                      error: function (error) {
+                      }
+                  });
+
+        },
+        select: function (event, ui) {
+            $("#pettycodeid").val(ui.item.partName);
+        }
+         });
+        });
+
+        $(document).ready(function () {
+        var filterby = "partname";
+        $("#makerName").autocomplete({
+            source: function (request, response) {
+                var makername = document.getElementById("makerName").value;
+                  $.ajax({
+                      url: '@Url.Action("GetMakerName", "PartInv", new { area = "Part" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                          makername: makername,
+                          filterby: filterby
+                      },
+
+                      success: function (results) {
+                          $('#makerid').html(""); // clear before appending new list
+                          $('#makerid').append(
+                          $('<option></option>').val("").html("--Select Maker--"));
+                          $.each(results, function (i, results) {
+                              $('#makerid').append(
+                                  $('<option></option>').val(results.MakerID).html(results.MakerName));
+                          });
+                      },
+                      error: function (error) {
+                      }
+                  });
+
+        },
+        select: function (event, ui) {
+            $("#pettycodeid").val(ui.item.partName);
+        }
+         });
+          });
+
+       $(document).ready(function () {
+        var filterby = "partname";
+        $("#vendorName").autocomplete({
+            source: function (request, response) {
+                var vendorname = document.getElementById("vendorName").value;
+                  $.ajax({
+                      url: '@Url.Action("GetVendorName", "PartInv", new { area = "Part" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                          vendorname: vendorname,
+                          filterby: filterby
+                      },
+
+                      success: function (results) {
+                          $('#vendorid').html(""); // clear before appending new list
+                          $('#vendorid').append(
+                          $('<option></option>').val("").html("--Select Vendor--"));
+                          $.each(results, function (i, results) {
+                              $('#vendorid').append(
+                                  $('<option></option>').val(results.VendorID).html(results.VendorName));
+                          });
+                      },
+                      error: function (error) {
+                      }
+                  });
+
+        },
+        select: function (event, ui) {
+            $("#pettycodeid").val(ui.item.partName);
+        }
+         });
+          });
+
+       $(document).ready(function () {
+        $("#cabinetName").autocomplete({
+            source: function (request, response) {
+                var cabinetname = document.getElementById("cabinetName").value;
+                  $.ajax({
+                      url: '@Url.Action("GetCabinetName", "PartInv", new { area = "Part" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                          cabinetname: cabinetname,
+                      },
+
+                      success: function (results) {
+                          $('#cabinetid').html(""); // clear before appending new list
+                          $('#cabinetid').append(
+                          $('<option></option>').val("").html("--Select Cabinet--"));
+                          $.each(results, function (i, results) {
+                              $('#cabinetid').append(
+                                  $('<option></option>').val(results.CabinetID).html(results.CabinetName));
+                          });
+                      },
+                      error: function (error) {
+                      }
+                  });
+
+        },
+        select: function (event, ui) {
+            $("#pettycodeid").val(ui.item.partName);
+        }
+         });
+       });
+
+      $('#partid').change(function () {
+          var partid = $('#partid').val();
+          var makerid = $('#makerid').val();
+          var vendorid = $('#vendorid').val();
+          var cabinetid = $('#cabinetid').val();
+
+            $.ajax({
+                url: "/PartInv/CheckDuplicate",
+                dataType: "json",
+                type: "GET",
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+                data: { partid: partid , makerid: makerid, vendorid: vendorid, cabinetid: cabinetid },
+                success: function (data) {
+                    if (data.success) {
+                        document.getElementById("btnSave").style.visibility = "visible";
+                    }
+                    else {
+                        document.getElementById("btnSave").style.visibility = "hidden";
+                        alert('Part Inventory For Part, Maker, Vendor & Cabinet Already Exist!!!');
+                    }
+                },
+                //error: function (xhr) {
+                //    alert('error');
+                //}
+            });
+      });
+
+     $('#makerid').change(function () {
+          var partid = $('#partid').val();
+          var makerid = $('#makerid').val();
+          var vendorid = $('#vendorid').val();
+          var cabinetid = $('#cabinetid').val();
+      
+            $.ajax({
+                url: "/PartInv/CheckDuplicate",
+                dataType: "json",
+                type: "GET",
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+                   data: { partid: partid , makerid: makerid, vendorid: vendorid, cabinetid: cabinetid },
+                success: function (data) {
+                    if (data.success) {
+                        document.getElementById("btnSave").style.visibility = "visible";
+                    }
+                    else {
+                        document.getElementById("btnSave").style.visibility = "hidden";
+                        alert('Part Inventory For Part, Maker, Vendor & Cabinet Already Exist!!!');
+                    }
+                },
+                //error: function (xhr) {
+                //    alert('error');
+                //}
+            });
+     });
+     $('#vendorid').change(function () {
+          var partid = $('#partid').val();
+          var makerid = $('#makerid').val();
+          var vendorid = $('#vendorid').val();
+          var cabinetid = $('#cabinetid').val();
+      
+            $.ajax({
+                url: "/PartInv/CheckDuplicate",
+                dataType: "json",
+                type: "GET",
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+                data: { partid: partid , makerid: makerid, vendorid: vendorid, cabinetid: cabinetid },
+                success: function (data) {
+                    if (data.success) {
+                        document.getElementById("btnSave").style.visibility = "visible";
+                    }
+                    else {
+                        document.getElementById("btnSave").style.visibility = "hidden";
+                        alert('Part Inventory For Part, Maker, Vendor & Cabinet Already Exist!!!');
+                    }
+                },
+                //error: function (xhr) {
+                //    alert('error');
+                //}
+            });
+     });
+      $('#cabinetid').change(function () {
+           var partid = $('#partid').val();
+           var makerid = $('#makerid').val();
+           var vendorid = $('#vendorid').val();
+           var cabinetid = $('#cabinetid').val();
+       
+            $.ajax({
+                url: "/PartInv/CheckDuplicate",
+                dataType: "json",
+                type: "GET",
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+                data: { partid: partid , makerid: makerid, vendorid: vendorid, cabinetid: cabinetid },
+                success: function (data) {
+                    if (data.success) {
+                        alert("0000");
+                        document.getElementById("btnSave").style.visibility = "visible";
+                    }
+                    else {
+                        alert('Part Inventory For Part, Maker, Vendor & Cabinet Already Exist!!!');
+                        document.getElementById("btnSave").style.visibility = "hidden";
+                    }
+                },
+                //error: function (xhr) {
+                //    alert('error');
+                //}
+            });
+     });
+
+
+
+        $(document).ready(function () {
+
+            $("#transactiondate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+        });
+
+    </script>
+}

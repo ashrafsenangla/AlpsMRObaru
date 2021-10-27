@@ -1,0 +1,866 @@
+﻿@model Core.Entities.Data.Vendor.VendorApplication
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>New Vendor Registration</h5>
+                </div>
+                <div class="ibox-content">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.ValidationSummary(true)
+
+                        <div id="wizard">
+                            <h1>Login Info</h1>
+                            <div class="step-content">
+                                <div class="text-left m-t-md">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.TitleCode, "Title", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs m-b-xs ">
+                                                @Html.DropDownList("TitleCode", ViewData["RTMTitle"] as SelectList, "-- Select Title --", htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.TitleCode)
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.FirstName, "First Name", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs m-b-xs">
+                                                @Html.EditorFor(model => model.FirstName)
+                                                @Html.ValidationMessageFor(model => model.FirstName)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.LastName,"Last Name", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs m-b-xs">
+                                                @Html.EditorFor(model => model.LastName)
+                                                @Html.ValidationMessageFor(model => model.LastName)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.MobileNumber1, "Mobile Number 1", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs m-b-xs">
+                                                @Html.EditorFor(model => model.MobileNumber1)
+                                                @Html.ValidationMessageFor(model => model.MobileNumber1)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.MobileNumber2, "Mobile Number 2", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs m-b-xs">
+                                                @Html.EditorFor(model => model.MobileNumber2)
+                                                @Html.ValidationMessageFor(model => model.MobileNumber2)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.EmailAddress, "Email Address", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs m-b-xs">
+                                                @Html.EditorFor(model => model.EmailAddress)
+                                                @Html.ValidationMessageFor(model => model.EmailAddress)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.EmailPassword, "Email Password", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs m-b-xs">
+                                                @Html.EditorFor(model => model.EmailPassword)
+                                                @Html.ValidationMessageFor(model => model.EmailPassword)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h1>Vendor Info</h1>
+                            <div class="step-content">
+                                <div class="text-left m-t-md">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.PositionCode, "Position", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.DropDownList("PositionCode", ViewData["RTMPosition"] as SelectList, "-- Select Position --", htmlAttributes: new { @class = "form-control" })
+
+                                                @Html.ValidationMessageFor(model => model.PositionCode)
+                                            </div>
+                                        </div> 
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.ContactPerson, "Contact Person", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.EditorFor(model => model.ContactPerson)
+                                                @Html.ValidationMessageFor(model => model.ContactPerson)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.CompanyName,"Company Name", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.EditorFor(model => model.CompanyName)
+                                                @Html.ValidationMessageFor(model => model.CompanyName)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Address, new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.TextAreaFor(model => model.Address, new { @class = "form-control", rows = "4" })
+                                                @Html.ValidationMessageFor(model => model.Address)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Postcode, new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.EditorFor(model => model.Postcode)
+                                                @Html.ValidationMessageFor(model => model.Postcode)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.City, new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.EditorFor(model => model.City)
+                                                @Html.ValidationMessageFor(model => model.City)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.StateCode, "State", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.DropDownList("StateCode", ViewData["RTMState"] as SelectList, "-- Select State --", htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.StateCode)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.CountryCode, "Country", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.DropDownList("CountryCode", ViewData["RTMCountry"] as SelectList, "-- Select Country --", htmlAttributes: new { @class = "form-control" })
+
+                                                @Html.ValidationMessageFor(model => model.CountryCode)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.PhoneNumber1,"Phone Number 1", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.EditorFor(model => model.PhoneNumber1)
+                                                @Html.ValidationMessageFor(model => model.PhoneNumber1)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.PhoneNumber2, new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.EditorFor(model => model.PhoneNumber2)
+                                                @Html.ValidationMessageFor(model => model.PhoneNumber2)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.FaxNumber, new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.EditorFor(model => model.FaxNumber)
+                                                @Html.ValidationMessageFor(model => model.FaxNumber)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Website, new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.EditorFor(model => model.Website)
+                                                @Html.ValidationMessageFor(model => model.Website)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h1>Nature Business</h1>
+                            <div class="step-content">
+                                <div class="text-left m-t-md">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        
+                                        <table>
+                                            <tr>
+
+                                                @{
+                        int cnt = 0;
+                        List<AspNetGroupBasedPermissions.ViewModels.AssignedBussinessNature> NatureBusiness = ViewBag.RTMNatureBusiness;
+                        if (ViewBag.RTMNatureBusiness != null){
+                            foreach (var item in NatureBusiness)
+                            {
+                                if (cnt++ % 2 == 0)
+                                {
+                                    @:</tr><tr>
+                                }
+                                @:<td>
+                                            <input type="checkbox" class="i-checks" name="selectedBusiness" value="@item.BussinessID"
+                                             @(Html.Raw(item.Assigned? "checked=\"checked\"":"")) />
+                                                    @item.BussinessName @:&nbsp; &nbsp;<br /><br />
+                                                                                                    
+                            }
+                            
+                        }
+                            @:</tr> 
+                                                    
+                                                }
+
+                                           
+
+
+                                        </table>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            <h1>Incorporation</h1>
+                            <div class="step-content">
+                                <div class="text-left m-t-md">
+                                    <div class="col-md-6">
+                                        <div class="form-group ">
+                                            @Html.LabelFor(model => model.VendorRegistration.IsLocal, new { @class = "control-label col-md-5" })
+                                            <div class="col-md-6 i-checks">
+                                                @Html.EditorFor(model => model.VendorRegistration.IsLocal)
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.IsLocal)
+                                            </div>
+                                        </div><br />
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.RegistrationID, "Type of Registration", new { @class = "control-label col-md-5" })
+                                            <div class="col-md-7 m-b-xs">
+                                                @*@Html.DropDownList("RegistrationID", ViewData["RTMCountry"] as SelectList, new { @class = "form-control m-b-xs" })*@
+                                                @Html.DropDownList("RegistrationID", ViewData["RTMRegistrationType"] as SelectList, "-- Select Registration --", htmlAttributes: new { @class = "form-control" })
+                                                @*@Html.DropDownList("RegistrationID", String.Empty)*@
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.RegistrationID)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.RegistrationNo, "Registration No", new { @class = "control-label col-md-5" })
+                                            <div class="col-md-7 m-b-xs">
+                                                @Html.EditorFor(model => model.VendorRegistration.RegistrationNo)
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.RegistrationNo)
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="data_1">
+                                            @Html.LabelFor(model => model.VendorRegistration.DateIncorporatedStart, "Date Incorporated (Start)", new { @class = "control-label col-md-5" })
+                                            <div class="col-md-7 m-b-xs">
+                                                <div class="input-group date">
+                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>@Html.TextBoxFor(model => model.VendorRegistration.DateIncorporatedStart, "DateTime", new { @class = "form-control", placeholder = "" })
+                                                    @Html.ValidationMessageFor(model => model.VendorRegistration.DateIncorporatedStart)
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="data_1">
+                                            @Html.LabelFor(model => model.VendorRegistration.DateIncorporatedEnd, "Date Incorporated (End)", new { @class = "control-label col-md-5" })
+                                            <div class="col-md-7 m-b-xs">
+                                                <div class="input-group date">
+                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>@Html.TextBoxFor(model => model.VendorRegistration.DateIncorporatedEnd, "DateTime", new { @class = "form-control", placeholder = "" })
+                                                    @Html.ValidationMessageFor(model => model.VendorRegistration.DateIncorporatedEnd)
+                                                </div>
+                                            </div>
+                                        </div><div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.IncorporationCode, "Type Of Incorporation", new { @class = "control-label col-md-5" })
+                                            <div class="col-md-7 m-b-xs">
+                                                @Html.DropDownList("IncorporationCode", ViewData["RTMCountry"] as SelectList, "-- Select Incorporation --", htmlAttributes: new { @class = "form-control" })
+                                                @*@Html.DropDownList("IncorporationCode", String.Empty)*@
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.IncorporationCode)
+                                            </div>
+                                        </div>
+                                    </div><div class="col-md-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.RegAddress, "Registered Address", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.TextAreaFor(model => model.VendorRegistration.RegAddress, new { @class = "form-control", rows = "4" })
+                                                @*@Html.EditorFor(model => model.RegAddress)*@
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.RegAddress)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.RegPostcode, new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.EditorFor(model => model.VendorRegistration.RegPostcode)
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.RegPostcode)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.RegCity, new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.EditorFor(model => model.VendorRegistration.RegCity)
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.RegCity)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.RegStateCode, "State", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.DropDownList("RegStateCode", ViewData["RTMState"] as SelectList, "-- Select State --", htmlAttributes: new { @class = "form-control" })
+                                                @*Html.DropDownList("RegStateCode", String.Empty)*@
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.RegStateCode)                                              
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.RegisterCountryCode, "Country", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.DropDownList("RegisterCountryCode", ViewData["RTMCountry"] as SelectList, "-- Select Country --", htmlAttributes: new { @class = "form-control" })
+                                                @*Html.DropDownList("RegisterCountryCode", String.Empty)*@
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.RegisterCountryCode)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.BusinessCode, "Business Provide", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.DropDownList("BusinessCode", ViewData["RTMBusinessProvide"] as SelectList, "-- Select Busines provide --", htmlAttributes: new { @class = "form-control" })
+                                                @*@Html.DropDownList("BusinessCode", String.Empty)*@
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.BusinessCode)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h1>Financial Info</h1>
+                            <div class="step-content">
+                                <div class="col-md-10">
+                                    <div class="well1">
+                                        <div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.VendorRegistration.PaidUpCapital, new { @class = "control-label col-md-2" })
+                                                <div class="col-md-3 m-b-xs">
+                                                    @Html.EditorFor(model => model.VendorRegistration.PaidUpCapital)
+                                                    @Html.ValidationMessageFor(model => model.VendorRegistration.PaidUpCapital)
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.VendorRegistration.AuthorizedCapital, new { @class = "control-label col-md-2" })
+                                                <div class="col-md-3 m-b-xs">
+                                                    @Html.EditorFor(model => model.VendorRegistration.AuthorizedCapital)
+                                                    @Html.ValidationMessageFor(model => model.VendorRegistration.AuthorizedCapital)
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3">
+                                    <div class="well2">
+                                        <div class="ibox float-e-margins">
+
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <h3>
+                                                    @Html.Label("Asset (A)", new { @class = "control-label col-md-12" })</h3>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.VendorRegistration.CurrentAsset, new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12 m-b-xs">
+                                                        @*@Html.EditorFor(model => model.VendorRegistration.CurrentAsset)*@
+                                                        @*<input type="text" id="CurrentAsset" onkeyup="sum();" name="CurrentAsset" />*@
+                                                        @Html.TextBoxFor(model => model.VendorRegistration.CurrentAsset, new { id = "CurrentAsset", name = "CurrentAsset", onkeyup = "sumAsset();", @class = "form-control" })
+                                                        @Html.ValidationMessageFor(model => model.VendorRegistration.CurrentAsset)
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.VendorRegistration.FixedAsset, new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12 m-b-xs">
+                                                        @*@Html.EditorFor(model => model.VendorRegistration.FixedAsset)*@
+                                                        @*<input type="text" id="FixedAsset" onkeyup="sum();" name="FixedAsset" />*@
+                                                        @Html.TextBoxFor(model => model.VendorRegistration.FixedAsset, new { id = "FixedAsset", name = "FixedAsset", onkeyup = "sumAsset();", @class = "form-control" })
+                                                        @Html.ValidationMessageFor(model => model.VendorRegistration.FixedAsset)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-12">Total</label>
+                                                    <div class="col-md-12 m-b-xs">
+                                                        <input type="text" id="TotalAsset" name="TotalAsset"  class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="well2">
+                                        <div class="ibox float-e-margins">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <h3>
+                                                        @Html.Label("Liabilities (B)", new { @class = "control-label col-md-12" })
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.VendorRegistration.CurrentLiabilities, new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12 m-b-xs">
+                                                        @*@Html.EditorFor(model => model.VendorRegistration.CurrentLiabilities)*@
+                                                        @Html.TextBoxFor(model => model.VendorRegistration.CurrentLiabilities, new { id = "CurrentLiabilities", name = "CurrentLiabilities", onkeyup = "sumLiabilities();", @class = "form-control" })
+                                                       @Html.ValidationMessageFor(model => model.VendorRegistration.CurrentLiabilities)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.VendorRegistration.FixedLiabilities, new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12 m-b-xs">
+                                                        @*@Html.EditorFor(model => model.VendorRegistration.FixedLiabilities)*@
+                                                        @Html.TextBoxFor(model => model.VendorRegistration.FixedLiabilities, new { id = "FixedLiabilities", name = "FixedLiabilities", onkeyup = "sumLiabilities();", @class = "form-control" })
+                                                        @Html.ValidationMessageFor(model => model.VendorRegistration.FixedLiabilities)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    @Html.Label("Total", new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12 m-b-xs">
+                                                        <input type="text" id="TotalLiabilities" name="TotalLiabilities" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="well2">
+                                        <div class="ibox float-e-margins">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <h3>
+                                                        @Html.Label("Nett Worth (A - B)", new { @class = "control-label col-md-12" })
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Current</label>
+                                                    <input type="text" id="CurrentNetWorth" name="CurrentNetWorth" value="" class="form-control">
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Fixed</label>
+                                                    <input type="text" id="FixedNetWorth" name="FixedNetWorth" value="" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Total</label>
+                                                    <input type="text" id="TotalNetWorth" name="TotalNetWorth" value="" class="form-control">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h1>Tax</h1>
+                            <div class="step-content">
+                                <div class="text-left m-t-md">
+                                    <div class="col-md-6">
+                                        <div class=" form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.GroupTaxCode, "Tax Group", new { @class = "control-label col-md-6" })
+                                            <div class="col-md-6 m-b-xs">
+                                                @Html.DropDownList("GroupTaxCode", ViewData["RTMGroupTax"] as SelectList, "-- Select Group Tax --", htmlAttributes: new { @class = "form-control" })
+
+                                                @*@Html.DropDownList("GroupTaxCode", String.Empty)*@
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.GroupTaxCode)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.CountryTaxResID, "Country of Tax Residence", new { @class = "control-label col-md-6" })
+                                            <div class="col-md-6 m-b-xs">
+                                                @*@Html.DropDownList("CountryTaxResID", String.Empty)*@
+                                                @Html.DropDownList("CountryTaxResID", ViewData["RTMCountry"] as SelectList, "-- Select Country Tax --", htmlAttributes: new { @class = "form-control" })
+
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.CountryTaxResID)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.GSTVatRegNo, "GST / VAT Registration No", new { @class = "control-label col-md-6" })
+                                            <div class="col-md-6 m-b-xs">
+                                                @Html.EditorFor(model => model.VendorRegistration.GSTVatRegNo)
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.GSTVatRegNo)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.AddressShipTo, "Addresses (Ship To)", new { @class = "control-label col-md-6" })
+                                            <div class="col-md-6 m-b-xs">
+                                                @Html.TextAreaFor(model => model.VendorRegistration.AddressShipTo, new { @class = "form-control", rows = "4" })
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.AddressShipTo)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.AddressShipFrom, "Addresses (Ship From)", new { @class = "control-label col-md-6" })
+                                            <div class="col-md-6 m-b-xs">
+                                                @Html.TextAreaFor(model => model.VendorRegistration.AddressShipFrom, new { @class = "form-control", rows = "4" })
+                                                @*@Html.EditorFor(model => model.AddressShipTo)*@
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.AddressShipFrom)
+                                            </div>
+                                        </div>
+                                    </div><div class="col-md-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.PriceTaxableCode, "Pricing Inclusive or Exclusive GST", new { @class = "control-label col-md-6" })
+                                            <div class="col-md-6 m-t-md">
+                                                @*@Html.DropDownList("PriceTaxableCode", String.Empty)*@
+                                                @Html.DropDownList("PriceTaxableCode", ViewData["RTMPriceTaxable"] as SelectList, "-- Select Price Taxable --", htmlAttributes: new { @class = "form-control" })
+
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.PriceTaxableCode)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.CurrencyCode, "Billing and Payment Currency", new { @class = "control-label col-md-6" })
+                                            <div class="col-md-6 m-b-xs">                                               
+                                                @Html.DropDownList("CurrencyCode", ViewData["RTMCurrency"] as SelectList, "-- Select Currency --", htmlAttributes: new { @class = "form-control" })   
+                                                @*@Html.DropDownList("CurrencyCode", (IEnumerable<SelectListItem>)ViewBag.CurrencyCode, "-- Select Currency --", htmlAttributes: new { @class = "form-control" })*@
+                                                @*@Html.DropDownList(DBNul, (SelectList)ViewBag.CurrencyCode, "-- Select Currency --")*@
+                                                         
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.CurrencyCode)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.BankCode, "Payment Bank", new { @class = "control-label col-md-6" })
+                                            <div class="col-md-6 m-b-xs">
+                                                @*@Html.DropDownList("BankCode", String.Empty)*@
+                                                @Html.DropDownList("BankCode", ViewData["RTMBank"] as SelectList, "-- Select Bank --", htmlAttributes: new { @class = "form-control" })
+
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.BankCode)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.BankAccName, "Bank Account Name", new { @class = "control-label col-md-6" })
+                                            <div class="col-md-6 m-b-xs">
+                                                @Html.EditorFor(model => model.VendorRegistration.BankAccName)
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.BankAccName)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.BankAccNo, "Bank Account No", new { @class = "control-label col-md-6" })
+                                            <div class="col-md-6 m-b-xs">
+                                                @Html.EditorFor(model => model.VendorRegistration.BankAccNo)
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.BankAccNo)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.PaymentTermCode, "Payment Term", new { @class = "control-label col-md-6" })
+                                            <div class="col-md-6 m-b-xs">
+                                                @*@Html.DropDownList("PaymentTermCode", String.Empty)*@
+                                                @Html.DropDownList("PaymentTermCode", ViewData["RTMPaymentTerm"] as SelectList, "-- Select Payment Term --", htmlAttributes: new { @class = "form-control" })
+
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.PaymentTermCode)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorRegistration.SwiftCode, "SWIFT Code", new { @class = "control-label col-md-6" })
+                                            <div class="col-md-6 m-b-xs">
+                                                @Html.EditorFor(model => model.VendorRegistration.SwiftCode)
+                                                @Html.ValidationMessageFor(model => model.VendorRegistration.SwiftCode)
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                                <h1>Declaration</h1>
+                                <div class="step-content">
+                                    <div class="text-left m-t-md">
+                                        <div class="ibox-title">
+                                            <div class="scroll_content">
+                                                <p>
+                                                    For the purposes of the Personal Data Protection Act 2010 (“PDPA”), UMW is the “data user” (ie. the company who is responsible for, and controls the processing of the personal data provided by you).
+                                                </p>
+                                                <p> <strong>1.Collection of personal data</strong></p>
+                                                <p>
+                                                    1.1
+                                                    <br />
+                                                    Primarily, our website is informational in nature. We do not collect any personal data or personally identifiable information when you visit our website unless you choose to provide that information to us.
+                                                </p>
+                                                <p>
+                                                    1.2
+                                                    <br />
+                                                    When visiting UMW’s websites, cookies, which is a text file placed into the memory of your computer, may be used. UMW may be able to use these cookies to identify you through collection of the following information during your visit to our websites and / or the fully qualified domain name from which you accessed our site, or alternatively, through your internet protocol (“IP”) address: i.the date and time in which you accessed our website;
+                                                    ii.the URL of any webpage from which you accessed our website; and
+                                                    iii.the web browser which you are using and the pages which you have accessed.
+
+                                                    Some of UMW websites may require you to provide a limited amount of information in order to obtain the services you requested (i.e. name, email address, contact number). This personal data will only be used for its intended purpose only, i.e. to respond to your message or deliver the requested service.
+                                                </p>
+                                                <p>
+                                                    1.3
+                                                    <br />
+                                                    We may also collect information that personally identifies you if you choose to submit your personal information for the various purposes made available on our website. The processing of your personal information will be done in accordance with all applicable laws.
+                                                </p>
+                                                <p>
+                                                    <strong>2.Disclosure of personal data</strong>
+                                                </p>
+                                                <p>
+                                                    2.1
+                                                    <br />
+                                                    We do not disclose your personal data to unaffiliated third parties without your consent.
+                                                </p>
+                                                <p>
+                                                    2.2
+                                                    <br />
+                                                    We may disclose your personal data to the following parties: •agents and service providers providing services relating to the purposes of which the personal data is collected;
+                                                    •third parties (including those overseas) who provide data processing services;
+                                                    •any person, who is under a duty of confidentiality who has undertaken to keep such data confidential; and
+                                                    •any actual or proposed assignee, transferee, participant or sub-participant of UMW’s rights or business.
+                                                </p>
+                                                <p>
+                                                    2.3
+                                                    <br />
+                                                    UMW may also disclose the personal data if required to do so by law or in good faith, if such action is necessary to (a) comply with any law enforcement agency requirements, court orders or legal processes; or (b) protect and defend the rights or property of UMW.
+                                                </p>
+                                                <p><strong>3.Your rights</strong></p>
+                                                <p>
+                                                    3.1
+                                                    <br />
+                                                    If you would like to make any inquiries or complaints or request access or correction of your personal data, please contact our PDPA executive at pdpahelpdesk@umw.com.my or at 03-51635366.Where you elect to contact us via telephone, please also send us an e-mail so that we may proceed to attend to your concerns upon receipt of your e-mail. Any request of access or correction of personal data may subject to a fee and will be bound by data protection laws in Malaysia.
+                                                </p>
+                                                <p>
+                                                    3.2
+                                                    <br />
+                                                    If you have any inquiries or complaints, such as requests to limit the processing of certain information or if you think that the information that we hold about you is inaccurate, you may contact our officer in para 3.1 above.
+                                                </p>
+                                                <p>
+                                                    <strong> 4.Changes to this Policy</strong>
+                                                </p>
+                                                <p>
+                                                    4.1
+                                                    <br />
+                                                    We may review and update this Policy from time to time to reflect changes in the law, changes in our business practices, procedures and structure, and the community’s changing privacy expectations.
+                                                </p>
+                                                <p>
+                                                    4.2
+                                                    <br />
+                                                    You should check this Policy occasionally to ensure that you are aware of the most recent version which will apply each time you access this website.
+                                                </p>
+                                                <p>
+                                                    4.3
+                                                    <br />
+                                                    While it is not generally feasible to notify you of the changes to this Policy, the latest version of this Policy will be available on this page on our website, or please contact our officer in para 3.1 above to obtain the latest version of the Policy at any time.
+                                                </p><p>
+                                                    <strong>5.Employment applications</strong>
+                                                </p>
+                                                <p>
+                                                    5.1
+                                                    <br />
+                                                    If you wish to apply for a position in UMW, please submit your particulars and/or send your resume to our recruitment portal at https://recruitment.umw.com.my .
+                                                </p>
+                                                <p>
+                                                    5.2
+                                                    <br />
+                                                    Unless otherwise stated, employment applications to UMW must be submitted online through our recruitment portal.
+                                                </p>
+                                                <p><strong>6.Investor updates</strong></p>
+                                                <p>
+                                                    6.1
+                                                    <br />
+                                                    If you wish to receive investor updates on the UMW Group, please submit your particulars at http://ir.chartnexus.com/umw/email.php .
+                                                </p>
+                                                <p> <strong>7.Enquiries on UMW’s products and services</strong></p>
+                                                <p>
+                                                    7.1
+                                                    <br />
+                                                    Should you wish to request information, ask a question, or submit a comment on UMW’s products and services, you may submit your personal information in the form available at http://www.umw.com.my/contactumw.php.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <br /><div><input type="checkbox" name="chckValue" class="i-checks" /> I agree to the UMW Terms of Service and Privacy Policy</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input type="submit" value="Create" class="btn btn-primary" />
+                                    @Html.ActionLink("Cancel", "IndexMaster", null, new { @class = "btn btn-white" })
+                                </div>
+                            </div>
+                    }
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+    @Styles.Render("~/plugins/wizardStepsStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/iCheck")
+
+    @Scripts.Render("~/plugins/wizardSteps")
+    @Scripts.Render("~/plugins/validate")
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            $("#wizard").steps();
+            $("#form").steps({
+                bodyTag: "fieldset",
+                onStepChanging: function (event, currentIndex, newIndex) {
+                    // Always allow going backward even if the current step contains invalid fields!
+                    if (currentIndex > newIndex) {
+                        return true;
+                    }
+
+                    var form = $(this);
+
+                    // Clean up if user went backward before
+                    if (currentIndex < newIndex) {
+                        // To remove error styles
+                        $(".body:eq(" + newIndex + ") label.error", form).remove();
+                        $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                    }
+
+                    // Disable validation on fields that are disabled or hidden.
+                    form.validate().settings.ignore = ":disabled,:hidden";
+
+                    // Start validation; Prevent going forward if false
+                    return form.valid();
+                },
+
+                onFinishing: function (event, currentIndex) {
+                    var form = $(this);
+
+                    // Disable validation on fields that are disabled.
+                    // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
+                    form.validate().settings.ignore = ":disabled";
+
+                    // Start validation; Prevent form submission if false
+                    return form.valid();
+                },
+                onFinished: function (event, currentIndex) {
+                    var form = $(this);
+
+                    // Submit form input
+                    form.submit();
+                }
+            }).validate({
+                errorPlacement: function (error, element) {
+                    element.before(error);
+                },
+                rules: {
+                    confirm: {
+                        equalTo: "#password"
+                    }
+                }
+            });
+        });
+
+        function sumAsset() {
+            var txtFirstNumberValue = document.getElementById('CurrentAsset').value;
+            var txtSecondNumberValue = document.getElementById('FixedAsset').value;
+            
+            var txtThirdNumberValue = document.getElementById('CurrentLiabilities').value;
+            var txtFourthNumberValue = document.getElementById('FixedLiabilities').value;
+
+            var txtFifthNumberValue = document.getElementById('CurrentNetWorth').value;
+            var txtSixthNumberValue = document.getElementById('FixedNetWorth').value;
+
+            var result = parseFloat(txtFirstNumberValue) + parseFloat(txtSecondNumberValue);
+            var totalAsset = parseFloat(txtFirstNumberValue) - parseFloat(txtThirdNumberValue);
+            var totalLib = parseFloat(txtSecondNumberValue) - parseFloat(txtFourthNumberValue);
+            var total = parseFloat(txtFifthNumberValue) + parseFloat(txtSixthNumberValue);
+
+            if (!isNaN(result)) {
+                document.getElementById('TotalAsset').value = result;
+                document.getElementById('CurrentNetWorth').value = totalAsset;
+                document.getElementById('FixedNetWorth').value = totalLib;
+                document.getElementById('TotalNetWorth').value = total;
+                //TotalNetWorth
+            }
+        }
+
+        function sumLiabilities() {
+            var txtFirstNumberValue = document.getElementById('CurrentLiabilities').value;
+            var txtSecondNumberValue = document.getElementById('FixedLiabilities').value;
+
+            var txtThirdNumberValue = document.getElementById('CurrentAsset').value;
+            var txtFourthNumberValue = document.getElementById('FixedAsset').value;
+
+            var txtFifthNumberValue = document.getElementById('CurrentNetWorth').value;
+            var txtSixthNumberValue = document.getElementById('FixedNetWorth').value;
+
+            //var txtFifthNumberValue = document.getElementById('CurrentNetWorth').value;
+            //var txtSixthNumberValue = document.getElementById('FixedNetWorth').value;
+
+            var result = parseFloat(txtFirstNumberValue) + parseFloat(txtSecondNumberValue);
+            var totalLib = parseFloat(txtFourthNumberValue) - parseFloat(txtSecondNumberValue);
+            var totalAsset = parseFloat(txtThirdNumberValue) - parseFloat(txtFirstNumberValue);
+            var total = parseFloat(txtFifthNumberValue) + parseFloat(txtSixthNumberValue);
+
+            if (!isNaN(result)) {
+                document.getElementById('TotalLiabilities').value = result; 
+                document.getElementById('FixedNetWorth').value = totalLib;
+                document.getElementById('CurrentNetWorth').value = totalAsset;
+                document.getElementById('TotalNetWorth').value = total;
+            }
+        }
+
+        //function OnChangeEvent(){
+        //    //alert("value is changed");
+        //    var txtFirstNumberValue = document.getElementById('CurrentAsset').value;
+        //    var txtFirstNumberValue = document.getElementById('CurrentLiabilities').value;
+        //    var result = parseFloat(txtFirstNumberValue) - parseFloat(txtSecondNumberValue);
+        //    if (!isNaN(result)) {
+        //        document.getElementById('CurrentNetWorth').value = result;
+        //    }
+        //}
+
+    </script>
+
+    @Scripts.Render("~/plugins/dataPicker")
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+            $('.scroll_content').slimscroll({
+                height: '350px'
+            })
+        });
+    </script>
+
+
+
+}                         

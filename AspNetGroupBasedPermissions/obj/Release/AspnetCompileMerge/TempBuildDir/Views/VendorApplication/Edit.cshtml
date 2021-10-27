@@ -1,0 +1,414 @@
+﻿@model Core.Entities.Data.Vendor.VendorApplication
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Edit Vendor Application</h5>
+                </div>
+                <div class="ibox-content">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.ID)
+                        <div id="wizard">
+                            <h1>Login Info</h1>
+                            <div class="step-content">
+                                <div class="text-left m-t-md">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.TitleCode, "TitleCode", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs m-b-xs ">
+                                            @*@Html.DropDownList("TitleCode","",  new { @class = "form-control m-b-xs"})*@
+
+                                            @Html.DropDownList("TitleCode", ViewData["RTMTitle"] as SelectList, "-- Select Title --", htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.TitleCode)
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.FirstName, new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs m-b-xs">
+                                            @Html.EditorFor(model => model.FirstName)
+                                            @Html.ValidationMessageFor(model => model.FirstName)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.LastName, new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs m-b-xs">
+                                            @Html.EditorFor(model => model.LastName)
+                                            @Html.ValidationMessageFor(model => model.LastName)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.MobileNumber1, new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs m-b-xs">
+                                            @Html.EditorFor(model => model.MobileNumber1)
+                                            @Html.ValidationMessageFor(model => model.MobileNumber1)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.MobileNumber2, new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs m-b-xs">
+                                            @Html.EditorFor(model => model.MobileNumber2)
+                                            @Html.ValidationMessageFor(model => model.MobileNumber2)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.EmailAddress, new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs m-b-xs">
+                                            @Html.EditorFor(model => model.EmailAddress)
+                                            @Html.ValidationMessageFor(model => model.EmailAddress)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.EmailPassword, new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs m-b-xs">
+                                            @Html.EditorFor(model => model.EmailPassword)
+                                            @Html.ValidationMessageFor(model => model.EmailPassword)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h1>Vendor Info</h1>
+                            <div class="step-content">
+                                <div class="text-left m-t-md">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.PositionCode, "PositionCode", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.DropDownList("PositionCode", ViewData["RTMPosition"] as SelectList, "-- Select Position --", htmlAttributes: new { @class = "form-control" })
+
+                                                @*@Html.DropDownList("PositionCode", String.Empty)*@
+                                                @Html.ValidationMessageFor(model => model.PositionCode)
+                                            </div>
+                                        </div> <div class="form-group">
+                                            @Html.LabelFor(model => model.ContactPerson, new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.EditorFor(model => model.ContactPerson)
+                                                @Html.ValidationMessageFor(model => model.ContactPerson)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.CompanyName, new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.EditorFor(model => model.CompanyName)
+                                                @Html.ValidationMessageFor(model => model.CompanyName)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Address, new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.TextAreaFor(model => model.Address, new { @class = "form-control", rows = "4" })
+                                                @*@Html.EditorFor(model => model.Address)*@
+                                                @Html.ValidationMessageFor(model => model.Address)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Postcode, new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.EditorFor(model => model.Postcode)
+                                                @Html.ValidationMessageFor(model => model.Postcode)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.City, new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.EditorFor(model => model.City)
+                                                @Html.ValidationMessageFor(model => model.City)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.StateCode, "StateCode", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.DropDownList("StateCode", ViewData["RTMState"] as SelectList, "-- Select State --", htmlAttributes: new { @class = "form-control" })
+
+                                                @*@Html.DropDownList("StateCode", String.Empty)*@
+                                                @Html.ValidationMessageFor(model => model.StateCode)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.CountryCode, "CountryCode", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.DropDownList("CountryCode", ViewData["RTMCountry"] as SelectList, "-- Select Country Tax --", htmlAttributes: new { @class = "form-control" })
+
+                                                @*@Html.DropDownList("CountryCode", String.Empty)*@
+                                                @Html.ValidationMessageFor(model => model.CountryCode)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.PhoneNumber1, new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.EditorFor(model => model.PhoneNumber1)
+                                                @Html.ValidationMessageFor(model => model.PhoneNumber1)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.PhoneNumber2, new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.EditorFor(model => model.PhoneNumber2)
+                                                @Html.ValidationMessageFor(model => model.PhoneNumber2)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.FaxNumber, new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.EditorFor(model => model.FaxNumber)
+                                                @Html.ValidationMessageFor(model => model.FaxNumber)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Website, new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.EditorFor(model => model.Website)
+                                                @Html.ValidationMessageFor(model => model.Website)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                                <h1>Declaration</h1>
+                                <div class="step-content">
+                                    <div class="text-left m-t-md">
+                                        <div class="ibox-title">
+                                            <div class="scroll_content">
+                                                <p>
+                                                    For the purposes of the Personal Data Protection Act 2010 (“PDPA”), UMW is the “data user” (ie. the company who is responsible for, and controls the processing of the personal data provided by you).
+                                                </p>
+                                                <p> <strong>1.Collection of personal data</strong></p>
+                                                <p>
+                                                    1.1
+                                                    <br />
+                                                    Primarily, our website is informational in nature. We do not collect any personal data or personally identifiable information when you visit our website unless you choose to provide that information to us.
+                                                </p>
+                                                <p>
+                                                    1.2
+                                                    <br />
+                                                    When visiting UMW’s websites, cookies, which is a text file placed into the memory of your computer, may be used. UMW may be able to use these cookies to identify you through collection of the following information during your visit to our websites and / or the fully qualified domain name from which you accessed our site, or alternatively, through your internet protocol (“IP”) address: i.the date and time in which you accessed our website;
+                                                    ii.the URL of any webpage from which you accessed our website; and
+                                                    iii.the web browser which you are using and the pages which you have accessed.
+
+                                                    Some of UMW websites may require you to provide a limited amount of information in order to obtain the services you requested (i.e. name, email address, contact number). This personal data will only be used for its intended purpose only, i.e. to respond to your message or deliver the requested service.
+                                                </p>
+                                                <p>
+                                                    1.3
+                                                    <br />
+                                                    We may also collect information that personally identifies you if you choose to submit your personal information for the various purposes made available on our website. The processing of your personal information will be done in accordance with all applicable laws.
+                                                </p>
+                                                <p>
+                                                    <strong>2.Disclosure of personal data</strong>
+                                                </p>
+                                                <p>
+                                                    2.1
+                                                    <br />
+                                                    We do not disclose your personal data to unaffiliated third parties without your consent.
+                                                </p>
+                                                <p>
+                                                    2.2
+                                                    <br />
+                                                    We may disclose your personal data to the following parties: •agents and service providers providing services relating to the purposes of which the personal data is collected;
+                                                    •third parties (including those overseas) who provide data processing services;
+                                                    •any person, who is under a duty of confidentiality who has undertaken to keep such data confidential; and
+                                                    •any actual or proposed assignee, transferee, participant or sub-participant of UMW’s rights or business.
+                                                </p>
+                                                <p>
+                                                    2.3
+                                                    <br />
+                                                    UMW may also disclose the personal data if required to do so by law or in good faith, if such action is necessary to (a) comply with any law enforcement agency requirements, court orders or legal processes; or (b) protect and defend the rights or property of UMW.
+                                                </p>
+                                                <p><strong>3.Your rights</strong></p>
+                                                <p>
+                                                    3.1
+                                                    <br />
+                                                    If you would like to make any inquiries or complaints or request access or correction of your personal data, please contact our PDPA executive at pdpahelpdesk@umw.com.my or at 03-51635366.Where you elect to contact us via telephone, please also send us an e-mail so that we may proceed to attend to your concerns upon receipt of your e-mail. Any request of access or correction of personal data may subject to a fee and will be bound by data protection laws in Malaysia.
+                                                </p>
+                                                <p>
+                                                    3.2
+                                                    <br />
+                                                    If you have any inquiries or complaints, such as requests to limit the processing of certain information or if you think that the information that we hold about you is inaccurate, you may contact our officer in para 3.1 above.
+                                                </p>
+                                                <p>
+                                                    <strong> 4.Changes to this Policy</strong>
+                                                </p>
+                                                <p>
+                                                    4.1
+                                                    <br />
+                                                    We may review and update this Policy from time to time to reflect changes in the law, changes in our business practices, procedures and structure, and the community’s changing privacy expectations.
+                                                </p>
+                                                <p>
+                                                    4.2
+                                                    <br />
+                                                    You should check this Policy occasionally to ensure that you are aware of the most recent version which will apply each time you access this website.
+                                                </p>
+                                                <p>
+                                                    4.3
+                                                    <br />
+                                                    While it is not generally feasible to notify you of the changes to this Policy, the latest version of this Policy will be available on this page on our website, or please contact our officer in para 3.1 above to obtain the latest version of the Policy at any time.
+                                                </p><p>
+                                                    <strong>5.Employment applications</strong>
+                                                </p>
+                                                <p>
+                                                    5.1
+                                                    <br />
+                                                    If you wish to apply for a position in UMW, please submit your particulars and/or send your resume to our recruitment portal at https://recruitment.umw.com.my .
+                                                </p>
+                                                <p>
+                                                    5.2
+                                                    <br />
+                                                    Unless otherwise stated, employment applications to UMW must be submitted online through our recruitment portal.
+                                                </p>
+                                                <p><strong>6.Investor updates</strong></p>
+                                                <p>
+                                                    6.1
+                                                    <br />
+                                                    If you wish to receive investor updates on the UMW Group, please submit your particulars at http://ir.chartnexus.com/umw/email.php .
+                                                </p>
+                                                <p> <strong>7.Enquiries on UMW’s products and services</strong></p>
+                                                <p>
+                                                    7.1
+                                                    <br />
+                                                    Should you wish to request information, ask a question, or submit a comment on UMW’s products and services, you may submit your personal information in the form available at http://www.umw.com.my/contactumw.php.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <br /><div><input type="checkbox" name="chckValue" class="i-checks" /> I agree to the UMW Terms of Service and Privacy Policy</div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input type="submit" value="Save" class="btn btn-primary" />
+                                    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-white" })
+                                </div>
+                            </div>
+
+
+
+
+                    }
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+    @Styles.Render("~/plugins/wizardStepsStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/iCheck")
+
+    @Scripts.Render("~/plugins/wizardSteps")
+    @Scripts.Render("~/plugins/validate")
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            $("#wizard").steps();
+            $("#form").steps({
+                bodyTag: "fieldset",
+                onStepChanging: function (event, currentIndex, newIndex) {
+                    // Always allow going backward even if the current step contains invalid fields!
+                    if (currentIndex > newIndex) {
+                        return true;
+                    }
+
+                    var form = $(this);
+
+                    // Clean up if user went backward before
+                    if (currentIndex < newIndex) {
+                        // To remove error styles
+                        $(".body:eq(" + newIndex + ") label.error", form).remove();
+                        $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                    }
+
+                    // Disable validation on fields that are disabled or hidden.
+                    form.validate().settings.ignore = ":disabled,:hidden";
+
+                    // Start validation; Prevent going forward if false
+                    return form.valid();
+                },
+
+                onFinishing: function (event, currentIndex) {
+                    var form = $(this);
+
+                    // Disable validation on fields that are disabled.
+                    // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
+                    form.validate().settings.ignore = ":disabled";
+
+                    // Start validation; Prevent form submission if false
+                    return form.valid();
+                },
+                onFinished: function (event, currentIndex) {
+                    var form = $(this);
+
+                    // Submit form input
+                    form.submit();
+                }
+            }).validate({
+                errorPlacement: function (error, element) {
+                    element.before(error);
+                },
+                rules: {
+                    confirm: {
+                        equalTo: "#password"
+                    }
+                }
+            });
+        });
+
+    </script>
+
+    @Scripts.Render("~/plugins/dataPicker")
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+            $('.scroll_content').slimscroll({
+                height: '350px'
+            })
+        });
+
+    </script>
+}

@@ -1,0 +1,22 @@
+﻿   {
+                                  data: vendorsComputed(), dataTableOptions: {
+                                      dom: 'lfrtip',
+                                      paging: false,
+                                      info: false,
+                                   searching: false,
+						              tableTools: {
+							              'sSwfPath': '../../../scripts/plugins/dataTables/swf/copy_csv_xls_pdf.swf'
+						              },
+                                      aoColumns: [null,null,null,null,null,null],
+                                      responsive:true,
+                                      order: [1, 'desc'],
+                                      rowCallback: function (row, data, dataIndex) {
+                                        var rowId = data[3];
+
+                                        if ($.inArray(rowId, custom_datatables_rows_selected) !== -1) {
+                                            $(row).find('input[type=\'checkbox\']').prop('checked', true);
+                                            $(row).addClass('selected');
+                                        }
+                                      }
+                                    }
+                               }">

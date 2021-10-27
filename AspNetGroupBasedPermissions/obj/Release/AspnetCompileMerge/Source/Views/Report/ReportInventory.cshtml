@@ -1,0 +1,121 @@
+﻿@using AspNetGroupBasedPermissions;
+@using AspNetGroupBasedPermissions.Helpers;
+
+
+@{
+    ViewBag.Title = "Inventory Item";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="col-md-12">
+
+        <div class="ibox float-e-margins">
+            <div class="ibox-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="col-lg-6">
+                           
+                            <div class="form-group">
+                                <b class="col-md-2">Rig</b>
+                                @Html.DropDownList("CostCentreCode", ViewData["CostCentreCode"] as SelectList)
+                            </div>
+                            <div class="form-group">
+                                <b class="col-md-2">Document Type</b>
+                                @Html.DropDownList("documentType", ViewData["documentType"] as SelectList)
+                            </div>
+                            <div class="form-group">
+                                <b class="col-md-2">List of Stock Item</b>
+                                @Html.DropDownList("AdditionalItemInfo", ViewData["AdditionalItemInfo"] as SelectList)
+                            </div>
+                            @*<div class="form-group">
+                                <b class="col-md-2">Quantity</b>
+                                @Html.DropDownList("ItemCount", ViewData["ItemCount"] as SelectList)
+                            </div>*@
+                        </div>
+                        <div class="col-lg-6">
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group" style="text-align:left; padding-top:20px !important;">
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-primary" value="Download" />
+                            @*@Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })*@
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+}
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+    @Styles.Render("~/plugins/wizardStepsStyles")
+    @Styles.Render("~/plugins/clockpickerStyles")
+    @Styles.Render("~/plugins/dataPickerStyles")
+    @Styles.Render("~/plugins/imagecropperStyles")
+    @Styles.Render("~/Content/plugins/chosen/chosenStyles")
+    @Styles.Render("~/Content/plugins/dropzone/dropZoneStyles")
+    @Styles.Render("~/Content/plugins/blueimp/css/")
+}
+
+@section Scripts {
+
+    @Scripts.Render("~/plugins/notifyjs")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/wizardSteps")
+    @Scripts.Render("~/plugins/iCheck")
+    @Scripts.Render("~/plugins/validate")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/imagecropper")
+    @Scripts.Render("~/plugins/chosen")
+    @Scripts.Render("~/plugins/lightboxGallery")
+    @Scripts.Render("~/plugins/dropZone")
+
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatable")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#StartDateId").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+            $("#EndDateId").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+        });
+
+        $('#myLink').click(function () {
+            var firstname = $('#StartDate').val(); // get the textbox value
+            var url = $(this).attr('href') + 'StDate=' + firstname; // build new url
+            location.href = url; // redirect
+            return false; // cancel default redirect
+        });
+
+    </script>
+}

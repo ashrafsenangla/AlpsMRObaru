@@ -1,0 +1,311 @@
+﻿<#@ template language="C#" HostSpecific="True" #>
+<#@ output extension=".cshtml" #>
+<#@ include file="Imports.include.t4" #>
+@model IEnumerable<#= "<" + ViewDataTypeName + ">" #>
+@using AspNetGroupBasedPermissions.Helpers
+<#
+// The following chained if-statement outputs the file header code and markup for a partial view, a view using a layout page, or a regular view.
+if(IsPartialView) {
+#>
+
+<#
+} else if(IsLayoutPageSelected) {
+#>
+
+@{
+    ViewBag.Title = "<#= ViewName#>";
+<#
+if (!String.IsNullOrEmpty(LayoutPageFile)) {
+#>
+    Layout = "<#= LayoutPageFile#>";
+<#
+}
+#>
+}
+
+<#
+} else {
+#>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title><#= ViewName #></title>
+</head>
+<body>
+<#
+    PushIndent("    ");
+}
+#>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                  <h5>List of <#= ViewDataTypeShortName #></h5>
+				  <div class="ibox-tools">
+					<div class="ibox-tools">
+						@Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary btn-xs"})
+					</div>
+                 </div>
+				</div>
+                <div class="ibox-content">
+
+<table id="mainTable" class="table table-striped table-bordered table-hover dataTables-example">
+   <thead>
+   <tr>
+<#
+IEnumerable<PropertyMetadata> properties = ModelMetadata.Properties;
+foreach (PropertyMetadata property in properties) {
+    if (property.Scaffold && !property.IsPrimaryKey && !property.IsForeignKey) {
+#>
+<#
+        // This is a temporary work around until core scaffolding provides support for independent associations.
+        if (property.IsAssociation && GetRelatedModelMetadata(property) == null) {
+            continue;
+        }
+#>
+        <td>
+            <select data-bind="options:available<#= GetValueExpression(property) #>, value:selected<#= GetValueExpression(property) #>" style="width: 100%;"></select>
+        </td>
+<#
+    }
+}
+#>
+        <td></td>
+    </tr>
+   <tr>
+<#
+IEnumerable<PropertyMetadata> properties = ModelMetadata.Properties;
+foreach (PropertyMetadata property in properties) {
+    if (property.Scaffold && !property.IsPrimaryKey && !property.IsForeignKey) {
+#>
+<#
+        // This is a temporary work around until core scaffolding provides support for independent associations.
+        if (property.IsAssociation && GetRelatedModelMetadata(property) == null) {
+            continue;
+        }
+#>
+        <th>
+            @Html.DisplayNameFor(model => model.<#= GetValueExpression(property) #>)
+        </th>
+<#
+    }
+}
+#>
+        <th></th>
+    </tr>
+	</thead>
+	<tbody data-bind="dataTablesForEach:
+                               {
+                                    data: listObjects(), dataTableOptions: {
+                                      paging: true,
+                                      dom: 'T<\'clear\'>lfrtip',
+						              tableTools: {
+							              'sSwfPath': '../../../scripts/plugins/dataTables/swf/copy_csv_xls_pdf.swf'
+						              },
+                                      responsive:true
+                                    }
+                               }">
+<tr>
+<#
+IEnumerable<PropertyMetadata> properties = ModelMetadata.Properties;
+foreach (PropertyMetadata property in properties) {
+    if (property.Scaffold && !property.IsPrimaryKey && !property.IsForeignKey) {
+#>
+<#
+        // This is a temporary work around until core scaffolding provides support for independent associations.
+        if (property.IsAssociation && GetRelatedModelMetadata(property) == null) {
+            continue;
+        }
+#>
+        <td data-bind="text:<#= GetValueExpression(property) #> "></td>
+<#
+    }
+}
+#>
+<td>
+    <a data-bind="visible:DetailURL()!='',attr: { href: DetailURL}" class="btn-primary">Details</a>
+    <a data-bind="visible:EditURL()!='',attr: { href: EditURL}" class="btn-white">Edit</a>
+    <a data-bind="visible:DeleteURL()!='',attr: { href: DeleteURL}" class="btn-white">Delete</a>
+</td>
+</tr>
+
+</table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+<#
+if(IsLayoutPageSelected && ReferenceScriptLibraries && IsBundleConfigPresent) {
+#>
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    @Styles.Render("~/Scripts/plugins/jquery-ui/jqueryuiStyles")
+}
+
+ @section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatable")
+
+  <script type="text/javascript">
+      // object ViewModel
+      var object = function (data) {
+          var self = this;
+          this.DetailURL = ko.observable(data.DetailURL);
+          this.EditURL = ko.observable(data.EditURL);
+          this.DeleteURL = ko.observable(data.DeleteURL);
+          <#
+IEnumerable<PropertyMetadata> properties = ModelMetadata.Properties;
+foreach (PropertyMetadata property in properties) {
+    if (property.Scaffold && !property.IsPrimaryKey && !property.IsForeignKey) {
+#>
+<#
+        // This is a temporary work around until core scaffolding provides support for independent associations.
+        if (property.IsAssociation && GetRelatedModelMetadata(property) == null) {
+            continue;
+        }
+#>
+          this.<#= GetValueExpression(property) #> = ko.observable(data.<#= GetValueExpression(property) #>);
+<#
+    }
+}
+#>
+      };
+      //Main ViewModel
+      var ViewModel = new function () {
+          var self = this;
+          var defaultDropdownText = 'All';
+          self.Objects = ko.observableArray([
+            @foreach (var item in Model)
+            {
+             <text>new object({</text>
+			 @foreach (var item in Model) {
+    <tr>
+<#
+foreach (PropertyMetadata property in properties) {
+    if (property.Scaffold && !property.IsPrimaryKey && !property.IsForeignKey) {
+#>
+<#
+        // This is a temporary work around until core scaffolding provides support for independent associations.
+        if (property.IsAssociation && GetRelatedModelMetadata(property) == null) {
+            continue;
+        }
+#>
+
+                 <text><#= GetValueExpression(property) #>: '<#= "item." + GetValueExpression(property) #>',</text>
+<#
+    }
+}
+                 <text>DetailURL: '@(Html.EncodedActionUrl("Details", "#routevalues", new { id = item.ID }))',</text>
+                 <text>EditURL: '@(Html.EncodedActionUrl("Edit", "#routevalues", new { id = item.ID }))',</text>
+                 <text>DeleteURL: '@(Html.EncodedActionUrl("Delete", "#routevalues", new { id = item.ID }))',</text>
+                
+                <text>}),</text>
+             }
+          ]);
+
+		  <#
+IEnumerable<PropertyMetadata> properties = ModelMetadata.Properties;
+foreach (PropertyMetadata property in properties) {
+    if (property.Scaffold && !property.IsPrimaryKey && !property.IsForeignKey) {
+#>
+<#
+        // This is a temporary work around until core scaffolding provides support for independent associations.
+        if (property.IsAssociation && GetRelatedModelMetadata(property) == null) {
+            continue;
+        }
+#>
+		self.available<#= GetValueExpression(property) #> = ko.observableArray([defaultDropdownText,@foreach (var item in Model.Select(x=>x.<#= GetValueExpression(property) #>).Distinct()){<text>'@item',</text>}]);
+        self.selected<#= GetValueExpression(property) #> = ko.observable(defaultDropdownText);
+<#
+    }
+}
+#>
+
+          self.listObjects = ko.computed(function () {
+              $("#mainTable").dataTable().fnDestroy();
+			  		  <#
+IEnumerable<PropertyMetadata> properties = ModelMetadata.Properties;
+foreach (PropertyMetadata property in properties) {
+    if (property.Scaffold && !property.IsPrimaryKey && !property.IsForeignKey) {
+#>
+<#
+        // This is a temporary work around until core scaffolding provides support for independent associations.
+        if (property.IsAssociation && GetRelatedModelMetadata(property) == null) {
+            continue;
+        }
+#>
+		var desired<#= GetValueExpression(property) #> = self.selected<#= GetValueExpression(property) #>();
+<#
+    }
+}
+#>
+              var records = self.Objects;
+
+			  <#
+IEnumerable<PropertyMetadata> properties = ModelMetadata.Properties;
+foreach (PropertyMetadata property in properties) {
+    if (property.Scaffold && !property.IsPrimaryKey && !property.IsForeignKey) {
+#>
+<#
+        // This is a temporary work around until core scaffolding provides support for independent associations.
+        if (property.IsAssociation && GetRelatedModelMetadata(property) == null) {
+            continue;
+        }
+#>
+records = desired<#= GetValueExpression(property) #> == defaultDropdownText ? records : ko.observableArray(ko.utils.arrayFilter(records(), function (param) {
+                  return param.<#= GetValueExpression(property) #>() == desired<#= GetValueExpression(property) #>;
+              }));
+<#
+    }
+}
+#>
+              return records;
+          });
+      };
+        $(document).ready(function () {
+            ko.applyBindings(ViewModel);
+        });
+    </script>
+	}
+<#
+}
+#>
+<#
+else if(IsLayoutPageSelected && ReferenceScriptLibraries) {
+#>
+
+<script src="~/Scripts/jquery-<#= JQueryVersion #>.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<#
+}
+#>
+<#
+if(!IsPartialView && !IsLayoutPageSelected) {
+    ClearIndent();
+#>
+</body>
+</html>
+<#
+}
+#>
+
+<#@ include file="ModelMetadataFunctions.cs.include.t4" #>

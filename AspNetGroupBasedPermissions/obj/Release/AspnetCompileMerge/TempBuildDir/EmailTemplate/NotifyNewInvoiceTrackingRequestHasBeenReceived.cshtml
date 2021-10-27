@@ -1,0 +1,39 @@
+﻿@model dynamic
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Your Have New Request</title>
+</head>
+<body>
+    <p>
+        Dear Mr/Mrs @Model.Approver.FirstName @Model.Approver.LastName,<br /><br />
+        New Invoice Tracking @Model.InvoiceHeader.InvoiceCode required your action.<br />
+        Please click <a href="https://msr.umw-oilgas.com">https://msr.umw-oilgas.com</a> to access the system.
+    </p>
+    <table style="border-collapse: collapse; border: 1px solid black;">
+        <thead>
+            <tr>
+                <th style="text-align: left; border: 1px solid black;">Vendor Name</th>
+                <th style="text-align: left; border: 1px solid black;">Invoice Title</th>
+                <th style="text-align: left; border: 1px solid black;">Invoice Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+                <tr>
+                    <td style="text-align: left; padding-right: 5px; border: 1px solid black;">@Model.VendorMaster.CompanyName</td>
+                    <td style="text-align: left; padding-right: 5px; border: 1px solid black;">@Model.InvoiceHeader.InvoiceTitle</td>
+                    <td style="text-align: right; padding-right: 5px; border: 1px solid black;">@Model.InvoiceHeader.CurrencyCode   @string.Format("{0:#,0.00}", Model.InvoiceHeader.AmountNoGST)</td>
+                </tr>
+          
+        </tbody>
+    </table>
+    <p>
+<p>
+        <span style="color:red">*** This is an automatically generated email, please do not reply ***</span>
+    </p>
+</body>
+</html>

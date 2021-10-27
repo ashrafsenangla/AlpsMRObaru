@@ -1,0 +1,1381 @@
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyRequesterNewMSRHasBeenSent.cshtml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenRejected.cshtml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewMSRRequestHasBeenReceived.cshtml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenReturned.cshtml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenFinished.cshtml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenFinished.cshtml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenRejected.cshtml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenReturned.cshtml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewCapexRequestHasBeenReceived.cshtml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexRequestHasBeenReceivedForBuyer.cshtml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenFinished.cshtml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenRejected.cshtml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenReturned.cshtml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewPRRequestHasBeenReceived.cshtml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyRequesterNewPRHasBeenSent - Copy.cshtml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenFinishedToRequester.cshtml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll.config
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.pdb
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Core.Entities.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Core.Framework.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\EntityFramework.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.Common.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Web.Infrastructure.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Owin.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\ReportViewerForMvc.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Services.EPR.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Helpers.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Http.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Mvc.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Optimization.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Razor.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.WebPages.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\WebGrease.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\RazorEngine.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Interfaces.Agent.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Infrastructures.Agents.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Core.Entities.pdb
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Core.Framework.pdb
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Interfaces.Repository.pdb
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Interfaces.Service.pdb
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Services.EPR.pdb
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Infrastructures.Data.pdb
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Helpers.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Http.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Mvc.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Razor.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.WebPages.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Optimization.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.pdb
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\EntityFramework.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\RazorEngine.xml
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Interfaces.Agent.pdb
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\Infrastructures.Agents.pdb
+C:\EPR_DEV\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csprojResolveAssemblyReference.cache
+C:\EPR_DEV\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations.init.resources
+C:\EPR_DEV\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations._201402161844035_init.resources
+C:\EPR_DEV\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.GenerateResource.Cache
+C:\EPR_DEV\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.pdb
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\itextsharp.dll
+C:\EPR_DEV\AspNetGroupBasedPermissions\bin\itextsharp.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyRequesterNewMSRHasBeenSent.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenRejected.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewMSRRequestHasBeenReceived.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenReturned.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenFinished.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenFinished.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenRejected.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenReturned.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewCapexRequestHasBeenReceived.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexRequestHasBeenReceivedForBuyer.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenFinished.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenRejected.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenReturned.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewPRRequestHasBeenReceived.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyRequesterNewPRHasBeenSent - Copy.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenFinishedToRequester.cshtml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll.config
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Core.Entities.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Core.Framework.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\EntityFramework.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.Common.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Web.Infrastructure.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Owin.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\ReportViewerForMvc.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Services.EPR.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Helpers.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Mvc.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Optimization.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Razor.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.WebPages.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\WebGrease.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\RazorEngine.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Interfaces.Agent.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Infrastructures.Agents.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Core.Entities.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Core.Framework.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Interfaces.Repository.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Interfaces.Service.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Services.EPR.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Infrastructures.Data.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Helpers.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Mvc.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Razor.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.WebPages.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Optimization.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\EntityFramework.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\RazorEngine.xml
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Interfaces.Agent.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\bin\Infrastructures.Agents.pdb
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csprojResolveAssemblyReference.cache
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations.init.resources
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations._201402161844035_init.resources
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.GenerateResource.Cache
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.dll
+C:\Zol Working Folder\EPR Latest Source Code\EPR_DEV\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.pdb
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyRequesterNewMSRHasBeenSent.cshtml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenRejected.cshtml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewMSRRequestHasBeenReceived.cshtml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenReturned.cshtml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenFinished.cshtml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenFinished.cshtml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenRejected.cshtml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenReturned.cshtml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewCapexRequestHasBeenReceived.cshtml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexRequestHasBeenReceivedForBuyer.cshtml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenFinished.cshtml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenRejected.cshtml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenReturned.cshtml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewPRRequestHasBeenReceived.cshtml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyRequesterNewPRHasBeenSent - Copy.cshtml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenFinishedToRequester.cshtml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll.config
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.pdb
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Core.Entities.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Core.Framework.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\EntityFramework.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.Common.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Web.Infrastructure.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Owin.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\ReportViewerForMvc.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Services.EPR.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Helpers.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Http.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Mvc.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Optimization.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Razor.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.WebPages.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\WebGrease.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\RazorEngine.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Interfaces.Agent.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Infrastructures.Agents.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Core.Entities.pdb
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Core.Framework.pdb
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Interfaces.Repository.pdb
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Interfaces.Service.pdb
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Services.EPR.pdb
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Infrastructures.Data.pdb
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Helpers.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Http.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Mvc.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Razor.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.WebPages.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\System.Web.Optimization.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.pdb
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\EntityFramework.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\RazorEngine.xml
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Interfaces.Agent.pdb
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\bin\Infrastructures.Agents.pdb
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csprojResolveAssemblyReference.cache
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations.init.resources
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations._201402161844035_init.resources
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.GenerateResource.Cache
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.dll
+C:\From Old Notebook\EPR_DEV\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.pdb
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyRequesterNewMSRHasBeenSent.cshtml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenRejected.cshtml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewMSRRequestHasBeenReceived.cshtml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenReturned.cshtml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenFinished.cshtml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenFinished.cshtml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenRejected.cshtml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenReturned.cshtml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewCapexRequestHasBeenReceived.cshtml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexRequestHasBeenReceivedForBuyer.cshtml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenFinished.cshtml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenRejected.cshtml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenReturned.cshtml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewPRRequestHasBeenReceived.cshtml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyRequesterNewPRHasBeenSent - Copy.cshtml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenFinishedToRequester.cshtml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll.config
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.pdb
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Core.Entities.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Core.Framework.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\EntityFramework.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.Owin.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.Common.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.Web.Infrastructure.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Owin.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\ReportViewerForMvc.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Services.EPR.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\System.Web.Helpers.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\System.Web.Http.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\System.Web.Mvc.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\System.Web.Optimization.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\System.Web.Razor.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\System.Web.WebPages.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\WebGrease.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\RazorEngine.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Interfaces.Agent.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Infrastructures.Agents.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Core.Entities.pdb
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Core.Framework.pdb
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Interfaces.Repository.pdb
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Interfaces.Service.pdb
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Services.EPR.pdb
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Infrastructures.Data.pdb
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\System.Web.Helpers.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\System.Web.Http.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\System.Web.Mvc.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\System.Web.Razor.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\System.Web.WebPages.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\System.Web.Optimization.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.pdb
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\EntityFramework.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.Owin.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\RazorEngine.xml
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Interfaces.Agent.pdb
+C:\iSRTEON-New\AspNetGroupBasedPermissions\bin\Infrastructures.Agents.pdb
+C:\iSRTEON-New\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csprojResolveAssemblyReference.cache
+C:\iSRTEON-New\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations.init.resources
+C:\iSRTEON-New\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations._201402161844035_init.resources
+C:\iSRTEON-New\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.GenerateResource.Cache
+C:\iSRTEON-New\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.dll
+C:\iSRTEON-New\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.pdb
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyRequesterNewMSRHasBeenSent.cshtml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenRejected.cshtml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewMSRRequestHasBeenReceived.cshtml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenReturned.cshtml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenFinished.cshtml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenFinished.cshtml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenRejected.cshtml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenReturned.cshtml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewCapexRequestHasBeenReceived.cshtml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexRequestHasBeenReceivedForBuyer.cshtml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenFinished.cshtml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenRejected.cshtml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenReturned.cshtml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewPRRequestHasBeenReceived.cshtml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyRequesterNewPRHasBeenSent - Copy.cshtml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenFinishedToRequester.cshtml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll.config
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.pdb
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Core.Entities.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Core.Framework.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EntityFramework.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.Common.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Web.Helpers.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Web.Infrastructure.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Owin.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\ReportViewerForMvc.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Services.EPR.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Helpers.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Http.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Mvc.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Optimization.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Razor.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.WebPages.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\WebGrease.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\WebMatrix.Data.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\WebMatrix.WebData.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\RazorEngine.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Core.Entities.pdb
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Core.Entities.dll.config
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Core.Framework.pdb
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Core.Framework.dll.config
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Interfaces.Repository.pdb
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll.config
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Interfaces.Service.pdb
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll.config
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Services.EPR.pdb
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Services.EPR.dll.config
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Infrastructures.Data.pdb
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll.config
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Helpers.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Http.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Mvc.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Razor.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.WebPages.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Optimization.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.pdb
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\WebMatrix.Data.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\WebMatrix.WebData.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EntityFramework.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\bin\RazorEngine.xml
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csprojAssemblyReference.cache
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations.init.resources
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations._201402161844035_init.resources
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.GenerateResource.cache
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.CoreCompileInputs.cache
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.CopyComplete
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.dll
+C:\Main backup SRT MVC\iSRTEON-Current\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.pdb
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyRequesterNewMSRHasBeenSent.cshtml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenRejected.cshtml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewMSRRequestHasBeenReceived.cshtml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenReturned.cshtml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenFinished.cshtml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenFinished.cshtml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenRejected.cshtml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenReturned.cshtml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewCapexRequestHasBeenReceived.cshtml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexRequestHasBeenReceivedForBuyer.cshtml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenFinished.cshtml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenRejected.cshtml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenReturned.cshtml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewPRRequestHasBeenReceived.cshtml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyRequesterNewPRHasBeenSent - Copy.cshtml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenFinishedToRequester.cshtml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll.config
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.pdb
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Core.Entities.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Core.Framework.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EntityFramework.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.Common.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Web.Helpers.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Web.Infrastructure.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Owin.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\ReportViewerForMvc.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Services.EPR.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Linq.Dynamic.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Helpers.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Http.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Mvc.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Optimization.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Razor.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.WebPages.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\WebGrease.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\WebMatrix.Data.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\WebMatrix.WebData.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\RazorEngine.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Core.Entities.pdb
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Core.Entities.dll.config
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Core.Framework.pdb
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Core.Framework.dll.config
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Interfaces.Repository.pdb
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll.config
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Interfaces.Service.pdb
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll.config
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Services.EPR.pdb
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Services.EPR.dll.config
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Infrastructures.Data.pdb
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll.config
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Helpers.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Http.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Mvc.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Razor.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.WebPages.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\System.Web.Optimization.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.pdb
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\WebMatrix.Data.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\WebMatrix.WebData.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EntityFramework.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\bin\RazorEngine.xml
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csprojAssemblyReference.cache
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations.init.resources
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations._201402161844035_init.resources
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.GenerateResource.cache
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.CoreCompileInputs.cache
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.CopyComplete
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.dll
+C:\iSRTEON-Current\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.pdb
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyRequesterNewMSRHasBeenSent.cshtml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenRejected.cshtml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewMSRRequestHasBeenReceived.cshtml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenReturned.cshtml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenFinished.cshtml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenFinished.cshtml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenRejected.cshtml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenReturned.cshtml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewCapexRequestHasBeenReceived.cshtml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexRequestHasBeenReceivedForBuyer.cshtml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenFinished.cshtml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenRejected.cshtml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenReturned.cshtml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewPRRequestHasBeenReceived.cshtml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyRequesterNewPRHasBeenSent - Copy.cshtml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenFinishedToRequester.cshtml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll.config
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.pdb
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Core.Entities.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Core.Framework.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\EntityFramework.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.Owin.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.Common.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.Web.Helpers.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.Web.Infrastructure.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Owin.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\ReportViewerForMvc.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Services.EPR.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\System.Linq.Dynamic.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\System.Web.Helpers.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\System.Web.Http.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\System.Web.Mvc.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\System.Web.Optimization.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\System.Web.Razor.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\System.Web.WebPages.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\WebGrease.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\WebMatrix.Data.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\WebMatrix.WebData.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\RazorEngine.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Core.Entities.pdb
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Core.Entities.dll.config
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Core.Framework.pdb
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Core.Framework.dll.config
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Interfaces.Repository.pdb
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll.config
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Interfaces.Service.pdb
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll.config
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Services.EPR.pdb
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Services.EPR.dll.config
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Infrastructures.Data.pdb
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll.config
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\System.Web.Helpers.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\System.Web.Http.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\System.Web.Mvc.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\System.Web.Razor.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\System.Web.WebPages.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\System.Web.Optimization.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.pdb
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\WebMatrix.Data.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\WebMatrix.WebData.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\EntityFramework.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.Owin.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\bin\RazorEngine.xml
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations.init.resources
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations._201402161844035_init.resources
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.GenerateResource.cache
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.CoreCompileInputs.cache
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.CopyComplete
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.dll
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.pdb
+C:\iSRTEON-Current 24 Jul\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csprojAssemblyReference.cache
+C:\iSRTEONv2\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csprojAssemblyReference.cache
+C:\iSRTEONv2\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations.init.resources
+C:\iSRTEONv2\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations._201402161844035_init.resources
+C:\iSRTEONv2\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.GenerateResource.cache
+C:\iSRTEONv2\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.CoreCompileInputs.cache
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyRequesterNewMSRHasBeenSent.cshtml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenRejected.cshtml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewMSRRequestHasBeenReceived.cshtml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenReturned.cshtml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenFinished.cshtml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenFinished.cshtml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenRejected.cshtml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenReturned.cshtml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewCapexRequestHasBeenReceived.cshtml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexRequestHasBeenReceivedForBuyer.cshtml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenFinished.cshtml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenRejected.cshtml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenReturned.cshtml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewPRRequestHasBeenReceived.cshtml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyRequesterNewPRHasBeenSent - Copy.cshtml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenFinishedToRequester.cshtml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll.config
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.pdb
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Core.Entities.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Core.Framework.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EntityFramework.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.Owin.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.Common.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.Web.Helpers.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.Web.Infrastructure.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Owin.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\ReportViewerForMvc.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Services.EPR.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\System.Linq.Dynamic.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\System.Web.Helpers.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\System.Web.Http.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\System.Web.Mvc.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\System.Web.Optimization.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\System.Web.Razor.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\System.Web.WebPages.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\WebGrease.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\WebMatrix.Data.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\WebMatrix.WebData.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\RazorEngine.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Core.Entities.pdb
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Core.Entities.dll.config
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Core.Framework.pdb
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Core.Framework.dll.config
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Interfaces.Repository.pdb
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll.config
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Interfaces.Service.pdb
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll.config
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Services.EPR.pdb
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Services.EPR.dll.config
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Infrastructures.Data.pdb
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll.config
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\System.Web.Helpers.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\System.Web.Http.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\System.Web.Mvc.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\System.Web.Razor.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\System.Web.WebPages.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\System.Web.Optimization.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.pdb
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\WebMatrix.Data.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\WebMatrix.WebData.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EntityFramework.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.Owin.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\RazorEngine.xml
+C:\iSRTEONv2\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.CopyComplete
+C:\iSRTEONv2\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.pdb
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EPPlus.dll
+C:\iSRTEONv2\AspNetGroupBasedPermissions\bin\EPPlus.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyConfirmCDM.cshtml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyRequesterNewMSRHasBeenSent.cshtml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenRejected.cshtml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewMSRRequestHasBeenReceived.cshtml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenReturned.cshtml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyMSRHasBeenFinished.cshtml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenRejected.cshtml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexHasBeenReturned.cshtml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewCapexRequestHasBeenReceived.cshtml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyCapexRequestHasBeenReceivedForBuyer.cshtml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenFinished.cshtml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenRejected.cshtml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenReturned.cshtml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyNewPRRequestHasBeenReceived.cshtml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyRequesterNewPRHasBeenSent - Copy.cshtml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyPRHasBeenFinishedToRequester.cshtml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EmailTemplate\NotifyConfirmPettyCash.cshtml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll.config
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.pdb
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\BouncyCastle.Crypto.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Core.Entities.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Core.Framework.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EntityFramework.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EPPlus.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\MailKit.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.Owin.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.Common.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.Web.Helpers.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.Web.Infrastructure.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\MimeKit.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Owin.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\ReportViewerForMvc.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Services.EPR.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\System.Linq.Dynamic.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\System.Web.Helpers.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\System.Web.Http.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\System.Web.Mvc.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\System.Web.Optimization.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\System.Web.Razor.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\System.Web.WebPages.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\WebGrease.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\WebMatrix.Data.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\WebMatrix.WebData.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\RazorEngine.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Core.Entities.pdb
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Core.Entities.dll.config
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Core.Framework.pdb
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Core.Framework.dll.config
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Interfaces.Repository.pdb
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll.config
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Interfaces.Service.pdb
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll.config
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Services.EPR.pdb
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Services.EPR.dll.config
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Infrastructures.Data.pdb
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll.config
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EPPlus.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\MailKit.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\MimeKit.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\System.Web.Helpers.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\System.Web.Http.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\System.Web.Mvc.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\System.Web.Razor.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\System.Web.WebPages.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\System.Web.Optimization.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.pdb
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\WebMatrix.Data.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\WebMatrix.WebData.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EntityFramework.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.Owin.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\bin\RazorEngine.xml
+C:\MvcStudio201\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csprojAssemblyReference.cache
+C:\MvcStudio201\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations.init.resources
+C:\MvcStudio201\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations._201402161844035_init.resources
+C:\MvcStudio201\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.GenerateResource.cache
+C:\MvcStudio201\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.CoreCompileInputs.cache
+C:\MvcStudio201\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.CopyComplete
+C:\MvcStudio201\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.dll
+C:\MvcStudio201\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.pdb
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll.config
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.pdb
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\BouncyCastle.Crypto.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Core.Entities.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Core.Framework.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\EntityFramework.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\EPPlus.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\MailKit.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.Owin.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.Common.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.Web.Helpers.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.Web.Infrastructure.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\MimeKit.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Owin.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\ReportViewerForMvc.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Services.EPR.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\System.Linq.Dynamic.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\System.Web.Helpers.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\System.Web.Http.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\System.Web.Mvc.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\System.Web.Optimization.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\System.Web.Razor.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\System.Web.WebPages.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\WebGrease.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\WebMatrix.Data.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\WebMatrix.WebData.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\RazorEngine.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Core.Entities.pdb
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Core.Entities.dll.config
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Core.Framework.pdb
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Core.Framework.dll.config
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Interfaces.Repository.pdb
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll.config
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Interfaces.Service.pdb
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll.config
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Services.EPR.pdb
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Services.EPR.dll.config
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Infrastructures.Data.pdb
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll.config
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\EPPlus.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\MailKit.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\MimeKit.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\System.Web.Helpers.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\System.Web.Http.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\System.Web.Mvc.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\System.Web.Razor.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\System.Web.WebPages.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\System.Web.Optimization.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.pdb
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\WebMatrix.Data.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\WebMatrix.WebData.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\EntityFramework.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.Owin.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\bin\RazorEngine.xml
+C:\AlpsStudio\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csprojAssemblyReference.cache
+C:\AlpsStudio\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations.init.resources
+C:\AlpsStudio\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations._201402161844035_init.resources
+C:\AlpsStudio\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.GenerateResource.cache
+C:\AlpsStudio\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.CoreCompileInputs.cache
+C:\AlpsStudio\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.CopyComplete
+C:\AlpsStudio\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.dll
+C:\AlpsStudio\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.pdb
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll.config
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.pdb
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\BouncyCastle.Crypto.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Core.Entities.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Core.Framework.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\EntityFramework.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\EPPlus.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\MailKit.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.Owin.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.Common.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.Web.Helpers.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.Web.Infrastructure.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\MimeKit.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Owin.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\ReportViewerForMvc.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Services.EPR.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\System.Linq.Dynamic.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\System.Web.Helpers.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\System.Web.Http.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\System.Web.Mvc.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\System.Web.Optimization.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\System.Web.Razor.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\System.Web.WebPages.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\WebGrease.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\WebMatrix.Data.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\WebMatrix.WebData.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\RazorEngine.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Core.Entities.pdb
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Core.Entities.dll.config
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Core.Framework.pdb
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Core.Framework.dll.config
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Interfaces.Repository.pdb
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll.config
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Interfaces.Service.pdb
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll.config
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Services.EPR.pdb
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Services.EPR.dll.config
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Infrastructures.Data.pdb
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll.config
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\EPPlus.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\MailKit.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\MimeKit.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\System.Web.Helpers.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\System.Web.Http.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\System.Web.Mvc.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\System.Web.Razor.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\System.Web.WebPages.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\System.Web.Optimization.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.pdb
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\WebMatrix.Data.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\WebMatrix.WebData.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\EntityFramework.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.Owin.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\bin\RazorEngine.xml
+C:\AlpsStudio4\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csprojAssemblyReference.cache
+C:\AlpsStudio4\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations.init.resources
+C:\AlpsStudio4\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations._201402161844035_init.resources
+C:\AlpsStudio4\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.GenerateResource.cache
+C:\AlpsStudio4\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.CoreCompileInputs.cache
+C:\AlpsStudio4\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.CopyComplete
+C:\AlpsStudio4\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.dll
+C:\AlpsStudio4\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.pdb
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll.config
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.pdb
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\BouncyCastle.Crypto.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Core.Entities.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Core.Framework.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\EntityFramework.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\EPPlus.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\MailKit.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.Common.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Web.Helpers.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Web.Infrastructure.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\MimeKit.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Owin.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\ReportViewerForMvc.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Services.EPR.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Linq.Dynamic.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Helpers.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Http.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Mvc.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Optimization.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Razor.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.WebPages.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\WebGrease.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\WebMatrix.Data.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\WebMatrix.WebData.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\RazorEngine.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Core.Entities.pdb
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Core.Entities.dll.config
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Core.Framework.pdb
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Core.Framework.dll.config
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Interfaces.Repository.pdb
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll.config
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Interfaces.Service.pdb
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll.config
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Services.EPR.pdb
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Services.EPR.dll.config
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Infrastructures.Data.pdb
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll.config
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\EPPlus.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\MailKit.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\MimeKit.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Helpers.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Http.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Mvc.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Razor.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.WebPages.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Optimization.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.pdb
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\WebMatrix.Data.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\WebMatrix.WebData.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\EntityFramework.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\bin\RazorEngine.xml
+C:\AlpsMRO\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csprojAssemblyReference.cache
+C:\AlpsMRO\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations.init.resources
+C:\AlpsMRO\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations._201402161844035_init.resources
+C:\AlpsMRO\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.GenerateResource.cache
+C:\AlpsMRO\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.CoreCompileInputs.cache
+C:\AlpsMRO\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.CopyComplete
+C:\AlpsMRO\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.dll
+C:\AlpsMRO\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.pdb
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll.config
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\AspNetGroupBasedPermissions.pdb
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\BouncyCastle.Crypto.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Core.Entities.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Core.Framework.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\EntityFramework.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\EPPlus.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\MailKit.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.Common.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Web.Helpers.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\MimeKit.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Owin.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\ReportViewerForMvc.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Services.EPR.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Helpers.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Mvc.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Optimization.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Razor.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.WebPages.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\WebGrease.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\WebMatrix.Data.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\WebMatrix.WebData.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\RazorEngine.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Core.Entities.pdb
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Core.Entities.dll.config
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Core.Framework.pdb
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Core.Framework.dll.config
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Interfaces.Repository.pdb
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Interfaces.Repository.dll.config
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Interfaces.Service.pdb
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Interfaces.Service.dll.config
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Services.EPR.pdb
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Services.EPR.dll.config
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Infrastructures.Data.pdb
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Infrastructures.Data.dll.config
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\EPPlus.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\MailKit.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\MimeKit.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Net.Http.Formatting.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Helpers.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Http.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Http.WebHost.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Mvc.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Razor.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.WebPages.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Deployment.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.WebPages.Razor.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\System.Web.Optimization.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Newtonsoft.Json.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Antlr3.Runtime.pdb
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\WebMatrix.Data.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\WebMatrix.WebData.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\EntityFramework.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\EntityFramework.SqlServer.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\bin\RazorEngine.xml
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csprojAssemblyReference.cache
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations.init.resources
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.Migrations._201402161844035_init.resources
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.GenerateResource.cache
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.CoreCompileInputs.cache
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.csproj.CopyComplete
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.dll
+C:\Users\alma1180207\Desktop\ADV ENG\SPARE PART CONTROL\AlpsMRO\AspNetGroupBasedPermissions\obj\Debug\AspNetGroupBasedPermissions.pdb

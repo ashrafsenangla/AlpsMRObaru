@@ -1,0 +1,1362 @@
+﻿
+@using AspNetGroupBasedPermissions.Helpers
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading" style="padding: 25px 5px 5px 58px"></div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="ibox float-e-margins">
+                <div class="ibox-title" style=" padding: 1px 15px 7px;">
+                </div>
+                <div class="ibox-content">
+                    <div class="dataTables_wrapper form-inline no-footer">
+                        <div class="dataTables_length">
+                            <label>
+                                <select class="form-control input-sm" data-bind="value: pageSize">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="ibox-tools">
+                            @*<a data-bind="click: assignSupplyBased,visible: selectedVendor().VendorCode()!=''" class="btn btn-primary">Supply Based</a>*@
+                            @* <a data-bind="click: assignCategory,visible: selectedVendor().VendorCode()!=''" class="btn btn-primary">Category</a>*@
+                            <a data-bind="attr: { href: selectedVendor().DetailsURL},visible: selectedVendor().VendorCode()!=''" class="btn btn-primary">Details</a>
+                            <a data-bind="click: assignCompany,visible: selectedVendor().VendorCode()!=''" class="btn btn-primary">Companies</a>
+                            <a data-bind="attr: { href: selectedVendor().EditURL},visible: selectedVendor().VendorCode()!=''" class="btn btn-primary">Edit</a>
+                            <a data-bind="visible:selectedVendor().DeleteURL()!='',attr: { href: selectedVendor().DeleteURL}" class="btn btn-white" style="color:inherit !important">Delete</a>
+                            @Html.ActionLink("New", "CreateMaster", null, new { @class = "btn btn-primary btn-xs" })
+                            <select class="form-control input-sm" data-bind="options: companyOptions, value: selectedCompany, optionsText: 'value'"></select>
+                        </div>
+                        <div class="dataTables_filter">
+                            <label>Search:<input type="text" class="form-control input-sm" data-bind="value: formVendorSearch, valueUpdate: 'keyup'" placeholder="Search Vendor Name/Code"></label>
+                        </div>
+                        <table id="mainTable" class="table table-striped table-bordered table-hover dataTables-example">
+                            <thead>
+
+                                @*<tr>
+                                        <td colspan="7">Filter By:</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+
+                                        <td>
+                                            <select data-bind="options:availableStatus, value:selectedStatus" style="width: 100%;"></select>
+                                        </td>
+                                        <td colspan="6"></td>
+                                    </tr>*@
+                                <tr>
+                                    <th>
+                                        Vendor Code
+                                    </th>
+                                    <th>
+                                        Company Name
+                                    </th>
+                                    <th>
+                                        Phone Number
+                                    </th>
+                                    <th>
+                                        Fax #
+                                    </th>
+                                    <th>
+                                        Registration No
+                                    </th>
+                                    <th>
+                                        Is Active
+                                    </th>
+                                    <th>
+                                        Status
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: vendorsComputed()">
+                                <tr data-bind="click: $root.selectVendor, css: { 'even': $index() % 2 == 0 , 'odd': $index() % 2 == 1}">
+                                    <td style="width: 10%" data-bind="text:VendorCode"></td>
+                                    <td style="width: 10%" data-bind="text:CompanyName"></td>
+                                    <td style="width: 10%" data-bind="text:PhoneNumber1"></td>
+                                    <td style="width: 10%" data-bind="text:FaxNumber"></td>
+                                    <td style="width: 10%" data-bind="text:RegistrationNo"></td>
+                                    <td style="width: 10%">
+                                        <input type="checkbox" disabled="disabled" data-bind="checked: IsActive" />
+                                    </td>
+                                    <td style="width: 10%" data-bind="text:Status"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="dataTables_info">
+                            Showing <label data-bind="text: totalRow()==0 ? 0 : (indexPage()*pageSize())+1"></label> to <label data-bind="text: (indexPage()+1)*pageSize() > totalRow() ? totalRow():(indexPage()+1)*pageSize()"></label> of <label data-bind="text: totalRow"></label> entries
+                        </div>
+                        <div class="dataTables_paginate paging_simple_numbers">
+                            <ul class="pagination">
+                                <li class="paginate_button previous" data-bind="click: prevPage, disable: indexPage()==0, css: { 'disabled': indexPage()==0}" tabindex="0"><a href="#">Previous</a></li>
+                                <li class="paginate_button active" tabindex="0"><a href="#"><label data-bind="text: indexPage()+1"></label></a></li>
+                                <li class="paginate_button next" data-bind="click: nextPage, disable: (indexPage()+1)==totalPage(), css: { 'disabled': (indexPage()+1)==totalPage()}" tabindex="0"><a href="#">Next</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<div id="dialog-AssignCompany" title="Assign Company" style="overflow-x: hidden;">
+
+    <div data-bind="with: ViewModelAssignCompany">
+        <div class="col-md-12">
+            <div class="ibox-title">
+                <h5 data-bind="text: VendorName"></h5>
+            </div>
+            <div class="ibox-content">
+                <table class="col-md-12">
+                    <tr>
+                        <td>Company Name</td>
+                        <td>Select</td>
+                        <td>Payment Mode</td>
+                        <td>Tax Group</td>
+                        <td>Vendor Group</td>
+                        <td>Status</td>
+                    </tr>
+                    <tbody data-bind="foreach: companies">
+                        <tr>
+                            <td data-bind="text: CompanyName"></td>
+                            <td><input type="checkbox" data-bind="enable: Editable, checked: Selected" /></td>
+                            <td><select class="form-control" data-bind="options: PaymModeOptions, value: PaymModeSelected, optionsText: 'Value'"></select></td>
+                            <td><select class="form-control" data-bind="options: TaxGroupCodeOptions, value: TaxGroupCodeSelected, optionsText: 'Value'"></select></td>
+                            <td><select class="form-control" data-bind="options: VendGroupCodeOptions, value: VendGroupCodeSelected, optionsText: 'Value'"></select></td>
+                            <td><select class="form-control" data-bind="options: StatusOptions, value: StatusSelected, optionsText: 'Value'"></select></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-12" style="margin-top: 20px; text-align: center">
+            <button class="btn btn-primary" data-bind="click: submitAssignCompany">Save</button>
+            <button class="btn btn-primary" data-bind="click: cancel">Cancel</button>
+        </div>
+    </div>
+</div>
+<div id="dialog-AssignSupplyBased" title="Assign SupplyaBased" style="overflow-x: hidden;">
+
+    <div data-bind="with: ViewModelAssignSupplyBased">
+        <div class="col-md-12">
+            <div class="ibox-title">
+                <h5 data-bind="text: VendorName"></h5>
+            </div>
+            <div class="ibox-content">
+
+
+                <div class="ibox-tools">
+                    @*<button class="btn btn-primary btn-xs" data-bind="click: addSupplyBased" onclick="return false;">Add</button>*@
+                    <button class="btn btn-primary btn-xs" data-bind="click: addVendorSupplyBased" onclick="return false;">Add</button>
+
+                </div>
+
+
+                <div class="dataTables_wrapper form-inline no-footer">
+                    <table class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+
+                            <tr>
+                                <th width="2%"></th>
+                                <th width="78%">Supply Based</th>
+                                <th width="20%"></th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="margin01" data-bind="foreach: VendorSupplyBased">
+                            <tr>
+                                <td data-bind="text: $index() + 1" width="2%"></td>
+
+                                <td data-bind="text:SupplyBasedName">
+
+                                    <input class="form-control" data-bind="value: Id" type="hidden" />
+                                    <input class="form-control" data-bind="value: VendorId" type="hidden" />
+                                    <input class="form-control" data-bind="value: SupplyBasedId" type="hidden" />
+                                </td>
+                                <td>
+                                    <button class="btn btn-primary" data-bind="click: $parent.editVendorSupplyBased" onclick="return false;">Edit</button>
+                                    <button class="btn btn-primary" data-bind="click: $parent.removeSupplyBased" onclick="return false;">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="dataTables_info">
+                    Showing <label data-bind="text:VendorSupplyBased().length"> </label> entries
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12" style="margin-top: 2px; text-align: center">
+
+                        <button class="btn btn-primary" data-bind="click: cancel">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12" style="margin-top: 20px; text-align: center">
+
+        </div>
+    </div>
+</div>
+<div id="dialog-VendorSupplyBasedRequest" title="Assign SupplyBased" style="overflow-x: hidden;">
+
+    <div data-bind="with: ViewModelAssignSupplyBased">
+        <div class="col-md-12">
+            <div class="ibox-title">
+                <h5 data-bind="text: VendorName"></h5>
+            </div>
+            <div class="ibox-content">
+
+
+                <div class="well2" style="height: 50px;">
+                    <div class="col-lg-12" style="margin-bottom:5px; padding-left:0px;">
+                        <div class="form-group">
+                            <label class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-3">Supply Based</label>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                <select class="form-control" id="supplybased" data-bind="options: SupplyBasedList,optionsCaption: '-- Please Select --', optionsText: 'SupplyBasedName', optionsValue: 'Id', value :formVendorSupplyBased().SupplyBasedId"></select>
+
+                                <input class="form-control" data-bind="value: formVendorSupplyBased().Id" type="hidden" />
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="rows pull-right form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+            <button class="btn btn-white" style="float:right;" data-bind="click:cancelVendorSupplyBased" onclick="return false;">Close</button>
+            <button class="btn btn-primary" style="float:right; margin-right: 5px;" data-bind="click: submitItemRequestForm" onclick="return false;">Save</button>
+        </div>
+    </div>
+</div>
+<div id="dialog-AssignCategory" title="Assign Category" style="overflow-x: hidden;">
+
+    <div data-bind="with: ViewModelAssignCategory">
+        <div class="col-md-12">
+            <div class="ibox-title">
+                <h5 data-bind="text: VendorName"></h5>
+            </div>
+
+            <div class="ibox-content">
+
+
+                <div class="ibox-tools">
+                    <button class="btn btn-primary btn-xs" data-bind="click: addVendorCategory" onclick="return false;">Add</button>
+
+                </div>
+
+
+                <div class="dataTables_wrapper form-inline no-footer">
+                    <table class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+
+                            <tr>
+                                <th width="2%"></th>
+                                <th width="15%">Main Class</th>
+                                <th width="20%">Category</th>
+                                <th width="20%">Sub Category 1</th>
+                                <th width="20%">Sub Category 2</th>
+                                <th width="8%">OEM</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="margin01" data-bind="foreach: VendorCategory">
+                            <tr>
+                                <td data-bind="text: $index() + 1" width="2%"></td>
+                                <td width="15%" data-bind="text:MainClassName"></td>
+                                <td width="20%" data-bind="text:CategoryName">
+                                    <input class="form-control" data-bind="value: Category" type="hidden" />
+                                    <input class="form-control" data-bind="value: Id" type="hidden" />
+                                </td>
+                                <td width="20%" data-bind="text:SubCategoryName1">
+                                    <input class="form-control" data-bind="value: SubCategory1" type="hidden" />
+
+                                </td>
+                                <td width="20%" data-bind="text:SubCategoryName2">
+                                    <input class="form-control" data-bind="value: SubCategory2" type="hidden" />
+
+                                </td>
+                                <td width="8%">
+                                    <input class="form-control" data-bind="checked: OEM ,enable:false" type="checkbox" />
+                                </td>
+
+                                <td>
+                                    <button class="btn btn-primary" data-bind="click: $parent.editVendorCategory" onclick="return false;">Edit</button>
+
+                                    <button class="btn btn-primary" data-bind="click: $parent.removeVendorCategory" onclick="return false;">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="dataTables_info">
+                    Showing <label data-bind="text:VendorCategory().length"> </label> entries
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12" style="margin-top: 2px; text-align: center">
+                        <button class="btn btn-primary" data-bind="click: cancel">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="dialog-VendorCategoryRequest" title="Assign Category" style="overflow-x: hidden;">
+
+    <div data-bind="with: ViewModelAssignCategory">
+        <div class="col-md-12">
+            <div class="ibox-title">
+                <h5 data-bind="text: VendorName"></h5>
+            </div>
+            <div class="ibox-content">
+
+
+                <div class="well2" style="height: 170px;">
+                    <div class="col-lg-12" style="margin-bottom:5px; padding-left:0px;">
+                        <div class="form-group">
+                            <label class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-3">Main Class</label>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                <select class="form-control" id="mainClas" data-bind="options: MainClass,optionsCaption: '-- Please Select --', optionsText: 'MainClassName', optionsValue: 'Id',value:formVendorCategory().MainClassId ,event:{ change: LoadCategory(formVendorCategory().MainClassId)} "></select>
+                                <span class="field-validation-valid"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-3">Category</label>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                <select class="form-control" id="category" data-bind="options: Category,optionsCaption: '-- Please Select --', optionsText: 'CategoryName', optionsValue: 'Id',value:formVendorCategory().Category ,event:{ change: LoadSubCategory1(formVendorCategory().Category)} "></select>
+                                <span class="field-validation-valid"></span>
+                                <input class="form-control" data-bind="value: formVendorCategory().Id" type="hidden" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-3">Sub Category 1</label>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                <select class="form-control" id="subcategory1" data-bind="options: SubCategory1,optionsCaption: '-- Please Select --', optionsText: 'SubCategoryName1', optionsValue: 'Id' ,value:formVendorCategory().SubCategory1,event:{ change: LoadSubCategory2(formVendorCategory().Category,formVendorCategory().SubCategory1)} "></select>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-3">Sub Category 2</label>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                <select class="form-control" id="subcategory2" data-bind="options: SubCategory2,optionsCaption: '-- Please Select --', optionsText: 'SubCategoryName2', optionsValue: 'Id' ,value:formVendorCategory().SubCategory2"></select>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-3">OEM</label>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                <input type="checkbox" class="checkbox" data-bind="checked: formVendorCategory().OEM" /> <span class="field-validation-valid"></span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="rows pull-right form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+            <button class="btn btn-white" style="float:right;" data-bind="click:cancelVendorCategory" onclick="return false;">Close</button>
+            <button class="btn btn-primary" style="float:right; margin-right: 5px;" data-bind="click: submitItemRequestForm" onclick="return false;">Save</button>
+        </div>
+    </div>
+</div>
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    @Styles.Render("~/Scripts/plugins/jquery-ui/jqueryuiStyles")
+    <style>
+        .ui-dialog-3000 {
+            z-index: 3000 !important;
+        }
+
+        .ui-dialog-2900 {
+            z-index: 2900 !important;
+        }
+
+        .disable-background-eee {
+            background: #eee !important;
+        }
+
+        .backgroundSelected {
+            background-color: rgb(102, 204, 204) !important;
+        }
+    </style>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatable")
+    @Scripts.Render("~/plugins/notifyjs")
+
+    <script>
+        var ViewModelAssignCompany = new ViewModelAssignCompany();
+        var ViewModelAssignSupplyBased = new ViewModelAssignSupplyBased();
+        var ViewModelAssignCategory = new ViewModelAssignCategory();
+        function Company(data) {
+            var self = this;
+
+            this.CompanyName = ko.observable(data.CompanyName);
+            this.CompanyCode = ko.observable(data.CompanyCode);
+            this.Selected = ko.observable(data.Selected);
+            this.Editable = ko.observable(data.Editable);
+
+
+            this.VendGroupCodeOptions = ko.observableArray([]);
+            this.TaxGroupCodeOptions = ko.observableArray([]);
+            this.PaymModeOptions = ko.observableArray([]);
+            this.StatusOptions = ko.observableArray([]);
+
+            this.VendGroupCodeSelected = ko.observable(data.VendGroupCodeSelected);
+            this.TaxGroupCodeSelected = ko.observable(data.TaxGroupCodeSelected);
+            this.PaymModeSelected = ko.observable(data.PaymModeSelected);
+            this.StatusSelected = ko.observable(data.StatusSelected);
+
+            this.VendGroupCode = ko.computed(function () {
+                if (self.VendGroupCodeSelected() == null)
+                    return null;
+                return self.VendGroupCodeSelected().Key;
+            });
+            this.TaxGroupCode = ko.computed(function () {
+                if (self.TaxGroupCodeSelected() == null)
+                    return null;
+                return self.TaxGroupCodeSelected().Key;
+            });
+            this.PaymMode = ko.computed(function () {
+                if (self.PaymModeSelected() == null)
+                    return null;
+                return self.PaymModeSelected().Key;
+            });
+            this.StatusAction = ko.computed(function () {
+                if (self.StatusSelected() == null)
+                    return null;
+                return self.StatusSelected().Key;
+            });
+        }
+        function SupplyBased(data) {
+            var self = this;
+            self.Id = ko.observable(data.Id);
+            self.SupplyBasedName = ko.observable(data.SupplyBasedName);
+        }
+        function VendorSupplyBased(data) {
+            var self = this;
+            self.Id = ko.observable(data.Id);
+            self.SupplyBasedId = ko.observable(data.SupplyBasedId);
+            self.VendorId = ko.observable(data.VendorId);
+            self.SupplyBasedName = ko.observable(data.SupplyBasedName);
+        }
+
+        function VendorCategory(data) {
+            var self = this;
+            self.Id = ko.observable(data.Id);
+            self.MainClassId = ko.observable(data.MainClassId);
+            self.Category = ko.observable(data.Category);
+            self.VendorId = ko.observable(data.VendorId);
+            self.SubCategory1 = ko.observable(data.SubCategory1);
+            self.SubCategory2 = ko.observable(data.SubCategory2);
+            self.CategoryName = ko.observable(data.CategoryName);
+            self.SubCategoryName1 = ko.observable(data.SubCategoryName1);
+            self.SubCategoryName2 = ko.observable(data.SubCategoryName2);
+            self.MainClassName = ko.observable(data.MainClassName);
+            self.OEM = ko.observable(data.OEM);
+        }
+        function MainClass(data) {
+            var self = this;
+            self.Id = ko.observable(data.Id);
+            self.MainClassName = ko.observable(data.MainClassName);
+        }
+        function Category(data) {
+            var self = this;
+            self.Id = ko.observable(data.Id);
+            self.CategoryName = ko.observable(data.CategoryName);
+        }
+        function SubCategory1(data) {
+            var self = this;
+            self.Id = ko.observable(data.Id);
+            self.SubCategoryName1 = ko.observable(data.SubCategoryName1);
+        }
+        function SubCategory2(data) {
+            var self = this;
+            self.Id = ko.observable(data.Id);
+            self.SubCategoryName2 = ko.observable(data.SubCategoryName2);
+        }
+        function ViewModelAssignCompany() {
+            // Data
+            var self = this;
+            self.companies = ko.observableArray([]);
+            self.VendorName = ko.observable();
+            self.VendorId = ko.observable();
+            self.VendorCode = ko.observable();
+            //self.availableItemInfo = ko.observableArray(['Yes', 'No']);
+            self.init = function () {
+                $("#dialog-AssignCompany").dialog({
+                    open: function (event, ui) {
+                        $(this).parent().addClass('ui-dialog-2900');
+                    },
+                    autoOpen: false,
+                    height: 300,
+                    width: 1000,
+                    modal: true,
+                    dialogClass: "no-titlebar-round"
+                }).css({ "font-family": "'open sans', 'Helvetica Neue', 'Helvetica', Arial, sans-serif", "font-size": "12px" });
+            };
+            self.openDialog = function (id, code) {
+                self.companies.removeAll();
+                $.ajax('@Url.Action("GetVendorCompanies", "VendorApplication")', {
+                    data: ko.toJSON({ vendorId: id, vendorCode: code }),
+                    type: "post",
+                    contentType: "application/json",
+                    success: function (result) {
+                        self.VendorId(id);
+                        self.VendorCode(code);
+                        self.VendorName(result.VendorName);
+                        for (var i = 0; i < result.Companies.length; i++) {
+                            var temp = result.Companies[i];
+                            var company = new Company({
+                                CompanyName: temp.CompanyName,
+                                CompanyCode: temp.CompanyCode,
+                                Selected: temp.Selected,
+                                Editable: temp.Editable
+                            });
+                            company.VendGroupCodeOptions.push({
+                                Key: null,
+                                Value: '-- Please Select --',
+                            });
+                            for (var j = 0; j < temp.VendGroupCodeOptions.length; j++) {
+                                var temp2 = temp.VendGroupCodeOptions[j];
+                                var option = {
+                                    Key: temp2.Key,
+                                    Value: temp2.Value,
+                                };
+                                company.VendGroupCodeOptions.push(option);
+                                if (temp2.Selected == true)
+                                    company.VendGroupCodeSelected(option);
+                            }
+                            company.TaxGroupCodeOptions.push({
+                                Key: null,
+                                Value: '-- Please Select --',
+                            });
+                            for (var j = 0; j < temp.TaxGroupCodeOptions.length; j++) {
+                                var temp2 = temp.TaxGroupCodeOptions[j];
+                                var option = {
+                                    Key: temp2.Key,
+                                    Value: temp2.Value,
+                                };
+                                company.TaxGroupCodeOptions.push(option);
+                                if (temp2.Selected == true)
+                                    company.TaxGroupCodeSelected(option);
+                            }
+                            company.PaymModeOptions.push({
+                                Key: null,
+                                Value: '-- Please Select --',
+                            });
+                            for (var j = 0; j < temp.PaymModeOptions.length; j++) {
+                                var temp2 = temp.PaymModeOptions[j];
+                                var option = {
+                                    Key: temp2.Key,
+                                    Value: temp2.Value,
+                                };
+                                company.PaymModeOptions.push(option);
+                                if (temp2.Selected == true)
+                                    company.PaymModeSelected(option);
+                            }
+                            company.StatusOptions.push({
+                                Key: null,
+                                Value: '-- Please Select --',
+                            });
+                            for (var j = 0; j < temp.StatusOptions.length; j++) {
+                                var temp2 = temp.StatusOptions[j];
+                                var option = {
+                                    Key: temp2.Value,
+                                    Value: temp2.Text,
+                                };
+                                company.StatusOptions.push(option);
+                                if (temp2.Selected == true)
+                                    company.StatusSelected(option);
+                            }
+                            self.companies.push(company);
+                        }
+                        $("#dialog-AssignCompany").dialog("open");
+                    },
+                    error: function (error) {
+                        $.notify(
+                            error.responseText, {
+                                position: "top center",
+                                className: "error"
+                            }
+                        );
+                    }
+                })
+            }
+            self.cancel = function () {
+                $("#dialog-AssignCompany").dialog("close");
+            }
+            self.submitAssignCompany = function () {
+                $.ajax('@Url.Action("SubmitVendorCompanies", "VendorApplication")', {
+                    data: ko.toJSON({ models: self.companies, vendorId: self.VendorId, vendorCode: self.VendorCode }),
+                    type: "post",
+                    contentType: "application/json",
+                    success: function (result) {
+                        $("#dialog-AssignCompany").dialog("close");
+                        $.notify(
+                          "Saved",
+                          { position: "top center", className: "sucess" }
+                        );
+                    },
+                    error: function (error) {
+                        $.notify(
+                            error.statusText, {
+                                position: "top center",
+                                className: "error"
+                            }
+                        );
+                    }
+                });
+            }
+        }
+        function ViewModelAssignSupplyBased() {
+            // Data
+            var self = this;
+            self.SupplyBasedList = ko.observableArray([]);
+            self.VendorSupplyBased = ko.observableArray([]);
+            self.VendorName = ko.observable();
+            self.VendorId = ko.observable();
+            self.VendorCode = ko.observable();
+            self.formVendorSupplyBased = ko.observable(new VendorSupplyBased({}));
+            self.init = function () {
+                $("#dialog-AssignSupplyBased").dialog({
+                    open: function (event, ui) {
+                        $(this).parent().addClass('ui-dialog-2900');
+                    },
+                    autoOpen: false,
+                    height: 400,
+                    width: 800,
+                    modal: true,
+                    dialogClass: "no-titlebar-round"
+                }).css({ "font-family": "'open sans', 'Helvetica Neue', 'Helvetica', Arial, sans-serif", "font-size": "12px" });
+                $("#dialog-VendorSupplyBasedRequest").dialog({
+                    open: function (event, ui) {
+                        $(this).parent().addClass('ui-dialog-2900');
+                    },
+                    autoOpen: false,
+                    height: 400,
+                    width: 800,
+                    modal: true,
+                    dialogClass: "no-titlebar-round"
+                }).css({ "font-family": "'open sans', 'Helvetica Neue', 'Helvetica', Arial, sans-serif", "font-size": "12px" });
+
+            };
+
+            self.LoadSupplyBased = function () {
+                $.ajax('@Url.Action("GetVendorSupplyBasedList", "VendorApplication")', {
+                    data: {},
+                    type: "post",
+                    contentType: "application/json",
+                    success: function (result) {
+                        self.SupplyBasedList.removeAll();
+                        var underlyingArray = self.SupplyBasedList();
+                        for (var i = 0; i < result.supplybased.length; i++) {
+                            var temp = result.supplybased[i];
+                            var newSupplyBased = new SupplyBased({
+                                Id: temp.ID,
+                                SupplyBasedName: temp.SupplyBasedName
+
+                            });
+
+                            underlyingArray.push(newSupplyBased);
+
+
+                        }
+                        self.SupplyBasedList.valueHasMutated();
+                    },
+                    error: function (error) {
+
+                    }
+                })
+
+            };
+            self.addSupplyBased = function () {
+                self.VendorSupplyBased.push(
+
+                    new VendorSupplyBased({
+                        Id: 0, SupplyBasedId: 0
+                    })
+
+                );
+
+            }
+            self.removeSupplyBased = function (id) {
+
+                if (confirm('Are you sure want to delete this?')) {
+                    $.ajax("@Url.Action("DeleteVendorSupplyBased", "VendorApplication")", {
+                        data: ko.toJSON({ Id: id.Id }),
+                        type: "post", contentType: "application/json",
+                        success: function (result) {
+                            self.openDialog(self.VendorId(), self.VendorCode())
+                            $('#dialog-Loading').dialog("close");
+                        },
+                        error: function (error) {
+                            alert(error);
+                        }
+                    });
+                };
+
+            };
+            self.LoadSupplyBased();
+            self.openDialog = function (id, code) {
+
+                $.ajax('@Url.Action("VendorSupplyBasedList", "VendorApplication")', {
+                    data: ko.toJSON({ vendorId: id }),
+                    type: "post",
+                    contentType: "application/json",
+                    success: function (result) {
+                        self.VendorId(id);
+                        self.VendorCode(code);
+                        self.VendorName(result.VendorName);
+                        self.VendorSupplyBased.removeAll();
+                        var underlyingArray = self.VendorSupplyBased();
+                        for (var i = 0; i < result.vendorsupplybased.length; i++) {
+                            var item = result.vendorsupplybased[i];
+
+                            var vendorSupplyBased = new VendorSupplyBased({
+                                Id: item.Id,
+                                SupplyBasedId: item.SupplyBasedId,
+                                VendorId: item.VendorId,
+                                SupplyBasedName: item.SupplyBasedName
+                            });
+
+                            underlyingArray.push(vendorSupplyBased);
+                        }
+
+                        self.VendorSupplyBased.valueHasMutated();
+                        $("#dialog-AssignSupplyBased").dialog("open");
+                    },
+                    error: function (error) {
+                        $.notify(
+                            error.responseText, {
+                                position: "top center",
+                                className: "error"
+                            }
+                        );
+                    }
+                })
+            }
+            self.addVendorSupplyBased = function () {
+                self.formVendorSupplyBased(new VendorSupplyBased({}));
+                $("#dialog-VendorSupplyBasedRequest").dialog("open");
+            };
+            self.cancel = function () {
+                $("#dialog-AssignSupplyBased").dialog("close");
+            }
+            self.cancelVendorSupplyBased = function () {
+                $("#dialog-VendorSupplyBasedRequest").dialog("close");
+            }
+            self.editVendorSupplyBased = function (id) {
+
+                $.ajax('@Url.Action("VendorSupplyBased", "VendorApplication")', {
+                    data: ko.toJSON({ Id: id.Id }),
+                    type: "post",
+                    contentType: "application/json",
+                    success: function (result) {
+
+                        self.formVendorSupplyBased(result.vendorSupplyBased);
+
+                        $("#dialog-VendorSupplyBasedRequest").dialog("open");
+
+                    },
+                    error: function (error) {
+                        $.notify(
+                            error.responseText, {
+                                position: "top center",
+                                className: "error"
+                            }
+                        );
+                    }
+                })
+            };
+            self.submitItemRequestForm = function () {
+                if (ko.toJSON(self.formVendorSupplyBased().SupplyBasedId) == undefined) {
+                    $.notify("Please Select Supply Based", { position: "top center", className: "error" });
+                }
+                else {
+
+                    $.ajax('@Url.Action("SubmitVendorSupplayBased", "VendorApplication")', {
+                        data: ko.toJSON({ Id: ko.toJSON(self.formVendorSupplyBased().Id) == undefined ? 0 : self.formVendorSupplyBased().Id, SupplyBasedId: self.formVendorSupplyBased().SupplyBasedId, vendorId: self.VendorId }),
+                        type: "post",
+                        contentType: "application/json",
+                        success: function (result) {
+                            $("#dialog-VendorSupplyBasedRequest").dialog("close");
+                            self.openDialog(self.VendorId(), self.VendorCode());
+                            $.notify(
+                              "Saved",
+                              { position: "top center", className: "sucess" }
+                            );
+                        },
+                        error: function (error) {
+                            $.notify(
+                                error.statusText, {
+                                    position: "top center",
+                                    className: "error"
+                                }
+                            );
+                        }
+                    });
+                }
+
+            };
+
+        }
+
+        function ViewModelAssignCategory() {
+            // Data
+            var self = this;
+            self.Category = ko.observableArray([]);
+            self.MainClass = ko.observableArray([]);
+            self.SubCategory1 = ko.observableArray([]);
+            self.SubCategory2 = ko.observableArray([]);
+            self.VendorName = ko.observable();
+            self.VendorId = ko.observable();
+            self.VendorCode = ko.observable();
+            self.VendorCategory = ko.observableArray([]);
+            self.formVendorCategory = ko.observable(new VendorCategory({}));
+            self.init = function () {
+                $("#dialog-AssignCategory").dialog({
+                    open: function (event, ui) {
+                        $(this).parent().addClass('ui-dialog-2900');
+                    },
+                    autoOpen: false,
+                    height: 400,
+                    width: 1200,
+                    modal: true,
+                    dialogClass: "no-titlebar-round"
+                }).css({ "font-family": "'open sans', 'Helvetica Neue', 'Helvetica', Arial, sans-serif", "font-size": "12px" });
+                $("#dialog-VendorCategoryRequest").dialog({
+                    open: function (event, ui) {
+                        $(this).parent().addClass('ui-dialog-2900');
+                    },
+                    autoOpen: false,
+                    height: 400,
+                    width: 1200,
+                    modal: true,
+                    dialogClass: "no-titlebar-round"
+                }).css({ "font-family": "'open sans', 'Helvetica Neue', 'Helvetica', Arial, sans-serif", "font-size": "12px" });
+
+            };
+
+            self.LoadMainClass = function () {
+                $.ajax('@Url.Action("GetVendorMainClassList", "VendorApplication")', {
+                    data: {},
+                    type: "post",
+                    contentType: "application/json",
+                    success: function (result) {
+                        self.Category.removeAll();
+                        var underlyingArray = self.MainClass();
+                        for (var i = 0; i < result.vendorcategory.length; i++) {
+                            var temp = result.vendorcategory[i];
+                            var newCategory = new MainClass({
+                                Id: temp.ID,
+                                MainClassName: temp.MainClassName
+
+                            });
+
+                            underlyingArray.push(newCategory);
+                        }
+                        self.MainClass.valueHasMutated();
+                    },
+                    error: function (error) {
+
+                    }
+                })
+
+            };
+            self.LoadMainClass();
+            self.LoadCategory = function (id) {
+                $.ajax('@Url.Action("GetVendorCategoryList", "VendorApplication")', {
+                    data: ko.toJSON({ mainClass: id }),
+                    type: "post",
+                    contentType: "application/json",
+                    success: function (result) {
+                        self.Category.removeAll();
+                        var underlyingArray = self.Category();
+                        for (var i = 0; i < result.vendorcategory.length; i++) {
+                            var temp = result.vendorcategory[i];
+                            var newCategory = new Category({
+                                Id: temp.ID,
+                                CategoryName: temp.CategoryName
+
+                            });
+
+                            underlyingArray.push(newCategory);
+                        }
+                        self.Category.valueHasMutated();
+                    },
+                    error: function (error) {
+
+                    }
+                })
+
+            };
+            // self.LoadCategory();
+            self.LoadSubCategory1 = function (id) {
+
+                self.SubCategory1.removeAll();
+                $.ajax('@Url.Action("GetVendorSubCategory1List", "VendorApplication")', {
+                    data: ko.toJSON({ categoryId: id }),
+                    type: "post",
+                    contentType: "application/json",
+                    success: function (result) {
+                        self.SubCategory1.removeAll();
+                        var underlyingArray = self.SubCategory1();
+                        for (var i = 0; i < result.vendorsubcategory1.length; i++) {
+                            var temp = result.vendorsubcategory1[i];
+                            var newCategory = new SubCategory1({
+                                Id: temp.ID,
+                                SubCategoryName1: temp.SubCategoryName1
+
+                            });
+
+                            underlyingArray.push(newCategory);
+
+
+                        }
+                        self.SubCategory1.valueHasMutated();
+                    },
+                    error: function (error) {
+
+                    }
+                })
+
+            };
+
+            self.LoadSubCategory2 = function (id, subcategory1) {
+
+                self.SubCategory2.removeAll();
+                $.ajax('@Url.Action("GetVendorSubCategory2List", "VendorApplication")', {
+                    data: ko.toJSON({ categoryId: id, subcategory1: subcategory1 }),
+                    type: "post",
+                    contentType: "application/json",
+                    success: function (result) {
+                        self.SubCategory2.removeAll();
+                        var underlyingArray = self.SubCategory2();
+                        for (var i = 0; i < result.vendorsubcategory2.length; i++) {
+                            var temp = result.vendorsubcategory2[i];
+                            var newCategory = new SubCategory2({
+                                Id: temp.ID,
+                                SubCategoryName2: temp.SubCategoryName2
+
+                            });
+
+                            underlyingArray.push(newCategory);
+
+
+                        }
+                        self.SubCategory2.valueHasMutated();
+                    },
+                    error: function (error) {
+
+                    }
+                })
+
+            };
+            self.openDialog = function (id, code) {
+                $.ajax('@Url.Action("GetVendorClassificationList", "VendorApplication")', {
+                    data: ko.toJSON({ vendorId: id }),
+                    type: "post",
+                    contentType: "application/json",
+                    success: function (result) {
+                        self.VendorId(id);
+                        self.VendorCode(code);
+                        self.VendorName(result.VendorName);
+                        self.VendorCategory.removeAll();
+                        var underlyingArray = self.VendorCategory();
+                        for (var i = 0; i < result.vendorClassification.length; i++) {
+                            var item = result.vendorClassification[i];
+
+                            var vendorCategory = new VendorCategory({
+                                Id: item.Id,
+                                Category: item.Category,
+                                SubCategory1: item.SubCategory1,
+                                SubCategory2: item.SubCategory2,
+                                OEM: item.OEM,
+                                CategoryName: item.CategoryName,
+                                SubCategoryName1: item.SubCategoryName1,
+                                SubCategoryName2: item.SubCategoryName2,
+                                MainClassId: item.MainClassId,
+                                MainClassName: item.MainClassName,
+
+                            });
+                            underlyingArray.push(vendorCategory);
+                        }
+
+                        self.VendorCategory.valueHasMutated();
+                        $("#dialog-AssignCategory").dialog("open");
+                    },
+                    error: function (error) {
+                        $.notify(
+                            error.responseText, {
+                                position: "top center",
+                                className: "error"
+                            }
+                        );
+                    }
+                })
+            }
+            self.removeVendorCategory = function (id) {
+                if (confirm('Are you sure want to delete this?')) {
+                    $.ajax("@Url.Action("DeleteVendorClassification", "VendorApplication")", {
+                        data: ko.toJSON({ Id: id.Id }),
+                        type: "post", contentType: "application/json",
+                        success: function (result) {
+                            self.openDialog(self.VendorId(), self.VendorCode())
+                            $('#dialog-Loading').dialog("close");
+                        },
+                        error: function (error) {
+                            alert(error);
+                        }
+                    });
+                };
+
+            };
+            self.addVendorCategory = function () {
+                self.formVendorCategory(new VendorCategory({}));
+                $("#dialog-VendorCategoryRequest").dialog("open");
+            };
+            self.editVendorCategory = function (id) {
+
+                $.ajax('@Url.Action("GetVendorClassification", "VendorApplication")', {
+                    data: ko.toJSON({ Id: id.Id }),
+                    type: "post",
+                    contentType: "application/json",
+                    success: function (result) {
+                        self.LoadCategory(result.vendorClassification.MainClassId);
+                        self.LoadSubCategory1(result.vendorClassification.Category);
+                        self.LoadSubCategory2(result.vendorClassification.Category, result.vendorClassification.SubCategory1);
+                        setTimeout(function () {
+                            self.formVendorCategory(result.vendorClassification);
+                            $("#dialog-VendorCategoryRequest").dialog("open");
+                        }, 50);
+
+                    },
+                    error: function (error) {
+                        $.notify(
+                            error.responseText, {
+                                position: "top center",
+                                className: "error"
+                            }
+                        );
+                    }
+                })
+            };
+            self.cancelVendorCategory = function () {
+                $("#dialog-VendorCategoryRequest").dialog("close");
+            }
+            self.cancel = function () {
+                $("#dialog-AssignCategory").dialog("close");
+            }
+
+            self.submitItemRequestForm = function () {
+                if (ko.toJSON(self.formVendorCategory().MainClassId) == undefined) {
+                    $.notify("Please Select Main Class", { position: "top center", className: "error" });
+                }
+                else if (ko.toJSON(self.formVendorCategory().Category) == undefined) {
+                    $.notify("Please Select Category", { position: "top center", className: "error" });
+                }
+                else if (ko.toJSON(self.formVendorCategory().SubCategory1) == undefined) {
+                    $.notify("Please Select Sub Category 1", { position: "top center", className: "error" });
+                }
+                else {
+
+                    $.ajax('@Url.Action("SubmitVendorClassification", "VendorApplication")', {
+                        data: ko.toJSON({ Id: ko.toJSON(self.formVendorCategory().Id) == undefined ? 0 : self.formVendorCategory().Id, mainclassId: self.formVendorCategory().MainClassId, categoryId: self.formVendorCategory().Category, vendorId: self.VendorId, subcategoryId1: self.formVendorCategory().SubCategory1, subcategoryId2: self.formVendorCategory().SubCategory2, oem: ko.toJSON(self.formVendorCategory().OEM) == undefined ? false : self.formVendorCategory().OEM }),
+                        type: "post",
+                        contentType: "application/json",
+                        success: function (result) {
+                            $("#dialog-VendorCategoryRequest").dialog("close");
+                            self.openDialog(self.VendorId(), self.VendorCode());
+                            $.notify(
+                              "Saved",
+                              { position: "top center", className: "sucess" }
+                            );
+                        },
+                        error: function (error) {
+                            $.notify(
+                                error.statusText, {
+                                    position: "top center",
+                                    className: "error"
+                                }
+                            );
+                        }
+                    });
+                }
+
+            };
+
+
+
+        }
+    </script>
+    <script type="text/javascript">
+
+        var Vendor = function (data) {
+            var self = this;
+            this.Id = ko.observable(data.Id);
+            this.VendorCode = ko.observable(data.VendorCode);
+            this.CompanyName = ko.observable(data.CompanyName);
+            this.PhoneNumber1 = ko.observable(data.PhoneNumber1);
+            this.FaxNumber = ko.observable(data.FaxNumber);
+            this.RegistrationNo = ko.observable(data.RegistrationNo);
+            this.Status = ko.observable(data.Status);
+            this.IsActive = ko.observable(data.IsActive);
+            this.GSTVatRegNo = ko.observable(data.GSTVatRegNo);
+            this.EditURL = ko.observable(data.EditURL);
+            this.ViewURL = ko.observable(data.ViewURL);
+            this.DeleteURL = ko.observable(data.DeleteURL);
+            this.CompaniesURL = ko.observable(data.CompaniesURL);
+            this.DetailsURL = ko.observable(data.DetailsURL);
+        };
+
+        var ViewModel = new function () {
+            var self = this;
+            var defaultDropdownText = 'All';
+            self.ViewModelAssignCompany = ViewModelAssignCompany;
+            self.ViewModelAssignSupplyBased = ViewModelAssignSupplyBased;
+            self.ViewModelAssignCategory = ViewModelAssignCategory;
+            self.pageSize = ko.observable(10);
+            self.indexPage = ko.observable(0);
+            self.totalPage = ko.observable(1);
+            self.totalRow = ko.observable(0);
+            self.formVendorSearch = ko.observable("");
+            self.companyOptions = [
+                { key: "-1", value: "All" },
+                @foreach (var company in Model)
+            {
+                <text>{ key: "@company.CompanyCode", value: "@Html.Raw(company.CompanyName)" },</text>
+            }
+            ];
+            self.selectedCompany = ko.observable();
+
+            self.selectedVendor = ko.observable(
+                    new Vendor({
+                        Id: 0,
+                        VendorCode: '',
+                        CompanyName: '',
+                        PhoneNumber1: '',
+                        FaxNumber: '',
+                        RegistrationNo: '',
+                        Status: '',
+                        IsActive: '',
+                        EditURL: '',
+                        ViewURL: '',
+                        DeleteURL: '',
+                        CompaniesURL: '',
+                        DetailsURL: '',
+                    })
+                );
+            self.vendors = ko.observableArray([]);
+            self.nextPage = function () {
+                if ((self.indexPage() + 1) < self.totalPage()) {
+                    self.indexPage(self.indexPage() + 1);
+                    self.loadVendor();
+                }
+            }
+            self.prevPage = function () {
+                if (self.indexPage() > 0) {
+                    self.indexPage(self.indexPage() - 1);
+                    self.loadVendor();
+                }
+            }
+            self.loadVendor = function () {
+                self.vendors.removeAll();
+                if (self.selectedCompany() == null) {
+                    $('#dialog-Loading').dialog("close");
+                    return;
+                }
+                $.ajax('@Url.Action("SearchVendorByCompany", "VendorApplication")', {
+                    data: ko.toJSON({
+                        search: self.formVendorSearch(),
+                        pageSize: self.pageSize(),
+                        pageIndex: self.indexPage(),
+                        companyCode: self.selectedCompany().key
+                    }),
+                    type: "post",
+                    contentType: "application/json",
+                    success: function (result) {
+                        self.vendors.removeAll();
+                        var underlyingArray = self.vendors();
+                        for (var i = 0; i < result.vendors.length; i++) {
+                            var row = result.vendors[i];
+                            var record = {
+                                Id: row.ID,
+                                VendorCode: row.VendorCode,
+                                CompanyName: row.CompanyName,
+                                PhoneNumber1: row.PhoneNumber1,
+                                FaxNumber: row.FaxNumber,
+                                RegistrationNo: row.RegistrationNo,
+                                Status: row.Status,
+                                IsActive: row.IsActive,
+                                ViewURL: row.ViewURL,
+                                DetailsURL: row.DetailsURL,
+                                CompaniesURL: row.CompaniesURL,
+                                EditURL: row.EditURL,
+                                DeleteURL: row.DeleteURL,
+                            }
+                            underlyingArray.push(record);
+                        }
+                        self.vendors.valueHasMutated();
+                        self.totalPage(result.totalPage);
+                        self.totalRow(result.totalRow);
+                        $('#dialog-Loading').dialog("close");
+                    },
+                    error: function (error) {
+                        $.notify(
+                            error.responseText, {
+                                position: "top center",
+                                className: "error"
+                            }
+                        );
+                        $('#dialog-Loading').dialog("close");
+                    }
+                });
+            }
+
+            self.restartSearchPagination = function () {
+                self.vendors.removeAll();
+                self.indexPage(0);
+                self.totalPage(1);
+                self.totalRow(0);
+            }
+            self.formVendorSearch.subscribe(function (value) {
+                if (value == '') self.formVendorSearch("");
+                @*if (value.length < 3) {
+                self.restartSearchPagination();
+                return;
+            };*@
+                self.restartSearchPagination();
+                self.loadVendor();
+            });
+            self.pageSize.subscribe(function (value) {
+                if (self.formVendorSearch() == '') self.formVendorSearch("");
+                self.restartSearchPagination();
+                self.loadVendor();
+            });
+            self.selectVendor = function (vendor) {
+                // if (vendor.VendorCode != self.selectedVendor().VendorCode()) {
+                if (vendor.Id != self.selectedVendor().Id()) {
+                    self.selectedVendor().Id(vendor.Id);
+                    self.selectedVendor().VendorCode(vendor.VendorCode);
+                    self.selectedVendor().CompanyName(vendor.CompanyName);
+                    self.selectedVendor().PhoneNumber1(vendor.PhoneNumber1);
+                    self.selectedVendor().FaxNumber(vendor.FaxNumber);
+                    self.selectedVendor().RegistrationNo(vendor.RegistrationNo);
+                    self.selectedVendor().GSTVatRegNo(vendor.GSTVatRegNo);
+                    self.selectedVendor().IsActive(vendor.IsActive);
+                    self.selectedVendor().ViewURL(vendor.ViewURL);
+                    self.selectedVendor().DetailsURL(vendor.DetailsURL);
+                    self.selectedVendor().CompaniesURL(vendor.CompaniesURL);
+                    self.selectedVendor().EditURL(vendor.EditURL);
+                    self.selectedVendor().DeleteURL(vendor.DeleteURL);
+                }
+                else {
+                    self.resetSelectedVendor();
+                }
+            }
+            self.resetSelectedVendor = function () {
+                self.selectedVendor().Id(0);
+                self.selectedVendor().VendorCode("");
+                self.selectedVendor().CompanyName("");
+                self.selectedVendor().PhoneNumber1("");
+                self.selectedVendor().FaxNumber("");
+                self.selectedVendor().RegistrationNo("");
+                self.selectedVendor().GSTVatRegNo("");
+                self.selectedVendor().IsActive("");
+                self.selectedVendor().ViewURL("");
+                self.selectedVendor().DetailsURL("");
+                self.selectedVendor().CompaniesURL("");
+                self.selectedVendor().EditURL("");
+                self.selectedVendor().DeleteURL("");
+            }
+            self.assignCompany = function () {
+                self.ViewModelAssignCompany.openDialog(self.selectedVendor().Id(), self.selectedVendor().VendorCode());
+            }
+
+            self.assignSupplyBased = function () {
+                self.ViewModelAssignSupplyBased.openDialog(self.selectedVendor().Id());
+            }
+            self.assignCategory = function () {
+                self.ViewModelAssignCategory.openDialog(self.selectedVendor().Id());
+            }
+
+            self.vendors.subscribe(function (value) {
+                self.resetSelectedVendor();
+            });
+            self.vendorsComputed = ko.computed(function () {
+                var records = self.vendors;
+                return records;
+            });
+
+            self.selectedCompany.subscribe(function (value) {
+                $('#dialog-Loading').dialog("open");
+                self.restartSearchPagination();
+                self.loadVendor();
+            });
+            self.ViewModelAssignCompany.init();
+            self.ViewModelAssignSupplyBased.init();
+            self.ViewModelAssignCategory.init();
+            self.loadVendor();
+        };
+        $(document).ready(function () {
+
+            $('#dialog-Loading').dialog("open");
+            ko.applyBindings(ViewModel);
+
+            $('#itemSearchTable tbody').on('click', 'tr', function () {
+                if ($(this).hasClass('backgroundSelected')) {
+                    $(this).removeClass('backgroundSelected');
+                }
+                else {
+                    $('tr.backgroundSelected').removeClass('backgroundSelected');
+                    $(this).addClass('backgroundSelected');
+                }
+            });
+        });
+        $('#submitSave').click(function (e) {
+            e.preventDefault();
+            FormValidation();
+        });
+        function FormValidation() {
+
+            var category = document.getElementById('category').value;
+
+            if (category == "") {
+                document.getElementById('category').style.borderColor = "red";
+                return false;
+            }
+            else {
+                document.getElementById('category').style.borderColor = "green";
+            }
+
+
+        }
+    </script>
+}

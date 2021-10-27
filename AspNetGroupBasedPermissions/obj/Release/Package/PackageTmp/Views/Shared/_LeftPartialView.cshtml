@@ -1,0 +1,39 @@
+﻿@model List<Core.Entities.Data.Admin.Service>
+
+<div class="table" id="logtable">
+    <div class="row">
+        <div class="cell" id="tableth">
+            message
+        </div>
+    </div>
+
+    @foreach (var item in Model)
+        {
+        <div class="row">
+            <div class="cell" id="tabletd">
+                <input type="button" name="answer" value="Show Div" onclick="showDiv(@item.ToString())" />
+                @Html.DisplayFor(modelItem => item.NameOption)
+            </div>
+        </div>
+        <div class="row">
+            <div id="@item.Id.ToString()" style="display:none;" class="answer_list">
+                <strong>Uri:</strong> @item.NameOption <br />
+                <strong>Method:</strong> @item.Action <br />
+            </div>
+        </div>
+    }
+</div>
+
+<script type="text/javascript">
+    function showDiv(message) {
+        if (document.getElementById(message).style.display == 'block') {
+            document.getElementById(message).style.display = "none";
+        }
+        else {
+            document.getElementById(message).style.display = "block";
+        }
+    }
+
+</script>
+
+

@@ -1,0 +1,65 @@
+﻿@model Core.Entities.Data.Admin.ApplicationUserService
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Edit ApplicationUserService</h5>
+                </div>
+                <div class="ibox-content">
+
+				@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.UserId)
+
+        @Html.HiddenFor(model => model.ServiceId)
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+				@Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-white"})
+            </div>
+        </div>
+    </div>
+}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+	@Scripts.Render("~/plugins/dataPicker")
+	  <script type="text/javascript">
+        $(document).ready(function () {
+
+         $('#data_1 .input-group.date').datepicker({
+             todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+        });
+    
+    </script>
+}

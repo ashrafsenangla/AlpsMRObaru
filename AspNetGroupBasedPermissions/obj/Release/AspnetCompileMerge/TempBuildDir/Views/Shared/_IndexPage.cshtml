@@ -1,0 +1,11 @@
+﻿<div>
+    Showing <label data-bind="text: totalRow()==0 ? 0 : (indexPage()*pageSize())+1"></label> to <label data-bind="text: (indexPage()+1)*pageSize() > totalRow() ? totalRow():(indexPage()+1)*pageSize()"></label> of <label data-bind="text: totalRow"></label> entries
+    <div class="dataTables_paginate paging_simple_numbers">
+        <ul class="pagination">
+            <li class="paginate_button previous" data-bind="click: prevPage, disable: indexPage()==0, css: { 'disabled': indexPage()==0}" tabindex="0"><a href="#">Previous</a></li>
+            <li class="paginate_button active" tabindex="0"><a href="#"><label data-bind="text: indexPage()+1"></label></a></li>
+            <li class="paginate_button next" data-bind="click: nextPage, disable: (indexPage()+1)==totalPage(), css: { 'disabled': (indexPage()+1)==totalPage()}" tabindex="0"><a href="#">Next</a></li>
+        </ul>
+    </div>
+
+</div>

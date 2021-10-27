@@ -1,0 +1,102 @@
+﻿@model AspNetGroupBasedPermissions.Models.LoginViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alps Electric (Malaysia) Sdn Bhd| Login</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="~/Content/animate.css" rel="stylesheet">
+    <link href="~/Content/style.css" rel="stylesheet">
+
+</head>
+
+<body class="white-bg">
+
+    <section>
+        <center>
+            <div style="width:auto">
+                <img src="~/Images/alpsalpinesmalllogo.jpg" />
+            </div>
+            <div>
+                <label class="pull-left btn btn-xs btn-block" style="font-weight:bolder;font-size:13px;"></label>
+            </div>
+        </center>
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "form-signin", role = "form", enctype = "multipart/form-data" }))
+        {
+
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <center>
+                <div class="row" style="padding:3px;background:#808080">
+                    <center>
+                        <div style="min-width:400px;width:30%">
+                            <div class="form-group">
+                                <label class="pull-left btn btn-xs btn-primary btn-block">Enter Username & Password To Sign In </label>
+                            </div>
+                            @Html.ValidationSummary("", new { @style = "color: red" })
+                        <div class="welldetailsCompanyedit" style="min-height:225px">
+                            <br />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "UserName" })
+                                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="submit" value="Log in" class="btn btn-primary" />
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    @Html.CheckBoxFor(m => m.RememberMe, new { id = "ismobile", name = "ismobile" })Remember Me
+                                </label>
+                            </div>
+                            <a href="localhost:58980/Account/ForgotPassword">Forgot Password ?</a>
+                        </div>
+                        </div>
+                        
+                    </center>
+                </div>
+            </center>
+
+        }
+    <center>
+        <div class="row" style="height:auto;font-size:20px;color:white;background:#16113e">
+            MRO Inventory Tracking System <label style="font-size:10px">(Everything You Can Know)</label>
+        </div>
+    </center>
+    </section>
+</body>
+</html>
+<style type="text/css">
+    .limit {
+        width: 100%;
+        height: 100%;
+        max-height: 500px;
+        overflow: hidden;
+    }
+
+        .limit img {
+            width: 100%;
+            height: 100%;
+        }
+
+    .marginLogo {
+        margin-top: 100px;
+    }
+</style>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,12 @@
+﻿@model AspNetGroupBasedPermissions.Models.SelectStoreEditorViewModel
+@Html.HiddenFor(model => model.WhouseID)
+<tr>
+    <td style="text-align:center">
+        @Html.CheckBoxFor(model => model.Selected)
+    </td>
+    
+
+    <td style="padding-right:20px">
+        @Html.DisplayFor(model => model.WhouseName)
+    </td>
+</tr>

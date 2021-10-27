@@ -1,0 +1,224 @@
+﻿@model Core.Entities.Data.Admin.Branch
+@using AspNetGroupBasedPermissions.Helpers
+
+@{ ViewBag.Title = "Branch Info";}
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+
+        @using (Html.BeginForm())
+        {
+        
+            @Html.ValidationSummary(true)
+
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title " style="padding-top:32px;"></div>
+                    <div class="ibox-content" style="background-color:#f7f5f5;">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label style="font-weight:bolder;" class="pull-left btn btn-xs btn-primary btn-block">Branch Info</label>
+                            </div>
+                            <div class="ibox-content" style="padding:1px 5px 5px 5px;">
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <h4 class="text-danger">Are you sure you want to delete this record?</h4>
+                                    <input type="submit" value="Delete" class="btn btn-primary" />
+                                    @Html.ActionLink("Cancel", "IndexBranch", null, new { @class = "btn btn-white" })
+                                }
+                            </div>
+                            <div class="welldetailsContactedit" style="background-color:#c8faf0;">
+                                <br />
+
+                                <div class="wellpob" style="min-height:330px;  padding:10px;  margin-bottom:20px;">
+                                    <div class="circle-border">
+                                        <div class="col-lg-5">
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.BusinessUnit, "Business Unit", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.DropDownList("BusinessUnit", (IEnumerable<SelectListItem>)Session["BusinessUnit"], "", htmlAttributes: new { @class = "form-control", @disabled = "disabled", @style = "background-color: #edfcf9;" })
+                                                    @Html.HiddenFor(model => model.BusinessUnit)
+                                                    @Html.ValidationMessageFor(model => model.BusinessUnit)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.BranchCode, "Branch Code", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.BranchCode, new { htmlAttributes = new { @class = "form-control", @required = "required", @readonly = "readonly", @style = "background-color: #edfcf9;font-size:12px;height:30px;" }, @id = "SerialNumber" })
+                                                    @Html.ValidationMessageFor(model => model.BranchCode)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.BranchName, "Branch Name", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.BranchName, new { htmlAttributes = new { @class = "form-control", @required = "required", @readonly = "readonly", @style = "background-color: #edfcf9;font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.BranchName)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.AddressLine1, "Address Line 1", new { @class = "control-label col-sm-3" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.AddressLine1, new { htmlAttributes = new { @class = "form-control", @required = "required", @readonly = "readonly", @style = "background-color: #edfcf9;font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.AddressLine1)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.AddressLine2, "Address Line 2", new { @class = "control-label col-sm-3" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.AddressLine2, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @style = "background-color: #edfcf9;font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.AddressLine2)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.AddressLine3, "Address Line 3", new { @class = "control-label col-sm-3" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.AddressLine3, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @style = "background-color: #edfcf9;font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.AddressLine3)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.City, "City", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control", @required = "required", @readonly = "readonly", @style = "background-color: #edfcf9;font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.City)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.PostCode, "PostCode", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.PostCode, new { htmlAttributes = new { @class = "form-control", @required = "required", @readonly = "readonly", @style = "background-color: #edfcf9;font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.PostCode)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.StateCode, "State", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.DropDownList("StateCode", (IEnumerable<SelectListItem>)Session["StateCode"], "", htmlAttributes: new { @class = "form-control", @disabled = "disabled", @style = "background-color: #edfcf9;" })
+                                                    @Html.ValidationMessageFor(model => model.StateCode)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.Manager, "Manager", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.Manager, new { htmlAttributes = new { @class = "form-control", @required = "required", @readonly = "readonly", @style = "background-color: #edfcf9;font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.Manager)
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.AdminOfficer, "Admin Officer", new { @class = "control-label col-md-3", @style = "padding-left:30px;" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.AdminOfficer, new { htmlAttributes = new { @class = "form-control", @required = "required", @readonly = "readonly", @style = "background-color: #edfcf9;font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.AdminOfficer)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.ManagerMobileNumber, "Manager Mobile#", new { @class = "control-label col-md-3", @style = "padding-left:30px;" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.ManagerMobileNumber, new { htmlAttributes = new { @class = "form-control", @required = "required", @readonly = "readonly", @style = "background-color: #edfcf9;font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.ManagerMobileNumber)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.PhoneNumber, "Phone#", new { @class = "control-label col-md-3", @style = "padding-left:30px;" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @required = "required", @readonly = "readonly", @style = "background-color: #edfcf9;font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.PhoneNumber)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.FaxNumber, "Fax#", new { @class = "control-label col-md-3", @style = "padding-left:30px;" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.FaxNumber, new { htmlAttributes = new { @class = "form-control", @required = "required", @readonly = "readonly", @style = "background-color: #edfcf9;font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.FaxNumber)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.EmailAddress, "Email", new { @class = "control-label col-md-3", @style = "padding-left:30px;" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control", @required = "required", @readonly = "readonly", @style = "background-color: #edfcf9;font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.EmailAddress)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.GPSLocation, "GPS Location", new { @class = "control-label col-md-3", @style = "padding-left:30px;" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.GPSLocation, new { htmlAttributes = new { @class = "form-control", @required = "required", @readonly = "readonly", @style = "background-color: #edfcf9;font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.GPSLocation)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.BranchType, "Branch Type", new { @class = "control-label col-md-3", @style = "padding-left:30px;" })
+                                                <div class="col-md-8">
+                                                    @Html.DropDownList("BranchType", (IEnumerable<SelectListItem>)Session["BranchType"], "", htmlAttributes: new { @class = "form-control", @disabled = "disabled", @style = "background-color: #edfcf9;" })
+                                                    @Html.ValidationMessageFor(model => model.BranchType)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.RegionalCode, "Regional", new { @class = "control-label col-md-3", @style = "padding-left:30px;" })
+                                                <div class="col-md-8">
+                                                    @Html.DropDownList("RegionalCode", (IEnumerable<SelectListItem>)Session["RegionalCode"], "", htmlAttributes: new { @class = "form-control", @disabled = "disabled", @style = "background-color: #edfcf9;" })
+                                                    @Html.ValidationMessageFor(model => model.RegionalCode)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.NearestBranch, "Nearest Branch", new { @class = "control-label col-md-3", @style = "padding-left:30px;" })
+                                                <div class="col-md-8">
+                                                    @Html.DropDownList("NearestBranch", (IEnumerable<SelectListItem>)Session["NearestBranch"], "", htmlAttributes: new { @class = "form-control", @disabled = "disabled", @style = "background-color: #edfcf9;" })
+                                                    @Html.ValidationMessageFor(model => model.NearestBranch)
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.NearestCPC, "Nearest CPC", new { @class = "control-label col-md-3", @style = "padding-left:30px;" })
+                                                <div class="col-md-8">
+                                                    @Html.DropDownList("NearestCPC", (IEnumerable<SelectListItem>)Session["NearestCPC"], "", htmlAttributes: new { @class = "form-control", @disabled = "disabled", @style = "background-color: #edfcf9;" })
+                                                    @Html.ValidationMessageFor(model => model.NearestCPC)
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                @Html.LabelFor(model => model.IsActive, "Is Active?", new { @class = "control-label col-md-3", @style = "padding-left:30px;" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.IsActive)
+                                                    @Html.ValidationMessageFor(model => model.IsActive)
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+ 
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+
+    <script src="~/Scripts/plugins/knockout/knockout.validation.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#RoadTaxDate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+        });
+
+
+    </script>
+}
+

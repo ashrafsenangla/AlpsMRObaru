@@ -1,0 +1,143 @@
+﻿@model IEnumerable<Core.Entities.Data.PartData.PartTransferChargeOut>
+@using AspNetGroupBasedPermissions.Helpers
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="modal-dialog" style="width:780px;">
+        <div class="modal-content" style="width:780px;">
+            <div class="ibox float-e-margins">
+                <div class="panel-heading btn-primary modal-header">
+                    <center class="panel-title" style="min-height:10px;">
+                        <h4 style="font-weight:300">List of Transfer Out Request : Pending Confirmation</h4>
+                    </center>
+
+                </div>
+
+                <div class="ibox-content">
+                    <table id="mainTable" class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Record ID</th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.PartID)
+                                </th>
+                                <th>Part Name</th>
+                                <th>Category</th>
+                                <th>Quantity</th>
+                                <th>Created By</th>
+                                <th>Date Created</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="mainTable">
+
+                            @foreach (var item in Model)
+                            {
+                                <tr id="mainTable">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PartTransferChargeOutID, new { @id = "recordid", name = "recordID" })
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PartID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.RefPartID.PartName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.RefPartID.RefCategoryID.CategoryName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Qty)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.UserCreated)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DateCreated)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </td>
+                                    <td>
+                                        <a onclick="DeleteRec(@item.PartTransferChargeOutID)" class=" btn btn-xs btn-danger btn-lg pull-right header-btn hidden-mobile"><i class="fa fa-circle-arrow-up fa-lg"></i>Delete</a>
+                                    </td>
+                                </tr>
+                            }
+
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <center>
+                        <div class="col-md-offset-2 col-md-10">
+                            <input id="savebutton" type="submit" value="Confirm & Submit" class="btn btn-primary" />
+                            @Html.ActionLink("Cancel", "IndexPartStoreInv", null, new { @class = "btn btn-white" })
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+
+    <script type="text/javascript">
+
+    $('mainTable').click(function () {
+           alert("");
+        var tr = $(this).closest('tr');
+
+        var id = tr.children('td:eq(0)').text(); //get the text from first col of current row
+        console.log(id); //you'll get the actual ids here
+    });
+
+
+    function DeleteRec(recordId) {
+           $.ajax({
+                type: "POST",
+                url: '@Url.Action("DeletePartCO", "PartTransferChargeOut")',
+                data: '{ id : "' + recordId + '"}',
+                dataType: "json",
+                  contentType: "application/json; charset=utf-8",
+
+                  success: function () {
+                      alert("The record has been deleted successfully!");
+                      window.location.href = '@Url.Action("IndexPartStoreInv", "PartTransferChargeOut", new { Area = "Part" })';
+                  },
+                  error: function () {
+                      alert("Delete Error. Please check details!!!");
+                      location.reload(true);
+                  }
+              });
+        }
+
+
+        $(document).ready(function () {
+            $('.dataTables-example').dataTable({
+                "dom": 'T<"clear">pl',
+                "tableTools": {
+                    "sSwfPath": "../scripts/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+                }
+            });
+        });
+    </script>
+}
+
+

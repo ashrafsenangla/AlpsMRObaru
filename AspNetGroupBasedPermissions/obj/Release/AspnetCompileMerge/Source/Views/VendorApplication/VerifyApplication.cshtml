@@ -1,0 +1,192 @@
+﻿@model AspNetGroupBasedPermissions.ViewModels.VendorApplicationEditViewModel
+@using AspNetGroupBasedPermissions.Helpers
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.VendorApplication.ID)
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Details Vendor Registration</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="pull-left btn btn-xs btn-primary btn-block">Login Info</label>
+                                    </div>
+                                    <div class="welldetailsvendor">
+                                        <br />
+                                        <div class="form-group">
+                                            <div> <i class="fa fa-briefcase control-label col-md-1"></i></div>
+                                            @Html.LabelFor(model => model.VendorApplication.TitleCode, "Title", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-7 m-b-xs m-b-xs ">
+                                                @Html.DisplayFor(model => model.VendorApplication.RTMTitle.TitleDesc)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div> <i class="fa fa-user control-label col-md-1"></i></div>
+                                            @Html.LabelFor(model => model.VendorApplication.FirstName, "First Name", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-7 m-b-xs m-b-xs">
+                                                @Html.DisplayFor(model => model.VendorApplication.FirstName)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div> <i class="fa fa-user control-label col-md-1"></i></div>
+                                            @Html.LabelFor(model => model.VendorApplication.LastName, "Last Name", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-7 m-b-xs m-b-xs">
+                                                @Html.DisplayFor(model => model.VendorApplication.LastName)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div> <i class="fa fa-phone control-label col-md-1"></i></div>
+                                            @Html.LabelFor(model => model.VendorApplication.MobileNumber1, "Mobile Number 1", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-7 m-b-xs m-b-xs">
+                                                @Html.DisplayFor(model => model.VendorApplication.MobileNumber1)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div> <i class="fa fa-phone control-label col-md-1"></i></div>
+                                            @Html.LabelFor(model => model.VendorApplication.MobileNumber2, "Mobile Number 2", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-7 m-b-xs m-b-xs">
+                                                @Html.DisplayFor(model => model.VendorApplication.MobileNumber2)
+                                            </div>
+                                        </div>
+                                        <div> <i class="fa fa-envelope control-label col-md-1"></i></div><div class="form-group">
+                                            @Html.LabelFor(model => model.VendorApplication.EmailAddress, "Email Address", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-7 m-b-xs m-b-xs">
+                                                @Html.DisplayFor(model => model.VendorApplication.EmailAddress)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="pull-left btn btn-xs btn-primary btn-block">Contact Person</label>
+                                    </div>
+
+                                    <div class="welldetailsContact">
+                                        <br />
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorApplication.PositionCode, "Position", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.DisplayFor(model => model.VendorApplication.RTMPosition.PositionDesc)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VendorApplication.ContactPerson, "Contact Person", new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8 m-b-xs">
+                                                @Html.DisplayFor(model => model.VendorApplication.ContactPerson)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group"><label class="pull-left btn btn-xs btn-primary btn-block">Vendor Info</label></div>
+                                <div class="welldetailsCompany">
+                                    <br />
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorApplication.CompanyName, "Company Name", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs">
+                                            @Html.DisplayFor(model => model.VendorApplication.CompanyName)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorApplication.Address, new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs">
+                                            @Html.DisplayFor(model => model.VendorApplication.Address, new { @class = "form-control", rows = "4" })
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorApplication.Postcode, new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs">
+                                            @Html.DisplayFor(model => model.VendorApplication.Postcode)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorApplication.City, new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs">
+                                            @Html.DisplayFor(model => model.VendorApplication.City)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorApplication.StateCode, "State", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs">
+                                            @Html.DisplayFor(model => model.VendorApplication.RTMState.StateDesc)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorApplication.CountryCode, "Country", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs">
+                                            @Html.DisplayFor(model => model.VendorApplication.RTMCountry.CountryDesc)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorApplication.PhoneNumber1, "Phone Number 1", new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs">
+                                            @Html.DisplayFor(model => model.VendorApplication.PhoneNumber1)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorApplication.PhoneNumber2, new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs">
+                                            @Html.DisplayFor(model => model.VendorApplication.PhoneNumber2)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorApplication.FaxNumber, new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs">
+                                            @Html.DisplayFor(model => model.VendorApplication.FaxNumber)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.VendorApplication.Website, new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8 m-b-xs">
+                                            @Html.DisplayFor(model => model.VendorApplication.Website)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input type="submit" value="Verify" class="btn btn-primary" />
+                    <input type="submit" value="Reject" class="btn btn-primary" />
+                    <input type="submit" value="KIV" class="btn btn-primary" />
+                    @Html.ActionLink("Cancel", "IndexVerifyApplication", null, new { @class = "btn btn-white" })
+                </div>
+            </div>
+    }
+</div>

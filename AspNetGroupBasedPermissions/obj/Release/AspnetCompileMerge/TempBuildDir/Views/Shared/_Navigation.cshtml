@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNet.Identity
+<nav class="navbar-default navbar-static-side" style="position: fixed;height:100%;" role="navigation">
+    <div class="sidebar-collapse" style="height:100%;">
+        <ul class="nav" id="side-menus">
+            <li class=" nav-header" style="height:50px; background: #367fa9;">
+                <div>
+                    <img src="~/Images/srtlogo68x78.png" style="max-width:35px;padding-bottom:15px;max-height:50px;" />
+                    <span style="color:white;font-weight:900;font-size:14px;padding-bottom:115px">
+                        <i>i-</i>SRTEON
+                    </span>
+                </div>
+                <div class="logo-element">
+                    SRT
+                </div>
+            </li>
+        </ul>
+        <ul class="nav" id="side-menu" style="height:100%;padding-bottom:85px;overflow-x:auto">
+            @{Html.RenderAction("_SRTMenu", "Home", new { area = "" });}
+            <li class="active">
+                <a><span class="nav-label">&nbsp;</span></a>
+                @*<ul class="collapse in">
+            </ul>*@
+            </li>
+        </ul>
+    </div>
+</nav>

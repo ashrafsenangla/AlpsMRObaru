@@ -1,0 +1,29 @@
+﻿@model IEnumerable<AspNetGroupBasedPermissions.ViewModels.UserServices>
+    <div style="padding-top:30px;">
+
+  
+            <ul>
+                @{foreach (var item in Model.Where(s => s.ParentId == 0).GroupBy(Obj => new { Obj.ParentId }).Distinct().ToList())
+                    {
+                        <li>
+                                @{foreach (var firstItem in (Model.Where(s => s.ParentId == item.FirstOrDefault().ParentId).ToList()))
+                                    {
+                                        <li>
+                                                @foreach (var secondItem in (Model.Where(s => s.ParentId == firstItem.Id).ToList()))
+                                                {
+                                                    <li>
+                                                        <a href="/@secondItem.Controller/@secondItem.Action">
+                                                            @secondItem.NameOption
+                                                        </a>
+
+                                                    </li>
+                                                }
+
+                                        </li>
+                                    }
+                                }
+                        </li>
+                    }
+                }
+            </ul>
+        </div>

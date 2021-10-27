@@ -1,0 +1,137 @@
+﻿@{
+    ViewBag.Title = "Customer Information";
+}
+
+<!DOCTYPE html>
+<html>
+<body>
+    
+    <div class="row wrapper border-bottom white-bg page-heading" style="padding: 5px 5px 56px"></div>
+    <div class="row">
+        <div class="panel panel-default list-panel" id="list-panel">
+            <div class="panel-heading list-panel-heading" style="background-color:black;">
+                <a class="btnCRUD btn btn-primary" title="Add Record" data-modal="" href="/SRTMasterCode/Create" id="btnCreate">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </a>
+                <button id="btnEdit" type="button" title="Edit" class="btnCRUD btn btn-circle "><i class="glyphicon glyphicon-pencil"></i></button>
+                <button id="btnDelete" type="button" title="Delete" class="btnCRUD btn btn-danger "><i class="glyphicon glyphicon-trash"></i></button>
+
+                <button type="button"
+                        class="btn btn-default btn-md"
+                        data-toggle="modal"
+                        data-target="#advancedSearchModal"
+                        id="advancedsearch-button">
+                    <span class="glyphicon glyphicon-search"
+                          aria-hidden="true"></span> Advanced Search
+                </button>
+                <select id="ddCountry" class="input-sm" style="width:200px">
+                    @*<option value="">All Country</option>
+                        <option value="USA">USA</option>
+                        <option value="Poland">Poland</option>
+                        <option value="Finland">Finland</option>*@
+                </select>
+                @Html.DropDownList("ListCountry1", ViewBag.ListCountry as SelectList, "-- Select Country --",  new { @onchange = "CallChangefunc(this.value)" })
+                <input type="button" value="Find" id="btnSearch" />
+            </div>
+
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+
+                    <table id="demoGrid" class="table table-striped table-bordered table-hover dataTables-example">
+
+                        <thead>
+                            <tr>
+                                <th>CustomerID</th>
+                                <th>CompanyName</th>
+                                <th>ContactName</th>
+                                <th>Country</th>
+                                <th>Phone</th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <div id='myModal' class='modal fade in'>
+            <div class="modal-dialog">
+                <div id='myModalContent'></div>
+            </div>
+        </div>
+</body>
+</html>
+
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+}
+
+@section scripts{
+
+    @Scripts.Render("~/plugins/dataTables")
+    <script type="text/javascript" src="~/Scripts/crud-popup.js"></script>
+    <script>
+        var Popup, dataTable;
+        $(document).ready(function () {
+            datatable = $("#demoGrid").DataTable({
+
+                "processing": true, // for show progress bar
+                "serverSide": true, // for process server side
+                "filter": true, // this is for disable filter (search box)
+                "orderMulti": false, // for disable multiple column at once
+                "info": true,   // control table information display field
+                "stateSave": true,  //restore table state on page reload,
+                "dom": '<"bottom"ilfp><"clear">',
+                "pageLength": 10,
+                "lengthMenu": [[10, 25, 50, 100], [10, 25, 50, 100]],
+                "ajax": {
+                    "url": "/Customer/LoadData",
+                    "type": "POST",
+                    "datatype": "json"
+                },
+                "language": {"emptyTable": "No data found, Please click on <b>Add New</b> Button"},
+                "columns": [
+                      { "data": "CustomerID", "name": "CustomerID", "autoWidth": true },
+                      { "data": "CompanyName", "name": "CompanyName", "autoWidth": true },
+                      { "data": "ContactName", "title": "ContactName", "name": "ContactName", "autoWidth": true },
+                      { "data": "Country", "name": "Country", "autoWidth": true },
+                      { "data": "Phone", "name": "Phone", "title": "Status", "autoWidth": true },
+                         {
+                             "data": "CustomerID",
+                             "searchable": true,
+                             "sortable": false,
+                             "width": "50px",
+                             "render": function (data, type, full, meta) {
+                                 return '<a href="@Url.Action("EditCustomer","Customer")?CustomerID=' + data + '" class="editAsset glyphicon glyphicon-edit "></a>';
+                             }
+                             @*"render": function (data, type, full, meta) {
+                                 return '<a href="@Url.Action("EditCustomer","Customer")?CustomerId=' + data + '"class="editAsset glyphicon glyphicon-edit"><span><span></a>  <a href="@Url.Action("_DetailCustomer","Customer")?CustomerId=' + data + '" class="detailsAsset glyphicon glyphicon-envelope"><span></a>  <a href="@Url.Action("_DeleteCustomer","Customer")?CustomerId=' + data + '" class="deleteAsset glyphicon glyphicon-trash"><span></a>';
+                             }*@
+                         }
+                ],
+                "order": [[0, "asc"]]
+            });
+
+            oTable = $('#demoGrid').DataTable();
+            $('#btnSearch').click(function () {
+                 oTable.columns(3).search($('#ddCountry').val().trim());
+                oTable.draw();
+            });
+
+            //oTable = $('#demoGrid').DataTable();
+            //$('#btnSearch').click(function () {
+            //    // oTable.columns(0).search($('#txtEmployeeName').val().trim());
+            //    oTable.columns(3).search($('#ddCountry').val().trim());
+            //    oTable.draw();
+            //});
+
+
+        });
+
+        
+    </script>
+}
+

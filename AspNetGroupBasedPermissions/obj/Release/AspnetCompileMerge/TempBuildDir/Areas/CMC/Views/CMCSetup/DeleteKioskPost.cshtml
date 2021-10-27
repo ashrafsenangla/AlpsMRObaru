@@ -1,0 +1,160 @@
+﻿@model Core.Entities.Data.CMC.CMCKioskPost
+@using AspNetGroupBasedPermissions.Helpers
+@{ ViewBag.Title = "Update Kiosk/Post";}
+
+    <div style="padding-bottom:50px;" class="wrapper wrapper-content">
+        @using (Html.BeginForm())
+        {
+       
+            @Html.ValidationSummary(true)
+        
+            @*<p style="color:red">@ViewBag.LocationID</p>*@
+
+            <div class="form-group">
+                <label class="pull-left btn btn-xs btn-primary btn-block" style="font-weight:bolder; background-color:#368; border-color:#368;">Update Kiosk/Post</label>
+            </div>
+            <div class="ibox-content" style="padding:1px 5px 5px 5px;">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <h4 class="text-danger">Are you sure you want to delete this record?</h4>
+                    <input type="submit" value="Delete" class="btn btn-primary" />
+                    @Html.ActionLink("Cancel", "IndexKioskPost", "CMCSetup", new { id = @ViewBag.LocationID }, new { @class = "modal-link btn btn-white"})
+                }
+            </div>
+            <div class="welldetailsContactedit" style="background-color:#c5e5fa;">
+                <br />
+                <br />
+                <div class="wellpob" style="min-height:200px; background-color: #c5e5fa;">
+                    <div class="circle-border">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+
+                                @Html.LabelFor(model => model.KioskPostCode, "KIosk/Post Code", new { @class = "control-label col-md-3" })
+                                <div class="col-md-8">
+                                    @Html.TextBox("KioskPostCode", ViewData[""], new { @class = "form-control", @readonly = "readonly", @style = "font-size:12px;height:30px; background-color: #edfcf9;" })
+                                    @*@Html.TextBox(model => model.KioskPostCode, new { htmlAttributes = new { @class = "form-control", @required = "required", @readonly = "readonly", @style = "font-size:12px;height:30px;" }, @id = "kioskpostcode" })*@
+                                    @Html.ValidationMessageFor(model => model.KioskPostCode)
+                                </div>
+                                @Html.LabelFor(model => model.KioskPostName, "KIosk/Post Name", new { @class = "control-label col-md-3" })
+                                <div class="col-md-8">
+                                    @Html.TextBox("KioskPostName", ViewData[""], new { @class = "form-control", @readonly = "readonly", @style = "font-size:12px;height:30px; background-color: #edfcf9;" })
+                                    @Html.ValidationMessageFor(model => model.KioskPostName)
+                                </div>
+                                @Html.LabelFor(model => model.BankName, "Bank Name", new { @class = "control-label col-sm-3" })
+                                <div class="col-md-8">
+                                    @Html.DropDownList("BankName", (IEnumerable<SelectListItem>)Session["BankName"], " < Select Bank >", new { @class = "form-control", @required = "required", @disabled = "disabled", @style = "font-size:12px;height:30px;" })
+                                    @Html.ValidationMessageFor(model => model.BankName)
+                                </div>
+                                @Html.LabelFor(model => model.AccountNumber, "Account Number", new { @class = "control-label col-md-3" })
+                                <div class="col-md-8">
+                                    @Html.TextBox("AccountNumber", ViewData[""], new { @class = "form-control", @readonly = "readonly", @style = "font-size:12px;height:30px; background-color: #edfcf9;" })
+                                    @Html.ValidationMessageFor(model => model.AccountNumber)
+                                </div>
+                                @Html.LabelFor(model => model.AccountType, "Account Type", new { @class = "control-label col-md-3" })
+                                <div class="col-md-8">
+                                    @Html.TextBox("AccountType", ViewData[""], new { @class = "form-control", @readonly = "readonly", @style = "font-size:12px;height:30px; background-color: #edfcf9;" })
+                                    @Html.ValidationMessageFor(model => model.AccountType)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+
+                                @Html.LabelFor(model => model.EmailAddress, "Email Address", new { @class = "control-label col-md-3" })
+                                <div class="col-md-8">
+                                    @Html.TextBox("EmailAddress", ViewData[""], new { @class = "form-control", @readonly = "readonly", @style = "font-size:12px;height:30px; background-color: #edfcf9;" })
+                                    @Html.ValidationMessageFor(model => model.EmailAddress)
+                                </div>
+                                @Html.LabelFor(model => model.ContactPerson, "Contact Person", new { @class = "control-label col-md-3" })
+                                <div class="col-md-8">
+                                    @Html.TextBox("ContactPerson", ViewData[""], new { @class = "form-control", @readonly = "readonly", @style = "font-size:12px;height:30px; background-color: #edfcf9;" })
+                                    @Html.ValidationMessageFor(model => model.ContactPerson)
+                                </div>
+                                @Html.LabelFor(model => model.ReferenceNo, "Reference#", new { @class = "control-label col-md-3" })
+                                <div class="col-md-8">
+                                    @Html.TextBox("ReferenceNo", ViewData[""], new { @class = "form-control", @readonly = "readonly", @style = "font-size:12px;height:30px; background-color: #edfcf9;" })
+                                    @Html.ValidationMessageFor(model => model.ReferenceNo)
+                                </div>
+                                @Html.LabelFor(model => model.IsActive, "Is Active?", new { @class = "control-label col-md-3" })
+                                <div class="col-md-8">
+                                    @Html.DisplayFor(model => model.IsActive)
+                                    @Html.ValidationMessageFor(model => model.IsActive)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-offset-5 col-md-9">
+                @Html.ActionLink("Back To List", "IndexKioskPost", "CMCSetup", new { id = @ViewBag.LocationID }, new { @class = "modal-link btn btn-white", @style = "border-color:steelblue;background-color:steelblue; color: white;" })
+                @*@Html.EncodedActionLink("Edit", "EditKioskPost", "CMCSetup", new { id = Model.ID, area = "CMC" }, new { @class = "btn btn-xs btn-primary", @style = "border-color:#37a5ed;background-color:#37a5ed;width:40px; " })
+                <input type="submit" value="Update" class="btn btn-xs btn-primary" style="border-color:#37a5ed;background-color:#37a5ed;width:60px;" />
+                @Html.EncodedActionLink("Delete", "DeleteKioskPost", "CMCSetup", new { id = Model.ID, area = "CMC" }, new { @class = "btn btn-xs btn-primary", @style = "width:60px;" })*@
+            </div>
+
+
+        }
+
+    </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+
+    <script src="~/Scripts/plugins/knockout/knockout.validation.js"></script>
+    <script type="text/javascript">
+
+
+         function FuncBranch(bizUnit) {
+              if (bizUnit== null || bizUnit == "") {
+                  $('#BranchID').html(""); // clear before appending new list
+                  $('#BranchID').append(
+                      $('<option></option>').val("").html("--Select Branch--"));
+              }
+              else {
+                  $.ajax({
+                      url: '@Url.Action("FillBranch", "Branch", new { area = "Administrator" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                         bizUnit: bizUnit
+                      },
+
+                      success: function (results) {
+                          $('#BranchID').html(""); // clear before appending new list
+                          $('#BranchID').append(
+                          $('<option></option>').val("").html("--Select Branch--"));
+                          $.each(results, function (i, results) {
+                              $('#BranchID').append(
+                                  $('<option></option>').val(results.ID).html(results.BranchName));
+                          });
+                      },
+                      error: function (error) {
+                          $.notify(
+                              error,
+                              { position: "top center", className: "Please Select A Correct Branch" }
+                          );
+                      }
+                  });
+              }
+            }
+
+
+        $(document).ready(function () {
+
+            $("#RoadTaxDate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+        });
+
+
+    </script>
+}
+

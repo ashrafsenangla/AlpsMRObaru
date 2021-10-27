@@ -1,0 +1,152 @@
+﻿@model Core.Entities.Data.CMC.CMCKioskPost
+@using AspNetGroupBasedPermissions.Helpers
+@{ ViewBag.Title = "Create Kiosk/Post";}
+
+    <div style="padding-bottom:50px;" class="wrapper wrapper-content" id="myModal" tabindex="-1" role="dialog" >
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @ViewBag.LocationID
+
+            <div class="form-group">
+                <label class="pull-left btn btn-xs btn-primary btn-block" style="font-weight:bolder; background-color:#368; border-color:#368;">Create New Kiosk/Post</label>
+            </div>
+            <div class="welldetailsContactedit" style="background-color:#c5e5fa;">
+                <br />
+                <br />
+                <div class="wellpob" style="min-height:200px; background-color: #c5e5fa;">
+                    <div class="circle-border">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                
+                                <p style="color:red">@ViewBag.LocationID</p>
+                                @Html.LabelFor(model => model.KioskPostCode, "KIosk/Post Code", new { @class = "control-label col-md-3" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.KioskPostCode, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" }, @id = "kioskpostcode" })
+                                    @Html.ValidationMessageFor(model => model.KioskPostCode)
+                                    @Html.ValidationSummary(true, "Kiosk/Post Code Already Exist", new { @class = "text-danger" })
+                                </div>
+                                @Html.LabelFor(model => model.KioskPostName, "KIosk/Post Name", new { @class = "control-label col-md-3" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.KioskPostName, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" } })
+                                    @Html.ValidationMessageFor(model => model.KioskPostName)
+                                </div>
+                                @Html.LabelFor(model => model.BankName, "Bank Name", new { @class = "control-label col-md-3" })
+                                <div class="col-md-8">
+                                    @Html.DropDownList("BankName", ViewData["Bank"] as SelectList, "--Select Bank --", htmlAttributes: new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                    @Html.HiddenFor(model => model.BankName)
+                                    @Html.ValidationMessageFor(model => model.BankName)
+                                </div>
+                                @Html.LabelFor(model => model.AccountNumber, "Account Number", new { @class = "control-label col-md-3" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.AccountNumber, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" } })
+                                    @Html.ValidationMessageFor(model => model.AccountNumber)
+                                </div>
+                                @Html.LabelFor(model => model.AccountType, "Account Type", new { @class = "control-label col-md-3" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.AccountType, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" } })
+                                    @Html.ValidationMessageFor(model => model.AccountType)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.EmailAddress, "Email Address", new { @class = "control-label col-md-3" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" }, @id = "locationid" })
+                                    @Html.ValidationMessageFor(model => model.EmailAddress)
+                                </div>
+                                @Html.LabelFor(model => model.ContactPerson, "Contact Person", new { @class = "control-label col-md-3" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.ContactPerson, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = ";font-size:12px;height:30px;" } })
+                                    @Html.ValidationMessageFor(model => model.ContactPerson)
+                                </div>
+                                @Html.LabelFor(model => model.ReferenceNo, "Reference#", new { @class = "control-label col-md-3" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.ReferenceNo, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = ";font-size:12px;height:30px;" } })
+                                    @Html.ValidationMessageFor(model => model.ReferenceNo)
+                                </div>
+                                @Html.LabelFor(model => model.IsActive, "Is Active?", new { @class = "control-label col-md-3" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.IsActive)
+                                    @Html.ValidationMessageFor(model => model.IsActive)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-md-offset-5 col-md-9">
+                <input type="submit" value="Create" class="btn btn-primary" onclick="return FormValidationDirect()" />
+                <input type="submit" value="Cancel" class="btn btn-white" onclick="  window.location.href = '@ViewBag.PreviousUrl'; " />
+            </div>
+
+
+        }
+
+    </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+
+    <script src="~/Scripts/plugins/knockout/knockout.validation.js"></script>
+    <script type="text/javascript">
+        $(function () {
+        $('#myModal').modal('show');
+    })
+
+         function FuncBranch(bizUnit) {
+              if (bizUnit== null || bizUnit == "") {
+                  $('#BranchID').html(""); // clear before appending new list
+                  $('#BranchID').append(
+                      $('<option></option>').val("").html("--Select Branch--"));
+              }
+              else {
+                  $.ajax({
+                      url: '@Url.Action("FillBranch", "Branch", new { area = "Administrator" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                         bizUnit: bizUnit
+                      },
+
+                      success: function (results) {
+                          $('#BranchID').html(""); // clear before appending new list
+                          $('#BranchID').append(
+                          $('<option></option>').val("").html("--Select Branch--"));
+                          $.each(results, function (i, results) {
+                              $('#BranchID').append(
+                                  $('<option></option>').val(results.ID).html(results.BranchName));
+                          });
+                      },
+                      error: function (error) {
+                          $.notify(
+                              error,
+                              { position: "top center", className: "Please Select A Correct Branch" }
+                          );
+                      }
+                  });
+              }
+            }
+
+
+        $(document).ready(function () {
+
+            $("#RoadTaxDate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+        });
+
+
+    </script>
+}
+

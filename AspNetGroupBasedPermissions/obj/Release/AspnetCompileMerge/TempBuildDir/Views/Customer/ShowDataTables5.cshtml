@@ -1,0 +1,463 @@
+﻿@model IEnumerable<Core.Entities.Data.QHSE.Hazards>
+
+@using AspNetGroupBasedPermissions.Helpers
+
+@{
+    ViewBag.Title = "Index-HOC";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>List of HOC</h5>
+                    <div class="ibox-tools">
+                        <div class="ibox-tools">
+                        </div>
+                        <div class="ibox-tools">
+                            <button id="custom_datatables_submit_button" onclick="submitAll();" class="btn btn-primary btn-xs" style="display:none;margin-left:5px; margin-right:5px">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="dataTables_wrapper form-inline no-footer">
+                        <div class="dataTables_length">
+                            <label>
+                                <select class="form-control input-sm" data-bind="value: pageSize">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select> records per page
+                            </label>
+                        </div>
+                        <div class="dataTables_filter">
+                            <label>Search:<input type="text" class="form-control input-sm" data-bind="value: formVendorSearch, valueUpdate: 'keyup'" placeholder=""></label>
+                        </div>
+                        <table id="mainTable" class="table table-striped table-bordered table-hover dataTables-example">
+                            <thead>
+                                <tr>
+                                    <td data-bind="style : {width: '15%' } " colspan="2">Filter By:</td>
+                                    <td data-bind="style : {width: '11%' } ">
+                                        @*<select data-bind="options:availableHazardDate, value:selectedHazardDate" style="width: 100%;"></select>*@
+                                        @*<div class="input-group date">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+
+                                                <input id="StartDate" data-bind="value:selectedHazardDate">
+                                            </div>*@
+                                    </td>
+                                    <td data-bind="style : {width: '9%' } ">
+                                        <div class="input-group date">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+
+                                            <input id="StartDate" data-bind="value:selectedHazardDate">
+                                        </div>
+                                    </td>
+                                    <td data-bind="style : {width: '9%' } ">
+                                        <select data-bind="options:availableLocation, value:selectedLocation" style="width: 100%;"></select>
+                                    </td>
+                                    <td data-bind="style : {width: '7%' } ">
+                                        <select data-bind="options:availableCondition, value:selectedCondition" style="width: 100%;"></select>
+                                    </td>
+                                    <td data-bind="style : {width: '15%' } ">
+                                        <select data-bind="options:availableCategory, value:selectedCategory" style="width: 100%;"></select>
+                                    </td>
+
+                                    <td data-bind="style : {width: '10%' } ">
+                                        <select data-bind="options:availableStatusName, value:selectedStatusName" style="width: 100%;"></select>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <input name="select_all" value="1" type="checkbox">
+                                    </th>
+                                    <th>
+                                        HOC No.
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Reporter Name")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("HOC Date")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Location")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Condition")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Category")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Status")
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="dataTablesForEach:
+                                   {
+                                   data: vendorsComputed(), dataTableOptions: {
+                                   dom: 'T<\' clear\'>
+                                lfrtip',
+                                paging: false,
+                                searching:false,
+                                info:false,
+                                tableTools: {
+                                'sSwfPath': '../../../scripts/plugins/dataTables/swf/copy_csv_xls_pdf.swf'
+                                },
+                                aoColumns: [
+                                null,
+                                null,
+                                null,
+                                { 'sType':'customDate' },
+                                null,
+                                null,
+                                null,
+                                null,
+                                null
+                                ],
+                                responsive:true,
+
+                                rowCallback: function (row, data, dataIndex) {
+                                var rowId = data[1];
+                                if ($.inArray(rowId, custom_datatables_rows_selected) !== -1) {
+                                $(row).find('input[type=\'checkbox\']').prop('checked', true);
+                                $(row).addClass('selected');
+                                }
+                                }
+                                }
+                                }">
+                                <tr>
+                                    <td>
+                                        <!-- ko if: !IsSubmitted -->
+                                        <input type='checkbox'>
+                                        <!-- /ko -->
+                                    </td>
+                                    <td data-bind="text:HazardID, style : {width: '15%' } "></td>
+                                    <td data-bind="text:ReporterName, style : {width: '10%' } "></td>
+                                    <td data-bind="style : {width: '7%' },text:HazardDate"></td>
+                                    <td data-bind="style : {width: '7%' } ">
+                                        <span data-bind="text:LocationName"></span>
+                                    </td>
+                                    <td data-bind="style : {width: '11%' } ">
+                                        <span data-bind="text:ConditionName"></span>
+                                    </td>
+                                    <td data-bind="style : {width: '15%' } ">
+                                        <span data-bind="text:CategoryName"></span>
+                                    </td>
+                                    <td data-bind="style : {width: '10%' } ">
+                                        <span data-bind="text:Status"></span>
+                                    </td>
+                                    <td>
+                                        <a data-bind="visible:ShowButton==true,attr: { href: DetailURL}" class="btn-primary">Details</a>
+                                        <a data-bind="visible:ShowButton==true,attr: { href: EditURL, disabled : EditURL=='', onclick : EditURL==''? 'return false;':''}" class="btn-white">Edit</a>
+                                        <a data-bind="visible:ShowButton==true,attr: { href: DeleteURL, disabled : DeleteURL=='', onclick : DeleteURL==''? 'return false;':''}" class="btn-white">Delete</a>
+                                        <a data-bind="visible:ShowButtonSAIL==true,attr: { href: SailHocCodeURL, disabled : SailHocCodeURL=='', onclick : SailHocCodeURL==''? 'return false;':''},
+                                                    css:{ 'btn-white' : SailHocCodeURL=='', 'btn-primary':SailHocCodeURL!=''}">SAIL</a>
+                                        <a data-bind="visible:ShowButtonINR==true,attr: { href: INRHocCodeURL, disabled : INRHocCodeURL=='', onclick : INRHocCodeURL==''? 'return false;':''},
+                                                    css:{ 'btn-white' : INRHocCodeURL=='', 'btn-primary':INRHocCodeURL!=''}">INR</a>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="dataTables_info">
+                            Showing <label data-bind="text: totalRow()==0 ? 0 : (indexPage()*pageSize())+1"></label> to <label data-bind="text: (indexPage()+1)*pageSize() > totalRow() ? totalRow():(indexPage()+1)*pageSize()"></label> of <label data-bind="text: totalRow"></label> entries
+                        </div>
+                        <div class="dataTables_paginate paging_simple_numbers">
+                            <ul class="pagination">
+                                <li class="paginate_button previous" data-bind="click: prevPage, disable: indexPage()==0, css: { 'disabled': indexPage()==0}" tabindex="0"><a href="#">Previous</a></li>
+                                <li class="paginate_button active" tabindex="0"><a href="#"><label data-bind="text: indexPage()+1"></label></a></li>
+                                <li class="paginate_button next" data-bind="click: nextPage, disable: (indexPage()+1)==totalPage(), css: { 'disabled': (indexPage()+1)==totalPage()}" tabindex="0"><a href="#">Next</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    @Styles.Render("~/Scripts/plugins/jquery-ui/jqueryuiStyles")
+    <style>
+        .ui-dialog-3000 {
+            z-index: 3000 !important;
+        }
+
+        .ui-dialog-2900 {
+            z-index: 2900 !important;
+        }
+
+        .disable-background-eee {
+            background: #eee !important;
+        }
+
+        .numberCircle {
+            border-radius: 50%;
+            behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+            width: 20px;
+            height: 20px;
+            padding: 0px;
+            background: #1AB394;
+            border: 1px solid #1AB394;
+            text-align: center;
+            color: white;
+            font: 10px;
+        }
+    </style>
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/knockout")
+    @Scripts.Render("~/app/knockoutDatatableCheckbox")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/notifyjs")
+
+
+
+
+    <script type="text/javascript">
+        function submitAll() {
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("VerifyAllIndexHOC", "Hazards")",
+                data: { hazardIds: custom_datatables_rows_selected },
+                success: function (data) {
+                    location.reload();
+                },
+                dataType: "json",
+                traditional: true
+            });
+        }
+        jQuery.extend(jQuery.fn.dataTableExt.oSort, {
+            "customDate-pre": function (a) {
+                var ukDatea = a.split('/');
+                return (ukDatea[2] + ukDatea[1] + ukDatea[0]) * 1;
+            },
+
+            "customDate-asc": function (a, b) {
+                return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+            },
+
+            "customDate-desc": function (a, b) {
+                return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+            }
+        });
+        Date.prototype.toFormattedDate = function () {
+            var dd = this.getDate();
+            if (dd < 10) dd = '0' + dd;
+            var mm = this.getMonth() + 1;
+            if (mm < 10) mm = '0' + mm;
+            var yyyy = this.getFullYear();
+            /* change format here */
+            return String(dd + "/" + mm + "/" + yyyy);
+        };
+        // Person ViewModel
+        var MSR = function (data) {
+            var self = this;
+            this.HazardID = ko.observable(data.HazardID);
+            this.HazardDate = ko.observable(data.HazardDate);
+            this.LocationName = ko.observable(data.LocationName);
+            this.ConditionName = ko.observable(data.ConditionName);
+            this.CategoryName = ko.observable(data.CategoryName);
+            this.Status = ko.observable(data.Status);
+            this.ReporterName = ko.observable(data.ReporterName);
+            this.SailHocCodeURL = ko.observable(data.SailHocCodeURL);
+            this.INRHocCodeURL = ko.observable(data.INRHocCodeURL);
+            this.SailHocCode = ko.observable(data.SailHocCode);
+            this.INRHocCode = ko.observable(data.INRHOCCode);
+            this.DetailURL = ko.observable(data.DetailURL);
+            this.EditURL = ko.observable(data.EditURL);
+            this.DeleteURL = ko.observable(data.DeleteURL);
+            this.ShowButton = ko.observable(data.ShowButton);
+            this.ShowButtonSAIL = ko.observable(data.ShowButtonSAIL);
+            this.ShowButtonINR = ko.observable(data.ShowButtonINR);
+            this.EncodedId = ko.observable(data.EncodedId);
+            this.IsSubmitted = ko.observable(data.IsSubmitted);
+            this.IsChecked = ko.observable(data.IsChecked);
+        };
+        //Main ViewModel
+        var ViewModel = new function () {
+            var self = this;
+            var defaultDropdownText = 'All';
+            var defaultDropdownTextStatus = 'Pending Verification';
+
+            var defaultdate = new Date().toFormattedDate();
+            self.pageSize = ko.observable(50);
+            self.indexPage = ko.observable(0);
+            self.totalPage = ko.observable(1);
+            self.totalRow = ko.observable(0);
+            self.hocs = ko.observableArray([]);
+            self.formVendorSearch = ko.observable("");
+
+            self.availableLocation = ko.observableArray([defaultDropdownText,@foreach (var item in ViewBag.LocationName){<text>'@item',</text>}]);
+                self.availableCondition = ko.observableArray([defaultDropdownText,@foreach (var item in ViewBag.ActCondition){<text>'@item',</text>}]);
+                    self.availableCategory = ko.observableArray([defaultDropdownText,@foreach (var item in ViewBag.Category) {<text>'@item',</text>}]);
+            self.availableStatusName = ko.observableArray([defaultDropdownText, @foreach (var item in ViewBag.Status){<text>'@item',</text>}]);
+
+
+
+            self.selectedLocation = ko.observable(defaultDropdownText);
+            self.selectedCondition = ko.observable(defaultDropdownText);
+            self.selectedCategory = ko.observable(defaultDropdownText);
+            self.selectedStatusName = ko.observable(defaultDropdownTextStatus);
+            self.selectedHazardDate = ko.observable(defaultdate);
+
+            self.nextPage = function () {
+                if ((self.indexPage() + 1) < self.totalPage()) {
+                    self.indexPage(self.indexPage() + 1);
+                    self.loadhoc();
+                }
+            }
+            self.prevPage = function () {
+                if (self.indexPage() > 0) {
+                    self.indexPage(self.indexPage() - 1);
+                    self.loadhoc();
+                }
+            }
+
+            self.loadhoc = function () {
+                self.hocs.removeAll();
+
+                $.ajax('@Url.Action("GetHOC2", "customer")', {
+                    data: ko.toJSON({
+                        search: self.formVendorSearch(),
+                        pageSize: self.pageSize(),
+                        pageIndex: self.indexPage(),
+                        status: self.selectedStatusName(),
+                        category: self.selectedCategory(),
+                        location: self.selectedLocation(),
+                        condition: self.selectedCondition(),
+                        hsedate: self.selectedHazardDate()
+                    }),
+                    type: "post",
+                    contentType: "application/json",
+                    success: function (result) {
+                        self.hocs.removeAll();
+                        var underlyingArray = self.hocs();
+                        for (var i = 0; i < result.hocs.length; i++) {
+                            var row = result.hocs[i];
+                            var record = {
+                                HazardID: row.HazardID,
+                                HazardDate: row.HazardDate,
+                                LocationName: row.LocationName,
+                                ConditionName: row.ConditionName,
+                                CategoryName: row.CategoryName,
+                                ReporterName: row.ReporterName,
+                                Status: row.Status,
+                                DetailURL: row.DetailURL,
+                                EditURL: row.Status=="Pending Verification" ?row.EditURL:"",
+                                DeleteURL: row.Status=="Draft"?row.DeleteURL:"",
+                                INRHocCodeURL: row.INRHOCCode != null?row.INRHocCodeURL:"",
+                                SailHocCodeURL: row.SailHocCode != null ?row.SailHocCodeURL:"",
+                                INRHocCode: row.INRHOCCode,
+                                SailHocCode: row.SailHocCode,
+                                IsSubmitted: row.Status == "Pending Verification" ? false : true,
+                                IsChecked: row.IsChecked,
+                                ShowButton: row.ShowButton,
+                                ShowButtonSAIL: row.ShowButtonSAIL,
+                                ShowButtonINR: row.ShowButtonINR,
+                            }
+                            underlyingArray.push(record);
+                        }
+                        self.hocs.valueHasMutated();
+                        self.totalPage(result.totalPage);
+                        self.totalRow(result.totalRow);
+                        $('#dialog-Loading').dialog("close");
+                    },
+                    error: function (error) {
+                        $.notify(
+                            error.responseText, {
+                                position: "top center",
+                                className: "error"
+                            }
+                        );
+                        $('#dialog-Loading').dialog("close");
+                    }
+                });
+            }
+
+            self.restartSearchPagination = function () {
+                self.hocs.removeAll();
+                self.indexPage(0);
+                self.totalPage(1);
+                self.totalRow(0);
+            }
+            self.formVendorSearch.subscribe(function (value) {
+                if (value == '') self.formVendorSearch("");
+
+                self.restartSearchPagination();
+                self.loadhoc();
+            });
+            self.pageSize.subscribe(function (value) {
+                if (self.formVendorSearch() == '') self.formVendorSearch("");
+                self.restartSearchPagination();
+                self.loadhoc();
+            });
+
+
+
+            self.vendorsComputed = ko.computed(function () {
+
+                var records = self.hocs;
+
+                return records;
+            });
+            self.selectedStatusName.subscribe(function (value) {
+                $('#dialog-Loading').dialog("open");
+                self.restartSearchPagination();
+                self.loadhoc();
+            });
+            self.selectedCategory.subscribe(function (value) {
+                $('#dialog-Loading').dialog("open");
+                self.restartSearchPagination();
+                self.loadhoc();
+            });
+            self.selectedCondition.subscribe(function (value) {
+                $('#dialog-Loading').dialog("open");
+                self.restartSearchPagination();
+                self.loadhoc();
+
+            });
+            self.selectedLocation.subscribe(function (value) {
+                $('#dialog-Loading').dialog("open");
+                self.restartSearchPagination();
+                self.loadhoc();
+            });
+            self.selectedHazardDate.subscribe(function (value) {
+                $('#dialog-Loading').dialog("open");
+                self.restartSearchPagination();
+                self.loadhoc();
+            });
+
+            self.loadhoc();
+
+        };
+        $(document).ready(function () {
+
+            $('#StartDate').datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true,
+            }).datepicker("setDate", new Date());
+
+            ko.applyBindings(ViewModel);
+        });
+    </script>
+}
+

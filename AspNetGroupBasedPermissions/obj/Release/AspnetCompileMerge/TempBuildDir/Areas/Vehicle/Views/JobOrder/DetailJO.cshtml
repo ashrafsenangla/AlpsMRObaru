@@ -1,0 +1,208 @@
+﻿@model Core.Entities.Data.Kenderaan.srtVehicle
+@using AspNetGroupBasedPermissions.Helpers
+@{ ViewBag.Title = "Vehicle Management";}
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title " style="padding-top:50px;"></div>
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="pull-left btn btn-xs btn-primary btn-block">Vehicle Information</label>
+                                </div>
+                                <div class="welldetailsContactedit">
+                                    <br />
+                                    <div class="wellpob" style="min-height:350px;  padding:10px;  margin-bottom:20px;">
+                                        <div class="circle-border">
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Vehicle_No, "Registration No.", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.TextBoxFor(model => model.Vehicle_No, new { @class = "form-control ", @readonly = "readonly" })
+                                                        @Html.ValidationMessageFor(model => model.Vehicle_No)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Brand_Name, "Model", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.TextBoxFor(model => model.Brand_Name, new { @class = "form-control ", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.VehicleType, "Use As", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.TextBoxFor(model => model.VehicleType, new { @class = "form-control ", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Fuel_Type, "Fuel Type", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.TextBoxFor(model => model.Fuel_Type, new { @class = "form-control ", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Year_Purchase, "Year Purchase", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.TextBoxFor(model => model.Year_Purchase, new { @class = "form-control ", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.MFG_Year, "MFG Year", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.TextBoxFor(model => model.MFG_Year, new { @class = "form-control ", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Body_No, "Body Number", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.TextBoxFor(model => model.Body_No, new { @class = "form-control ", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.RoadTax_No, "Road Tax #", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.TextBoxFor(model => model.RoadTax_No, new { @class = "form-control ", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Puspakom_Tax_No, "Puspakom Tax #", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.TextBoxFor(model => model.Puspakom_Tax_No, new { @class = "form-control ", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.SPAD_No, "SPAD #", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.TextBoxFor(model => model.SPAD_No, new { @class = "form-control ", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.MFG_Year, "Fuel Card #", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.TextBoxFor(model => model.MFG_Year, new { @class = "form-control ", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Bleet_Card_No, "Bleet Card #", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.TextBoxFor(model => model.Bleet_Card_No, new { @class = "form-control ", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Insurance_No, "Insurance #", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.TextBoxFor(model => model.Insurance_No, new { @class = "form-control ", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Leasor, "Leasor Name", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.TextBoxFor(model => model.Leasor, new { @class = "form-control ", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.RoadTax_Exp_Date, "Road Tax Expiry", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.TextBoxFor(model => model.RoadTax_Exp_Date, new { @class = "form-control ", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Puspakom_Exp_Date, "Puspakom Expiry", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.TextBoxFor(model => model.Puspakom_Exp_Date, new { @class = "form-control ", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.SPAD_Exp_Date, "SPAD Expiry", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.TextBoxFor(model => model.SPAD_Exp_Date, new { @class = "form-control ", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Bullet_Proof, "Is Bullet Proof ?", new { @class = "control-label col-md-5" })
+                                                    <div class="col-md-7">
+                                                        @Html.TextBoxFor(model => model.Bullet_Proof, new { @class = "form-control ", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.HasGPS, "Has GPS Tracker ?", new { @class = "control-label col-md-4" })
+                                                    <div class="col-md-3">
+                                                        @Html.TextBoxFor(model => model.HasGPS, new { @class = "form-control ", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.BusinessUnit, "Business Unit", new { @class = "control-label col-md-1" })
+                                                    <div class="col-md-3">
+                                                        @Html.DropDownList("DetailDescription", ViewData["BusinessUnit"] as SelectList, "", htmlAttributes: new { @disabled = "disabled" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Branch_ID, "Branch", new { @class = "control-label col-md-1" })
+                                                    <div class="col-md-3">
+                                                        @Html.DropDownList("Branch_Id", ViewData["BranchDesc"] as SelectList, "", htmlAttributes: new { @disabled = "disabled" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Status, "Status", new { @class = "control-label col-md-1" })
+                                                    <div class="col-md-3">
+                                                        @Html.DropDownList("Status", ViewData["StatusDesc"] as SelectList, "", htmlAttributes: new { @disabled = "disabled" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-offset-5 col-md-9">
+                                @Html.EncodedActionLink("Edit", "EditVehicle", "VehicleMaster", new { id = Model.ID, area = "Vehicle" }, new { @class = "btn btn-primary" })
+
+                                @Html.ActionLink("Delete", "IndexVehicle", null, new { @class = "btn btn-white" })
+                                @Html.ActionLink("Cancel", "IndexVehicle", null, new { @class = "btn btn-white" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+        });
+
+    </script>
+}

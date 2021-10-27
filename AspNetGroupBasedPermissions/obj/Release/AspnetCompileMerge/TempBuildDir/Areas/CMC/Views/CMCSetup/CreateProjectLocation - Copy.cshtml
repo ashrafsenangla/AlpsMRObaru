@@ -1,0 +1,141 @@
+﻿@model Core.Entities.Data.CMC.CMCProjectLocation
+@{ ViewBag.Title = "Create Project Location";}
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+           
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content" style="background-color:#f7f5f5;">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="pull-left btn btn-xs btn-primary btn-block" style="font-weight:bolder; background-color:#368; border-color:#368;">Create New Project Location</label>
+                            </div>
+
+                            <div class="welldetailsContactedit" style="background-color:#c5e5fa;">
+                                <br />
+                                <br />
+                                <div class="wellpob" style="min-height:200px; background-color: #c5e5fa;">
+                                    <div class="circle-border">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.BusinessUnit, "Business Unit", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.DropDownList("BusinessUnit", ViewData["BusinessUnit"] as SelectList, "--Select Business Unit--", htmlAttributes: new { @id = "bizunit", @class = "form-control", onchange = "FuncBranch(this.value), FuncBranchCharge(this.value), FuncWorkshop(this.value)", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                    @Html.HiddenFor(model => model.BusinessUnit)
+                                                    @Html.ValidationMessageFor(model => model.BusinessUnit)
+                                                </div>
+                                                @Html.LabelFor(model => model.CMCProjectCode.ProjectName, "Project Name", new { @class = "control-label col-sm-3" })
+                                                <div class="col-md-8">
+                                                    @Html.DropDownList("ProjectID", (IEnumerable<SelectListItem>)Session["ProjectID"], " < Select Project>", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                    @Html.ValidationMessageFor(model => model.CMCProjectCode.ProjectName)
+                                                </div>
+                                                @Html.LabelFor(model => model.LocationCode, "Location Code", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.LocationCode, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" }, @id = "locationid" })
+                                                    @Html.ValidationMessageFor(model => model.LocationCode)
+                                                    @Html.ValidationSummary(true, "Location Code Already Exist", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.BranchID, "Branch", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.DropDownList("BranchID", (IEnumerable<SelectListItem>)Session["BranchID"], " < Select Branch >", new { @class = "form-control", @required = "required", @style = "font-size:12px;height:30px;" })
+                                                    @Html.HiddenFor(model => model.BranchID)
+                                                    @Html.ValidationMessageFor(model => model.BranchID)
+                                                </div>
+                                                @Html.LabelFor(model => model.LocationName, "Location Name", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.LocationName, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = ";font-size:12px;height:30px;" } })
+                                                    @Html.ValidationMessageFor(model => model.LocationName)
+                                                </div>
+                                                @Html.LabelFor(model => model.IsActive, "Is Active?", new { @class = "control-label col-md-3" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.IsActive)
+                                                    @Html.ValidationMessageFor(model => model.IsActive)
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-offset-5 col-md-9">
+                            <input type="submit" value="Create" class="btn btn-primary" onclick="return FormValidationDirect()" />
+                            @*<input type="submit" value="Create" class="btn btn-primary" />*@
+                            @Html.ActionLink("Cancel", "IndexProjectLocation", null, new { @class = "btn btn-white" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataPicker")
+
+    <script src="~/Scripts/plugins/knockout/knockout.validation.js"></script>
+    <script type="text/javascript">
+
+        
+         function FuncBranch(bizUnit) {
+              if (bizUnit== null || bizUnit == "") {
+                  $('#BranchID').html(""); // clear before appending new list
+                  $('#BranchID').append(
+                      $('<option></option>').val("").html("--Select Branch--"));
+              }
+              else {
+                  $.ajax({
+                      url: '@Url.Action("FillBranch", "Branch", new { area = "Administrator" })',
+                      type: "POST",
+                      dataType: "JSON",
+                      data: {
+                         bizUnit: bizUnit
+                      },
+
+                      success: function (results) {
+                          $('#BranchID').html(""); // clear before appending new list
+                          $('#BranchID').append(
+                          $('<option></option>').val("").html("--Select Branch--"));
+                          $.each(results, function (i, results) {
+                              $('#BranchID').append(
+                                  $('<option></option>').val(results.ID).html(results.BranchName));
+                          });
+                      },
+                      error: function (error) {
+                          $.notify(
+                              error,
+                              { position: "top center", className: "Please Select A Correct Branch" }
+                          );
+                      }
+                  });
+              }
+            }
+
+
+        $(document).ready(function () {
+
+            $("#RoadTaxDate").datepicker({
+                todayBtn: "linked",
+                format: "dd/mm/yyyy",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            }).datepicker("setDate", new Date());
+
+        });
+
+       
+    </script>
+}
+
